@@ -22,7 +22,7 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- MASTER DATABASE MET ALLE 23 VACATURES -->
+    <!-- MASTER DATABASE MET ALLE 23 VACATURES (ALLEEN VOOR B2B KLANTEN) -->
     <script>
         const jobsDatabase = [
             { 
@@ -223,52 +223,97 @@
                 <button onclick="showTab('home')" id="link-home" class="nav-link text-gold font-semibold border-b border-gold pb-1 transition">Home</button>
                 <button onclick="showTab('vision')" id="link-vision" class="nav-link hover:text-gold transition">Vision</button>
                 <button onclick="showTab('services')" id="link-services" class="nav-link hover:text-gold transition">Services</button>
-                <button onclick="showTab('portal')" id="link-portal" class="nav-link hover:text-gold transition">Candidate Portal</button>
-                <button onclick="checkJobAccess()" id="link-jobs" class="nav-link hover:text-gold transition text-gold-light">Job Board</button>
-                <button onclick="showTab('contact')" id="link-contact" class="nav-link hover:text-gold transition">Contact</button>
+                <button onclick="showTab('contact')" id="link-contact" class="nav-link hover:text-gold transition">Contact & Agenda</button>
+                <!-- B2B KLANTEN TOEGANG (DISCREET VERBORGEN VOOR PUBLIEK) -->
+                <button onclick="checkJobAccess()" id="link-b2b" class="nav-link hover:text-gold transition text-gold-light border border-gold/40 px-3 py-1 rounded bg-surface text-xs">
+                    <i class="fa-solid fa-lock mr-1"></i> B2B Client Access
+                </button>
             </nav>
         </div>
     </header>
 
     <main class="flex-grow">
-        <!-- HOME SECTIE -->
-        <div id="home" class="tab-content px-6 py-16 relative overflow-hidden">
-            <div class="max-w-4xl mx-auto text-center relative z-10 space-y-8">
+        <!-- HOME SECTIE (UITGEBREID MET FOTO'S & RIJKE TEKST) -->
+        <div id="home" class="tab-content max-w-5xl mx-auto px-6 py-16 space-y-16">
+            <div class="text-center space-y-4">
                 <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold px-3 py-1 border border-gold/30 rounded-full inline-block bg-surface">
                     Executive Leadership & Global Operations - Enterprise Edition
                 </span>
                 <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white">
                     Goukens-sy <span class="text-gold">Business Support</span>
                 </h1>
-                <div class="text-left space-y-6 bg-card border border-gold/20 p-8 md:p-12 rounded-sm shadow-2xl">
-                    <p class="text-gray-200 text-lg md:text-xl font-medium leading-relaxed italic border-l-2 border-gold pl-4">
+                <p class="text-gray-300 max-w-2xl mx-auto text-base md:text-lg">
+                    Redefining corporate infrastructure, borderless productivity, and elite execution for the modern global enterprise.
+                </p>
+            </div>
+
+            <!-- Hero Image & Manifesto -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-card border border-gold/20 p-8 md:p-12 rounded-sm shadow-2xl">
+                <div class="space-y-6">
+                    <span class="text-gold font-mono text-xs tracking-widest uppercase">The Paradigm Shift</span>
+                    <h2 class="text-2xl md:text-3xl font-bold text-white">The New Way of Working</h2>
+                    <p class="text-gray-200 text-base md:text-lg font-medium leading-relaxed italic border-l-2 border-gold pl-4">
                         "It is high time to fully embrace the new way of working: operating remotely from anywhere in the world. We don’t pay an employee to look good in an office; we pay for their knowledge, execution, and value."
                     </p>
-                    <p class="text-gray-300 text-base md:text-lg leading-relaxed">
-                        In an economic landscape defined by rapid technological disruption and borderless markets, the traditional corporate playbook has proven to be an obsolete liability. Modern enterprises require absolute agility, data-driven execution, and access to elite global talent unconstrained by geographic borders or physical facilities.
+                    <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+                        In an economic landscape defined by rapid technological disruption and borderless markets, traditional office overheads and commute-dependent staffing models are obsolete liabilities. Modern enterprises require absolute agility, data-driven execution, and access to elite global talent unconstrained by physical facilities.
                     </p>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-gold/10">
-                        <div class="p-4 bg-surface rounded border border-gold/10 text-center">
-                            <i class="fa-solid fa-globe text-gold text-xl mb-2"></i>
-                            <h3 class="text-white font-bold text-sm">100% Remote</h3>
-                            <p class="text-xs text-gray-400 mt-1">Global operations without borders</p>
+                </div>
+                <div class="rounded-sm overflow-hidden border border-gold/30 shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" alt="Executive Leadership" class="w-full h-80 object-cover hover:scale-105 transition duration-500">
+                </div>
+            </div>
+
+            <!-- Secondary Feature Grid with Photos -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-card border border-gold/20 rounded-sm overflow-hidden shadow-xl flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" alt="Global Operations" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6 space-y-3 flex-grow">
+                        <div class="w-10 h-10 bg-gold/10 text-gold rounded flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-globe"></i>
                         </div>
-                        <div class="p-4 bg-surface rounded border border-gold/10 text-center">
-                            <i class="fa-solid fa-brain text-gold text-xl mb-2"></i>
-                            <h3 class="text-white font-bold text-sm">AI-Driven</h3>
-                            <p class="text-xs text-gray-400 mt-1">Smart workflows & automation</p>
+                        <h3 class="text-lg font-bold text-white">Global Remote Infrastructure</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Operating seamlessly across international time zones with dedicated remote teams, ensuring continuous workflow execution and maximum efficiency without geographic limitations.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-card border border-gold/20 rounded-sm overflow-hidden shadow-xl flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80" alt="AI & Automation" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6 space-y-3 flex-grow">
+                        <div class="w-10 h-10 bg-gold/10 text-gold rounded flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-brain"></i>
                         </div>
-                        <div class="p-4 bg-surface rounded border border-gold/10 text-center">
-                            <i class="fa-solid fa-shield-halved text-gold text-xl mb-2"></i>
-                            <h3 class="text-white font-bold text-sm">Enterprise Grade</h3>
-                            <p class="text-xs text-gray-400 mt-1">Secure and scalable systems</p>
+                        <h3 class="text-lg font-bold text-white">Smart Workflows & AI Integration</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Leveraging state-of-the-art artificial intelligence tools, data annotation frameworks, and automated pipeline systems to accelerate enterprise productivity and precision.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-card border border-gold/20 rounded-sm overflow-hidden shadow-xl flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Strategic Advisory" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6 space-y-3 flex-grow">
+                        <div class="w-10 h-10 bg-gold/10 text-gold rounded flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-shield-halved"></i>
                         </div>
+                        <h3 class="text-lg font-bold text-white">Enterprise Grade Security</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Maintaining the highest standards of confidentiality, data protection, and rigorous compliance protocols across all corporate advisory and operational campaigns.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- VISION SECTIE (UITGEBREID MET FOTO'S & DIEPGANG) -->
+        <!-- VISION SECTIE -->
         <div id="vision" class="tab-content hidden max-w-5xl mx-auto px-6 py-16 space-y-16">
             <div class="text-center space-y-4">
                 <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold px-3 py-1 border border-gold/30 rounded-full inline-block bg-surface">Strategic Outlook</span>
@@ -331,7 +376,7 @@
             </div>
         </div>
 
-        <!-- SERVICES SECTIE (UITGEBREID MET FOTO'S & DIEPGANG) -->
+        <!-- SERVICES SECTIE (UITGEBREID MET DIEPGAANDE UITLEG & FOTO'S) -->
         <div id="services" class="tab-content hidden max-w-5xl mx-auto px-6 py-16 space-y-16">
             <div class="text-center space-y-4">
                 <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold px-3 py-1 border border-gold/30 rounded-full inline-block bg-surface">Operational Excellence</span>
@@ -353,11 +398,11 @@
                             </div>
                             <h3 class="text-xl font-bold text-white">Voice & Audio Data Collection</h3>
                             <p class="text-gray-300 text-sm leading-relaxed">
-                                Managing high-fidelity multilingual speech recordings, phonetic data gathering, code-switching research campaigns, and custom dataset creation for global AI model developers and speech recognition enterprises.
+                                We specialize in managing large-scale, high-fidelity multilingual speech recording campaigns. Our operations encompass native phonetic data gathering, complex code-switching research modules, conversational dialogue collection, and customized dataset curation specifically designed for global artificial intelligence developers, voice recognition engineers, and machine learning enterprises requiring pristine acoustic training material.
                             </p>
                         </div>
                         <div class="pt-4 border-t border-gold/10 text-xs text-gold font-semibold uppercase tracking-wider">
-                            Multi-Language Capabilities Available
+                            Multi-Language Capabilities Available Across 30+ Regions
                         </div>
                     </div>
                 </div>
@@ -373,13 +418,13 @@
                             <div class="w-10 h-10 bg-gold/10 text-gold rounded flex items-center justify-center text-lg">
                                 <i class="fa-solid fa-file-shield"></i>
                             </div>
-                            <h3 class="text-xl font-bold text-white">Transcription & QA Auditing</h3>
+                            <h3 class="text-xl font-bold text-white">Transcription & Quality Assurance Auditing</h3>
                             <p class="text-gray-300 text-sm leading-relaxed">
-                                Rigorous quality assurance (QA) audits, real-world call center transcription verification, localization checks, and text-alignment validation across dozens of regional languages to ensure pristine data integrity.
+                                Accuracy is paramount in data processing. Our rigorous quality assurance (QA) auditing framework provides meticulous verification of transcribed audio logs, real-world customer interaction datasets, localization checks, and exact text-alignment validation. We ensure that every data corpus meets strict international compliance and enterprise-grade formatting standards before final delivery.
                             </p>
                         </div>
                         <div class="pt-4 border-t border-gold/10 text-xs text-gold font-semibold uppercase tracking-wider">
-                            ISO-Standard Quality Verification
+                            ISO-Standard Multi-Tier Quality Verification
                         </div>
                     </div>
                 </div>
@@ -395,13 +440,13 @@
                             <div class="w-10 h-10 bg-gold/10 text-gold rounded flex items-center justify-center text-lg">
                                 <i class="fa-solid fa-laptop-code"></i>
                             </div>
-                            <h3 class="text-xl font-bold text-white">Digital Operations & Remote Support</h3>
+                            <h3 class="text-xl font-bold text-white">Digital Operations & Remote Business Support</h3>
                             <p class="text-gray-300 text-sm leading-relaxed">
-                                Seamless remote administrative execution, professional appointment setting, lead generation campaign management, and specialized technical assistance tailored to modern corporate needs.
+                                Empower your enterprise with flawless remote administrative execution. We provide structured campaign management, professional appointment setting, lead generation script development, client communication coordination, and specialized technical support. Our teams integrate smoothly with your existing digital workflows to maintain continuous operational momentum around the clock.
                             </p>
                         </div>
                         <div class="pt-4 border-t border-gold/10 text-xs text-gold font-semibold uppercase tracking-wider">
-                            24/7 Global Workflow Execution
+                            24/7 Global Workflow Execution & Management
                         </div>
                     </div>
                 </div>
@@ -417,74 +462,67 @@
                             <div class="w-10 h-10 bg-gold/10 text-gold rounded flex items-center justify-center text-lg">
                                 <i class="fa-solid fa-chart-line"></i>
                             </div>
-                            <h3 class="text-xl font-bold text-white">Executive Strategy & Advisory</h3>
+                            <h3 class="text-xl font-bold text-white">Executive Strategy & Corporate Advisory</h3>
                             <p class="text-gray-300 text-sm leading-relaxed">
-                                High-level corporate structuring, feasibility analysis, project incorporation guidance, resource extraction advisory, and streamlined process optimization for international ventures and expanding enterprises.
+                                High-level corporate structuring and strategic advisory for international ventures. We guide organizations through complex processes including company incorporation, feasibility assessments for large-scale industrial projects (such as water desalination, resource extraction, and tailing recovery), and streamlined process optimization designed for sustainable global expansion.
                             </p>
                         </div>
                         <div class="pt-4 border-t border-gold/10 text-xs text-gold font-semibold uppercase tracking-wider">
-                            Strategic Enterprise Consulting
+                            Strategic Enterprise Consulting & Feasibility Analysis
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <!-- CANDIDATE PORTAL SECTIE -->
-        <div id="portal" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-8">
-            <div class="bg-surface border border-gold rounded-lg p-8 md:p-10 shadow-2xl space-y-6">
-                <div class="flex items-center gap-3 border-b border-gold/20 pb-4">
-                    <i class="fa-solid fa-id-badge text-gold text-2xl"></i>
-                    <div>
-                        <h1 class="text-2xl md:text-3xl font-bold text-white">Candidate Portal & Email Registration</h1>
-                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Secure Registration & Access Pipeline</span>
-                    </div>
-                </div>
-                <p class="text-gray-300 text-sm md:text-base leading-relaxed">
-                    Register with your e-mail address below via our secure Tally form to unlock <strong class="text-gold">30 days of free access</strong> to our exclusive Job Board, featuring all active global projects, international data campaigns, and remote assignments.
-                </p>
-                <div class="rounded-sm overflow-hidden border border-gold/20 bg-card p-4">
-                    <iframe src="https://tally.so/r/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="800" frameborder="0" title="Goukens-Sy Candidate Portal"></iframe>
-                    <script async src="https://tally.so/widgets/embed.js"></script>
-                </div>
-                <div class="bg-card border border-gold/20 p-6 rounded-sm flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <div class="flex items-center gap-3">
-                        <i class="fa-solid fa-circle-question text-gold text-xl"></i>
-                        <div>
-                            <h4 class="text-white font-bold text-sm">Already received your Access Code?</h4>
-                            <p class="text-xs text-gray-400">Directly unlock the Job Board using your secure PIN.</p>
-                        </div>
-                    </div>
-                    <button onclick="checkJobAccess()" class="px-6 py-2.5 bg-gold text-obsidian font-bold text-xs uppercase tracking-widest rounded hover:bg-gold-light transition shadow">
-                        Enter PIN Code
-                    </button>
                 </div>
             </div>
         </div>
 
-        <!-- JOB BOARD TAB -->
+        <!-- CONTACT SECTIE & AGENDA -->
+        <div id="contact" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-12">
+            <div class="text-center mb-12">
+                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 inline-block px-3 py-1 border border-gold/30 rounded-full bg-surface">Get in Touch</span>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-white">Direct Executive Consultation</h1>
+                <p class="text-gray-300 max-w-xl mx-auto mt-4 text-sm md:text-base">
+                    Ready to discuss global operations, corporate advisory, or project partnerships? Book your direct consultation session using our secure booking agenda below.
+                </p>
+            </div>
+
+            <div class="bg-card border border-gold/30 border-l-4 border-l-gold p-8 md:p-12 rounded-sm shadow-2xl text-center space-y-6">
+                <div class="w-16 h-16 bg-gold/10 text-gold rounded-full flex items-center justify-center mx-auto text-2xl">
+                    <i class="fa-regular fa-calendar-check"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white">Schedule Your Appointment Online</h3>
+                <p class="text-gray-300 text-sm max-w-lg mx-auto">
+                    Select a convenient time slot for an executive strategy session or project consultation directly through our automated booking system.
+                </p>
+                <a href="https://geert-goukens.dayschedule.com" target="_blank" class="inline-block px-8 py-3.5 bg-gold text-obsidian font-bold rounded-sm hover:bg-gold-light transition uppercase text-xs tracking-widest shadow-lg">
+                    <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> Open Booking Agenda
+                </a>
+            </div>
+        </div>
+
+        <!-- B2B JOB BOARD & CANDIDATE PORTAL VIEW (ALLEEN VOOR B2B KLANTEN MET CODE) -->
         <div id="jobs" class="tab-content hidden max-w-6xl mx-auto px-6 py-16 space-y-8">
             <div id="job-locked-view" class="hidden bg-surface border border-gold/40 p-12 rounded-lg text-center space-y-6 shadow-2xl">
                 <div class="w-20 h-20 bg-gold/15 text-gold rounded-full flex items-center justify-center mx-auto text-3xl shadow-inner">
                     <i class="fa-solid fa-lock"></i>
                 </div>
-                <h1 class="text-3xl font-bold text-white">Exclusive Job Board Protected</h1>
+                <h1 class="text-3xl font-bold text-white">B2B Client Portal Protected</h1>
                 <p class="text-gray-300 max-w-md mx-auto text-sm">
-                    Access to our active global vacancies requires authentication. Please register via the Candidate Portal or enter your secure access code below.
+                    This restricted section is exclusively intended for B2B partners and clients. Please enter your secure access PIN code to unlock the active global vacancies.
                 </p>
                 <button onclick="checkJobAccess()" class="px-8 py-3.5 bg-gold text-obsidian font-bold text-xs uppercase tracking-widest rounded hover:bg-gold-light transition shadow-lg">
-                    Enter Access Code
+                    Enter B2B Access PIN
                 </button>
             </div>
 
             <div id="job-board-view" class="space-y-8">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-surface p-6 rounded-lg border border-gold/20 shadow-xl">
                     <div>
-                        <span class="text-gold uppercase tracking-widest text-xs font-semibold">Live Feed</span>
+                        <span class="text-gold uppercase tracking-widest text-xs font-semibold">B2B Client Portal - Live Feed</span>
                         <h1 class="text-2xl md:text-3xl font-extrabold text-white">Active Global Job Opportunities</h1>
                     </div>
                     <div class="flex items-center gap-3">
                         <button onclick="lockJobBoard()" class="px-4 py-2 bg-card hover:bg-gold/10 text-gold border border-gold/30 rounded text-xs font-bold uppercase tracking-wider transition flex items-center gap-2">
-                            <i class="fa-solid fa-lock"></i> Lock Board
+                            <i class="fa-solid fa-lock"></i> Lock Portal
                         </button>
                     </div>
                 </div>
@@ -536,7 +574,7 @@
 
             <div id="job-detail-view" class="hidden space-y-6 bg-surface border border-gold/30 p-8 rounded-lg shadow-2xl">
                 <button onclick="backToList()" class="px-4 py-2 bg-card hover:bg-gold/10 text-gold border border-gold/30 rounded text-xs font-bold uppercase tracking-wider transition flex items-center gap-2">
-                    <i class="fa-solid fa-arrow-left"></i> Back to Job Board
+                    <i class="fa-solid fa-arrow-left"></i> Back to Portal List
                 </button>
                 <div class="border-b border-gold/20 pb-6 space-y-3">
                     <div class="flex items-center gap-3">
@@ -553,68 +591,11 @@
                     </p>
                 </div>
                 <div class="pt-6 border-t border-gold/20 flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <p class="text-xs text-gray-400">Ready to apply? Submit your application through our official coordinator channel.</p>
+                    <p class="text-xs text-gray-400">Ready to proceed? Book a consultation via our agenda to coordinate placement.</p>
                     <a href="#contact" onclick="showTab('contact')" class="px-8 py-3 bg-gold text-obsidian font-bold text-xs uppercase tracking-widest rounded hover:bg-gold-light transition shadow">
-                        Apply Now via Contact
+                        Book Consultation
                     </a>
                 </div>
-            </div>
-        </div>
-
-        <!-- CONTACT SECTIE -->
-        <div id="contact" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-12">
-            <div class="text-center mb-12">
-                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 inline-block px-3 py-1 border border-gold/30 rounded-full bg-surface">Get in Touch</span>
-                <h1 class="text-3xl md:text-5xl font-extrabold text-white">Direct Executive Communication</h1>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-card border border-gold/20 p-8 rounded-sm shadow-xl space-y-6">
-                    <h3 class="text-xl font-bold text-white border-b border-gold/20 pb-4">Corporate Inquiries</h3>
-                    <p class="text-gray-300 text-sm leading-relaxed">
-                        For global operations consulting, executive business support, feasibility studies, or corporate partnerships, reach out directly through our secure channels.
-                    </p>
-                    <div class="space-y-4 text-sm text-gray-300">
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-envelope text-gold"></i>
-                            <span>executive@goukenssy.com</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-location-dot text-gold"></i>
-                            <span>Legazpi Area, Philippines / Global Remote Operations</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-card border border-gold/20 p-8 rounded-sm shadow-xl space-y-6">
-                    <h3 class="text-xl font-bold text-white border-b border-gold/20 pb-4">Candidate Support</h3>
-                    <p class="text-gray-300 text-sm leading-relaxed">
-                        Need assistance with your Candidate Portal access code, Tally submission confirmation, or project assignment status? Our support desk is ready to help.
-                    </p>
-                    <div class="space-y-4 text-sm text-gray-300">
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-headset text-gold"></i>
-                            <span>support@goukenssy.com</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-clock text-gold"></i>
-                            <span>Mon - Fri: 24/7 Global Remote Assistance</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- CLIENT CONSULTATION / DAYSCHEDULE SECTION -->
-        <div class="max-w-4xl mx-auto px-6 py-12">
-            <div class="bg-card border border-gold/30 border-l-4 border-l-gold p-8 rounded-sm shadow-xl text-center space-y-6">
-                <h3 class="text-2xl font-bold text-gold">Schedule a Direct Client Consultation</h3>
-                <p class="text-gray-300 text-sm max-w-xl mx-auto">
-                    Book an executive strategy session or project consultation directly through our automated booking partner.
-                </p>
-                <a href="https://geert-goukens.dayschedule.com" target="_blank" class="inline-block px-8 py-3.5 bg-gold text-obsidian font-bold rounded-sm hover:bg-gold-light transition uppercase text-xs tracking-widest shadow-lg">
-                    <i class="fa-regular fa-calendar-check mr-2"></i> Book Client Meeting
-                </a>
             </div>
         </div>
     </main>
@@ -683,19 +664,17 @@
 
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('text-gold', 'font-semibold', 'border-b', 'border-gold');
-                link.classList.add('hover:text-gold');
             });
             const activeLink = document.getElementById('link-' + tabId);
             if(activeLink) {
-                activeLink.classList.remove('hover:text-gold');
-                activeLink.classList.add('text-gold', 'font-semibold', 'border-b', 'border-gold', 'pb-1');
+                activeLink.classList.add('text-gold', 'font-semibold');
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function checkJobAccess() {
             showTab('jobs');
-            const pin = prompt("Enter your 30-day Access PIN code to view the Job Board:");
+            const pin = prompt("Enter your B2B Client Access PIN code:");
             if (pin === "Gouk7507@") {
                 document.getElementById('job-locked-view').classList.add('hidden');
                 document.getElementById('job-board-view').classList.remove('hidden');
