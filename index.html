@@ -1,8 +1,3 @@
-Je hebt helemaal gelijk. Geen losse bestanden of geknoei meer: alles wordt netjes samengevoegd in één enkel index.html-bestand, waarbij we JavaScript gebruiken om ervoor te zorgen dat elke tab direct op dezelfde pagina laadt alsof het een eigen afzonderlijke weergave is. Dit is supersnel en werkt direct vlekkeloos op GitHub Pages zonder dat je meerdere bestanden hoeft te beheren.
-
-Kopieer onderstaande code volledig en vervang hiermee de inhoud van je index.html op GitHub:
-
-HTML
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -28,14 +23,11 @@ HTML
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         function showTab(tabId) {
-            // Verberg alle tab-inhoud
             const tabs = document.querySelectorAll('.tab-content');
             tabs.forEach(tab => tab.classList.add('hidden'));
 
-            // Toon de geselecteerde tab
             document.getElementById(tabId).classList.remove('hidden');
 
-            // Update actieve staat van de navigatielinks
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(link => {
                 link.classList.remove('text-gold', 'font-semibold', 'border-b', 'border-gold');
@@ -47,7 +39,6 @@ HTML
                 activeLink.classList.add('text-gold', 'font-semibold', 'border-b', 'border-gold', 'pb-1');
             }
 
-            // Scroll naar boven bij wisselen
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
@@ -178,6 +169,34 @@ HTML
                         <div><strong class="text-gold-light">Outcome-Centric Culture:</strong> Measuring success strictly by output, efficiency, and real-world impact.</div>
                     </li>
                 </ul>
+            </div>
+
+            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
+                <h2 class="text-2xl font-bold text-gold mb-6 flex items-center gap-3">
+                    <i class="fa-solid fa-chess-queen text-lg"></i> Fractional Executive Leadership & COO Services
+                </h2>
+                <p class="text-gray-300 mb-4 leading-relaxed">
+                    We provide high-level interim management and executive oversight for enterprises scaling their global support operations. Rather than maintaining heavy overhead, organizations leverage our expertise to steer cross-functional execution.
+                </p>
+                <ul class="space-y-3 text-gray-300 pl-2">
+                    <li class="flex items-start gap-3">
+                        <span class="text-gold font-bold mt-1">▪</span>
+                        <div><strong class="text-gold-light">Global Operations Management:</strong> Streamlining multi-region support centers and digital workflows.</div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-gold font-bold mt-1">▪</span>
+                        <div><strong class="text-gold-light">Process Optimization:</strong> Eliminating organizational friction and accelerating delivery pipelines.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
+                <h2 class="text-2xl font-bold text-gold mb-6 flex items-center gap-3">
+                    <i class="fa-solid fa-globe text-lg"></i> Global Talent & EOR Solutions
+                </h2>
+                <p class="text-gray-300 mb-4 leading-relaxed">
+                    Bridging Western corporate strategy with high-performance execution hubs. We curate specialized professional talent networks, manage rigorous vetting pipelines, and support seamless borderless deployment.
+                </p>
             </div>
         </div>
 
