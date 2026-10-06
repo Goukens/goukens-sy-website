@@ -1,4 +1,4 @@
-Je hebt helemaal gelijk! Dat is inderdaad de DaySchedule-link ([https://geert-goukens.dayschedule.com](https://geert-goukens.dayschedule.com)) die we daarvoor hebben opgezet. Mijn fout dat ik daar per ongeluk nog Tally had laten staan.   Hier is de gecorrigeerde code waarbij de boekingsknop op de contactpagina nu direct gekoppeld is aan jouw juiste DaySchedule-pagina:   HTML<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -68,24 +68,42 @@ Je hebt helemaal gelijk! Dat is inderdaad de DaySchedule-link ([https://geert-go
     <main class="flex-grow">
 
         <!-- HOME TAB -->
-        <div id="home" class="tab-content flex items-center justify-center min-h-[80vh] px-6 py-24 relative">
+        <div id="home" class="tab-content px-6 py-16 relative">
             <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
-            <div class="max-w-4xl mx-auto text-center relative z-10">
-                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-4 inline-block px-3 py-1 border border-gold/30 rounded-full">
+            <div class="max-w-4xl mx-auto text-center relative z-10 space-y-8">
+                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold px-3 py-1 border border-gold/30 rounded-full inline-block">
                     Executive Leadership & Global Operations
                 </span>
-                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 text-white">
+                
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white">
                     Goukens-sy <span class="text-gold">Business Support</span>
                 </h1>
-                <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-                    Operating remotely from anywhere in the world. We don’t pay an employee to look good in an office; we pay for their knowledge, execution, and value.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <button onclick="showTab('vision')" class="px-8 py-4 bg-gold text-obsidian font-bold tracking-wider uppercase text-sm hover:bg-gold-light transition rounded-sm shadow-lg shadow-gold/10">
-                        Read Our Vision
+
+                <!-- Uitgebreide Corporate Introductie -->
+                <div class="text-left space-y-6 bg-card border border-gold/20 p-8 md:p-12 rounded-sm shadow-2xl">
+                    <p class="text-gray-200 text-lg md:text-xl font-medium leading-relaxed italic border-l-2 border-gold pl-4">
+                        "Operating remotely from anywhere in the world. We don’t pay an employee to look good in an office; we pay for their knowledge, execution, and value."
+                    </p>
+
+                    <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                        In an economic landscape defined by rapid technological disruption and borderless markets, the traditional corporate playbook—built on bloated physical headquarters, rigid geographical constraints, and unnecessary management layers—has proven to be an obsolete liability. Modern enterprises require absolute agility, unyielding execution, and access to elite talent unhindered by zip codes.
+                    </p>
+
+                    <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                        At Goukens-sy Business Support, we bridge high-level Western corporate strategy with world-class, tech-forward execution hubs. By dismantling administrative drag and integrating cutting-edge, AI-augmented workflows, we empower organizations to scale their operations efficiently while maintaining total transparency and uncompromising quality standards.
+                    </p>
+
+                    <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                        Our leadership model reflects the reality of the twenty-first century: true professional impact is measured strictly by outcomes, expertise, and measurable value creation. Whether deploying fractional executive oversight, orchestrating complex multi-region support campaigns, or curating elite remote professional networks, we deliver the structural precision required to lead in the AI era.
+                    </p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
+                    <button onclick="showTab('services')" class="px-8 py-4 bg-gold text-obsidian font-bold tracking-wider uppercase text-sm hover:bg-gold-light transition rounded-sm shadow-lg shadow-gold/10">
+                        Explore Capabilities
                     </button>
-                    <button onclick="showTab('join')" class="px-8 py-4 border border-gold/50 text-white font-bold tracking-wider uppercase text-sm hover:border-gold transition rounded-sm">
-                        Join Our Network
+                    <button onclick="showTab('contact')" class="px-8 py-4 border border-gold/50 text-white font-bold tracking-wider uppercase text-sm hover:border-gold transition rounded-sm">
+                        Schedule Consultation
                     </button>
                 </div>
             </div>
