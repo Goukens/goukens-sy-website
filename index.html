@@ -41,6 +41,51 @@
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        // Simuleer inlogstatus voor het Job Board (voor demo-doeleinden, in productie gekoppeld aan Tally/Auth)
+        let isLoggedIn = false;
+
+        function checkJobAccess() {
+            const lockedView = document.getElementById('job-locked-view');
+            const boardView = document.getElementById('job-board-view');
+            const detailView = document.getElementById('job-detail-view');
+
+            detailView.classList.add('hidden');
+            if (isLoggedIn) {
+                lockedView.classList.add('hidden');
+                boardView.classList.remove('hidden');
+            } else {
+                lockedView.classList.remove('hidden');
+                boardView.classList.add('hidden');
+            }
+        }
+
+        function simulateLogin() {
+            isLoggedIn = true;
+            checkJobAccess();
+            alert('Registratie/Login succesvol! Je hebt nu 30 dagen gratis toegang tot het Job Board.');
+        }
+
+        function openJobDetail(jobTitle, jobDesc, lang, closingDate) {
+            if (!isLoggedIn) {
+                alert('Je moet ingelogd zijn via de Candidate Portal om de volledige jobdetails te bekijken.');
+                showTab('portal');
+                return;
+            }
+            document.getElementById('job-board-view').classList.add('hidden');
+            document.getElementById('job-detail-view').classList.remove('hidden');
+
+            document.getElementById('detail-title').innerText = jobTitle;
+            document.getElementById('detail-desc').innerText = jobDesc;
+            document.getElementById('detail-lang').innerText = lang;
+            document.getElementById('detail-closing').innerText = closingDate;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function backToList() {
+            document.getElementById('job-detail-view').classList.add('hidden');
+            document.getElementById('job-board-view').classList.remove('hidden');
+        }
     </script>
 </head>
 <body class="bg-obsidian text-gray-200 font-sans antialiased selection:bg-gold selection:text-obsidian flex flex-col min-h-screen">
@@ -51,11 +96,12 @@
             <a href="#home" onclick="showTab('home')" class="text-xl md:text-2xl font-bold tracking-wider text-gold flex items-center gap-2 cursor-pointer">
                 <i class="fa-solid fa-gem text-gold"></i> GOUKENS-SY
             </a>
-            <nav class="hidden md:flex items-center gap-8 text-sm uppercase tracking-widest">
+            <nav class="hidden md:flex items-center gap-6 text-sm uppercase tracking-widest">
                 <button onclick="showTab('home')" id="link-home" class="nav-link text-gold font-semibold border-b border-gold pb-1 transition">Home</button>
                 <button onclick="showTab('vision')" id="link-vision" class="nav-link hover:text-gold transition">Vision</button>
                 <button onclick="showTab('services')" id="link-services" class="nav-link hover:text-gold transition">Services</button>
                 <button onclick="showTab('portal')" id="link-portal" class="nav-link hover:text-gold transition">Candidate Portal</button>
+                <button onclick="showTab('jobs'); checkJobAccess();" id="link-jobs" class="nav-link hover:text-gold transition text-gold-light">Job Board</button>
                 <button onclick="showTab('contact')" id="link-contact" class="nav-link hover:text-gold transition">Contact</button>
             </nav>
         </div>
@@ -86,29 +132,6 @@
                     </div>
                 </div>
 
-                <!-- Expanded Introduction -->
-                <div class="text-left space-y-6 bg-card border border-gold/20 p-8 md:p-12 rounded-sm shadow-2xl">
-                    <p class="text-gray-200 text-lg md:text-xl font-medium leading-relaxed italic border-l-2 border-gold pl-4">
-                        "Operating remotely from anywhere in the world. We don’t pay an employee to look good in an office; we pay for their knowledge, execution, and value."
-                    </p>
-
-                    <p class="text-gray-300 text-base md:text-lg leading-relaxed">
-                        In an economic landscape defined by rapid technological disruption and borderless markets, the traditional corporate playbook—built on bloated physical headquarters, rigid geographical constraints, and unnecessary management layers—has proven to be an obsolete liability. Modern enterprises require absolute agility, unyielding execution, and access to elite talent unhindered by zip codes.
-                    </p>
-
-                    <div class="my-6 rounded-sm overflow-hidden border border-gold/20 h-56">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" alt="Team Collaboration" class="w-full h-full object-cover brightness-75">
-                    </div>
-
-                    <p class="text-gray-300 text-base md:text-lg leading-relaxed">
-                        At Goukens-sy Business Support, we bridge high-level Western corporate strategy with world-class, tech-forward execution hubs. By dismantling administrative drag and integrating cutting-edge, AI-augmented workflows, we empower organizations to scale their operations efficiently while maintaining total transparency and uncompromising quality standards.
-                    </p>
-
-                    <p class="text-gray-300 text-base md:text-lg leading-relaxed">
-                        Our leadership model reflects the reality of the twenty-first century: true professional impact is measured strictly by outcomes, expertise, and measurable value creation. Whether deploying fractional executive oversight, orchestrating complex multi-region support campaigns, or curating elite remote professional networks, we deliver the structural precision required to lead in the AI era.
-                    </p>
-                </div>
-
                 <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
                     <button onclick="showTab('services')" class="px-8 py-4 bg-gold text-obsidian font-bold tracking-wider uppercase text-sm hover:bg-gold-light transition rounded-sm shadow-lg shadow-gold/10">
                         Explore Capabilities
@@ -126,63 +149,12 @@
                 <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 inline-block px-3 py-1 border border-gold/30 rounded-full">Strategic Outlook</span>
                 <h1 class="text-3xl md:text-5xl font-extrabold text-white">Our Core Vision</h1>
             </div>
-
-            <!-- Vision Photo 1 -->
-            <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-xl h-72 md:h-80">
-                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1600&q=80" alt="Executive Strategy" class="w-full h-full object-cover brightness-75">
-                <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
-                <div class="absolute bottom-6 left-6 right-6">
-                    <span class="text-gold text-xs tracking-widest uppercase font-semibold">Leadership Philosophy</span>
-                    <p class="text-white text-xl font-bold">Redefining Productivity for the Modern Century</p>
-                </div>
-            </div>
-
             <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
                 <h2 class="text-2xl font-bold text-gold mb-6 flex items-center gap-3">
                     <i class="fa-solid fa-bullseye text-lg"></i> Executive Leadership & Global Operations
                 </h2>
                 <p class="text-gray-300 mb-4 leading-relaxed">
-                    For decades, the standard playbook for scaling enterprise operations involved adding layers of management, maintaining bloated physical offices, and viewing talent through a restrictive geographic lens. Today, that legacy model is a liability.
-                </p>
-                <p class="text-gray-300 mb-6 leading-relaxed">
-                    As part of our executive leadership managing global business support operations, we speak with Western corporate leaders every week who face a hard truth: clients don't hire an executive for their seat presence or desk hours. They hire raw talent, unyielding agility, and uncompromising execution.
-                </p>
-                <div class="border-l-2 border-gold pl-5 my-6 py-3 bg-gold/5 italic text-gray-200">
-                    "It is high time to fully embrace the new way of working: operating remotely from anywhere in the world. We don’t pay an employee to look good in an office; we pay for their knowledge, execution, and value. The traditional suit-and-tie corporate culture is old school—look at Elon Musk, the richest man in the world, who leads in a T-shirt."
-                </div>
-            </div>
-
-            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
-                <h2 class="text-2xl font-bold text-gold mb-6 flex items-center gap-3">
-                    <i class="fa-solid fa-earth-americas text-lg"></i> Beyond Remote Boundaries
-                </h2>
-                <p class="text-gray-300 mb-4 leading-relaxed">
-                    The traditional debate around remote versus in-office work misses the forest for the trees. The real evolution isn't about where work is done—it is about how intelligently it is executed.
-                </p>
-                <p class="text-gray-300 leading-relaxed">
-                    Outdated remote-work rules treat physical location as a proxy for productivity. In reality, true operational excellence is built on trust, transparent performance metrics, and borderless talent acquisition. By stepping past arbitrary geographic restrictions, companies tap into top-tier global expertise that instantly elevates their capabilities.
-                </p>
-            </div>
-
-            <!-- Vision Photo 2 -->
-            <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-xl h-72 md:h-80">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80" alt="Borderless Collaboration" class="w-full h-full object-cover brightness-75">
-                <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
-                <div class="absolute bottom-6 left-6 right-6">
-                    <span class="text-gold text-xs tracking-widest uppercase font-semibold">Global Talent Network</span>
-                    <p class="text-white text-xl font-bold">Empowering Elite Professionals Worldwide</p>
-                </div>
-            </div>
-
-            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
-                <h2 class="text-2xl font-bold text-gold mb-6 flex items-center gap-3">
-                    <i class="fa-solid fa-users-gear text-lg"></i> Reshaping the Labor Market
-                </h2>
-                <p class="text-gray-300 mb-4 leading-relaxed">
-                    As senior-level executives, we recognize a vital truth: getting older doesn't mean we stop evaluating or evolving. In a few years, we will be succeeded by the brilliant minds working under us today. If we do not fundamentally reshape how we view the global labor market and embrace technological evolution right now, businesses risk being left completely behind tomorrow. Scaling efficiently requires bridging Western corporate strategy with high-performance, tech-forward execution hubs.
-                </p>
-                <p class="text-gold-light font-medium mt-4">
-                    Are you still managing your operations by yesterday's rules, or is your business ready for the AI era and the new century?
+                    Operating remotely from anywhere in the world. We don’t pay an employee to look good in an office; we pay for their knowledge, execution, and value.
                 </p>
             </div>
         </div>
@@ -193,104 +165,164 @@
                 <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 inline-block px-3 py-1 border border-gold/30 rounded-full">Operational Excellence</span>
                 <h1 class="text-3xl md:text-5xl font-extrabold text-white">Our Services & Expertise</h1>
             </div>
-
-            <!-- Services Photo 1 -->
-            <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-xl h-72 md:h-80">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80" alt="AI & Advanced Data Analytics" class="w-full h-full object-cover brightness-75">
-                <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
-                <div class="absolute bottom-6 left-6 right-6">
-                    <span class="text-gold text-xs tracking-widest uppercase font-semibold">Intelligent Workflows</span>
-                    <p class="text-white text-xl font-bold">AI-Driven Operational Transformation</p>
-                </div>
-            </div>
-
-            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
-                <h2 class="text-2xl font-bold text-gold mb-6 flex items-center gap-3">
-                    <i class="fa-solid fa-microchip text-lg"></i> The AI-Driven Operational Shift
-                </h2>
-                <p class="text-gray-300 mb-4 leading-relaxed">
-                    While the strategic landscape evolves, the interim management and Business Process Outsourcing (BPO) landscapes are moving far too slowly when it comes to fully integrating AI-augmented workflows.
-                </p>
-                <p class="text-gray-300 mb-6 leading-relaxed">
-                    Administrative drag, manual bottlenecks, and legacy communication loops are draining corporate resources. The future belongs to organizations that treat AI not as a buzzword, but as the core engine of day-to-day execution:
-                </p>
-                <ul class="space-y-3 text-gray-300 pl-2">
-                    <li class="flex items-start gap-3">
-                        <span class="text-gold font-bold mt-1">▪</span>
-                        <div><strong class="text-gold-light">Autonomous Workflows:</strong> Replacing repetitive friction points with intelligent automation.</div>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-gold font-bold mt-1">▪</span>
-                        <div><strong class="text-gold-light">Agile Leadership:</strong> Deploying fractional executive talent that hits the ground running on day one without onboarding lag.</div>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-gold font-bold mt-1">▪</span>
-                        <div><strong class="text-gold-light">Outcome-Centric Culture:</strong> Measuring success strictly by output, efficiency, and real-world impact.</div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
-                <h2 class="text-2xl font-bold text-gold mb-6 flex items-center gap-3">
-                    <i class="fa-solid fa-chess-queen text-lg"></i> Fractional Executive Leadership & COO Services
-                </h2>
-                <p class="text-gray-300 mb-4 leading-relaxed">
-                    We provide high-level interim management and executive oversight for enterprises scaling their global support operations. Rather than maintaining heavy overhead, organizations leverage our expertise to steer cross-functional execution.
-                </p>
-                <ul class="space-y-3 text-gray-300 pl-2">
-                    <li class="flex items-start gap-3">
-                        <span class="text-gold font-bold mt-1">▪</span>
-                        <div><strong class="text-gold-light">Global Operations Management:</strong> Streamlining multi-region support centers and digital workflows.</div>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-gold font-bold mt-1">▪</span>
-                        <div><strong class="text-gold-light">Process Optimization:</strong> Eliminating organizational friction and accelerating delivery pipelines.</div>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Services Photo 2 -->
-            <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-xl h-72 md:h-80">
-                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1600&q=80" alt="Global Operations & Strategy" class="w-full h-full object-cover brightness-75">
-                <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
-                <div class="absolute bottom-6 left-6 right-6">
-                    <span class="text-gold text-xs tracking-widest uppercase font-semibold">Strategic Execution</span>
-                    <p class="text-white text-xl font-bold">Bridging Western Strategy with Global Hubs</p>
-                </div>
-            </div>
-
-            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
-                <h2 class="text-2xl font-bold text-gold mb-6 flex items-center gap-3">
-                    <i class="fa-solid fa-globe text-lg"></i> Global Talent & EOR Solutions
-                </h2>
-                <p class="text-gray-300 mb-4 leading-relaxed">
-                    Bridging Western corporate strategy with high-performance execution hubs. We curate specialized professional talent networks, manage rigorous vetting pipelines, and support seamless borderless deployment.
-                </p>
-            </div>
         </div>
 
-        <!-- CANDIDATE PORTAL TAB -->
+        <!-- CANDIDATE PORTAL TAB (TALLY REGISTRATION) -->
         <div id="portal" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-8">
-            <!-- Portal Photo -->
-            <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-xl h-72 md:h-80">
-                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80" alt="Candidate Portal" class="w-full h-full object-cover brightness-75">
-                <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
-                <div class="absolute bottom-6 left-6 right-6">
-                    <span class="text-gold text-xs tracking-widest uppercase font-semibold">Secure Authentication & Registration</span>
-                    <p class="text-white text-xl font-bold">Candidate Portal & Profile Management</p>
-                </div>
-            </div>
-
-            <div class="bg-surface border border-gold rounded-lg p-8 md:p-10 shadow-2xl">
-                <h1 class="text-3xl font-bold text-gold mb-2">Candidate Portal & Registration</h1>
-                <p class="text-gray-400 text-sm mb-8 leading-relaxed">
-                    Securely access your professional profile or register for our elite global network below.
+            <div class="bg-surface border border-gold rounded-lg p-8 md:p-10 shadow-2xl space-y-6">
+                <h1 class="text-3xl font-bold text-gold mb-2">Candidate Portal & Email Registration</h1>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                    Register with your e-mail address below via our secure Tally form to unlock <strong class="text-gold">30 days of free access</strong> to our exclusive Job Board. After 30 days, continued access requires a paid subscription.
                 </p>
                 
                 <!-- Tally Form Embed -->
-                <iframe data-tally-src="https://tally.so/r/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="1100" frameborder="0" marginheight="0" marginwidth="0" title="Goukens-Sy Candidate Portal"></iframe>
+                <iframe data-tally-src="https://tally.so/r/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0" title="Goukens-Sy Candidate Portal"></iframe>
                 <script>window.Tally||(window.Tally={});if(!window.Tally.load){v=function(){le.iframe.src=e+(e.includes("?")?"&":"?")+"transparentBackground=1"};if(document.querySelector('script[src*="tally.so/widgets/embed.js"]'))v();else{s=document.createElement("script");s.src="https://tally.so/widgets/embed.js";s.async=!0;s.onload=function(){Tally.loadEmbeds()};s.onerror=function(){};document.body.appendChild(s);}};</script>
+                
+                <!-- Demo login button for testing -->
+                <div class="pt-4 border-t border-gold/20 text-center">
+                    <p class="text-xs text-gray-400 mb-2">Al geregistreerd via Tally? Test hier direct de toegang tot het Job Board:</p>
+                    <button onclick="simulateLogin(); showTab('jobs');" class="px-6 py-2 bg-gold text-obsidian font-bold text-xs uppercase tracking-wider rounded hover:bg-gold-light transition">
+                        Activeer Test-toegang (30 Dagen Gratis)
+                    </button>
+                </div>
             </div>
+        </div>
+
+        <!-- JOB BOARD TAB (STRICTLY PROTECTED) -->
+        <div id="jobs" class="tab-content hidden max-w-5xl mx-auto px-6 py-16 space-y-8">
+            
+            <!-- 1. LOCKED VIEW (Als niet ingelogd) -->
+            <div id="job-locked-view" class="bg-surface border border-gold/40 p-10 rounded-lg text-center space-y-6 shadow-2xl">
+                <div class="w-16 h-16 bg-gold/15 text-gold rounded-full flex items-center justify-center mx-auto text-2xl">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <h1 class="text-3xl font-bold text-white">Exclusive Job Board Protected</h1>
+                <p class="text-gray-300 max-w-xl mx-auto leading-relaxed text-sm">
+                    Het volledige jobboard met al onze actieve projecten, opnames en vacatures is uitsluitend toegankelijk voor geregistreerde leden. Profiteer van <strong class="text-gold">30 dagen gratis toegang</strong> na e-mailregistratie.
+                </p>
+                <div class="flex justify-center gap-4 pt-4">
+                    <button onclick="showTab('portal')" class="px-6 py-3 bg-gold text-obsidian font-bold text-xs uppercase tracking-wider rounded hover:bg-gold-light transition shadow-lg">
+                        Ga naar Candidate Portal (Registreren)
+                    </button>
+                </div>
+            </div>
+
+            <!-- 2. UNLOCKED BOARD VIEW (Foto 1 Stijl - Tabeloverzicht) -->
+            <div id="job-board-view" class="hidden space-y-6">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-card p-6 rounded-lg border border-gold/30">
+                    <div>
+                        <span class="text-gold text-xs font-semibold uppercase tracking-wider bg-gold/10 px-3 py-1 rounded-full">Member Active Area</span>
+                        <h1 class="text-2xl font-bold text-white mt-2">Active Project Openings</h1>
+                    </div>
+                    <div class="text-right text-xs text-gray-400">
+                        <span class="text-gold font-bold">Trial Status:</span> 30 Days Free Access Active
+                    </div>
+                </div>
+
+                <!-- Tabel in Foto 1 Stijl -->
+                <div class="bg-surface border border-gold/20 rounded-lg overflow-hidden shadow-2xl">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-sm">
+                            <thead>
+                                <tr class="bg-card text-gray-400 border-b border-gold/20 uppercase text-xs tracking-wider">
+                                    <th class="p-4">Project / Title</th>
+                                    <th class="p-4">Status</th>
+                                    <th class="p-4">Language / Region</th>
+                                    <th class="p-4">Opening Date</th>
+                                    <th class="p-4">Closing Date</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gold/10 text-gray-300">
+                                <tr onclick="openJobDetail('OC05 | Phase 2 - USA-based Utterance Audio Recording', 'AlxBlock is recruiting 10 native English speakers in the U.S. for audio recording tasks.', 'English (United States)', '2026-10-01 06:38:00')" class="hover:bg-card/60 cursor-pointer transition">
+                                    <td class="p-4 font-semibold text-white">
+                                        OC05 | Phase 2 - USA-based Utterance Audio Recording
+                                        <span class="block text-xs text-gray-400 font-normal mt-1">AlxBlock is recruiting 10 native English speakers in the U.S...</span>
+                                    </td>
+                                    <td class="p-4"><span class="px-2.5 py-1 bg-blue-950 text-blue-400 border border-blue-800 rounded-full text-xs">Active</span></td>
+                                    <td class="p-4"><span class="text-xs bg-gold/10 text-gold px-2 py-1 rounded border border-gold/30">English (US)</span></td>
+                                    <td class="p-4 text-xs text-gray-400">2026-09-04</td>
+                                    <td class="p-4 text-xs text-gray-400">2026-10-01</td>
+                                </tr>
+                                <tr onclick="openJobDetail('UB03_1261_Code-Switching Project - RECORDING ROLE - DUTCH (Netherlands) & fluent English', 'Code-switching recording is the practice of alternating between two languages within a single conversation in Dutch (native) and English.', 'Dutch (Netherlands)', '2026-09-21 19:42:00')" class="hover:bg-card/60 cursor-pointer transition">
+                                    <td class="p-4 font-semibold text-white">
+                                        UB03_1261_Code-Switching Project - RECORDING ROLE - DUTCH & English
+                                        <span class="block text-xs text-gray-400 font-normal mt-1">We are seeking native speakers for a research project focused...</span>
+                                    </td>
+                                    <td class="p-4"><span class="px-2.5 py-1 bg-blue-950 text-blue-400 border border-blue-800 rounded-full text-xs">Active</span></td>
+                                    <td class="p-4"><span class="text-xs bg-gold/10 text-gold px-2 py-1 rounded border border-gold/30">Dutch (Netherlands)</span></td>
+                                    <td class="p-4 text-xs text-gray-400">2026-02-02</td>
+                                    <td class="p-4 text-xs text-gray-400">2026-09-21</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. JOB DETAIL VIEW (Foto 2 Stijl - Gedetailleerde beschrijving na klik) -->
+            <div id="job-detail-view" class="hidden space-y-6">
+                <button onclick="backToList()" class="px-4 py-2 bg-card border border-gold/40 text-gold text-xs font-bold uppercase rounded hover:bg-gold hover:text-obsidian transition">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Back to Job List
+                </button>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Left Column: Description -->
+                    <div class="md:col-span-2 bg-surface border border-gold/30 rounded-lg p-8 space-y-6 shadow-2xl">
+                        <div class="flex items-center gap-3 border-b border-gold/20 pb-4">
+                            <i class="fa-solid fa-briefcase text-gold text-xl"></i>
+                            <div>
+                                <h2 class="text-xl font-bold text-white" id="detail-title">Project Title</h2>
+                                <span class="text-xs text-gray-400">Full description & requirements</span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4 text-gray-300 text-sm leading-relaxed">
+                            <h3 class="font-bold text-gold text-base">1. Project Type:</h3>
+                            <p id="detail-desc">Project description goes here...</p>
+
+                            <h3 class="font-bold text-gold text-base pt-2">2. Example Workflow:</h3>
+                            <p class="italic bg-card p-4 rounded border-l-2 border-gold text-gray-200">
+                                "María: Oye, ¿ya terminaste el reporte para mañana?<br>
+                                Carlos: Sí, almost. Solo me falta revisar los final numbers."
+                            </p>
+
+                            <h3 class="font-bold text-gold text-base pt-2">3. Job Type & Schedule:</h3>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Part-time and fully remote.</li>
+                                <li>Flexible working hours within weekly deadlines.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Job Details Summary -->
+                    <div class="bg-surface border border-gold/30 rounded-lg p-6 space-y-6 shadow-xl h-fit">
+                        <h3 class="text-gold font-bold uppercase text-xs tracking-wider border-b border-gold/20 pb-3">Job Details</h3>
+                        
+                        <div>
+                            <span class="text-xs text-gray-400 uppercase block mb-1">Status</span>
+                            <span class="px-3 py-1 bg-blue-950 text-blue-400 border border-blue-800 rounded-full text-xs font-semibold">Active</span>
+                        </div>
+
+                        <div>
+                            <span class="text-xs text-gray-400 uppercase block mb-1">Timeline Closing</span>
+                            <span class="text-sm text-gray-200" id="detail-closing">2026-09-21</span>
+                        </div>
+
+                        <div>
+                            <span class="text-xs text-gray-400 uppercase block mb-1">Applicant Requirements</span>
+                            <span class="inline-block bg-gold/10 text-gold px-3 py-1 rounded border border-gold/30 text-xs mt-1" id="detail-lang">Dutch</span>
+                        </div>
+
+                        <div class="pt-4 border-t border-gold/20">
+                            <button onclick="alert('Applicatie ingediend via uw geregistreerde kandidaat-profiel!')" class="w-full py-3 bg-gold text-obsidian font-bold text-xs uppercase tracking-wider rounded hover:bg-gold-light transition shadow-lg">
+                                Apply For Project
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <!-- CONTACT TAB (FOR CLIENTS ONLY) -->
@@ -300,46 +332,19 @@
                 <h1 class="text-3xl md:text-5xl font-extrabold text-white">Client Consultations & Inquiries</h1>
             </div>
 
-            <!-- Contact Photo -->
-            <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-xl h-72 md:h-80">
-                <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=1600&q=80" alt="Executive Consultations" class="w-full h-full object-cover brightness-75">
-                <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
-                <div class="absolute bottom-6 left-6 right-6">
-                    <span class="text-gold text-xs tracking-widest uppercase font-semibold">Direct Communication</span>
-                    <p class="text-white text-xl font-bold">Connect With Our Leadership Team</p>
-                </div>
-            </div>
-
-            <!-- Notice for Job Seekers -->
             <div class="bg-amber-950/30 border border-gold/40 rounded-sm p-6 text-sm text-gray-300 flex items-start gap-4">
                 <i class="fa-solid fa-triangle-exclamation text-gold text-xl mt-1"></i>
                 <div>
                     <strong class="text-gold block mb-1">Are you looking for a job?</strong>
-                    Please note that this contact schedule is strictly reserved for <strong>corporate clients and business inquiries</strong>. Job seekers and candidates must use the <button onclick="showTab('portal')" class="text-gold underline font-semibold hover:text-gold-light">Candidate Portal</button> to register and submit applications. Sollicitaties via dit contactformulier of de agenda worden niet in behandeling genomen.
+                    Please use the <button onclick="showTab('portal')" class="text-gold underline font-semibold hover:text-gold-light">Candidate Portal</button> to register and access the <button onclick="showTab('jobs'); checkJobAccess();" class="text-gold underline font-semibold hover:text-gold-light">Job Board</button>.
                 </div>
             </div>
 
-            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
-                <h2 class="text-2xl font-bold text-gold mb-4 flex items-center gap-3">
-                    <i class="fa-regular fa-calendar-days text-lg"></i> Schedule a Client Consultation or Seminar
-                </h2>
-                <p class="text-gray-300 mb-6 leading-relaxed">
-                    This scheduling tool is exclusively for corporate clients, business leaders, and partners. Select a convenient date and time below to book an executive consultation, corporate strategy session, or webinar regarding our business support services.
-                </p>
-                <div class="border border-gold/40 rounded-sm p-6 text-center bg-obsidian">
-                    <a href="https://geert-goukens.dayschedule.com" target="_blank" class="inline-block px-6 py-3 bg-gold text-obsidian font-bold rounded-sm hover:bg-gold-light transition uppercase text-sm tracking-wider">
-                        <i class="fa-regular fa-calendar-check mr-2"></i> Book Client Consultation / Meeting
-                    </a>
-                </div>
-            </div>
-
-            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
-                <h2 class="text-2xl font-bold text-gold mb-4 flex items-center gap-3">
-                    <i class="fa-solid fa-envelope text-lg"></i> Corporate Inquiries
-                </h2>
-                <p class="text-gray-300 leading-relaxed">
-                    For institutional partnerships, enterprise service requests, or direct communication with executive leadership, corporate clients can reach out through our official channels.
-                </p>
+            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl text-center">
+                <h2 class="text-2xl font-bold text-gold mb-4">Schedule a Client Consultation</h2>
+                <a href="https://geert-goukens.dayschedule.com" target="_blank" class="inline-block px-6 py-3 bg-gold text-obsidian font-bold rounded-sm hover:bg-gold-light transition uppercase text-sm tracking-wider">
+                    <i class="fa-regular fa-calendar-check mr-2"></i> Book Client Meeting
+                </a>
             </div>
         </div>
 
@@ -352,10 +357,6 @@
                 <i class="fa-solid fa-gem"></i> GOUKENS-SY
             </div>
             <p>&copy; 2026 Goukens-sy Business Support. All rights reserved.</p>
-            <div class="flex gap-6 text-gray-400">
-                <a href="#" class="hover:text-gold transition"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="#" class="hover:text-gold transition"><i class="fa-brands fa-x-twitter"></i></a>
-            </div>
         </div>
     </footer>
 
