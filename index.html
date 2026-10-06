@@ -114,7 +114,7 @@
                         Explore Capabilities
                     </button>
                     <button onclick="showTab('contact')" class="px-8 py-4 border border-gold/50 text-white font-bold tracking-wider uppercase text-sm hover:border-gold transition rounded-sm">
-                        Schedule Consultation
+                        Client Consultation
                     </button>
                 </div>
             </div>
@@ -269,7 +269,7 @@
             </div>
         </div>
 
-        <!-- CANDIDATE PORTAL / REGISTRATION TAB -->
+        <!-- CANDIDATE PORTAL TAB -->
         <div id="portal" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-8">
             <!-- Portal Photo -->
             <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-xl h-72 md:h-80">
@@ -293,11 +293,11 @@
             </div>
         </div>
 
-        <!-- CONTACT TAB -->
+        <!-- CONTACT TAB (FOR CLIENTS ONLY) -->
         <div id="contact" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-12">
             <div class="text-center mb-12">
-                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 inline-block px-3 py-1 border border-gold/30 rounded-full">Get in Touch</span>
-                <h1 class="text-3xl md:text-5xl font-extrabold text-white">Executive Consultations & Inquiries</h1>
+                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 inline-block px-3 py-1 border border-gold/30 rounded-full">For Clients & Partners Only</span>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-white">Client Consultations & Inquiries</h1>
             </div>
 
             <!-- Contact Photo -->
@@ -310,26 +310,35 @@
                 </div>
             </div>
 
+            <!-- Notice for Job Seekers -->
+            <div class="bg-amber-950/30 border border-gold/40 rounded-sm p-6 text-sm text-gray-300 flex items-start gap-4">
+                <i class="fa-solid fa-triangle-exclamation text-gold text-xl mt-1"></i>
+                <div>
+                    <strong class="text-gold block mb-1">Are you looking for a job?</strong>
+                    Please note that this contact schedule is strictly reserved for <strong>corporate clients and business inquiries</strong>. Job seekers and candidates must use the <button onclick="showTab('portal')" class="text-gold underline font-semibold hover:text-gold-light">Candidate Portal</button> to register and submit applications. Sollicitaties via dit contactformulier of de agenda worden niet in behandeling genomen.
+                </div>
+            </div>
+
             <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
                 <h2 class="text-2xl font-bold text-gold mb-4 flex items-center gap-3">
-                    <i class="fa-regular fa-calendar-days text-lg"></i> Schedule an Executive Consultation or Seminar
+                    <i class="fa-regular fa-calendar-days text-lg"></i> Schedule a Client Consultation or Seminar
                 </h2>
                 <p class="text-gray-300 mb-6 leading-relaxed">
-                    Skip the back-and-forth emails. Select a convenient date and time below to book an automated consultation or schedule our leadership for corporate meetings, strategy sessions, and online seminars / webinars on AI, remote workforce management, and global BPO scaling.
+                    This scheduling tool is exclusively for corporate clients, business leaders, and partners. Select a convenient date and time below to book an executive consultation, corporate strategy session, or webinar regarding our business support services.
                 </p>
                 <div class="border border-gold/40 rounded-sm p-6 text-center bg-obsidian">
                     <a href="https://geert-goukens.dayschedule.com" target="_blank" class="inline-block px-6 py-3 bg-gold text-obsidian font-bold rounded-sm hover:bg-gold-light transition uppercase text-sm tracking-wider">
-                        <i class="fa-regular fa-calendar-check mr-2"></i> Book Consultation / Schedule Meeting
+                        <i class="fa-regular fa-calendar-check mr-2"></i> Book Client Consultation / Meeting
                     </a>
                 </div>
             </div>
 
             <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
                 <h2 class="text-2xl font-bold text-gold mb-4 flex items-center gap-3">
-                    <i class="fa-solid fa-envelope text-lg"></i> Direct Inquiries
+                    <i class="fa-solid fa-envelope text-lg"></i> Corporate Inquiries
                 </h2>
                 <p class="text-gray-300 leading-relaxed">
-                    For specific inquiries or direct communication with executive leadership, reach out through our official channels or email.
+                    For institutional partnerships, enterprise service requests, or direct communication with executive leadership, corporate clients can reach out through our official channels.
                 </p>
             </div>
         </div>
