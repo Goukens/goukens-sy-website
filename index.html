@@ -25,12 +25,10 @@
         function showTab(tabId) {
             const tabs = document.querySelectorAll('.tab-content');
             tabs.forEach(tab => tab.classList.add('hidden'));
-
             const targetTab = document.getElementById(tabId);
             if (targetTab) {
                 targetTab.classList.remove('hidden');
             }
-
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(link => {
                 link.classList.remove('text-gold', 'font-semibold', 'border-b', 'border-gold');
@@ -41,10 +39,8 @@
                 activeLink.classList.remove('hover:text-gold');
                 activeLink.classList.add('text-gold', 'font-semibold', 'border-b', 'border-gold', 'pb-1');
             }
-
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
         // Access check with password prompt using Gouk7507@
         function checkJobAccess() {
             const passcode = prompt("Enter access code to view the Job Board (Candidates register via Portal, or use access code):");
@@ -59,18 +55,15 @@
                 showTab('portal');
             }
         }
-
         function openJobDetail(jobTitle, jobDesc, lang, closingDate) {
             document.getElementById('job-board-view').classList.add('hidden');
             document.getElementById('job-detail-view').classList.remove('hidden');
-
             document.getElementById('detail-title').innerText = jobTitle;
             document.getElementById('detail-desc').innerText = jobDesc;
             document.getElementById('detail-lang').innerText = lang;
             document.getElementById('detail-closing').innerText = closingDate;
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
         function backToList() {
             document.getElementById('job-detail-view').classList.add('hidden');
             document.getElementById('job-board-view').classList.remove('hidden');
@@ -78,7 +71,6 @@
     </script>
 </head>
 <body class="bg-obsidian text-gray-200 font-sans antialiased selection:bg-gold selection:text-obsidian flex flex-col min-h-screen">
-
     <!-- Header / Navigation -->
     <header class="sticky top-0 z-50 bg-obsidian/95 backdrop-blur-md border-b border-gold/20">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -95,10 +87,8 @@
             </nav>
         </div>
     </header>
-
     <!-- Main Content Container -->
     <main class="flex-grow">
-
         <!-- HOME TAB -->
         <div id="home" class="tab-content px-6 py-16 relative">
             <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
@@ -110,7 +100,6 @@
                 <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white">
                     Goukens-sy <span class="text-gold">Business Support</span>
                 </h1>
-
                 <!-- Home Photo -->
                 <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-2xl h-80 md:h-[400px]">
                     <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80" alt="Global Corporate Architecture" class="w-full h-full object-cover brightness-75 hover:scale-105 transition duration-700">
@@ -120,25 +109,20 @@
                         <p class="text-white text-2xl font-bold mt-1">Uncompromising Execution Across Borders</p>
                     </div>
                 </div>
-
                 <!-- Expanded Introduction -->
                 <div class="text-left space-y-6 bg-card border border-gold/20 p-8 md:p-12 rounded-sm shadow-2xl">
                     <p class="text-gray-200 text-lg md:text-xl font-medium leading-relaxed italic border-l-2 border-gold pl-4">
                         "Operating remotely from anywhere in the world. We don’t pay an employee to look good in an office; we pay for their knowledge, execution, and value."
                     </p>
-
                     <p class="text-gray-300 text-base md:text-lg leading-relaxed">
                         In an economic landscape defined by rapid technological disruption and borderless markets, the traditional corporate playbook—built on bloated physical headquarters, rigid geographical constraints, and unnecessary management layers—has proven to be an obsolete liability. Modern enterprises require absolute agility, unyielding execution, and access to elite talent unhindered by zip codes.
                     </p>
-
                     <div class="my-6 rounded-sm overflow-hidden border border-gold/20 h-56">
                         <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" alt="Team Collaboration" class="w-full h-full object-cover brightness-75">
                     </div>
-
                     <p class="text-gray-300 text-base md:text-lg leading-relaxed">
                         At Goukens-sy Business Support, we bridge high-level Western corporate strategy with world-class, tech-forward execution hubs. By dismantling administrative drag and integrating cutting-edge, AI-augmented workflows, we empower organizations to scale their operations efficiently while maintaining total transparency and uncompromising quality standards.
                     </p>
-
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-gold/20">
                         <div class="bg-surface p-4 border border-gold/10 rounded">
                             <h4 class="text-gold font-bold text-sm uppercase mb-1">Total Flexibility</h4>
@@ -154,7 +138,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
                     <button onclick="showTab('services')" class="px-8 py-4 bg-gold text-obsidian font-bold tracking-wider uppercase text-sm hover:bg-gold-light transition rounded-sm shadow-lg shadow-gold/10">
                         Explore Capabilities
@@ -165,14 +148,12 @@
                 </div>
             </div>
         </div>
-
-        <!-- VISION TAB (FULL EXTENSIVE TEXT) -->
+        <!-- VISION TAB (EXTENDED) -->
         <div id="vision" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-12">
             <div class="text-center mb-12">
                 <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 inline-block px-3 py-1 border border-gold/30 rounded-full">Strategic Outlook</span>
                 <h1 class="text-3xl md:text-5xl font-extrabold text-white">Our Core Vision & Philosophy</h1>
             </div>
-
             <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-xl h-72 md:h-80">
                 <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1600&q=80" alt="Executive Strategy" class="w-full h-full object-cover brightness-75">
                 <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
@@ -181,7 +162,6 @@
                     <p class="text-white text-xl font-bold">Redefining Productivity for the Modern Century</p>
                 </div>
             </div>
-
             <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-6">
                 <h2 class="text-2xl font-bold text-gold flex items-center gap-3">
                     <i class="fa-solid fa-bullseye text-lg"></i> Executive Leadership & Global Operations
@@ -196,7 +176,6 @@
                     By eliminating geographic and logistical bottlenecks, Goukens-sy Business Support allows companies to scale with surgical precision. Our philosophy centers on absolute transparency, merit-based execution, and leveraging modern digital infrastructure to connect top-tier global talent directly with high-impact enterprises.
                 </p>
             </div>
-
             <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-xl h-72 md:h-80">
                 <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80" alt="Global Operations" class="w-full h-full object-cover brightness-75">
                 <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
@@ -205,7 +184,6 @@
                     <p class="text-white text-xl font-bold">Unlocking Global Potential Without Boundaries</p>
                 </div>
             </div>
-
             <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-6">
                 <h2 class="text-2xl font-bold text-gold flex items-center gap-3">
                     <i class="fa-solid fa-compass text-lg"></i> The Future of Enterprise Scalability
@@ -214,7 +192,7 @@
                     The organizations that will dominate the coming decades are those built on agility rather than physical scale. We reject corporate bureaucracy in favor of streamlined, high-performance execution teams. Whether managing multi-language audio transcription campaigns, orchestrating complex resource feasibility studies, or driving sophisticated digital transformation projects, our approach guarantees optimal efficiency and measurable results.
                 </p>
             </div>
-
+            <!-- Extra Block 1 in Vision -->
             <div class="bg-card border border-gold/20 rounded-sm p-8 shadow-xl space-y-4">
                 <h3 class="text-xl font-bold text-gold">Core Operational Pillars</h3>
                 <ul class="list-disc pl-5 space-y-2 text-gray-300 text-sm md:text-base">
@@ -223,59 +201,93 @@
                     <li><strong class="text-white">Continuous Innovation:</strong> Early adoption of state-of-the-art administrative and AI tooling.</li>
                 </ul>
             </div>
+            <!-- Extra Block 2 in Vision -->
+            <div class="bg-surface border border-gold/30 rounded-sm p-8 shadow-xl space-y-4">
+                <h3 class="text-xl font-bold text-gold">Security and Data Privacy Standards</h3>
+                <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+                    We maintain rigorous data handling protocols across all remote nodes. Confidentiality, data encryption, and secure cloud environments ensure that our corporate partners retain absolute ownership and security over their intellectual property and sensitive datasets.
+                </p>
+            </div>
         </div>
-
-        <!-- SERVICES TAB (FULL EXTENSIVE TEXT) -->
+        <!-- SERVICES TAB (EXTENDED) -->
         <div id="services" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-12">
             <div class="text-center mb-12">
                 <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 inline-block px-3 py-1 border border-gold/30 rounded-full">Operational Excellence</span>
                 <h1 class="text-3xl md:text-5xl font-extrabold text-white">Comprehensive Services & Enterprise Solutions</h1>
             </div>
-
+            
             <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-4">
                 <h2 class="text-2xl font-bold text-gold flex items-center gap-3">
-                    <i class="fa-solid fa-microchip text-lg"></i> 1. AI-Driven Operational Transformation & Automation
+                    <i class="fa-solid fa-microchip text-lg"></i> AI Data Annotation & Content Moderation
                 </h2>
                 <p class="text-gray-300 leading-relaxed text-base md:text-lg">
-                    Replacing administrative drag, manual bottlenecks, and legacy communication loops with streamlined, intelligent workflows. We audit existing corporate processes and integrate smart automations that drastically reduce overhead while accelerating turnaround times across all business units.
+                    Advanced data annotation, prompt engineering, and rigorous quality assurance for AI models.
                 </p>
             </div>
             
             <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-4">
                 <h2 class="text-2xl font-bold text-gold flex items-center gap-3">
-                    <i class="fa-solid fa-globe text-lg"></i> 2. Global Talent Curation & Specialized Campaign Execution
+                    <i class="fa-solid fa-headset text-lg"></i> Customer Experience & Voice Operations
                 </h2>
                 <p class="text-gray-300 leading-relaxed text-base md:text-lg">
-                    Managing elite remote professional networks specialized in complex AI training, multi-language transcription, audio utterance collection, and outbound lead generation campaigns. Every project is executed under stringent quality controls, ensuring high fidelity and professional delivery.
+                    Top-tier customer support, voice campaigns, and multilingual communication management.
                 </p>
             </div>
 
             <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-4">
                 <h2 class="text-2xl font-bold text-gold flex items-center gap-3">
-                    <i class="fa-solid fa-chart-line text-lg"></i> 3. Strategic Project Management & Feasibility Support
+                    <i class="fa-solid fa-user-tie text-lg"></i> Executive Support & Virtual Assistance
                 </h2>
                 <p class="text-gray-300 leading-relaxed text-base md:text-lg">
-                    Providing high-level advisory and hands-on execution for complex feasibility studies, resource management, corporate incorporation processes, and cross-border commercial expansions. We turn strategic concepts into concrete, executable milestones.
+                    Professional virtual assistance and tailored administrative support for leadership teams.
                 </p>
             </div>
 
             <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-4">
                 <h2 class="text-2xl font-bold text-gold flex items-center gap-3">
-                    <i class="fa-solid fa-headset text-lg"></i> 4. Outbound Support & Fractional Operations
+                    <i class="fa-solid fa-briefcase text-lg"></i> General Business Support & Administration
                 </h2>
                 <p class="text-gray-300 leading-relaxed text-base md:text-lg">
-                    Coordinating dedicated appointment-setting campaigns, customer success protocols, and fractional management support. We supply businesses with the operational backbone needed to scale client acquisition and support structures seamlessly.
+                    Comprehensive corporate administration, data entry, and operational workflow coordination.
                 </p>
             </div>
 
-            <div class="bg-card border border-gold/20 rounded-sm p-8 shadow-xl space-y-4">
-                <h3 class="text-xl font-bold text-gold">Customized Service Agreements</h3>
-                <p class="text-gray-300 text-sm md:text-base leading-relaxed">
-                    Every enterprise possesses distinct structural needs. Our team evaluates your specific operational requirements to formulate custom service level agreements (SLAs) tailored precisely to your growth targets.
+            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-4">
+                <h2 class="text-2xl font-bold text-gold flex items-center gap-3">
+                    <i class="fa-solid fa-bullhorn text-lg"></i> Lead Generation & Travel Marketing
+                </h2>
+                <p class="text-gray-300 leading-relaxed text-base md:text-lg">
+                    Targeted lead generation, sales pipeline support, and promotional marketing campaigns.
+                </p>
+            </div>
+
+            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-4">
+                <h2 class="text-2xl font-bold text-gold flex items-center gap-3">
+                    <i class="fa-solid fa-gears text-lg"></i> Specialized Technical & Engineering Projects
+                </h2>
+                <p class="text-gray-300 leading-relaxed text-base md:text-lg">
+                    Support for technical and industrial initiatives, including comprehensive feasibility studies.
+                </p>
+            </div>
+
+            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-4">
+                <h2 class="text-2xl font-bold text-gold flex items-center gap-3">
+                    <i class="fa-solid fa-language text-lg"></i> Transcription, Translation & Localization
+                </h2>
+                <p class="text-gray-300 leading-relaxed text-base md:text-lg">
+                    Multilingual transcription, translation, and linguistic research (including code-switching).
+                </p>
+            </div>
+
+            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-4">
+                <h2 class="text-2xl font-bold text-gold flex items-center gap-3">
+                    <i class="fa-solid fa-graduation-cap text-lg"></i> Training & Skill Development Programs
+                </h2>
+                <p class="text-gray-300 leading-relaxed text-base md:text-lg">
+                    Designing and coordinating structured training programs and global talent development.
                 </p>
             </div>
         </div>
-
         <!-- CANDIDATE PORTAL TAB (TALLY REGISTRATION) -->
         <div id="portal" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-8">
             <div class="bg-surface border border-gold rounded-lg p-8 md:p-10 shadow-2xl space-y-6">
@@ -289,7 +301,6 @@
                 <script>window.Tally||(window.Tally={});if(!window.Tally.load){v=function(){le.iframe.src=e+(e.includes("?")?"&":"?")+"transparentBackground=1"};if(document.querySelector('script[src*="tally.so/widgets/embed.js"]'))v();else{s=document.createElement("script");s.src="https://tally.so/widgets/embed.js";s.async=!0;s.onload=function(){Tally.loadEmbeds()};s.onerror=function(){};document.body.appendChild(s);}};</script>
             </div>
         </div>
-
         <!-- JOB BOARD TAB (PROTECTED BY ACCESS CODE Gouk7507@) -->
         <div id="jobs" class="tab-content hidden max-w-5xl mx-auto px-6 py-16 space-y-8">
             
@@ -302,7 +313,6 @@
                     Enter Access Code
                 </button>
             </div>
-
             <!-- UNLOCKED BOARD VIEW -->
             <div id="job-board-view" class="space-y-6">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-card p-6 rounded-lg border border-gold/30">
@@ -319,7 +329,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="bg-surface border border-gold/20 rounded-lg overflow-hidden shadow-2xl">
                     <div class="overflow-x-auto">
                         <table class="w-full text-left border-collapse text-sm">
@@ -359,13 +368,11 @@
                     </div>
                 </div>
             </div>
-
             <!-- 3. JOB DETAIL VIEW -->
             <div id="job-detail-view" class="hidden space-y-6">
                 <button onclick="backToList()" class="px-4 py-2 bg-card border border-gold/40 text-gold text-xs font-bold uppercase rounded hover:bg-gold hover:text-obsidian transition">
                     <i class="fa-solid fa-arrow-left mr-2"></i> Back to Job List
                 </button>
-
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="md:col-span-2 bg-surface border border-gold/30 rounded-lg p-8 space-y-6 shadow-2xl">
                         <div class="flex items-center gap-3 border-b border-gold/20 pb-4">
@@ -375,11 +382,9 @@
                                 <span class="text-xs text-gray-400">Full description & requirements</span>
                             </div>
                         </div>
-
                         <div class="space-y-4 text-gray-300 text-sm leading-relaxed">
                             <h3 class="font-bold text-gold text-base">1. Project Overview:</h3>
                             <p id="detail-desc">Project description goes here...</p>
-
                             <h3 class="font-bold text-gold text-base pt-2">2. Requirements & Workflow:</h3>
                             <ul class="list-disc pl-5 space-y-1">
                                 <li>Fully remote execution with flexible weekly deadlines.</li>
@@ -387,7 +392,6 @@
                             </ul>
                         </div>
                     </div>
-
                     <div class="bg-surface border border-gold/30 rounded-lg p-6 space-y-6 shadow-xl h-fit">
                         <h3 class="text-gold font-bold uppercase text-xs tracking-wider border-b border-gold/20 pb-3">Job Details</h3>
                         
@@ -395,17 +399,14 @@
                             <span class="text-xs text-gray-400 uppercase block mb-1">Status</span>
                             <span class="px-3 py-1 bg-blue-950 text-blue-400 border border-blue-800 rounded-full text-xs font-semibold">Active</span>
                         </div>
-
                         <div>
                             <span class="text-xs text-gray-400 uppercase block mb-1">Timeline Closing</span>
                             <span class="text-sm text-gray-200" id="detail-closing">2026-09-21</span>
                         </div>
-
                         <div>
                             <span class="text-xs text-gray-400 uppercase block mb-1">Language Requirement</span>
                             <span class="inline-block bg-gold/10 text-gold px-3 py-1 rounded border border-gold/30 text-xs mt-1" id="detail-lang">English / Dutch</span>
                         </div>
-
                         <div class="pt-4 border-t border-gold/20">
                             <a href="#portal" onclick="showTab('portal')" class="block text-center py-3 bg-gold text-obsidian font-bold text-xs uppercase tracking-wider rounded hover:bg-gold-light transition shadow-lg">
                                 Apply via Portal / Submit CV
@@ -414,9 +415,7 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
         <!-- CONTACT TAB -->
         <div id="contact" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-12">
             <div class="text-center mb-12">
@@ -431,9 +430,7 @@
                 </a>
             </div>
         </div>
-
     </main>
-
     <!-- Footer -->
     <footer class="bg-surface border-t border-gold/20 py-12 px-6 text-center text-sm text-gray-500 mt-20">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
@@ -443,6 +440,5 @@
             <p>&copy; 2026 Goukens-sy Business Support. All rights reserved.</p>
         </div>
     </footer>
-
 </body>
 </html>
