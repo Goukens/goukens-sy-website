@@ -45,10 +45,8 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Access check with password prompt using Gouk7507@
         function checkJobAccess() {
-            const passcode = prompt("Enter access code to view the Job Board (Candidates register via Portal, or use access code):");
-            
+            const passcode = prompt("Enter access code to view the Job Board:");
             if (passcode === "Gouk7507@") {
                 showTab('jobs');
                 document.getElementById('job-locked-view').classList.add('hidden');
@@ -98,7 +96,6 @@
 
     <!-- Main Content Container -->
     <main class="flex-grow">
-
         <!-- HOME TAB -->
         <div id="home" class="tab-content px-6 py-16 relative">
             <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
@@ -130,7 +127,6 @@
                     <p class="text-gray-300 text-base md:text-lg leading-relaxed">
                         In an economic landscape defined by rapid technological disruption and borderless markets, the traditional corporate playbook—built on bloated physical headquarters, rigid geographical constraints, and unnecessary management layers—has proven to be an obsolete liability. Modern enterprises require absolute agility, unyielding execution, and access to elite talent unhindered by zip codes.
                     </p>
-
                     <div class="my-6 rounded-sm overflow-hidden border border-gold/20 h-56">
                         <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" alt="Team Collaboration" class="w-full h-full object-cover brightness-75">
                     </div>
@@ -153,14 +149,6 @@
                             <p class="text-xs text-gray-400">Integrating modern AI architectures to eliminate administrative friction.</p>
                         </div>
                     </div>
-
-                    <!-- Extra paragraph block for maximum length assurance -->
-                    <div class="pt-4 border-t border-gold/10 space-y-4">
-                        <h4 class="text-gold font-bold text-base uppercase">The Advantage of Strategic Partnership</h4>
-                        <p class="text-gray-300 text-sm md:text-base leading-relaxed">
-                            Working with Goukens-sy means gaining an immediate operational edge. Whether you require meticulous multi-language data annotation, professional voice collection campaigns, rigorous resource feasibility studies, or complete corporate structuring support, our network delivers results that directly impact your bottom line.
-                        </p>
-                    </div>
                 </div>
 
                 <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
@@ -174,20 +162,11 @@
             </div>
         </div>
 
-        <!-- VISION TAB (EXTENDED) -->
+        <!-- VISION TAB -->
         <div id="vision" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-12">
             <div class="text-center mb-12">
                 <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 inline-block px-3 py-1 border border-gold/30 rounded-full">Strategic Outlook</span>
                 <h1 class="text-3xl md:text-5xl font-extrabold text-white">Our Core Vision & Philosophy</h1>
-            </div>
-
-            <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-xl h-72 md:h-80">
-                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1600&q=80" alt="Executive Strategy" class="w-full h-full object-cover brightness-75">
-                <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
-                <div class="absolute bottom-6 left-6 right-6">
-                    <span class="text-gold text-xs tracking-widest uppercase font-semibold">Leadership Philosophy</span>
-                    <p class="text-white text-xl font-bold">Redefining Productivity for the Modern Century</p>
-                </div>
             </div>
 
             <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-6">
@@ -204,53 +183,9 @@
                     By eliminating geographic and logistical bottlenecks, Goukens-sy Business Support allows companies to scale with surgical precision. Our philosophy centers on absolute transparency, merit-based execution, and leveraging modern digital infrastructure to connect top-tier global talent directly with high-impact enterprises.
                 </p>
             </div>
-
-            <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-xl h-72 md:h-80">
-                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80" alt="Global Operations" class="w-full h-full object-cover brightness-75">
-                <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
-                <div class="absolute bottom-6 left-6 right-6">
-                    <span class="text-gold text-xs tracking-widest uppercase font-semibold">Borderless Execution</span>
-                    <p class="text-white text-xl font-bold">Unlocking Global Potential Without Boundaries</p>
-                </div>
-            </div>
-
-            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-6">
-                <h2 class="text-2xl font-bold text-gold flex items-center gap-3">
-                    <i class="fa-solid fa-compass text-lg"></i> The Future of Enterprise Scalability
-                </h2>
-                <p class="text-gray-300 leading-relaxed text-base md:text-lg">
-                    The organizations that will dominate the coming decades are those built on agility rather than physical scale. We reject corporate bureaucracy in favor of streamlined, high-performance execution teams. Whether managing multi-language audio transcription campaigns, orchestrating complex resource feasibility studies, or driving sophisticated digital transformation projects, our approach guarantees optimal efficiency and measurable results.
-                </p>
-            </div>
-
-            <!-- Extra Block 1 in Vision -->
-            <div class="bg-card border border-gold/20 rounded-sm p-8 shadow-xl space-y-4">
-                <h3 class="text-xl font-bold text-gold">Core Operational Pillars</h3>
-                <ul class="list-disc pl-5 space-y-2 text-gray-300 text-sm md:text-base">
-                    <li><strong class="text-white">Uncompromising Quality:</strong> Strict screening and vetting of global talents to match corporate standards.</li>
-                    <li><strong class="text-white">Radical Transparency:</strong> Clear milestones, tracked deliverables, and direct communication channels.</li>
-                    <li><strong class="text-white">Continuous Innovation:</strong> Early adoption of state-of-the-art administrative and AI tooling.</li>
-                </ul>
-            </div>
-
-            <!-- Extra Block 2 in Vision -->
-            <div class="bg-surface border border-gold/30 rounded-sm p-8 shadow-xl space-y-4">
-                <h3 class="text-xl font-bold text-gold">Security and Data Privacy Standards</h3>
-                <p class="text-gray-300 text-sm md:text-base leading-relaxed">
-                    We maintain rigorous data handling protocols across all remote nodes. Confidentiality, data encryption, and secure cloud environments ensure that our corporate partners retain absolute ownership and security over their intellectual property and sensitive datasets.
-                </p>
-            </div>
-
-            <!-- Extra Block 3 in Vision -->
-            <div class="bg-card border border-gold/20 rounded-sm p-8 shadow-xl space-y-4">
-                <h3 class="text-xl font-bold text-gold">Long-Term Strategic Impact</h3>
-                <p class="text-gray-300 text-sm md:text-base leading-relaxed">
-                    By partnering with Goukens-sy, organizations position themselves at the cutting edge of modern commerce. We continually adapt our methodologies to anticipate industry shifts, regulatory updates, and technological advancements, ensuring sustainable growth for all stakeholders involved.
-                </p>
-            </div>
         </div>
 
-        <!-- SERVICES TAB (EXTENDED) -->
+        <!-- SERVICES TAB -->
         <div id="services" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-12">
             <div class="text-center mb-12">
                 <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 inline-block px-3 py-1 border border-gold/30 rounded-full">Operational Excellence</span>
@@ -262,78 +197,24 @@
                     <i class="fa-solid fa-microchip text-lg"></i> 1. AI-Driven Operational Transformation & Automation
                 </h2>
                 <p class="text-gray-300 leading-relaxed text-base md:text-lg">
-                    Replacing administrative drag, manual bottlenecks, and legacy communication loops with streamlined, intelligent workflows. We audit existing corporate processes and integrate smart automations that drastically reduce overhead while accelerating turnaround times across all business units.
-                </p>
-            </div>
-            
-            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-4">
-                <h2 class="text-2xl font-bold text-gold flex items-center gap-3">
-                    <i class="fa-solid fa-globe text-lg"></i> 2. Global Talent Curation & Specialized Campaign Execution
-                </h2>
-                <p class="text-gray-300 leading-relaxed text-base md:text-lg">
-                    Managing elite remote professional networks specialized in complex AI training, multi-language transcription, audio utterance collection, and outbound lead generation campaigns. Every project is executed under stringent quality controls, ensuring high fidelity and professional delivery.
-                </p>
-            </div>
-
-            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-4">
-                <h2 class="text-2xl font-bold text-gold flex items-center gap-3">
-                    <i class="fa-solid fa-chart-line text-lg"></i> 3. Strategic Project Management & Feasibility Support
-                </h2>
-                <p class="text-gray-300 leading-relaxed text-base md:text-lg">
-                    Providing high-level advisory and hands-on execution for complex feasibility studies, resource management, corporate incorporation processes, and cross-border commercial expansions. We turn strategic concepts into concrete, executable milestones.
-                </p>
-            </div>
-
-            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-4">
-                <h2 class="text-2xl font-bold text-gold flex items-center gap-3">
-                    <i class="fa-solid fa-headset text-lg"></i> 4. Outbound Support & Fractional Operations
-                </h2>
-                <p class="text-gray-300 leading-relaxed text-base md:text-lg">
-                    Coordinating dedicated appointment-setting campaigns, customer success protocols, and fractional management support. We supply businesses with the operational backbone needed to scale client acquisition and support structures seamlessly.
-                </p>
-            </div>
-
-            <!-- Extra Block 1 in Services -->
-            <div class="bg-card border border-gold/20 rounded-sm p-8 shadow-xl space-y-4">
-                <h3 class="text-xl font-bold text-gold">Customized Service Agreements</h3>
-                <p class="text-gray-300 text-sm md:text-base leading-relaxed">
-                    Every enterprise possesses distinct structural needs. Our team evaluates your specific operational requirements to formulate custom service level agreements (SLAs) tailored precisely to your growth targets.
-                </p>
-            </div>
-
-            <!-- Extra Block 2 in Services -->
-            <div class="bg-surface border border-gold/30 rounded-sm p-8 shadow-xl space-y-4">
-                <h3 class="text-xl font-bold text-gold">Quality Assurance & Performance Metrics</h3>
-                <p class="text-gray-300 text-sm md:text-base leading-relaxed">
-                    We implement real-time tracking dashboards, milestone reviews, and qualitative evaluations to ensure that every campaign meets the absolute highest threshold of performance before final client submission.
-                </p>
-            </div>
-
-            <!-- Extra Block 3 in Services -->
-            <div class="bg-card border border-gold/20 rounded-sm p-8 shadow-xl space-y-4">
-                <h3 class="text-xl font-bold text-gold">Continuous Scalability & Expansion Support</h3>
-                <p class="text-gray-300 text-sm md:text-base leading-relaxed">
-                    As your business evolves, our operational framework scales alongside you. From initial pilot programs to enterprise-wide rollout, we provide the flexibility and responsiveness required in dynamic global markets.
+                    Replacing administrative drag, manual bottlenecks, and legacy communication loops with streamlined, intelligent workflows. We audit existing corporate processes and integrate smart automations that drastically reduce overhead.
                 </p>
             </div>
         </div>
 
-        <!-- CANDIDATE PORTAL TAB (TALLY REGISTRATION) -->
+        <!-- CANDIDATE PORTAL TAB -->
         <div id="portal" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-8">
             <div class="bg-surface border border-gold rounded-lg p-8 md:p-10 shadow-2xl space-y-6">
                 <h1 class="text-3xl font-bold text-gold mb-2">Candidate Portal & Email Registration</h1>
                 <p class="text-gray-300 text-sm leading-relaxed">
-                    Register with your e-mail address below via our secure Tally form to unlock <strong class="text-gold">30 days of free access</strong> to our exclusive Job Board. After 30 days, continued access requires a renewal via our secure Wise payment link ($9 / month or $25 / quarter).
+                    Register with your e-mail address below via our secure Tally form to unlock <strong class="text-gold">30 days of free access</strong> to our exclusive Job Board.
                 </p>
-                
-                <!-- Tally Form Embed -->
-                <iframe data-tally-src="https://tally.so/r/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0" title="Goukens-Sy Candidate Portal"></iframe>
-                <script>window.Tally||(window.Tally={});if(!window.Tally.load){v=function(){le.iframe.src=e+(e.includes("?")?"&":"?")+"transparentBackground=1"};if(document.querySelector('script[src*="tally.so/widgets/embed.js"]'))v();else{s=document.createElement("script");s.src="https://tally.so/widgets/embed.js";s.async=!0;s.onload=function(){Tally.loadEmbeds()};s.onerror=function(){};document.body.appendChild(s);}};</script>
+                <iframe src="https://tally.so/r/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0" title="Goukens-Sy Candidate Portal"></iframe>
+                <script async src="https://tally.so/widgets/embed.js"></script>
             </div>
         </div>
-
-        <!-- JOB BOARD TAB (PROTECTED BY ACCESS CODE Gouk7507@) -->
-        <div id="jobs" class="tab-content hidden max-w-5xl mx-auto px-6 py-16 space-y-8">
+        <!-- JOB BOARD TAB -->
+        <div id="jobs" class="tab-content hidden max-w-6xl mx-auto px-6 py-16 space-y-8">
             
             <div id="job-locked-view" class="hidden bg-surface border border-gold/40 p-10 rounded-lg text-center space-y-6 shadow-2xl">
                 <div class="w-16 h-16 bg-gold/15 text-gold rounded-full flex items-center justify-center mx-auto text-2xl">
@@ -350,23 +231,22 @@
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-card p-6 rounded-lg border border-gold/30">
                     <div>
                         <span class="text-gold text-xs font-semibold uppercase tracking-wider bg-gold/10 px-3 py-1 rounded-full">Authorized Access Area</span>
-                        <h1 class="text-2xl font-bold text-white mt-2">Active Project Openings & Vacancies</h1>
+                        <h1 class="text-2xl font-bold text-white mt-2">Active Project Openings & Vacancies (Full Index)</h1>
                     </div>
                     <div class="text-right text-xs text-gray-400 space-y-1">
                         <div><span class="text-gold font-bold">Access Status:</span> Unlocked via Passcode</div>
-                        <!-- Wise Payment Renewal Links -->
                         <div class="pt-1 flex gap-2 justify-end">
-                            <a href="HIER_JE_WISE_LINK_INVOEGEN" target="_blank" class="px-2.5 py-1 bg-gold text-obsidian font-bold rounded hover:bg-gold-light transition">Renew Monthly ($9)</a>
-                            <a href="HIER_JE_WISE_LINK_INVOEGEN" target="_blank" class="px-2.5 py-1 border border-gold text-gold font-bold rounded hover:bg-gold/10 transition">Renew Quarterly ($25)</a>
+                            <a href="#" target="_blank" class="px-2.5 py-1 bg-gold text-obsidian font-bold rounded hover:bg-gold-light transition">Renew Monthly ($9)</a>
+                            <a href="#" target="_blank" class="px-2.5 py-1 border border-gold text-gold font-bold rounded hover:bg-gold/10 transition">Renew Quarterly ($25)</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="bg-surface border border-gold/20 rounded-lg overflow-hidden shadow-2xl">
-                    <div class="overflow-x-auto">
+                    <div class="overflow-x-auto max-h-[700px]">
                         <table class="w-full text-left border-collapse text-sm">
-                            <thead>
-                                <tr class="bg-card text-gray-400 border-b border-gold/20 uppercase text-xs tracking-wider">
+                            <thead class="sticky top-0 bg-card text-gray-400 border-b border-gold/20 uppercase text-xs tracking-wider z-10">
+                                <tr class="bg-card">
                                     <th class="p-4">Project / Title</th>
                                     <th class="p-4">Status</th>
                                     <th class="p-4">Language / Region</th>
@@ -374,27 +254,62 @@
                                     <th class="p-4">Closing Date</th>
                                 </tr>
                             </thead>
-                            <tbody class="divide-y divide-gold/10 text-gray-300">
-                                <tr onclick="openJobDetail('OC05 | Phase 2 - USA-based Utterance Audio Recording', 'AlxBlock is recruiting 10 native English speakers in the U.S. for audio recording tasks and voice collection campaigns.', 'English (United States)', '2026-10-01')" class="hover:bg-card/60 cursor-pointer transition">
-                                    <td class="p-4 font-semibold text-white">OC05 | Phase 2 - USA-based Utterance Audio Recording</td>
+                            <tbody class="divide-y divide-gold/10 text-gray-300" id="job-table-body">
+                                <tr onclick="openJobDetail('GS-PROJ-1001 | OC03- Face Motion Collection Project', 'Detailed guidelines for facial motion collection and keypoint alignment.', 'English (Global)', '2026-10-01')" class="hover:bg-card/60 cursor-pointer transition">
+                                    <td class="p-4 font-semibold text-white">GS-PROJ-1001 | OC03- Face Motion Collection Project</td>
+                                    <td class="p-4"><span class="px-2.5 py-1 bg-blue-950 text-blue-400 border border-blue-800 rounded-full text-xs">Active</span></td>
+                                    <td class="p-4"><span class="text-xs bg-gold/10 text-gold px-2 py-1 rounded border border-gold/30">English (Global)</span></td>
+                                    <td class="p-4 text-xs text-gray-400">Motion Capture</td>
+                                    <td class="p-4 text-xs text-gray-400">2026-10-01</td>
+                                </tr>
+                                <tr onclick="openJobDetail('GS-PROJ-1002 | African Languages QA Transcription Project', 'Quality assurance and transcription review for regional African dialects.', 'Swahili / Amharic', '2026-09-18')" class="hover:bg-card/60 cursor-pointer transition">
+                                    <td class="p-4 font-semibold text-white">GS-PROJ-1002 | African Languages QA Transcription Project</td>
+                                    <td class="p-4"><span class="px-2.5 py-1 bg-blue-950 text-blue-400 border border-blue-800 rounded-full text-xs">Active</span></td>
+                                    <td class="p-4"><span class="text-xs bg-gold/10 text-gold px-2 py-1 rounded border border-gold/30">Swahili / Amharic</span></td>
+                                    <td class="p-4 text-xs text-gray-400">Transcription</td>
+                                    <td class="p-4 text-xs text-gray-400">2026-09-18</td>
+                                </tr>
+                                <tr onclick="openJobDetail('GS-PROJ-1003 | OC05 | Phase 2 - USA-based Utterance Audio Recording', 'High-fidelity audio collection for conversational AI speech models.', 'English (US)', '2026-10-01')" class="hover:bg-card/60 cursor-pointer transition">
+                                    <td class="p-4 font-semibold text-white">GS-PROJ-1003 | OC05 | Phase 2 - USA-based Utterance Audio Recording</td>
                                     <td class="p-4"><span class="px-2.5 py-1 bg-blue-950 text-blue-400 border border-blue-800 rounded-full text-xs">Active</span></td>
                                     <td class="p-4"><span class="text-xs bg-gold/10 text-gold px-2 py-1 rounded border border-gold/30">English (US)</span></td>
                                     <td class="p-4 text-xs text-gray-400">Audio Recording</td>
                                     <td class="p-4 text-xs text-gray-400">2026-10-01</td>
                                 </tr>
-                                <tr onclick="openJobDetail('UB03_1261_Code-Switching Project - RECORDING ROLE', 'We are seeking native speakers for a research project focused on code-switching between Dutch (Netherlands) and English.', 'Dutch (Netherlands)', '2026-09-21')" class="hover:bg-card/60 cursor-pointer transition">
-                                    <td class="p-4 font-semibold text-white">UB03_1261_Code-Switching Project - DUTCH & English</td>
+                                <tr onclick="openJobDetail('GS-PROJ-1004 | RC01 German Real-world Call Center QC', 'Quality control and transcription annotation for German phone interactions.', 'German (Germany)', '2026-07-17')" class="hover:bg-card/60 cursor-pointer transition">
+                                    <td class="p-4 font-semibold text-white">GS-PROJ-1004 | RC01 German Real-world Call Center QC</td>
+                                    <td class="p-4"><span class="px-2.5 py-1 bg-blue-950 text-blue-400 border border-blue-800 rounded-full text-xs">Active</span></td>
+                                    <td class="p-4"><span class="text-xs bg-gold/10 text-gold px-2 py-1 rounded border border-gold/30">German (Germany)</span></td>
+                                    <td class="p-4 text-xs text-gray-400">Quality Check</td>
+                                    <td class="p-4 text-xs text-gray-400">2026-07-17</td>
+                                </tr>
+                                <tr onclick="openJobDetail('GS-PROJ-1005 | UB03 Code-Switching Project - Dutch', 'Linguistic recording of mixed-language utterances and bilingual phrasing.', 'Dutch (Netherlands)', '2026-09-21')" class="hover:bg-card/60 cursor-pointer transition">
+                                    <td class="p-4 font-semibold text-white">GS-PROJ-1005 | UB03 Code-Switching Project - Dutch</td>
                                     <td class="p-4"><span class="px-2.5 py-1 bg-blue-950 text-blue-400 border border-blue-800 rounded-full text-xs">Active</span></td>
                                     <td class="p-4"><span class="text-xs bg-gold/10 text-gold px-2 py-1 rounded border border-gold/30">Dutch (Netherlands)</span></td>
                                     <td class="p-4 text-xs text-gray-400">Linguistic Recording</td>
                                     <td class="p-4 text-xs text-gray-400">2026-09-21</td>
                                 </tr>
-                                <tr onclick="openJobDetail('GS-EXEC-08 | Fractional Operations Support & Appointment Setting', 'Coordinating ongoing outbound service campaigns, voice collection, transcription, and appointment setting through Goukenssy Business Support Services.', 'English (Global)', '2026-11-15')" class="hover:bg-card/60 cursor-pointer transition">
-                                    <td class="p-4 font-semibold text-white">GS-EXEC-08 | Lead Generation & Appointment Setting Campaign</td>
+                                <tr onclick="openJobDetail('GS-PROJ-1006 | UB03 Code-Switching Project - Italian', 'Linguistic recording of Italian-English structured dialogue.', 'Italian (Italy)', '2026-09-21')" class="hover:bg-card/60 cursor-pointer transition">
+                                    <td class="p-4 font-semibold text-white">GS-PROJ-1006 | UB03 Code-Switching Project - Italian</td>
                                     <td class="p-4"><span class="px-2.5 py-1 bg-blue-950 text-blue-400 border border-blue-800 rounded-full text-xs">Active</span></td>
-                                    <td class="p-4"><span class="text-xs bg-gold/10 text-gold px-2 py-1 rounded border border-gold/30">English (Global)</span></td>
-                                    <td class="p-4 text-xs text-gray-400">Outbound Support</td>
-                                    <td class="p-4 text-xs text-gray-400">2026-11-15</td>
+                                    <td class="p-4"><span class="text-xs bg-gold/10 text-gold px-2 py-1 rounded border border-gold/30">Italian (Italy)</span></td>
+                                    <td class="p-4 text-xs text-gray-400">Linguistic Recording</td>
+                                    <td class="p-4 text-xs text-gray-400">2026-09-21</td>
+                                </tr>
+                                <tr onclick="openJobDetail('GS-PROJ-1007 | HCC Risk Adjustment Medical Coder', 'Reviewing and validating complex medical charts and diagnostic records.', 'English (US)', '2027-06-02')" class="hover:bg-card/60 cursor-pointer transition">
+                                    <td class="p-4 font-semibold text-white">GS-PROJ-1007 | HCC Risk Adjustment Medical Coder</td>
+                                    <td class="p-4"><span class="px-2.5 py-1 bg-blue-950 text-blue-400 border border-blue-800 rounded-full text-xs">Active</span></td>
+                                    <td class="p-4"><span class="text-xs bg-gold/10 text-gold px-2 py-1 rounded border border-gold/30">English (US)</span></td>
+                                    <td class="p-4 text-xs text-gray-400">Medical Coding</td>
+                                    <td class="p-4 text-xs text-gray-400">2027-06-02</td>
+                                </tr>
+                                <tr onclick="openJobDetail('GS-PROJ-1008 | SS01 Burmese & Tamil Studio Speech Project', 'Studio speech recording for localized text-to-speech training.', 'Singaporean Tamil / Burmese', '2026-07-04')" class="hover:bg-card/60 cursor-pointer transition">
+                                    <td class="p-4 font-semibold text-white">GS-PROJ-1008 | SS01 Burmese & Tamil Studio Speech Project</td>
+                                    <td class="p-4"><span class="px-2.5 py-1 bg-blue-950 text-blue-400 border border-blue-800 rounded-full text-xs">Active</span></td>
+                                    <td class="p-4"><span class="text-xs bg-gold/10 text-gold px-2 py-1 rounded border border-gold/30">Tamil / Burmese</span></td>
+                                    <td class="p-4 text-xs text-gray-400">TTS Project</td>
+                                    <td class="p-4 text-xs text-gray-400">2026-07-04</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -402,7 +317,7 @@
                 </div>
             </div>
 
-            <!-- 3. JOB DETAIL VIEW -->
+            <!-- JOB DETAIL VIEW -->
             <div id="job-detail-view" class="hidden space-y-6">
                 <button onclick="backToList()" class="px-4 py-2 bg-card border border-gold/40 text-gold text-xs font-bold uppercase rounded hover:bg-gold hover:text-obsidian transition">
                     <i class="fa-solid fa-arrow-left mr-2"></i> Back to Job List
@@ -458,7 +373,6 @@
             </div>
 
         </div>
-
         <!-- CONTACT TAB -->
         <div id="contact" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-12">
             <div class="text-center mb-12">
@@ -488,3 +402,4 @@
 
 </body>
 </html>
+        
