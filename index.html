@@ -1,334 +1,200 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Goukens-sy Business Support | Executive Leadership & Global Operations</title>
-    <style>
-        :root {
-            --bg-color: #0d0d0d;
-            --card-bg: #141414;
-            --gold: #d4af37;
-            --gold-light: #f3e5ab;
-            --text-main: #e0e0e0;
-            --text-muted: #a0a0a0;
-            --border-color: #2a2a2a;
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#0d0d0d',
+                        gold: '#d4af37',
+                        'gold-light': '#f3e5ab',
+                        surface: '#141414',
+                        card: '#1c1c1c'
+                    }
+                }
+            }
         }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-
-        header {
-            text-align: center;
-            padding: 60px 20px 40px;
-            border-bottom: 1px solid var(--border-color);
-            background: linear-gradient(180deg, #121212 0%, var(--bg-color) 100%);
-        }
-
-        header h1 {
-            color: var(--gold);
-            font-size: 32px;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
-
-        header p {
-            color: var(--gold-light);
-            font-size: 16px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .section-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-left: 3px solid var(--gold);
-            border-radius: 6px;
-            padding: 35px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        .section-card h2 {
-            color: var(--gold);
-            font-size: 22px;
-            margin-top: 0;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-        }
-
-        p {
-            color: var(--text-main);
-            margin-bottom: 20px;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0;
-        }
-
-        ul li {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 12px;
-            color: var(--text-main);
-        }
-
-        ul li::before {
-            content: "▪";
-            position: absolute;
-            left: 0;
-            color: var(--gold);
-            font-size: 18px;
-        }
-
-        ul li strong {
-            color: var(--gold-light);
-        }
-
-        .highlight-quote {
-            font-style: italic;
-            border-left: 2px solid var(--gold);
-            padding-left: 20px;
-            margin: 25px 0;
-            color: #dcdcdc;
-            background: rgba(212, 175, 55, 0.03);
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
-
-        /* Widget Placeholder Styling */
-        .widget-placeholder {
-            border: 1px dashed var(--gold);
-            border-radius: 6px;
-            padding: 30px;
-            text-align: center;
-            color: var(--text-muted);
-            background: rgba(212, 175, 55, 0.02);
-            margin: 20px 0;
-            font-style: italic;
-        }
-
-        /* Registration Form Styling */
-        .registration-container {
-            background-color: var(--card-bg);
-            border: 1px solid var(--gold);
-            border-radius: 8px;
-            padding: 40px;
-            margin-top: 50px;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
-        }
-
-        .registration-container h2 {
-            color: var(--gold);
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 26px;
-        }
-
-        .registration-subtitle {
-            color: var(--text-muted);
-            font-size: 14px;
-            margin-bottom: 30px;
-            line-height: 1.5;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--gold);
-            font-weight: 500;
-            font-size: 14px;
-        }
-
-        .form-group input[type="text"],
-        .form-group input[type="date"],
-        .form-group input[type="file"] {
-            width: 100%;
-            padding: 12px;
-            background-color: #1a1a1a;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            color: #fff;
-            font-size: 14px;
-            box-sizing: border-box;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input[type="text"]:focus,
-        .form-group input[type="date"]:focus {
-            border-color: var(--gold);
-            outline: none;
-        }
-
-        .form-group input[type="file"] {
-            padding: 10px;
-            color: var(--text-muted);
-        }
-
-        .file-hint {
-            display: block;
-            margin-top: 5px;
-            color: #777;
-            font-size: 12px;
-        }
-
-        .submit-btn {
-            background: linear-gradient(135deg, #d4af37 0%, #aa8c2c 100%);
-            color: #121212;
-            border: none;
-            padding: 14px 20px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-            transition: opacity 0.3s;
-            margin-top: 10px;
-        }
-
-        .submit-btn:hover {
-            opacity: 0.9;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: #666;
-            font-size: 13px;
-            border-top: 1px solid var(--border-color);
-            margin-top: 60px;
-        }
-    </style>
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body class="bg-obsidian text-gray-200 font-sans antialiased selection:bg-gold selection:text-obsidian">
 
-    <header>
-        <h1>Goukens-sy Business Support</h1>
-        <p>Executive Leadership & Global Operations</p>
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-50 bg-obsidian/95 backdrop-blur-md border-b border-gold/20">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#home" class="text-xl md:text-2xl font-bold tracking-wider text-gold flex items-center gap-2">
+                <i class="fa-solid fa-gem text-gold"></i> GOUKENS-SY
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm uppercase tracking-widest">
+                <a href="#home" class="hover:text-gold transition">Home</a>
+                <a href="#vision" class="hover:text-gold transition">Vision</a>
+                <a href="#services" class="hover:text-gold transition">Services</a>
+                <a href="#join" class="text-gold font-semibold border-b border-gold pb-1">Join Network</a>
+                <a href="#contact" class="hover:text-gold transition">Contact</a>
+            </nav>
+            <a href="#join" class="hidden lg:inline-block px-5 py-2.5 border border-gold text-gold hover:bg-gold hover:text-obsidian font-medium text-sm tracking-wider transition rounded-sm">
+                Apply Now
+            </a>
+        </div>
     </header>
 
-    <div class="container">
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-[70vh] flex items-center justify-center bg-gradient-to-b from-obsidian via-surface to-obsidian px-6 py-20 border-b border-gold/10">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-4 inline-block px-3 py-1 border border-gold/30 rounded-full">
+                Executive Leadership & Global Operations
+            </span>
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 text-white">
+                Goukens-sy <span class="text-gold">Business Support</span>
+            </h1>
+            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+                Operating remotely from anywhere in the world. We don’t pay an employee to look good in an office; we pay for their knowledge, execution, and value.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#vision" class="px-8 py-4 bg-gold text-obsidian font-bold tracking-wider uppercase text-sm hover:bg-gold-light transition rounded-sm shadow-lg shadow-gold/10">
+                    Our Vision
+                </a>
+                <a href="#join" class="px-8 py-4 border border-gold/50 text-white font-bold tracking-wider uppercase text-sm hover:border-gold transition rounded-sm">
+                    Join Network
+                </a>
+            </div>
+        </div>
+    </section>
 
-        <!-- Section 1 -->
-        <div class="section-card">
-            <h2>Our Vision: Executive Leadership & Global Operations</h2>
-            <p>For decades, the standard playbook for scaling enterprise operations involved adding layers of management, maintaining bloated physical offices, and viewing talent through a restrictive geographic lens. Today, that legacy model is a liability.</p>
-            <p>As a Fractional COO managing global business support operations, I speak with Western corporate leaders every week who face a hard truth: clients don't hire an executive for their seat presence or desk hours. They hire raw talent, unyielding agility, and uncompromising execution.</p>
-            <div class="highlight-quote">
+    <!-- Main Content Container -->
+    <div class="max-w-4xl mx-auto px-6 py-16 space-y-12">
+
+        <!-- Section 1: Vision -->
+        <div id="vision" class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
+            <h2 class="text-2xl font-bold text-gold mb-6 flex items-center gap-3">
+                <i class="fa-solid fa-bullseye text-lg"></i> Our Vision: Executive Leadership & Global Operations
+            </h2>
+            <p class="text-gray-300 mb-4 leading-relaxed">
+                For decades, the standard playbook for scaling enterprise operations involved adding layers of management, maintaining bloated physical offices, and viewing talent through a restrictive geographic lens. Today, that legacy model is a liability.
+            </p>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+                As part of our executive leadership managing global business support operations, we speak with Western corporate leaders every week who face a hard truth: clients don't hire an executive for their seat presence or desk hours. They hire raw talent, unyielding agility, and uncompromising execution.
+            </p>
+            <div class="border-l-2 border-gold pl-5 my-6 py-3 bg-gold/5 italic text-gray-200">
                 "It is high time to fully embrace the new way of working: operating remotely from anywhere in the world. We don’t pay an employee to look good in an office; we pay for their knowledge, execution, and value. The traditional suit-and-tie corporate culture is old school—look at Elon Musk, the richest man in the world, who leads in a T-shirt."
             </div>
         </div>
 
-        <!-- Section 2 -->
-        <div class="section-card">
-            <h2>Beyond Remote Boundaries</h2>
-            <p>The traditional debate around remote versus in-office work misses the forest for the trees. The real evolution isn't about where work is done—it is about how intelligently it is executed.</p>
-            <p>Outdated remote-work rules treat physical location as a proxy for productivity. In reality, true operational excellence is built on trust, transparent performance metrics, and borderless talent acquisition. By stepping past arbitrary geographic restrictions, companies tap into top-tier global expertise that instantly elevates their capabilities.</p>
+        <!-- Section 2: Beyond Remote Boundaries -->
+        <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
+            <h2 class="text-2xl font-bold text-gold mb-6 flex items-center gap-3">
+                <i class="fa-solid fa-earth-americas text-lg"></i> Beyond Remote Boundaries
+            </h2>
+            <p class="text-gray-300 mb-4 leading-relaxed">
+                The traditional debate around remote versus in-office work misses the forest for the trees. The real evolution isn't about where work is done—it is about how intelligently it is executed.
+            </p>
+            <p class="text-gray-300 leading-relaxed">
+                Outdated remote-work rules treat physical location as a proxy for productivity. In reality, true operational excellence is built on trust, transparent performance metrics, and borderless talent acquisition. By stepping past arbitrary geographic restrictions, companies tap into top-tier global expertise that instantly elevates their capabilities.
+            </p>
         </div>
 
-        <!-- Section 3 -->
-        <div class="section-card">
-            <h2>The AI-Driven Operational Shift</h2>
-            <p>While the strategic landscape evolves, the interim management and Business Process Outsourcing (BPO) landscapes are moving far too slowly when it comes to fully integrating AI-augmented workflows.</p>
-            <p>Administrative drag, manual bottlenecks, and legacy communication loops are draining corporate resources. The future belongs to organizations that treat AI not as a buzzword, but as the core engine of day-to-day execution:</p>
-            <ul>
-                <li><strong>Autonomous Workflows:</strong> Replacing repetitive friction points with intelligent automation.</li>
-                <li><strong>Agile Leadership:</strong> Deploying fractional executive talent that hits the ground running on day one without onboarding lag.</li>
-                <li><strong>Outcome-Centric Culture:</strong> Measuring success strictly by output, efficiency, and real-world impact.</li>
+        <!-- Section 3: AI-Driven Operational Shift -->
+        <div id="services" class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
+            <h2 class="text-2xl font-bold text-gold mb-6 flex items-center gap-3">
+                <i class="fa-solid fa-microchip text-lg"></i> The AI-Driven Operational Shift
+            </h2>
+            <p class="text-gray-300 mb-4 leading-relaxed">
+                While the strategic landscape evolves, the interim management and Business Process Outsourcing (BPO) landscapes are moving far too slowly when it comes to fully integrating AI-augmented workflows.
+            </p>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+                Administrative drag, manual bottlenecks, and legacy communication loops are draining corporate resources. The future belongs to organizations that treat AI not as a buzzword, but as the core engine of day-to-day execution:
+            </p>
+            <ul class="space-y-3 text-gray-300 pl-2">
+                <li class="flex items-start gap-3">
+                    <span class="text-gold font-bold mt-1">▪</span>
+                    <div><strong class="text-gold-light">Autonomous Workflows:</strong> Replacing repetitive friction points with intelligent automation.</div>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-gold font-bold mt-1">▪</span>
+                    <div><strong class="text-gold-light">Agile Leadership:</strong> Deploying fractional executive talent that hits the ground running on day one without onboarding lag.</div>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-gold font-bold mt-1">▪</span>
+                    <div><strong class="text-gold-light">Outcome-Centric Culture:</strong> Measuring success strictly by output, efficiency, and real-world impact.</div>
+                </li>
             </ul>
         </div>
 
-        <!-- Section 4 -->
-        <div class="section-card">
-            <h2>Reshaping the Labor Market</h2>
-            <p>As senior-level executives, we recognize a vital truth: getting older doesn't mean we stop evaluating or evolving. In a few years, we will be succeeded by the brilliant minds working under us today. If we do not fundamentally reshape how we view the global labor market and embrace technological evolution right now, businesses risk being left completely behind tomorrow. Scaling efficiently requires bridging Western corporate strategy with high-performance, tech-forward execution hubs.</p>
-            <p>Operational leadership in the AI era demands a commitment to speed, precision, and an absolute rejection of legacy limitations.</p>
-            <p style="color: var(--gold-light); font-weight: 500; margin-top: 20px;">Are you still managing your operations by yesterday's rules, or is your business ready for the AI era and the new century?</p>
-            
-            <p style="margin-top: 25px;">Whether you are looking to deploy global tech talent, optimize your operational workflow through AI-augmented systems, explore our Employer of Record (EOR) capabilities, or invite our leadership for speaking engagements, our executive team is ready to assist you.</p>
+        <!-- Section 4: Reshaping the Labor Market -->
+        <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
+            <h2 class="text-2xl font-bold text-gold mb-6 flex items-center gap-3">
+                <i class="fa-solid fa-users-gear text-lg"></i> Reshaping the Labor Market
+            </h2>
+            <p class="text-gray-300 mb-4 leading-relaxed">
+                As senior-level executives, we recognize a vital truth: getting older doesn't mean we stop evaluating or evolving. In a few years, we will be succeeded by the brilliant minds working under us today. If we do not fundamentally reshape how we view the global labor market and embrace technological evolution right now, businesses risk being left completely behind tomorrow. Scaling efficiently requires bridging Western corporate strategy with high-performance, tech-forward execution hubs.
+            </p>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+                Operational leadership in the AI era demands a commitment to speed, precision, and an absolute rejection of legacy limitations.
+            </p>
+            <p class="text-gold-light font-medium mb-6">
+                Are you still managing your operations by yesterday's rules, or is your business ready for the AI era and the new century?
+            </p>
+            <p class="text-gray-300 leading-relaxed">
+                Whether you are looking to deploy global tech talent, optimize your operational workflow through AI-augmented systems, explore our Employer of Record (EOR) capabilities, or invite our leadership for speaking engagements, our executive team is ready to assist you.
+            </p>
         </div>
 
         <!-- Section 5: Schedule an Executive Consultation -->
-        <div class="section-card">
-            <h2>Schedule an Executive Consultation or Seminar</h2>
-            <p>Skip the back-and-forth emails. Select a convenient date and time below to book an automated consultation or schedule our leadership for corporate meetings, strategy sessions, and online seminars / webinars on AI, remote workforce management, and global BPO scaling.</p>
+        <div id="contact" class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
+            <h2 class="text-2xl font-bold text-gold mb-4 flex items-center gap-3">
+                <i class="fa-regular fa-calendar-days text-lg"></i> Schedule an Executive Consultation or Seminar
+            </h2>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+                Skip the back-and-forth emails. Select a convenient date and time below to book an automated consultation or schedule our leadership for corporate meetings, strategy sessions, and online seminars / webinars on AI, remote workforce management, and global BPO scaling.
+            </p>
             
-            <div class="widget-placeholder">
+            <div class="border border-dashed border-gold/40 rounded-sm p-8 text-center bg-obsidian/50 text-gray-400 italic">
                 [Embed Automated Booking Calendar / e.g., YouCanBookMe Widget]
             </div>
         </div>
 
         <!-- Section 6: Direct Inquiries -->
-        <div class="section-card">
-            <h2>Direct Inquiries</h2>
-            <p>Voor specifieke vragen of direct contact met de directie bereik je ons via de officiële kanalen of e-mail.</p>
+        <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
+            <h2 class="text-2xl font-bold text-gold mb-4 flex items-center gap-3">
+                <i class="fa-solid fa-envelope text-lg"></i> Direct Inquiries
+            </h2>
+            <p class="text-gray-300 leading-relaxed">
+                Voor specifieke vragen of direct contact met de directie bereik je ons via de officiële kanalen of e-mail.
+            </p>
         </div>
 
         <!-- Registration Form Section for Candidates -->
-        <div class="registration-container">
-            <h2>Register Your Profile</h2>
-            <p class="registration-subtitle">Ready to take the next step in your career? Please submit your professional details and CV securely below, and our team will match your skill set with upcoming global projects.</p>
+        <div id="join" class="bg-surface border border-gold rounded-lg p-8 md:p-10 shadow-2xl">
+            <h2 class="text-3xl font-bold text-gold mb-2">Register Your Profile</h2>
+            <p class="text-gray-400 text-sm mb-8 leading-relaxed">
+                Ready to take the next step in your career? Please submit your professional details and CV securely below, and our team will match your skill set with upcoming global projects.
+            </p>
             
-            <form action="#" method="POST" enctype="multipart/form-data" class="registration-form">
-                <div class="form-group">
-                    <label for="fullname">Volledige naam</label>
-                    <input type="text" id="fullname" name="fullname" required placeholder="Bijv. Jan de Vries">
-                </div>
-
-                <div class="form-group">
-                    <label for="dob">Geboortedatum</label>
-                    <input type="date" id="dob" name="dob" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="location">Woonplaats</label>
-                    <input type="text" id="location" name="location" required placeholder="Bijv. Amsterdam">
-                </div>
-
-                <div class="form-group">
-                    <label for="languages">Talen die ze spreken</label>
-                    <input type="text" id="languages" name="languages" required placeholder="Bijv. Nederlands, Engels">
-                </div>
-
-                <div class="form-group">
-                    <label for="project">Project waar ze willen aan werken</label>
-                    <input type="text" id="project" name="project" required placeholder="Beschrijf je voorkeur of ervaring...">
-                </div>
-
-                <div class="form-group">
-                    <label for="cv">CV (Bestand uploaden)</label>
-                    <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
-                    <small class="file-hint">Accepteert PDF, DOC, DOCX</small>
-                </div>
-
-                <button type="submit" class="submit-btn">Verstuur Registratie</button>
-            </form>
+            <!-- Tally Form Embed -->
+            <iframe data-tally-src="https://tally.so/r/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" title="Goukens-Sy Candidate Registration"></iframe>
+            <script>window.Tally||(window.Tally={});if(!window.Tally.load){v=function(){le.iframe.src=e+(e.includes("?")?"&":"?")+"transparentBackground=1"};if(document.querySelector('script[src*="tally.so/widgets/embed.js"]'))v();else{s=document.createElement("script");s.src="https://tally.so/widgets/embed.js";s.async=!0;s.onload=function(){Tally.loadEmbeds()};s.onerror=function(){};document.body.appendChild(s);}};</script>
         </div>
 
     </div>
 
-    <footer>
-        &copy; 2026 Goukens-sy Business Support. All rights reserved.
+    <!-- Footer -->
+    <footer class="bg-surface border-t border-gold/20 py-12 px-6 text-center text-sm text-gray-500 mt-20">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="text-gold font-bold tracking-widest flex items-center gap-2">
+                <i class="fa-solid fa-gem"></i> GOUKENS-SY
+            </div>
+            <p>&copy; 2026 Goukens-sy Business Support. All rights reserved. Executive Leadership & Global Operations.</p>
+            <div class="flex gap-6 text-gray-400">
+                <a href="#" class="hover:text-gold transition"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" class="hover:text-gold transition"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
     </footer>
 
 </body>
