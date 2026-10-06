@@ -1,385 +1,209 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Goukens-sy Business Support | Executive Leadership & Global Operations</title>
-    <style>
-        :root {
-            --bg-obsidian: #0d0d0d;
-            --bg-card: #161616;
-            --border-gold: #c5a059;
-            --text-gold: #e2c074;
-            --text-light: #f1f1f1;
-            --text-muted: #b0b0b0;
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: var(--bg-obsidian);
-            color: var(--text-light);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        /* Header & Navigatie */
-        header {
-            background: rgba(13, 13, 13, 0.95);
-            border-bottom: 1px solid var(--border-gold);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 2rem;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-gold);
-            letter-spacing: 1px;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-light);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--text-gold);
-            border-bottom: 2px solid var(--border-gold);
-            padding-bottom: 3px;
-        }
-
-        /* Main Container & Secties */
-        main {
-            max-width: 950px;
-            margin: 120px auto 80px auto;
-            padding: 0 2rem;
-        }
-
-        section {
-            display: none;
-            padding-top: 1rem;
-        }
-
-        section.active-section {
-            display: block;
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            color: var(--text-gold);
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        .subtitle {
-            font-size: 1.3rem;
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-            font-weight: 400;
-            border-left: 3px solid var(--border-gold);
-            padding-left: 1rem;
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            color: var(--text-gold);
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        p {
-            margin-bottom: 1.2rem;
-            color: var(--text-muted);
-            font-size: 1.05rem;
-        }
-
-        ul {
-            margin-bottom: 1.5rem;
-            padding-left: 1.5rem;
-            color: var(--text-muted);
-        }
-
-        li {
-            margin-bottom: 0.6rem;
-            font-size: 1.05rem;
-        }
-
-        li strong {
-            color: var(--text-light);
-        }
-
-        .card-box {
-            background: var(--bg-card);
-            border: 1px solid #262626;
-            border-left: 3px solid var(--border-gold);
-            padding: 2rem;
-            border-radius: 6px;
-            margin: 2rem 0;
-        }
-
-        .embed-container {
-            background: var(--bg-card);
-            border: 1px dashed var(--border-gold);
-            padding: 2.5rem;
-            text-align: center;
-            border-radius: 6px;
-            margin: 2rem 0;
-            color: var(--text-gold);
-            font-weight: 500;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 3rem 2rem;
-            border-top: 1px solid #222;
-            color: #666;
-            font-size: 0.9rem;
-            margin-top: 4rem;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                gap: 0.8rem;
-                font-size: 0.85rem;
-            }
-            h1 {
-                font-size: 2.2rem;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <nav>
-            <a href="#home" class="logo" onclick="switchPage('home', event)">GOUKENSSY</a>
-            <ul class="nav-links">
-                <li><a href="#home" class="nav-link active" onclick="switchPage('home', event)">Home</a></li>
-                <li><a href="#coo" class="nav-link" onclick="switchPage('coo', event)">COO (Geert)</a></li>
-                <li><a href="#ceo" class="nav-link" onclick="switchPage('ceo', event)">CEO (Rosemarie)</a></li>
-                <li><a href="#talent" class="nav-link" onclick="switchPage('talent', event)">Global Talent</a></li>
-                <li><a href="#join" class="nav-link" onclick="switchPage('join', event)">Join Network</a></li>
-                <li><a href="#contact" class="nav-link" onclick="switchPage('contact', event)">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <!-- PAGE 1: HOME -->
-        <section id="home" class="active-section">
-            <h1>Goukens-sy Business Support</h1>
-            <div class="subtitle">Executive Leadership & Global Operations</div>
-
-            <h2>Our Vision: Executive Leadership & Global Operations</h2>
-            <p>For decades, the standard playbook for scaling enterprise operations involved adding layers of management, maintaining bloated physical offices, and viewing talent through a restrictive geographic lens. Today, that legacy model is a liability.</p>
-            <p>As a Fractional COO managing global business support operations, I speak with Western corporate leaders every week who face a hard truth: clients don't hire an executive for their seat presence or desk hours. They hire raw talent, unyielding agility, and uncompromising execution. It is high time to fully embrace the new way of working: operating remotely from anywhere in the world. We don’t pay an employee to look good in an office; we pay for their knowledge, execution, and value. The traditional suit-and-tie corporate culture is old school—look at Elon Musk, the richest man in the world, who leads in a T-shirt.</p>
-
-            <h2>Beyond Remote Boundaries</h2>
-            <p>The traditional debate around remote versus in-office work misses the forest for the trees. The real evolution isn't about where work is done—it is about how intelligently it is executed.</p>
-            <p>Outdated remote-work rules treat physical location as a proxy for productivity. In reality, true operational excellence is built on trust, transparent performance metrics, and borderless talent acquisition. By stepping past arbitrary geographic restrictions, companies tap into top-tier global expertise that instantly elevates their capabilities.</p>
-
-            <h2>The AI-Driven Operational Shift</h2>
-            <p>While the strategic landscape evolves, the interim management and Business Process Outsourcing (BPO) landscapes are moving far too slowly when it comes to fully integrating AI-augmented workflows.</p>
-            <p>Administrative drag, manual bottlenecks, and legacy communication loops are draining corporate resources. The future belongs to organizations that treat AI not as a buzzword, but as the core engine of day-to-day execution:</p>
-            <ul>
-                <li><strong>Autonomous Workflows:</strong> Replacing repetitive friction points with intelligent automation.</li>
-                <li><strong>Agile Leadership:</strong> Deploying fractional executive talent that hits the ground running on day one without onboarding lag.</li>
-                <li><strong>Outcome-Centric Culture:</strong> Measuring success strictly by output, efficiency, and real-world impact.</li>
-            </ul>
-
-            <h2>Reshaping the Labor Market</h2>
-            <p>As senior-level executives, we recognize a vital truth: getting older doesn't mean we stop evaluating or evolving. In a few years, we will be succeeded by the brilliant minds working under us today. If we do not fundamentally reshape how we view the global labor market and embrace technological evolution right now, businesses risk being left completely behind tomorrow. Scaling efficiently requires bridging Western corporate strategy with high-performance, tech-forward execution hubs.</p>
-            <p>Operational leadership in the AI era demands a commitment to speed, precision, and an absolute rejection of legacy limitations.</p>
-            
-            <div class="card-box">
-                <p><strong>Are you still managing your operations by yesterday's rules, or is your business ready for the AI era and the new century?</strong></p>
-            </div>
-        </section>
-
-        <!-- PAGE 2: COO -->
-        <section id="coo">
-            <h1>Geert Goukens</h1>
-            <div class="subtitle">Chief Operating Officer (COO) | Executive Operations & Global Strategy</div>
-
-            <p><strong>Profile & Leadership:</strong> As a passionate and result-oriented executive with extensive international experience in sales, customer service, IT systems, and HR management, Geert Goukens brings decades of leadership to Goukens-sy Business Support. Known for a strong analytical mindset, stress resistance, and out-of-the-box thinking, he specializes in building long-term client relationships, business development, and driving high-performance remote teams.</p>
-
-            <h2>Education & Credentials</h2>
-            <ul>
-                <li><strong>Bachelor in Management Sciences:</strong> Open Universiteit Brussel (1990)</li>
-                <li><strong>E-Marketing Degree:</strong> Dutch Trade Academy NHA (2010)</li>
-                <li><strong>Postgraduate Certificate in Education:</strong> Ireland (2005)</li>
-            </ul>
-
-            <h2>Core Competencies & Technical Expertise</h2>
-            <ul>
-                <li><strong>Extensive IT & Network Experience:</strong> Deep technical background spanning network administration, technical support operations, infrastructure management, and digital systems implementation.</li>
-                <li><strong>E-Marketing & Market Development:</strong> Leveraging digital strategies for market penetration, product development, and global expansion.</li>
-                <li><strong>Sales & Operations Management:</strong> Budgeting, sales calculations, direct marketing, and operational execution following strict SLAs.</li>
-                <li><strong>Multilingual Fluency:</strong> Native in Dutch; fluent in French and English; near-fluent in German.</li>
-            </ul>
-
-            <h2>Executive Experience & Background</h2>
-            <ul>
-                <li><strong>Director & Senior Management:</strong> Years of international experience managing corporate growth, coordinating client relations, restructuring operational departments, and developing targeted executive training programs across multinational environments.</li>
-                <li><strong>Enterprise Leadership & Operations:</strong> Extensive background in leading large-scale technical support, network administration, and customer service operations adhering to strict international service level agreements (SLAs).</li>
-                <li><strong>Entrepreneurial Leadership:</strong> Former CEO and founder of a successful enterprise managing a workforce of over 100 employees and multi-million-euro annual turnovers, specializing in large-scale contract negotiations and workforce expansion.</li>
-            </ul>
-        </section>
-
-        <!-- PAGE 3: CEO -->
-        <section id="ceo">
-            <h1>Rosemarie Balilo Sy</h1>
-            <div class="subtitle">Chief Executive Officer (CEO) | Corporate Strategy, Global Compliance & BPO Excellence</div>
-
-            <p><strong>Profile & Leadership:</strong> As the driving strategic force behind Goukens-sy Business Support, Rosemarie Balilo Sy brings over two decades of extensive executive experience in the Business Process Outsourcing (BPO) industry. Specializing in advanced Quality Assurance (QA), corporate compliance, and global operational scaling, she ensures that the enterprise seamlessly bridges Western corporate demands with elite, borderless execution. Her leadership focuses on robust corporate structure, financial precision, and establishing frictionless global operational frameworks.</p>
-
-            <h2>Global Compliance & EOR Integration</h2>
-            <ul>
-                <li><strong>Employer of Record (EOR) Architecture:</strong> Under her strategic direction, Goukens-sy Business Support implements advanced EOR solutions. This enables international enterprises to deploy global talent safely, compliantly, and efficiently across borders without the administrative drag of establishing local entities.</li>
-                <li><strong>Regulatory Excellence:</strong> Directing corporate registration, international compliance filings, and multi-jurisdictional legal standards to guarantee absolute security and trust for global partners.</li>
-            </ul>
-
-            <h2>Core Executive Focus & Expertise</h2>
-            <ul>
-                <li><strong>BPO & Quality Assurance (QA) Mastery:</strong> Over 20 years of hands-on expertise in managing high-performance BPO operations, rigorous quality assurance frameworks, task management, and administrative infrastructure.</li>
-                <li><strong>Strategic Partnerships:</strong> Cultivating long-term vendor and client relationships across international markets.</li>
-                <li><strong>Scalable Business Frameworks:</strong> Architecting modern corporate compliance and agile management structures tailored for the AI and remote-first era.</li>
-            </ul>
-        </section>
-
-        <!-- PAGE 4: GLOBAL TALENT -->
-        <section id="talent">
-            <h1>Global Talent Solutions</h1>
-            <div class="subtitle">Borderless Expertise for the AI & Digital Era</div>
-
-            <p><strong>Lead Overview:</strong> Accessing elite global talent is no longer about geographic proximity; it is about precision matching, verified capability, and seamless integration. Through our advanced Employer of Record (EOR) infrastructure, Goukens-sy Business Support bridges the gap between Western enterprises and world-class professionals worldwide.</p>
-
-            <h2>Flexible Engagement Models & Global Language Capabilities</h2>
-            <p>We provide agile workforce solutions tailored precisely to your operational timeline. Whether you require <strong>short-term project deployment</strong> (such as rapid AI voice collections, dataset sprints, or targeted testing) or <strong>long-term remote integration</strong> (dedicated developers, analysts, and ongoing management), our network delivers immediate impact without administrative friction. Furthermore, our ecosystem supports <strong>all languages of the world in combination with English</strong>, enabling seamless global communication, multi-lingual transcription, localization, and cross-border project execution.</p>
-
-            <h2>Specialized AI & Data Operations</h2>
-            <p>In addition to traditional software and management roles, we specialize in deploying large-scale global workforces for cutting-edge AI and data enhancement projects. This includes managing international teams for specialized <strong>AI voice collection, speech recording, audio annotation, multi-lingual transcription across global languages, and precise data labeling</strong>. These initiatives form the crucial foundation required to train modern machine learning models and intelligent voice assistants with absolute accuracy.</p>
-
-            <h2>Our Comprehensive Talent Ecosystem</h2>
-            <p>We deploy highly skilled, rigorously vetted professionals across a wide spectrum of specialized technical, analytical, and operational disciplines:</p>
-            <ul>
-                <li><strong>AI & Machine Learning:</strong> AI Engineers, AI Consultants & Strategists, AI/ML Researchers, and Machine Learning Engineers.</li>
-                <li><strong>Voice, Audio & Data Training:</strong> Specialists in AI voice projects, speech collection in global languages, audio quality assurance (QA), transcription, and dataset annotation.</li>
-                <li><strong>Engineering & Development:</strong> Software Engineers and Technical Specialists.</li>
-                <li><strong>Data & Analytics:</strong> Data Analysts, Data Scientists, and Data Annotators.</li>
-                <li><strong>Management & Strategy:</strong> Product Managers and Project Managers.</li>
-                <li><strong>Cybersecurity & IT:</strong> Cybersecurity Analysts and Security Specialists.</li>
-                <li><strong>Digital Content & Growth:</strong> Social Media Managers and Content Writers / Creators.</li>
-            </ul>
-
-            <div class="card-box">
-                <p><strong>Why Global Talent?</strong> By leveraging borderless talent acquisition, organizations eliminate recruitment bottlenecks, scale operations dynamically, and instantly onboard specialized experts who drive innovation and efficiency from day one—all securely managed through our robust compliance and EOR framework.</p>
-            </div>
-        </section>
-
-        <!-- PAGE 5: JOIN OUR NETWORK -->
-        <section id="join">
-            <h1>Join Our Global Network</h1>
-            <div class="subtitle">Shape the Future of AI and Remote Work</div>
-
-            <p>Are you an expert in AI, software development, data annotation, voice collection, or digital operations? Do you thrive in a borderless, remote-first environment? Goukens-sy Business Support is always looking for exceptional global talent to join our high-performance network.</p>
-
-            <h2>Why Join Us?</h2>
-            <ul>
-                <li><strong>Global Opportunities:</strong> Work on cutting-edge AI and tech projects for leading international enterprises.</li>
-                <li><strong>Flexible Engagements:</strong> Choose between short-term project sprints or long-term remote professional roles.</li>
-                <li><strong>Multilingual Impact:</strong> Utilize your native language in combination with English across global transcription, voice recording, and data projects.</li>
-                <li><strong>Reliable & Secure Support:</strong> Enjoy professional onboarding, clear communication, and secure payment processing through our global network.</li>
-            </ul>
-
-            <h2>Register Your Profile</h2>
-            <p>Ready to take the next step in your career? Please submit your professional details and CV securely through our registration sheet below, and our team will match your skill set with upcoming global projects.</p>
-
-            <div class="embed-container">
-                [Embed / Link to Candidate Registration Form / Google Sheet Submission Widget]
-            </div>
-        </section>
-
-        <!-- PAGE 6: CONTACT -->
-        <section id="contact">
-            <h1>Connect With Our Executive Leadership</h1>
-            <div class="subtitle">Scale Your Operations with Borderless Expertise, EOR Solutions & Expert Insights</div>
-
-            <p>Whether you are looking to deploy global tech talent, optimize your operational workflow through AI-augmented systems, explore our Employer of Record (EOR) capabilities, or invite our leadership for speaking engagements, our executive team is ready to assist you.</p>
-
-            <h2>Schedule an Executive Consultation or Seminar</h2>
-            <p>Skip the back-and-forth emails. Select a convenient date and time below to book an automated consultation or schedule our leadership for corporate meetings, strategy sessions, and online seminars / webinars on AI, remote workforce management, and global BPO scaling.</p>
-
-            <div class="embed-container">
-                [Embed Automated Booking Calendar / e.g., YouCanBookMe Widget]
-            </div>
-
-            <h2>Direct Inquiries</h2>
-            <ul>
-                <li><strong>Executive Management:</strong> Operating globally via Goukens-sy Business Support.</li>
-                <li><strong>Business Support & Operations:</strong> Tailored solutions for Western enterprises seeking agile, tech-driven execution.</li>
-            </ul>
-        </section>
-    </main>
-
-    <footer>
-        &copy; 2026 Goukens-sy Business Support Services. All rights reserved.
-    </footer>
-
+    <title>Goukens-sy | Global B2B Corporate Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        // Simpele JavaScript om direct tussen de "pagina's" te wisselen in één bestand
-        function switchPage(pageId, event) {
-            event.preventDefault();
-            
-            // Verberg alle secties
-            const sections = document.querySelectorAll('main section');
-            sections.forEach(sec => sec.classList.remove('active-section'));
-            
-            // Toon de gekozen sectie
-            const targetSection = document.getElementById(pageId);
-            if (targetSection) {
-                targetSection.classList.add('active-section');
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#0d0d0d',
+                        gold: '#d4af37',
+                        'gold-light': '#f3e5ab',
+                        surface: '#161616',
+                        card: '#1f1f1f'
+                    }
+                }
             }
-            
-            // Update actieve navigatieklasse
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => link.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            // Scroll terug naar boven
-            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-obsidian text-gray-200 font-sans antialiased selection:bg-gold selection:text-obsidian">
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-50 bg-obsidian/90 backdrop-blur-md border-b border-gold/20">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#home" class="text-2xl font-bold tracking-wider text-gold flex items-center gap-2">
+                <i class="fa-solid fa-gem text-gold"></i> GOUKENS-SY
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm uppercase tracking-widest">
+                <a href="#home" class="hover:text-gold transition">Home</a>
+                <a href="#about" class="hover:text-gold transition">About Us</a>
+                <a href="#services" class="hover:text-gold transition">Services</a>
+                <a href="#join" class="text-gold font-semibold border-b border-gold pb-1">Join Network</a>
+                <a href="#contact" class="hover:text-gold transition">Contact</a>
+            </nav>
+            <a href="#join" class="hidden lg:inline-block px-5 py-2.5 border border-gold text-gold hover:bg-gold hover:text-obsidian font-medium text-sm tracking-wider transition rounded-sm">
+                Apply Now
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-b from-obsidian via-surface to-obsidian px-6">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-4 inline-block px-3 py-1 border border-gold/30 rounded-full">
+                Global Corporate B2B Platform
+            </span>
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 text-white">
+                Excellence in <span class="text-gold">Global Operations</span> & Strategy
+            </h1>
+            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+                Goukens-sy delivers high-level corporate solutions, strategic resource management, and specialized professional talent networks worldwide.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#join" class="px-8 py-4 bg-gold text-obsidian font-bold tracking-wider uppercase text-sm hover:bg-gold-light transition rounded-sm shadow-lg shadow-gold/10">
+                    Join Our Network
+                </a>
+                <a href="#services" class="px-8 py-4 border border-gold/50 text-white font-bold tracking-wider uppercase text-sm hover:border-gold transition rounded-sm">
+                    Explore Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-24 px-6 bg-surface border-t border-gold/10">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="text-gold uppercase tracking-widest text-xs font-semibold">Corporate Profile</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 mb-6">Driven by Precision, Scalability, and Global Standards</h2>
+                <p class="text-gray-400 leading-relaxed mb-6">
+                    At Goukens-sy, we orchestrate complex international projects, comprehensive business support services, and specialized workforce allocation. Our commitment is anchored in corporate compliance, structured frameworks, and unmatched execution capability.
+                </p>
+                <div class="grid grid-cols-2 gap-6 mt-8">
+                    <div class="border-l-2 border-gold pl-4">
+                        <h4 class="text-white font-bold text-lg">Global Reach</h4>
+                        <p class="text-gray-400 text-sm mt-1">Cross-border operations and resource scaling.</p>
+                    </div>
+                    <div class="border-l-2 border-gold pl-4">
+                        <h4 class="text-white font-bold text-lg">Strict Compliance</h4>
+                        <p class="text-gray-400 text-sm mt-1">Adherence to international business governance.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="relative h-[400px] rounded-sm overflow-hidden border border-gold/20 shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" alt="Corporate Architecture" class="w-full h-full object-cover opacity-80 hover:scale-105 transition duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 px-6 bg-obsidian">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-semibold">Core Expertise</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Specialized Business Solutions</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-card p-8 border border-gold/20 hover:border-gold transition rounded-sm group">
+                    <div class="w-12 h-12 bg-gold/10 text-gold flex items-center justify-center text-xl mb-6 rounded-sm group-hover:bg-gold group-hover:text-obsidian transition">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Corporate Strategy</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">High-level advisory, feasibility analysis, operational resource structuring, and execution roadmaps.</p>
+                </div>
+                <div class="bg-card p-8 border border-gold/20 hover:border-gold transition rounded-sm group">
+                    <div class="w-12 h-12 bg-gold/10 text-gold flex items-center justify-center text-xl mb-6 rounded-sm group-hover:bg-gold group-hover:text-obsidian transition">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Business Support Services</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Comprehensive campaign coordination, specialized voice and data collection, transcription, and workflow management.</p>
+                </div>
+                <div class="bg-card p-8 border border-gold/20 hover:border-gold transition rounded-sm group">
+                    <div class="w-12 h-12 bg-gold/10 text-gold flex items-center justify-center text-xl mb-6 rounded-sm group-hover:bg-gold group-hover:text-obsidian transition">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Global Talent Network</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Curated network of multi-lingual professionals, technical annotators, and executive administrative specialists.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Network / Careers Section -->
+    <section id="join" class="py-24 px-6 bg-surface border-t border-gold/10">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-gold uppercase tracking-widest text-xs font-semibold">Career Opportunities</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Join the Goukens-sy Network</h2>
+                <p class="text-gray-400 mt-4">We are continuously expanding our talent pool across diverse languages, technical domains, and administrative roles. Submit your application below.</p>
+            </div>
+
+            <!-- Tally Form Embed Container -->
+            <div class="bg-card p-6 md:p-10 border border-gold/30 rounded-sm shadow-2xl">
+                <div class="text-center mb-8">
+                    <h3 class="text-xl font-semibold text-white mb-2">Candidate Registration Form</h3>
+                    <p class="text-sm text-gray-400">Please complete the secure form below to submit your credentials.</p>
+                </div>
+                
+                <!-- Tally Embed -->
+                <iframe data-tally-src="https://tally.so/r/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" title="Goukens-Sy Candidate Registration"></iframe>
+                <script>window.Tally||(window.Tally={});if(!window.Tally.load){v=function(){le.iframe.src=e+(e.includes("?")?"&":"?")+"transparentBackground=1"};if(document.querySelector('script[src*="tally.so/widgets/embed.js"]'))v();else{s=document.createElement("script");s.src="https://tally.so/widgets/embed.js";s.async=!0;s.onload=function(){Tally.loadEmbeds()};s.onerror=function(){};document.body.appendChild(s);}};</script>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section with Calendar -->
+    <section id="contact" class="py-24 px-6 bg-obsidian">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div>
+                <span class="text-gold uppercase tracking-widest text-xs font-semibold">Get in Touch</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 mb-6">Initiate Corporate Collaboration</h2>
+                <p class="text-gray-400 mb-8 leading-relaxed">
+                    Connect directly with our executive operations team or schedule an introductory meeting via our live calendar system.
+                </p>
+                <div class="space-y-4 text-gray-300">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-gold/10 text-gold flex items-center justify-center rounded-sm">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <span>corporate@goukens-sy.com</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-gold/10 text-gold flex items-center justify-center rounded-sm">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <span>Global Operations & Strategic Management</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calendar Widget Placeholder / Embed -->
+            <div class="bg-card p-8 border border-gold/20 rounded-sm">
+                <h3 class="text-xl font-bold text-white mb-4">Schedule a Meeting</h3>
+                <p class="text-gray-400 text-sm mb-6">Select a convenient time slot for your consultation.</p>
+                <!-- Replace with actual Calendly or scheduling embed iFrame -->
+                <div class="h-[400px] border border-gold/20 rounded-sm flex items-center justify-center bg-obsidian/50 text-center p-6">
+                    <div>
+                        <i class="fa-regular fa-calendar-days text-4xl text-gold mb-3"></i>
+                        <p class="text-sm text-gray-300 font-medium">Interactive Calendar Widget Active</p>
+                        <p class="text-xs text-gray-500 mt-1">Embed your Calendly or scheduling link here to enable direct booking.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-surface border-t border-gold/20 py-12 px-6 text-center text-sm text-gray-500">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="text-gold font-bold tracking-widest flex items-center gap-2">
+                <i class="fa-solid fa-gem"></i> GOUKENS-SY
+            </div>
+            <p>&copy; 2026 Goukens-sy. All rights reserved. Strict B2B Corporate Platform.</p>
+            <div class="flex gap-6 text-gray-400">
+                <a href="#" class="hover:text-gold transition"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" class="hover:text-gold transition"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
