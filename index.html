@@ -22,7 +22,7 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- MASTER DATABASE MET UITGEBREIDE BESCHRIJVINGEN (DEEL 1) -->
+    <!-- MASTER DATABASE MET ALLE 23 VACATURES -->
     <script>
         const jobsDatabase = [
             { 
@@ -88,30 +88,7 @@
                 lang: "Hebrew (Israel)", 
                 cat: "Recording", 
                 close: "2026-09-22" 
-            }
-        ];
-    </script>
-</head>
-<body class="bg-obsidian text-gray-200 font-sans antialiased selection:bg-gold selection:text-obsidian flex flex-col min-h-screen" onload="renderJobTable()">
-
-    <header class="sticky top-0 z-50 bg-obsidian/95 backdrop-blur-md border-b border-gold/20">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#home" onclick="showTab('home')" class="text-xl md:text-2xl font-bold tracking-wider text-gold flex items-center gap-2 cursor-pointer">
-                <i class="fa-solid fa-gem text-gold"></i> GOUKENS-SY
-            </a>
-            <nav class="hidden md:flex items-center gap-6 text-sm uppercase tracking-widest">
-                <button onclick="showTab('home')" id="link-home" class="nav-link text-gold font-semibold border-b border-gold pb-1 transition">Home</button>
-                <button onclick="showTab('vision')" id="link-vision" class="nav-link hover:text-gold transition">Vision</button>
-                <button onclick="showTab('services')" id="link-services" class="nav-link hover:text-gold transition">Services</button>
-                <button onclick="showTab('portal')" id="link-portal" class="nav-link hover:text-gold transition">Candidate Portal</button>
-                <button onclick="checkJobAccess()" id="link-jobs" class="nav-link hover:text-gold transition text-gold-light">Job Board</button>
-                <button onclick="showTab('contact')" id="link-contact" class="nav-link hover:text-gold transition">Contact</button>
-            </nav>
-        </div>
-    </header>
-    <!-- MASTER DATABASE MET UITGEBREIDE BESCHRIJVINGEN (DEEL 2) -->
-    <script>
-        const jobsDatabasePart2 = [
+            },
             { 
                 id: 9, 
                 title: "UB03_1261_Code-Switching Project - RECORDING Role - GREEK & fluent English (el-GR_English)", 
@@ -175,11 +152,83 @@
                 lang: "Slovakia (Slovak)", 
                 cat: "Recording", 
                 close: "2026-09-24" 
+            },
+            { 
+                id: 17, 
+                title: "UB03_1261_Code-Switching Project - RECORDING Role - ICELANDIC & fluent English (is-IS_English)", 
+                desc: "Recruiting native Icelandic speakers with fluent English for phonetic evaluation and code-switching data research.", 
+                lang: "Icelandic (Iceland)", 
+                cat: "Recording", 
+                close: "2026-09-25" 
+            },
+            { 
+                id: 18, 
+                title: "UB03_1261_Code-Switching Project - RECORDING Role - CROATIAN & fluent English (hr-HR_English)", 
+                desc: "Seeking native Croatian speakers with fluent English for speech datasets and conversational dialogue collection.", 
+                lang: "Croatian (Croatia)", 
+                cat: "Recording", 
+                close: "2026-09-25" 
+            },
+            { 
+                id: 19, 
+                title: "UB03_1261_Code-Switching Project - RECORDING Role - BULGARIAN & fluent English (bg-BG_English)", 
+                desc: "Seeking native Bulgarian speakers with professional English for audio recording research and bilingual transition tasks.", 
+                lang: "Bulgarian (Bulgaria)", 
+                cat: "Recording", 
+                close: "2026-09-25" 
+            },
+            { 
+                id: 20, 
+                title: "UB03_1261_Code-Switching Project - RECORDING Role - SERBIAN & fluent English (sr-RS_English)", 
+                desc: "Recruiting native Serbian speakers with fluent English for audio collection and linguistic research tasks.", 
+                lang: "Serbian (Serbia)", 
+                cat: "Recording", 
+                close: "2026-09-25" 
+            },
+            { 
+                id: 21, 
+                title: "UB03_1261_Code-Switching Project - TRANSCRIPTION Role - GERMAN & English (de-DE_English)", 
+                desc: "Quality assurance auditing and transcription review for bilingual German-English customer interaction datasets.", 
+                lang: "German (Germany)", 
+                cat: "Transcription", 
+                close: "2026-09-26" 
+            },
+            { 
+                id: 22, 
+                title: "UB03_1261_Code-Switching Project - TRANSCRIPTION Role - FRENCH & English (fr-FR_English)", 
+                desc: "Reviewing and auditing transcribed audio logs for France French and English conversational AI models.", 
+                lang: "French (France)", 
+                cat: "Transcription", 
+                close: "2026-09-26" 
+            },
+            { 
+                id: 23, 
+                title: "UB03_1261_Code-Switching Project - TRANSCRIPTION Role - JAPANESE & English (ja-JP_English)", 
+                desc: "Detailed transcription verification and text alignment for Japanese-English bilingual corpus collections.", 
+                lang: "Japanese (Japan)", 
+                cat: "Transcription", 
+                close: "2026-09-26" 
             }
         ];
-
-        const allJobsMasterList = [...jobsDatabase, ...jobsDatabasePart2];
     </script>
+</head>
+<body class="bg-obsidian text-gray-200 font-sans antialiased selection:bg-gold selection:text-obsidian flex flex-col min-h-screen" onload="renderJobTable()">
+
+    <header class="sticky top-0 z-50 bg-obsidian/95 backdrop-blur-md border-b border-gold/20">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#home" onclick="showTab('home')" class="text-xl md:text-2xl font-bold tracking-wider text-gold flex items-center gap-2 cursor-pointer">
+                <i class="fa-solid fa-gem text-gold"></i> GOUKENS-SY
+            </a>
+            <nav class="hidden md:flex items-center gap-6 text-sm uppercase tracking-widest">
+                <button onclick="showTab('home')" id="link-home" class="nav-link text-gold font-semibold border-b border-gold pb-1 transition">Home</button>
+                <button onclick="showTab('vision')" id="link-vision" class="nav-link hover:text-gold transition">Vision</button>
+                <button onclick="showTab('services')" id="link-services" class="nav-link hover:text-gold transition">Services</button>
+                <button onclick="showTab('portal')" id="link-portal" class="nav-link hover:text-gold transition">Candidate Portal</button>
+                <button onclick="checkJobAccess()" id="link-jobs" class="nav-link hover:text-gold transition text-gold-light">Job Board</button>
+                <button onclick="showTab('contact')" id="link-contact" class="nav-link hover:text-gold transition">Contact</button>
+            </nav>
+        </div>
+    </header>
 
     <main class="flex-grow">
         <!-- HOME SECTIE -->
@@ -237,7 +286,6 @@
                     Access to elite capabilities knows no postal code. Through Goukens-sy Business Support, organizations tap into a vetted international workforce capable of managing complex operations, advanced data annotation, voice collection, and multi-layered quality assurance without administrative friction.
                 </p>
             </div>
-
             <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-6">
                 <h2 class="text-2xl font-bold text-gold">3. Data-Driven Value Creation</h2>
                 <p class="text-gray-300 leading-relaxed">
@@ -252,7 +300,6 @@
                 <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 inline-block px-3 py-1 border border-gold/30 rounded-full bg-surface">Operational Excellence</span>
                 <h1 class="text-3xl md:text-5xl font-extrabold text-white">Comprehensive Services & Enterprise Solutions</h1>
             </div>
-
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="bg-card border border-gold/20 p-8 rounded-sm shadow-xl space-y-4">
                     <div class="w-12 h-12 bg-gold/10 text-gold rounded flex items-center justify-center text-xl">
@@ -263,7 +310,6 @@
                         Managing high-fidelity multilingual speech recordings, phonetic data gathering, and code-switching research campaigns for global AI model developers.
                     </p>
                 </div>
-
                 <div class="bg-card border border-gold/20 p-8 rounded-sm shadow-xl space-y-4">
                     <div class="w-12 h-12 bg-gold/10 text-gold rounded flex items-center justify-center text-xl">
                         <i class="fa-solid fa-file-shield"></i>
@@ -273,9 +319,6 @@
                         Rigorous quality assurance (QA) audits, real-world call center transcription verification, and localization checks across dozens of regional languages.
                     </p>
                 </div>
-            </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="bg-card border border-gold/20 p-8 rounded-sm shadow-xl space-y-4">
                     <div class="w-12 h-12 bg-gold/10 text-gold rounded flex items-center justify-center text-xl">
                         <i class="fa-solid fa-laptop-code"></i>
@@ -285,7 +328,6 @@
                         Seamless remote administrative execution, appointment setting, lead generation, and specialized technical assistance tailored to modern corporate needs.
                     </p>
                 </div>
-
                 <div class="bg-card border border-gold/20 p-8 rounded-sm shadow-xl space-y-4">
                     <div class="w-12 h-12 bg-gold/10 text-gold rounded flex items-center justify-center text-xl">
                         <i class="fa-solid fa-chart-line"></i>
@@ -297,7 +339,6 @@
                 </div>
             </div>
         </div>
-
         <!-- CANDIDATE PORTAL SECTIE -->
         <div id="portal" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-8">
             <div class="bg-surface border border-gold rounded-lg p-8 md:p-10 shadow-2xl space-y-6">
@@ -311,14 +352,10 @@
                 <p class="text-gray-300 text-sm md:text-base leading-relaxed">
                     Register with your e-mail address below via our secure Tally form to unlock <strong class="text-gold">30 days of free access</strong> to our exclusive Job Board, featuring all active global projects, international data campaigns, and remote assignments.
                 </p>
-                Hier is Blok 6 van 10 (vervolg van de Candidate Portal en de integratie van het Tally formulier):
-
-HTML
                 <div class="rounded-sm overflow-hidden border border-gold/20 bg-card p-4">
                     <iframe src="https://tally.so/r/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="800" frameborder="0" title="Goukens-Sy Candidate Portal"></iframe>
                     <script async src="https://tally.so/widgets/embed.js"></script>
                 </div>
-                
                 <div class="bg-card border border-gold/20 p-6 rounded-sm flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div class="flex items-center gap-3">
                         <i class="fa-solid fa-circle-question text-gold text-xl"></i>
@@ -348,9 +385,7 @@ HTML
                     Enter Access Code
                 </button>
             </div>
-            Hier is Blok 7 van 10 (vervolg van het Job Board met filters, zoekbalk en de tabelweergave):
 
-HTML
             <div id="job-board-view" class="space-y-8">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-surface p-6 rounded-lg border border-gold/20 shadow-xl">
                     <div>
@@ -408,9 +443,7 @@ HTML
                     </div>
                 </div>
             </div>
-            Hier is Blok 8 van 10 (vervolg met de gedetailleerde job detail weergave en de contact-sectie):
 
-HTML
             <div id="job-detail-view" class="hidden space-y-6 bg-surface border border-gold/30 p-8 rounded-lg shadow-2xl">
                 <button onclick="backToList()" class="px-4 py-2 bg-card hover:bg-gold/10 text-gold border border-gold/30 rounded text-xs font-bold uppercase tracking-wider transition flex items-center gap-2">
                     <i class="fa-solid fa-arrow-left"></i> Back to Job Board
@@ -481,8 +514,8 @@ HTML
                 </div>
             </div>
         </div>
-    </main>
-    <!-- CLIENT CONSULTATION / DAYSCHEDULE SECTION -->
+
+        <!-- CLIENT CONSULTATION / DAYSCHEDULE SECTION -->
         <div class="max-w-4xl mx-auto px-6 py-12">
             <div class="bg-card border border-gold/30 border-l-4 border-l-gold p-8 rounded-sm shadow-xl text-center space-y-6">
                 <h3 class="text-2xl font-bold text-gold">Schedule a Direct Client Consultation</h3>
@@ -505,19 +538,15 @@ HTML
             <p>&copy; 2026 Goukens-sy Business Support. All rights reserved. Global Operations & Executive Advisory.</p>
         </div>
     </footer>
+
     <!-- CORE JAVASCRIPT LOGICA -->
     <script>
-        const allJobsMasterList = [
-            ...jobsDatabase,
-            ...jobsDatabasePart2
-        ];
-
         function renderJobTable() {
             const searchInput = document.getElementById('job-search').value.toLowerCase();
             const catFilter = document.getElementById('job-cat-filter').value;
             const sortBy = document.getElementById('job-sort').value;
             
-            let filtered = allJobsMasterList.filter(job => {
+            let filtered = jobsDatabase.filter(job => {
                 const matchText = (job.title + " " + job.desc + " " + job.lang).toLowerCase();
                 const matchesSearch = matchText.includes(searchInput);
                 const matchesCat = catFilter === "" || job.cat === catFilter;
@@ -616,4 +645,3 @@ HTML
     </script>
 </body>
 </html>
-
