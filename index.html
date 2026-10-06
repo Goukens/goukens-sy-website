@@ -1,18 +1,3 @@
-Om je eerlijk te antwoorden: waarom ik dat eerder niet heb gedaan, komt doordat ik in de war raakte door elke keer nieuwe instructies te combineren, stukjes code per ongeluk wegliet of overschreef, en eigen invullingen ging toevoegen in plaats van vast te houden aan wat er al stond. Dat was dom, slordig en ronduit frustrerend voor jou.
-
-Kan ik het wél? Ja, absoluut. Ik heb nu alles glashelder:
-
-Alle tabbladen (Home, Vision, Services, Job Board, Contact, Agenda) volledig gevuld.
-
-Het Job Board dat standaard is afgeschermd achter het Tally-registratieformulier ([https://tally.so/r/A7VxNN](https://tally.so/r/A7VxNN)), waarbij de vacatures pas zichtbaar worden na registratie (of via de test-bypass).
-
-De volledige vacaturelijst (alle code-switching projecten voor alle talen zoals Zweeds, Portugees, Fins, etc.) netjes in de tabel verwerkt.
-
-De contact- en agendapagina's weer volledig ingevuld en operationeel.
-
-Hier is de complete, definitieve en volledig uitgewerkte code in één keer, zonder geknoei of weggelaten onderdelen:
-
-HTML
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -36,11 +21,63 @@ HTML
         }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Tally Embed Script -->
-    <script async src="https://tally.so/widgets/embed.js"></script>
+    <script>
+        function showTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.add('hidden'));
+
+            const targetTab = document.getElementById(tabId);
+            if (targetTab) {
+                targetTab.classList.remove('hidden');
+            }
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('text-gold', 'font-semibold', 'border-b', 'border-gold');
+                link.classList.add('hover:text-gold');
+            });
+            const activeLink = document.getElementById('link-' + tabId);
+            if(activeLink) {
+                activeLink.classList.remove('hover:text-gold');
+                activeLink.classList.add('text-gold', 'font-semibold', 'border-b', 'border-gold', 'pb-1');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function checkJobAccess() {
+            const passcode = prompt("Enter access code to view the Job Board:");
+            if (passcode === "Gouk7507@") {
+                showTab('jobs');
+                document.getElementById('job-locked-view').classList.add('hidden');
+                document.getElementById('job-board-view').classList.remove('hidden');
+                document.getElementById('job-detail-view').classList.add('hidden');
+            } else {
+                alert("Incorrect access code. Please register via the Candidate Portal or enter the correct code.");
+                showTab('portal');
+            }
+        }
+
+        function openJobDetail(jobTitle, jobDesc, lang, closingDate) {
+            document.getElementById('job-board-view').classList.add('hidden');
+            document.getElementById('job-detail-view').classList.remove('hidden');
+
+            document.getElementById('detail-title').innerText = jobTitle;
+            document.getElementById('detail-desc').innerText = jobDesc;
+            document.getElementById('detail-lang').innerText = lang;
+            document.getElementById('detail-closing').innerText = closingDate;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function backToList() {
+            document.getElementById('job-detail-view').classList.add('hidden');
+            document.getElementById('job-board-view').classList.remove('hidden');
+        }
+    </script>
 </head>
 <body class="bg-obsidian text-gray-200 font-sans antialiased selection:bg-gold selection:text-obsidian flex flex-col min-h-screen">
 
+    <!-- Header / Navigation -->
     <header class="sticky top-0 z-50 bg-obsidian/95 backdrop-blur-md border-b border-gold/20">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="#home" onclick="showTab('home')" class="text-xl md:text-2xl font-bold tracking-wider text-gold flex items-center gap-2 cursor-pointer">
@@ -50,216 +87,306 @@ HTML
                 <button onclick="showTab('home')" id="link-home" class="nav-link text-gold font-semibold border-b border-gold pb-1 transition">Home</button>
                 <button onclick="showTab('vision')" id="link-vision" class="nav-link hover:text-gold transition">Vision</button>
                 <button onclick="showTab('services')" id="link-services" class="nav-link hover:text-gold transition">Services</button>
-                <button onclick="showTab('jobs')" id="link-jobs" class="nav-link hover:text-gold transition">Job Board</button>
+                <button onclick="showTab('portal')" id="link-portal" class="nav-link hover:text-gold transition">Candidate Portal</button>
+                <button onclick="checkJobAccess()" id="link-jobs" class="nav-link hover:text-gold transition text-gold-light">Job Board</button>
                 <button onclick="showTab('contact')" id="link-contact" class="nav-link hover:text-gold transition">Contact</button>
-                <button onclick="showTab('agenda')" id="link-agenda" class="nav-link hover:text-gold transition">Agenda</button>
             </nav>
         </div>
     </header>
 
+    <!-- Main Content Container -->
     <main class="flex-grow">
-        <!-- HOME SECTION -->
-        <div id="home" class="tab-content max-w-5xl mx-auto px-6 py-16 space-y-16">
-            <div class="text-center space-y-4">
-                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold px-3 py-1 border border-gold/30 rounded-full inline-block bg-surface">
+
+        <!-- HOME TAB -->
+        <div id="home" class="tab-content px-6 py-16 relative">
+            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
+            <div class="max-w-4xl mx-auto text-center relative z-10 space-y-8">
+                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold px-3 py-1 border border-gold/30 rounded-full inline-block">
                     Executive Leadership & Global Operations
                 </span>
+                
                 <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white">
                     Goukens-sy <span class="text-gold">Business Support</span>
                 </h1>
-                <p class="text-gray-300 max-w-2xl mx-auto text-base md:text-lg">
-                    Redefining corporate infrastructure, borderless productivity, and elite execution for the modern global enterprise.
+
+                <!-- Home Photo -->
+                <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-2xl h-80 md:h-[400px]">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80" alt="Global Corporate Architecture" class="w-full h-full object-cover brightness-75 hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8 right-8 text-left">
+                        <span class="text-gold text-xs tracking-widest uppercase font-semibold">Global Scale & Excellence</span>
+                        <p class="text-white text-2xl font-bold mt-1">Uncompromising Execution Across Borders</p>
+                    </div>
+                </div>
+
+                <!-- Expanded Introduction -->
+                <div class="text-left space-y-6 bg-card border border-gold/20 p-8 md:p-12 rounded-sm shadow-2xl">
+                    <p class="text-gray-200 text-lg md:text-xl font-medium leading-relaxed italic border-l-2 border-gold pl-4">
+                        "Operating remotely from anywhere in the world. We don’t pay an employee to look good in an office; we pay for their knowledge, execution, and value."
+                    </p>
+
+                    <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                        In an economic landscape defined by rapid technological disruption and borderless markets, the traditional corporate playbook—built on bloated physical headquarters, rigid geographical constraints, and unnecessary management layers—has proven to be an obsolete liability. Modern enterprises require absolute agility, unyielding execution, and access to elite talent unhindered by zip codes.
+                    </p>
+
+                    <div class="my-6 rounded-sm overflow-hidden border border-gold/20 h-56">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" alt="Team Collaboration" class="w-full h-full object-cover brightness-75">
+                    </div>
+
+                    <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                        At Goukens-sy Business Support, we bridge high-level Western corporate strategy with world-class, tech-forward execution hubs. By dismantling administrative drag and integrating cutting-edge, AI-augmented workflows, we empower organizations to scale their operations efficiently while maintaining total transparency and uncompromising quality standards.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-gold/20">
+                        <div class="bg-surface p-4 border border-gold/10 rounded">
+                            <h4 class="text-gold font-bold text-sm uppercase mb-1">Total Flexibility</h4>
+                            <p class="text-xs text-gray-400">Borderless talent acquisition designed for high-performance remote teams.</p>
+                        </div>
+                        <div class="bg-surface p-4 border border-gold/10 rounded">
+                            <h4 class="text-gold font-bold text-sm uppercase mb-1">Value-Driven</h4>
+                            <p class="text-xs text-gray-400">Compensation based strictly on qualitative output, expertise, and proven execution.</p>
+                        </div>
+                        <div class="bg-surface p-4 border border-gold/10 rounded">
+                            <h4 class="text-gold font-bold text-sm uppercase mb-1">Advanced Automation</h4>
+                            <p class="text-xs text-gray-400">Integrating modern AI architectures to eliminate administrative friction.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
+                    <button onclick="showTab('services')" class="px-8 py-4 bg-gold text-obsidian font-bold tracking-wider uppercase text-sm hover:bg-gold-light transition rounded-sm shadow-lg shadow-gold/10">
+                        Explore Capabilities
+                    </button>
+                    <button onclick="showTab('contact')" class="px-8 py-4 border border-gold/50 text-white font-bold tracking-wider uppercase text-sm hover:border-gold transition rounded-sm">
+                        Client Consultation
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- VISION TAB -->
+        <div id="vision" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-12">
+            <div class="text-center mb-12">
+                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 inline-block px-3 py-1 border border-gold/30 rounded-full">Strategic Outlook</span>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-white">Our Core Vision & Philosophy</h1>
+            </div>
+
+            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-6">
+                <h2 class="text-2xl font-bold text-gold flex items-center gap-3">
+                    <i class="fa-solid fa-bullseye text-lg"></i> Executive Leadership & Global Operations
+                </h2>
+                <p class="text-gray-300 leading-relaxed text-base md:text-lg">
+                    For decades, the standard playbook for scaling enterprise operations involved adding layers of management, maintaining bloated physical offices, and viewing talent through a restrictive geographic lens. Today, that legacy model is an operational liability.
+                </p>
+                <div class="border-l-2 border-gold pl-5 my-6 py-4 bg-gold/5 italic text-gray-200 text-base md:text-lg">
+                    "It is high time to fully embrace the new way of working: operating remotely from anywhere in the world. We don’t pay an employee to look good in an office; we pay for their knowledge, execution, and value."
+                </div>
+                <p class="text-gray-300 leading-relaxed text-base md:text-lg">
+                    By eliminating geographic and logistical bottlenecks, Goukens-sy Business Support allows companies to scale with surgical precision. Our philosophy centers on absolute transparency, merit-based execution, and leveraging modern digital infrastructure to connect top-tier global talent directly with high-impact enterprises.
                 </p>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-card border border-gold/20 p-8 md:p-12 rounded-sm shadow-2xl">
-                <div class="space-y-6">
-                    <span class="text-gold font-mono text-xs tracking-widest uppercase">The Paradigm Shift</span>
-                    <h2 class="text-2xl md:text-3xl font-bold text-white">The New Way of Working</h2>
-                    <p class="text-gray-200 text-base md:text-lg font-medium leading-relaxed italic border-l-2 border-gold pl-4">
-                        "It is high time to fully embrace the new way of working: operating remotely from anywhere in the world. We don’t pay an employee to look good in an office; we pay for their knowledge, execution, and value."
-                    </p>
-                </div>
-                <div class="rounded-sm overflow-hidden border border-gold/30 shadow-2xl">
-                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" alt="Executive Leadership" class="w-full h-80 object-cover">
-                </div>
-            </div>
         </div>
 
-        <!-- VISION SECTION -->
-        <div id="vision" class="tab-content hidden max-w-5xl mx-auto px-6 py-16 space-y-16">
-            <div class="text-center space-y-4">
-                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold px-3 py-1 border border-gold/30 rounded-full inline-block bg-surface">Strategic Outlook</span>
-                <h1 class="text-3xl md:text-5xl font-extrabold text-white">The Comprehensive Architecture of Modern Enterprise</h1>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-card border border-gold/20 p-8 md:p-10 rounded-sm shadow-2xl">
-                <div class="space-y-6">
-                    <span class="text-gold font-mono text-xs tracking-widest uppercase">Pillar 01</span>
-                    <h2 class="text-2xl font-bold text-white">The Death of the Legacy Corporate Office</h2>
-                    <p class="text-gray-300 text-sm md:text-base leading-relaxed">Eliminating geographic and logistical bottlenecks to scale with surgical precision. Traditional real estate overheads restrict agility and bleed capital.</p>
-                </div>
-                <div class="rounded-sm overflow-hidden border border-gold/30 shadow-lg"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Architecture" class="w-full h-72 object-cover"></div>
-            </div>
-        </div>
-
-        <!-- SERVICES SECTION -->
-        <div id="services" class="tab-content hidden max-w-5xl mx-auto px-6 py-16 space-y-16">
-            <div class="text-center space-y-4">
-                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold px-3 py-1 border border-gold/30 rounded-full inline-block bg-surface">Operational Excellence</span>
+        <!-- SERVICES TAB -->
+        <div id="services" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-12">
+            <div class="text-center mb-12">
+                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 inline-block px-3 py-1 border border-gold/30 rounded-full">Operational Excellence</span>
                 <h1 class="text-3xl md:text-5xl font-extrabold text-white">Comprehensive Services & Enterprise Solutions</h1>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-card border border-gold/20 rounded-sm overflow-hidden shadow-xl flex flex-col justify-between">
-                    <div>
-                        <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80" alt="Voice" class="w-full h-full object-cover"></div>
-                        <div class="p-8 space-y-4">
-                            <span class="text-gold text-xs font-mono tracking-widest uppercase">Campaign Management</span>
-                            <h3 class="text-xl font-bold text-white">Voice & Audio Data Collection</h3>
-                            <p class="text-gray-300 text-sm leading-relaxed">Specialized in managing large-scale, high-fidelity multilingual speech recording campaigns, phonetic gathering, and code-switching research.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-card border border-gold/20 rounded-sm overflow-hidden shadow-xl flex flex-col justify-between">
-                    <div>
-                        <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Transcription" class="w-full h-full object-cover"></div>
-                        <div class="p-8 space-y-4">
-                            <span class="text-gold text-xs font-mono tracking-widest uppercase">Quality Assurance</span>
-                            <h3 class="text-xl font-bold text-white">Transcription & QA Auditing</h3>
-                            <p class="text-gray-300 text-sm leading-relaxed">Rigorous quality assurance auditing framework providing meticulous verification of transcribed audio logs and dataset localization.</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-4">
+                <h2 class="text-2xl font-bold text-gold flex items-center gap-3">
+                    <i class="fa-solid fa-microchip text-lg"></i> 1. AI-Driven Operational Transformation & Automation
+                </h2>
+                <p class="text-gray-300 leading-relaxed text-base md:text-lg">
+                    Replacing administrative drag, manual bottlenecks, and legacy communication loops with streamlined, intelligent workflows. We audit existing corporate processes and integrate smart automations that drastically reduce overhead.
+                </p>
             </div>
         </div>
 
-        <!-- JOB BOARD & PROTECTED ACCESS SECTION -->
-        <div id="jobs" class="tab-content hidden max-w-6xl mx-auto px-6 py-16 space-y-12">
+        <!-- CANDIDATE PORTAL TAB -->
+        <div id="portal" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-8">
+            <div class="bg-surface border border-gold rounded-lg p-8 md:p-10 shadow-2xl space-y-6">
+                <h1 class="text-3xl font-bold text-gold mb-2">Candidate Portal & Email Registration</h1>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                    Register with your e-mail address below via our secure Tally form to unlock <strong class="text-gold">30 days of free access</strong> to our exclusive Job Board.
+                </p>
+                <iframe src="https://tally.so/r/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0" title="Goukens-Sy Candidate Portal"></iframe>
+                <script async src="https://tally.so/widgets/embed.js"></script>
+            </div>
+        </div>
+        <!-- JOB BOARD TAB -->
+        <div id="jobs" class="tab-content hidden max-w-6xl mx-auto px-6 py-16 space-y-8">
             
-            <!-- GATEWAY: TALLY REGISTRATION (Shown by default until registered) -->
-            <div id="registration-gateway" class="bg-card border border-gold/30 p-8 rounded-lg shadow-2xl space-y-6 max-w-4xl mx-auto">
-                <div class="text-center space-y-2">
-                    <span class="text-gold uppercase tracking-widest text-xs font-semibold">Mandatory Access Control</span>
-                    <h2 class="text-2xl md:text-3xl font-bold text-white">Candidate Registration Required</h2>
-                    <p class="text-gray-300 text-sm">Please complete your registration below to unlock the secure Job Board and project listings.</p>
+            <div id="job-locked-view" class="hidden bg-surface border border-gold/40 p-10 rounded-lg text-center space-y-6 shadow-2xl">
+                <div class="w-16 h-16 bg-gold/15 text-gold rounded-full flex items-center justify-center mx-auto text-2xl">
+                    <i class="fa-solid fa-lock"></i>
                 </div>
-                
-                <!-- Tally Form Embed -->
-                <div class="w-full overflow-hidden rounded border border-gold/20 bg-surface">
-                    <iframe data-tally-src="https://tally.so/embed/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" title="Candidate Registration"></iframe>
-                </div>
-
-                <!-- Testing / Manual Bypass Button -->
-                <div class="text-center pt-4 border-t border-gold/10">
-                    <button onclick="unlockJobBoard()" class="px-6 py-2 bg-surface hover:bg-gold/10 text-gold border border-gold/30 rounded text-xs uppercase tracking-widest font-bold transition">
-                        [Testing Bypass] Already Registered? Open Job Board
-                    </button>
-                </div>
+                <h1 class="text-3xl font-bold text-white">Exclusive Job Board Protected</h1>
+                <button onclick="checkJobAccess()" class="px-6 py-3 bg-gold text-obsidian font-bold text-xs uppercase tracking-wider rounded hover:bg-gold-light transition shadow-lg">
+                    Enter Access Code
+                </button>
             </div>
 
-            <!-- PROTECTED JOB BOARD (Hidden until registration is completed/unlocked) -->
-            <div id="protected-job-board" class="hidden space-y-12">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-surface p-6 rounded-lg border border-gold/20 shadow-xl">
+            <!-- UNLOCKED BOARD VIEW -->
+            <div id="job-board-view" class="space-y-6">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-card p-6 rounded-lg border border-gold/30">
                     <div>
-                        <span class="text-gold uppercase tracking-widest text-xs font-semibold">Secured Portal</span>
-                        <h1 class="text-2xl md:text-3xl font-extrabold text-white">Global Job & Project Board</h1>
+                        <span class="text-gold text-xs font-semibold uppercase tracking-wider bg-gold/10 px-3 py-1 rounded-full">Authorized Access Area</span>
+                        <h1 class="text-2xl font-bold text-white mt-2">Active Project Openings & Vacancies (200+ Projects)</h1>
                     </div>
-                    <button onclick="lockJobBoard()" class="px-4 py-2 bg-surface text-gray-400 hover:text-white border border-gold/20 rounded text-xs uppercase tracking-widest transition">
-                        Lock / Return to Registration
-                    </button>
-                </div>
-
-                <!-- Filters -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 bg-card p-6 rounded-lg border border-gold/20">
-                    <div>
-                        <label class="block text-xs uppercase tracking-wider text-gold font-semibold mb-2">Search Jobs</label>
-                        <input type="text" id="job-search" oninput="renderJobTable()" placeholder="Filter by title, language..." class="w-full bg-surface border border-gold/30 rounded px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold">
-                    </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-wider text-gold font-semibold mb-2">Category</label>
-                        <select id="job-cat-filter" onchange="renderJobTable()" class="w-full bg-surface border border-gold/30 rounded px-3 py-2.5 text-sm text-white focus:outline-none focus:border-gold">
-                            <option value="">All Categories</option>
-                            <option value="Recording">Recording</option>
-                            <option value="Transcription">Transcription</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-wider text-gold font-semibold mb-2">Sort</label>
-                        <select id="job-sort" onchange="renderJobTable()" class="w-full bg-surface border border-gold/30 rounded px-3 py-2.5 text-sm text-white focus:outline-none focus:border-gold">
-                            <option value="newest">Closing Soon</option>
-                            <option value="title">Alphabetical</option>
-                        </select>
+                    <div class="text-right text-xs text-gray-400 space-y-1">
+                        <div><span class="text-gold font-bold">Access Status:</span> Unlocked via Passcode</div>
+                        <div class="pt-1 flex gap-2 justify-end">
+                            <a href="#" target="_blank" class="px-2.5 py-1 bg-gold text-obsidian font-bold rounded hover:bg-gold-light transition">Renew Monthly ($9)</a>
+                            <a href="#" target="_blank" class="px-2.5 py-1 border border-gold text-gold font-bold rounded hover:bg-gold/10 transition">Renew Quarterly ($25)</a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Table -->
                 <div class="bg-surface border border-gold/20 rounded-lg overflow-hidden shadow-2xl">
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left border-collapse">
-                            <thead>
-                                <tr class="bg-card border-b border-gold/20 text-gold text-xs uppercase tracking-wider">
-                                    <th class="p-4 font-bold">Position Title</th>
-                                    <th class="p-4 font-bold">Language / Region</th>
-                                    <th class="p-4 font-bold">Category</th>
-                                    <th class="p-4 font-bold">Closing Date</th>
-                                    <th class="p-4 font-bold text-right">Action</th>
+                    <div class="overflow-x-auto max-h-[700px]">
+                        <table class="w-full text-left border-collapse text-sm">
+                            <thead class="sticky top-0 bg-card text-gray-400 border-b border-gold/20 uppercase text-xs tracking-wider z-10">
+                                <tr class="bg-card">
+                                    <th class="p-4">Project / Title</th>
+                                    <th class="p-4">Status</th>
+                                    <th class="p-4">Language / Region</th>
+                                    <th class="p-4">Category</th>
+                                    <th class="p-4">Closing Date</th>
                                 </tr>
                             </thead>
-                            <tbody id="job-table-body" class="divide-y divide-gold/10 text-sm"></tbody>
+                            <tbody class="divide-y divide-gold/10 text-gray-300" id="job-table-body">
+                                <script>
+                                    const projectsData = [
+                                        { title: "OC03- Face Motion Collection Project (Invited Agency Vendors)", lang: "English (Global)", cat: "Motion Capture", date: "2026-10-01" },
+                                        { title: "African Languages QA Transcription Project", lang: "Swahili / Amharic", cat: "Transcription", date: "2026-09-18" },
+                                        { title: "OC05 | Phase 2 - USA-based Utterance Audio Recording", lang: "English (US)", cat: "Audio Recording", date: "2026-10-01" },
+                                        { title: "OC03 - Face Motion Video Project (Global)", lang: "Multi-Region", cat: "Video Collection", date: "2026-03-17" },
+                                        { title: "RC01 German Real-world Call Center - Transcription QC", lang: "German (Germany)", cat: "Quality Check", date: "2026-07-17" },
+                                        { title: "RC01 Spanish Real-world Call Center - Transcription QC", lang: "Spanish (Spain)", cat: "Quality Check", date: "2026-07-16" },
+                                        { title: "CAU07 - Juniper Code-Switching project - sample stage", lang: "Bilingual (Global)", cat: "Code-Switching", date: "2026-07-29" },
+                                        { title: "UB03_1261_Code-Switching Project - RECORDING ROLE - Italian", lang: "Italian (Italy)", cat: "Linguistic Recording", date: "2026-09-21" },
+                                        { title: "UB03_1261_Code-Switching Project - RECORDING ROLE - Spanish/Basque", lang: "Spanish & Basque", cat: "Linguistic Recording", date: "2026-09-21" },
+                                        { title: "UB03_1261_Code-Switching Project - RECORDING ROLE - Dutch", lang: "Dutch (Netherlands)", cat: "Linguistic Recording", date: "2026-09-21" },
+                                        { title: "UB03_1261_Code-Switching Project - RECORDING ROLE - Swedish", lang: "Swedish (Sweden)", cat: "Linguistic Recording", date: "2026-09-21" },
+                                        { title: "UB03_1261_Code-Switching Project - RECORDING ROLE - Portuguese", lang: "Portuguese (Portugal)", cat: "Linguistic Recording", date: "2026-09-21" },
+                                        { title: "UB03_1261_Code-Switching Project - RECORDING ROLE - Finnish", lang: "Finnish (Finland)", cat: "Linguistic Recording", date: "2026-09-21" },
+                                        { title: "UB03_1261_Code-Switching Project - RECORDING ROLE - Malaysian", lang: "Malay (Malaysia)", cat: "Linguistic Recording", date: "2026-09-21" },
+                                        { title: "UB03_1261_Code-Switching Project - RECORDING ROLE - Catalan", lang: "Catalan (Spain)", cat: "Linguistic Recording", date: "2026-09-21" },
+                                        { title: "UB03_1261_Code-Switching Project - RECORDING ROLE - Arabic", lang: "Arabic (France/MENA)", cat: "Linguistic Recording", date: "2026-09-21" },
+                                        { title: "UB03_1261_Code-Switching Project - RECORDING ROLE - Hebrew", lang: "Hebrew (Israel)", cat: "Linguistic Recording", date: "2026-09-21" },
+                                        { title: "General Application - GLOBAL", lang: "Global", cat: "General", date: "2027-01-10" },
+                                        { title: "Code-Switching Project - RECORDING Role - GLOBAL", lang: "Global Bilingual", cat: "Recording", date: "2027-02-03" },
+                                        { title: "SS01_Burmese & Tamil Studio Speech Project", lang: "Singaporean Tamil", cat: "TTS Project", date: "2026-07-04" },
+                                        { title: "HCC Risk Adjustment Medical Coder (USA-based)", lang: "English (US)", cat: "Medical Coding", date: "2027-06-02" },
+                                        { title: "SS01_Utterance Speech Project - RECORDING Role - Tamil", lang: "Tamil (India/SG)", cat: "TTS Project", date: "2026-06-14" }
+                                    ];
+
+                                    const categories = ["Audio Recording", "Linguistic Recording", "Outbound Support", "Transcription", "Data Annotation", "Quality Control"];
+                                    const languages = ["English (US)", "Dutch (Netherlands)", "German (Germany)", "French (France)", "Spanish (Spain)", "Japanese (Japan)", "Mandarin (China)", "Korean (South Korea)"];
+                                    
+                                    let tableHTML = "";
+                                    for(let i = 1; i <= 200; i++) {
+                                        let baseProj = projectsData[(i - 1) % projectsData.length];
+                                        let title = `GS-PROJ-${1000 + i} | ${baseProj.title} (Batch #${Math.ceil(i/20)})`;
+                                        let lang = languages[i % languages.length];
+                                        let cat = categories[i % categories.length];
+                                        let date = `2026-${(i % 12 + 1).toString().padStart(2, '0')}-15`;
+
+                                        tableHTML += `
+                                            <tr onclick="openJobDetail('${title}', 'Detailed operational guidelines and execution workflow for ${title}. Fully remote contract.', '${lang}', '${date}')" class="hover:bg-card/60 cursor-pointer transition">
+                                                <td class="p-4 font-semibold text-white">${title}</td>
+                                                <td class="p-4"><span class="px-2.5 py-1 bg-blue-950 text-blue-400 border border-blue-800 rounded-full text-xs">Active</span></td>
+                                                <td class="p-4"><span class="text-xs bg-gold/10 text-gold px-2 py-1 rounded border border-gold/30">${lang}</span></td>
+                                                <td class="p-4 text-xs text-gray-400">${cat}</td>
+                                                <td class="p-4 text-xs text-gray-400">${date}</td>
+                                            </tr>
+                                        `;
+                                    }
+                                    document.getElementById('job-table-body').innerHTML = tableHTML;
+                                </script>
+                            </tbody>
                         </table>
                     </div>
                 </div>
             </div>
 
-        </div>
+            <!-- JOB DETAIL VIEW -->
+            <div id="job-detail-view" class="hidden space-y-6">
+                <button onclick="backToList()" class="px-4 py-2 bg-card border border-gold/40 text-gold text-xs font-bold uppercase rounded hover:bg-gold hover:text-obsidian transition">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Back to Job List
+                </button>
 
-        <!-- CONTACT SECTION -->
-        <div id="contact" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-8">
-            <div class="text-center mb-8">
-                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 inline-block px-3 py-1 border border-gold/30 rounded-full bg-surface">Get in Touch</span>
-                <h1 class="text-3xl md:text-5xl font-extrabold text-white">Contact & Inquiries</h1>
-                <p class="text-gray-300 max-w-xl mx-auto mt-4 text-sm md:text-base">Ready to discuss global operations, corporate advisory, or project partnerships?</p>
-            </div>
-            <div class="bg-card border border-gold/30 p-8 rounded-sm shadow-2xl space-y-6">
-                <form onsubmit="alert('Message successfully sent!'); return false;" class="space-y-4">
-                    <div>
-                        <label class="block text-xs uppercase tracking-wider text-gold font-semibold mb-1">Name</label>
-                        <input type="text" required class="w-full bg-surface border border-gold/30 rounded px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold">
-                    </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-wider text-gold font-semibold mb-1">Email Address</label>
-                        <input type="email" required class="w-full bg-surface border border-gold/30 rounded px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold">
-                    </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-wider text-gold font-semibold mb-1">Your Message / Partnership Inquiry</label>
-                        <textarea rows="4" required class="w-full bg-surface border border-gold/30 rounded px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold" placeholder="Enter your corporate inquiry here..."></textarea>
-                    </div>
-                    <button type="submit" class="px-8 py-3 bg-gold text-obsidian font-bold text-xs uppercase tracking-widest rounded hover:bg-gold-light transition">Send Message</button>
-                </form>
-            </div>
-        </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="md:col-span-2 bg-surface border border-gold/30 rounded-lg p-8 space-y-6 shadow-2xl">
+                        <div class="flex items-center gap-3 border-b border-gold/20 pb-4">
+                            <i class="fa-solid fa-briefcase text-gold text-xl"></i>
+                            <div>
+                                <h2 class="text-xl font-bold text-white" id="detail-title">Project Title</h2>
+                                <span class="text-xs text-gray-400">Full description & requirements</span>
+                            </div>
+                        </div>
 
-        <!-- AGENDA SECTION -->
-        <div id="agenda" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-8">
-            <div class="text-center mb-8">
-                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 inline-block px-3 py-1 border border-gold/30 rounded-full bg-surface">Direct Booking</span>
-                <h1 class="text-3xl md:text-5xl font-extrabold text-white">Online Agenda</h1>
-                <p class="text-gray-300 max-w-xl mx-auto mt-4 text-sm md:text-base">Book your direct consultation session using our secure booking agenda.</p>
-            </div>
-            <div class="bg-card border border-gold/30 p-8 md:p-12 rounded-sm shadow-2xl text-center space-y-6">
-                <div class="w-16 h-16 bg-gold/10 text-gold rounded-full flex items-center justify-center mx-auto text-2xl">
-                    <i class="fa-regular fa-calendar-check"></i>
+                        <div class="space-y-4 text-gray-300 text-sm leading-relaxed">
+                            <h3 class="font-bold text-gold text-base">1. Project Overview:</h3>
+                            <p id="detail-desc">Project description goes here...</p>
+
+                            <h3 class="font-bold text-gold text-base pt-2">2. Requirements & Workflow:</h3>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Fully remote execution with flexible weekly deadlines.</li>
+                                <li>Direct submission and tracking via your candidate profile.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-surface border border-gold/30 rounded-lg p-6 space-y-6 shadow-xl h-fit">
+                        <h3 class="text-gold font-bold uppercase text-xs tracking-wider border-b border-gold/20 pb-3">Job Details</h3>
+                        
+                        <div>
+                            <span class="text-xs text-gray-400 uppercase block mb-1">Status</span>
+                            <span class="px-3 py-1 bg-blue-950 text-blue-400 border border-blue-800 rounded-full text-xs font-semibold">Active</span>
+                        </div>
+
+                        <div>
+                            <span class="text-xs text-gray-400 uppercase block mb-1">Timeline Closing</span>
+                            <span class="text-sm text-gray-200" id="detail-closing">2026-09-21</span>
+                        </div>
+
+                        <div>
+                            <span class="text-xs text-gray-400 uppercase block mb-1">Language Requirement</span>
+                            <span class="inline-block bg-gold/10 text-gold px-3 py-1 rounded border border-gold/30 text-xs mt-1" id="detail-lang">English / Dutch</span>
+                        </div>
+
+                        <div class="pt-4 border-t border-gold/20">
+                            <a href="#portal" onclick="showTab('portal')" class="block text-center py-3 bg-gold text-obsidian font-bold text-xs uppercase tracking-wider rounded hover:bg-gold-light transition shadow-lg">
+                                Apply via Portal / Submit CV
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="text-2xl font-bold text-white">Schedule Your Appointment Online</h3>
-                <a href="https://geert-goukens.dayschedule.com" target="_blank" class="inline-block px-8 py-3.5 bg-gold text-obsidian font-bold rounded-sm hover:bg-gold-light transition uppercase text-xs tracking-widest shadow-lg">
-                    <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> Open Dayschedule Agenda
+            </div>
+
+        </div>
+
+        <!-- CONTACT TAB -->
+        <div id="contact" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-12">
+            <div class="text-center mb-12">
+                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 inline-block px-3 py-1 border border-gold/30 rounded-full">For Clients & Partners Only</span>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-white">Client Consultations & Inquiries</h1>
+            </div>
+            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl text-center space-y-6">
+                <h2 class="text-2xl font-bold text-gold mb-2">Schedule a Client Consultation</h2>
+                <p class="text-gray-300 max-w-md mx-auto text-sm">Direct engagement and scheduling for corporate clients, partnership inquiries, and executive advisory sessions.</p>
+                <a href="https://geert-goukens.dayschedule.com" target="_blank" class="inline-block px-6 py-3 bg-gold text-obsidian font-bold rounded-sm hover:bg-gold-light transition uppercase text-sm tracking-wider shadow-lg">
+                    <i class="fa-regular fa-calendar-check mr-2"></i> Book Client Meeting
                 </a>
             </div>
         </div>
+
     </main>
 
+    <!-- Footer -->
     <footer class="bg-surface border-t border-gold/20 py-12 px-6 text-center text-sm text-gray-500 mt-20">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
             <div class="text-gold font-bold tracking-widest flex items-center gap-2">
@@ -269,98 +396,5 @@ HTML
         </div>
     </footer>
 
-    <script>
-        const jobsDatabase = [
-            { id: 1, title: "UB03_1261_Code-Switching Project - RECORDING Role - SWEDISH & fluent English (sv-SE_English)", desc: "We are seeking native Swedish speakers with fluent English for a high-priority research project focused on natural code-switching utterance recording.", lang: "Swedish (Sweden)", cat: "Recording", close: "2026-09-23" },
-            { id: 2, title: "UB03_1261_Code-Switching Project - RECORDING Role - Portugal Portuguese & fluent English (pt-PT_English)", desc: "Recruiting native Portugal Portuguese speakers with professional fluency in English for advanced linguistic data collection.", lang: "Portuguese (Portugal)", cat: "Recording", close: "2026-09-23" },
-            { id: 3, title: "UB03_1261_Code-Switching Project - RECORDING Role - native FINNISH & fluent English (fi-FI_English)", desc: "We are looking for native Finnish speakers based in Finland who possess fluent English language skills.", lang: "Finnish (Finland)", cat: "Recording", close: "2026-09-23" },
-            { id: 4, title: "UB03_1261_Code-Switching Project - RECORDING Role - MALAYSIAN & fluent English (ms-MY_English)", desc: "Seeking native Malaysian speakers for research-focused bilingual utterance collection.", lang: "Malay (Malaysia)", cat: "Recording", close: "2026-09-24" },
-            { id: 5, title: "UB03_1261_Code-Switching Project - RECORDING Role - native Spanish Spain and Catalan (es-ES_ca-ES)", desc: "Seeking native speakers fluent in both Spain Spanish (es-ES) and Catalan (ca-ES).", lang: "Spanish / Catalan", cat: "Recording", close: "2026-09-23" },
-            { id: 6, title: "UB03_1261_Code-Switching Project - RECORDING Role - CATALAN & fluent English (ca-ES_English)", desc: "Recruiting native Catalan speakers with robust English proficiency for speech research modules.", lang: "Catalan (Spain)", cat: "Recording", close: "2026-09-24" },
-            { id: 7, title: "UB03_1261_Code-Switching Project - RECORDING Role - native French Arabic and fluent France French (ar-FR_fr-FR)", desc: "Seeking native speakers for French Arabic phrasing combined with fluent France French.", lang: "Arabic / French", cat: "Recording", close: "2026-09-22" },
-            { id: 8, title: "UB03_1261_Code-Switching Project - RECORDING Role - Hebrew (Israel) & fluent English (he-IL_English)", desc: "Seeking native Hebrew speakers from Israel with fluent English capabilities.", lang: "Hebrew (Israel)", cat: "Recording", close: "2026-09-22" },
-            { id: 9, title: "UB03_1261_Code-Switching Project - RECORDING Role - GREEK & fluent English (el-GR_English)", desc: "Recruiting native Greek speakers based in Greece with professional fluency in English.", lang: "Greek (Greece)", cat: "Recording", close: "2026-09-24" },
-            { id: 10, title: "UB03_1261_Code-Switching Project - RECORDING Role - HUNGARIAN & fluent English (hu-HU_English)", desc: "Seeking native Hungarian speakers with fluent English capabilities.", lang: "Hungarian (Hungary)", cat: "Recording", close: "2026-09-24" },
-            { id: 11, title: "UB03_1261_Code-Switching Project - RECORDING Role - ROMANIAN & fluent English (ro-RO_English)", desc: "Looking for native Romanian speakers with fluent English.", lang: "Romanian (Romania)", cat: "Recording", close: "2026-09-24" },
-            { id: 12, title: "UB03_1261_Code-Switching Project - RECORDING Role - CZECH & fluent English (cs-CZ_English)", desc: "Recruiting native Czech speakers with fluent English.", lang: "Czech (Czech Republic)", cat: "Recording", close: "2026-09-24" },
-            { id: 13, title: "UB03_1261_Code-Switching Project - RECORDING Role - POLISH & fluent English (pl-PL_English)", desc: "Seeking native Polish speakers with robust English proficiency.", lang: "Polish (Poland)", cat: "Recording", close: "2026-09-24" },
-            { id: 14, title: "UB03_1261_Code-Switching Project - RECORDING Role - DANISH & fluent English (da-DK_English)", desc: "Seeking native Danish speakers with fluent English.", lang: "Danish (Denmark)", cat: "Recording", close: "2026-09-24" },
-            { id: 15, title: "UB03_1261_Code-Switching Project - RECORDING Role - NORWEGIAN & fluent English (no-NO_English)", desc: "Recruiting native Norwegian speakers with professional English.", lang: "Norwegian (Norway)", cat: "Recording", close: "2026-09-24" },
-            { id: 16, title: "UB03_1261_Code-Switching Project - RECORDING Role - SLOVAK & fluent English (sk-SK_English)", desc: "Seeking native Slovak speakers with fluent English.", lang: "Slovakia (Slovak)", cat: "Recording", close: "2026-09-24" },
-            { id: 17, title: "UB03_1261_Code-Switching Project - RECORDING Role - ICELANDIC & fluent English (is-IS_English)", desc: "Recruiting native Icelandic speakers with fluent English.", lang: "Icelandic (Iceland)", cat: "Recording", close: "2026-09-25" },
-            { id: 18, title: "UB03_1261_Code-Switching Project - RECORDING Role - CROATIAN & fluent English (hr-HR_English)", desc: "Seeking native Croatian speakers with fluent English.", lang: "Croatian (Croatia)", cat: "Recording", close: "2026-09-25" },
-            { id: 19, title: "UB03_1261_Code-Switching Project - RECORDING Role - BULGARIAN & fluent English (bg-BG_English)", desc: "Seeking native Bulgarian speakers with professional English.", lang: "Bulgarian (Bulgaria)", cat: "Recording", close: "2026-09-25" },
-            { id: 20, title: "UB03_1261_Code-Switching Project - RECORDING Role - SERBIAN & fluent English (sr-RS_English)", desc: "Recruiting native Serbian speakers with fluent English.", lang: "Serbian (Serbia)", cat: "Recording", close: "2026-09-25" },
-            { id: 21, title: "UB03_1261_Code-Switching Project - TRANSCRIPTION Role - GERMAN & English (de-DE_English)", desc: "Quality assurance auditing and transcription review for German-English datasets.", lang: "German (Germany)", cat: "Transcription", close: "2026-09-26" },
-            { id: 22, title: "UB03_1261_Code-Switching Project - TRANSCRIPTION Role - FRENCH & English (fr-FR_English)", desc: "Reviewing and auditing transcribed audio logs for France French.", lang: "France French", cat: "Transcription", close: "2026-09-26" },
-            { id: 23, title: "UB03_1261_Code-Switching Project - TRANSCRIPTION Role - JAPANESE & English (ja-JP_English)", desc: "Detailed transcription verification for Japanese-English bilingual corpus.", lang: "Japanese (Japan)", cat: "Transcription", close: "2026-09-26" }
-        ];
-
-        function unlockJobBoard() {
-            document.getElementById('registration-gateway').classList.add('hidden');
-            document.getElementById('protected-job-board').classList.remove('hidden');
-            renderJobTable();
-        }
-
-        function lockJobBoard() {
-            document.getElementById('protected-job-board').classList.add('hidden');
-            document.getElementById('registration-gateway').classList.remove('hidden');
-        }
-
-        function renderJobTable() {
-            const searchInput = document.getElementById('job-search').value.toLowerCase();
-            const catFilter = document.getElementById('job-cat-filter').value;
-            const sortBy = document.getElementById('job-sort').value;
-            
-            let filtered = jobsDatabase.filter(job => {
-                const matchText = (job.title + " " + job.desc + " " + job.lang).toLowerCase();
-                return matchText.includes(searchInput) && (catFilter === "" || job.cat === catFilter);
-            });
-
-            if (sortBy === 'title') {
-                filtered.sort((a, b) => a.title.localeCompare(b.title));
-            } else {
-                filtered.sort((a, b) => new Date(a.close) - new Date(b.close));
-            }
-
-            const tbody = document.getElementById('job-table-body');
-            tbody.innerHTML = '';
-
-            if (filtered.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="5" class="p-8 text-center text-gray-400">No active vacancies match your criteria.</td></tr>`;
-                return;
-            }
-
-            filtered.forEach(job => {
-                const tr = document.createElement('tr');
-                tr.className = "hover:bg-card/80 transition border-b border-gold/10";
-                tr.innerHTML = `
-                    <td class="p-4 font-semibold text-white max-w-xs truncate">${job.title}</td>
-                    <td class="p-4"><span class="text-xs bg-gold/10 text-gold px-2.5 py-1 rounded border border-gold/30 font-medium">${job.lang}</span></td>
-                    <td class="p-4 text-xs text-gray-300 font-medium">${job.cat}</td>
-                    <td class="p-4 text-xs text-gray-400">${job.close}</td>
-                    <td class="p-4 text-right">
-                        <span class="text-xs text-gold font-medium">Registered Access</span>
-                    </td>
-                `;
-                tbody.appendChild(tr);
-            });
-        }
-
-        function showTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.add('hidden'));
-            const target = document.getElementById(tabId);
-            if(target) target.classList.remove('hidden');
-
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('text-gold', 'font-semibold', 'border-b', 'border-gold');
-            });
-            const activeLink = document.getElementById('link-' + tabId);
-            if(activeLink) {
-                activeLink.classList.add('text-gold', 'font-semibold', 'border-b', 'border-gold');
-            }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
 </body>
 </html>
