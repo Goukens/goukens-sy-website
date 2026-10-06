@@ -55,12 +55,9 @@
                 <button onclick="showTab('home')" id="link-home" class="nav-link text-gold font-semibold border-b border-gold pb-1 transition">Home</button>
                 <button onclick="showTab('vision')" id="link-vision" class="nav-link hover:text-gold transition">Vision</button>
                 <button onclick="showTab('services')" id="link-services" class="nav-link hover:text-gold transition">Services</button>
-                <button onclick="showTab('join')" id="link-join" class="nav-link hover:text-gold transition">Join Network</button>
+                <button onclick="showTab('portal')" id="link-portal" class="nav-link hover:text-gold transition">Candidate Portal</button>
                 <button onclick="showTab('contact')" id="link-contact" class="nav-link hover:text-gold transition">Contact</button>
             </nav>
-            <button onclick="showTab('join')" class="hidden lg:inline-block px-5 py-2.5 border border-gold text-gold hover:bg-gold hover:text-obsidian font-medium text-sm tracking-wider transition rounded-sm">
-                Apply Now
-            </button>
         </div>
     </header>
 
@@ -79,7 +76,7 @@
                     Goukens-sy <span class="text-gold">Business Support</span>
                 </h1>
 
-                <!-- Opvallende Corporate Foto bovenaan -->
+                <!-- Home Photo -->
                 <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-2xl h-80 md:h-[400px]">
                     <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80" alt="Global Corporate Architecture" class="w-full h-full object-cover brightness-75 hover:scale-105 transition duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent"></div>
@@ -99,7 +96,6 @@
                         In an economic landscape defined by rapid technological disruption and borderless markets, the traditional corporate playbook—built on bloated physical headquarters, rigid geographical constraints, and unnecessary management layers—has proven to be an obsolete liability. Modern enterprises require absolute agility, unyielding execution, and access to elite talent unhindered by zip codes.
                     </p>
 
-                    <!-- Tweede foto midden in de tekst voor directe visuele impact -->
                     <div class="my-6 rounded-sm overflow-hidden border border-gold/20 h-56">
                         <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" alt="Team Collaboration" class="w-full h-full object-cover brightness-75">
                     </div>
@@ -273,26 +269,26 @@
             </div>
         </div>
 
-        <!-- JOIN NETWORK TAB -->
-        <div id="join" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-8">
-            <!-- Join Photo -->
+        <!-- CANDIDATE PORTAL / REGISTRATION TAB -->
+        <div id="portal" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-8">
+            <!-- Portal Photo -->
             <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-xl h-72 md:h-80">
-                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80" alt="Join Network" class="w-full h-full object-cover brightness-75">
+                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80" alt="Candidate Portal" class="w-full h-full object-cover brightness-75">
                 <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
                 <div class="absolute bottom-6 left-6 right-6">
-                    <span class="text-gold text-xs tracking-widest uppercase font-semibold">Career Opportunities</span>
-                    <p class="text-white text-xl font-bold">Join Our Elite Global Network</p>
+                    <span class="text-gold text-xs tracking-widest uppercase font-semibold">Secure Authentication & Registration</span>
+                    <p class="text-white text-xl font-bold">Candidate Portal & Profile Management</p>
                 </div>
             </div>
 
             <div class="bg-surface border border-gold rounded-lg p-8 md:p-10 shadow-2xl">
-                <h1 class="text-3xl font-bold text-gold mb-2">Register Your Profile</h1>
+                <h1 class="text-3xl font-bold text-gold mb-2">Candidate Portal & Registration</h1>
                 <p class="text-gray-400 text-sm mb-8 leading-relaxed">
-                    Ready to take the next step in your career? Please submit your professional details and CV securely below, and our team will match your skill set with upcoming global projects.
+                    Securely access your professional profile or register for our elite global network below.
                 </p>
                 
-                <!-- Tally Form Embed with generous height -->
-                <iframe data-tally-src="https://tally.so/r/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="1100" frameborder="0" marginheight="0" marginwidth="0" title="Goukens-Sy Candidate Registration"></iframe>
+                <!-- Tally Form Embed -->
+                <iframe data-tally-src="https://tally.so/r/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="1100" frameborder="0" marginheight="0" marginwidth="0" title="Goukens-Sy Candidate Portal"></iframe>
                 <script>window.Tally||(window.Tally={});if(!window.Tally.load){v=function(){le.iframe.src=e+(e.includes("?")?"&":"?")+"transparentBackground=1"};if(document.querySelector('script[src*="tally.so/widgets/embed.js"]'))v();else{s=document.createElement("script");s.src="https://tally.so/widgets/embed.js";s.async=!0;s.onload=function(){Tally.loadEmbeds()};s.onerror=function(){};document.body.appendChild(s);}};</script>
             </div>
         </div>
