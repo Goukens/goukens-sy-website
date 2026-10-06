@@ -1,3 +1,8 @@
+Je hebt helemaal gelijk. Geen losse bestanden of geknoei meer: alles wordt netjes samengevoegd in één enkel index.html-bestand, waarbij we JavaScript gebruiken om ervoor te zorgen dat elke tab direct op dezelfde pagina laadt alsof het een eigen afzonderlijke weergave is. Dit is supersnel en werkt direct vlekkeloos op GitHub Pages zonder dat je meerdere bestanden hoeft te beheren.
+
+Kopieer onderstaande code volledig en vervang hiermee de inhoud van je index.html op GitHub:
+
+HTML
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -21,167 +26,205 @@
         }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        function showTab(tabId) {
+            // Verberg alle tab-inhoud
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.add('hidden'));
+
+            // Toon de geselecteerde tab
+            document.getElementById(tabId).classList.remove('hidden');
+
+            // Update actieve staat van de navigatielinks
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('text-gold', 'font-semibold', 'border-b', 'border-gold');
+                link.classList.add('hover:text-gold');
+            });
+            const activeLink = document.getElementById('link-' + tabId);
+            if(activeLink) {
+                activeLink.classList.remove('hover:text-gold');
+                activeLink.classList.add('text-gold', 'font-semibold', 'border-b', 'border-gold', 'pb-1');
+            }
+
+            // Scroll naar boven bij wisselen
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </head>
-<body class="bg-obsidian text-gray-200 font-sans antialiased selection:bg-gold selection:text-obsidian">
+<body class="bg-obsidian text-gray-200 font-sans antialiased selection:bg-gold selection:text-obsidian flex flex-col min-h-screen">
 
     <!-- Header / Navigation -->
     <header class="sticky top-0 z-50 bg-obsidian/95 backdrop-blur-md border-b border-gold/20">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#home" class="text-xl md:text-2xl font-bold tracking-wider text-gold flex items-center gap-2">
+            <a href="#home" onclick="showTab('home')" class="text-xl md:text-2xl font-bold tracking-wider text-gold flex items-center gap-2 cursor-pointer">
                 <i class="fa-solid fa-gem text-gold"></i> GOUKENS-SY
             </a>
             <nav class="hidden md:flex items-center gap-8 text-sm uppercase tracking-widest">
-                <a href="#home" class="hover:text-gold transition">Home</a>
-                <a href="#vision" class="hover:text-gold transition">Vision</a>
-                <a href="#services" class="hover:text-gold transition">Services</a>
-                <a href="#join" class="text-gold font-semibold border-b border-gold pb-1">Join Network</a>
-                <a href="#contact" class="hover:text-gold transition">Contact</a>
+                <button onclick="showTab('home')" id="link-home" class="nav-link text-gold font-semibold border-b border-gold pb-1 transition">Home</button>
+                <button onclick="showTab('vision')" id="link-vision" class="nav-link hover:text-gold transition">Vision</button>
+                <button onclick="showTab('services')" id="link-services" class="nav-link hover:text-gold transition">Services</button>
+                <button onclick="showTab('join')" id="link-join" class="nav-link hover:text-gold transition">Join Network</button>
+                <button onclick="showTab('contact')" id="link-contact" class="nav-link hover:text-gold transition">Contact</button>
             </nav>
-            <a href="#join" class="hidden lg:inline-block px-5 py-2.5 border border-gold text-gold hover:bg-gold hover:text-obsidian font-medium text-sm tracking-wider transition rounded-sm">
+            <button onclick="showTab('join')" class="hidden lg:inline-block px-5 py-2.5 border border-gold text-gold hover:bg-gold hover:text-obsidian font-medium text-sm tracking-wider transition rounded-sm">
                 Apply Now
-            </a>
+            </button>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="relative min-h-[70vh] flex items-center justify-center bg-gradient-to-b from-obsidian via-surface to-obsidian px-6 py-20 border-b border-gold/10">
-        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div class="max-w-4xl mx-auto text-center relative z-10">
-            <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-4 inline-block px-3 py-1 border border-gold/30 rounded-full">
-                Executive Leadership & Global Operations
-            </span>
-            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 text-white">
-                Goukens-sy <span class="text-gold">Business Support</span>
-            </h1>
-            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-                Operating remotely from anywhere in the world. We don’t pay an employee to look good in an office; we pay for their knowledge, execution, and value.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#vision" class="px-8 py-4 bg-gold text-obsidian font-bold tracking-wider uppercase text-sm hover:bg-gold-light transition rounded-sm shadow-lg shadow-gold/10">
-                    Our Vision
-                </a>
-                <a href="#join" class="px-8 py-4 border border-gold/50 text-white font-bold tracking-wider uppercase text-sm hover:border-gold transition rounded-sm">
-                    Join Network
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- Main Content Container -->
-    <div class="max-w-4xl mx-auto px-6 py-16 space-y-12">
+    <main class="flex-grow">
 
-        <!-- Section 1: Vision -->
-        <div id="vision" class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
-            <h2 class="text-2xl font-bold text-gold mb-6 flex items-center gap-3">
-                <i class="fa-solid fa-bullseye text-lg"></i> Our Vision: Executive Leadership & Global Operations
-            </h2>
-            <p class="text-gray-300 mb-4 leading-relaxed">
-                For decades, the standard playbook for scaling enterprise operations involved adding layers of management, maintaining bloated physical offices, and viewing talent through a restrictive geographic lens. Today, that legacy model is a liability.
-            </p>
-            <p class="text-gray-300 mb-6 leading-relaxed">
-                As part of our executive leadership managing global business support operations, we speak with Western corporate leaders every week who face a hard truth: clients don't hire an executive for their seat presence or desk hours. They hire raw talent, unyielding agility, and uncompromising execution.
-            </p>
-            <div class="border-l-2 border-gold pl-5 my-6 py-3 bg-gold/5 italic text-gray-200">
-                "It is high time to fully embrace the new way of working: operating remotely from anywhere in the world. We don’t pay an employee to look good in an office; we pay for their knowledge, execution, and value. The traditional suit-and-tie corporate culture is old school—look at Elon Musk, the richest man in the world, who leads in a T-shirt."
+        <!-- HOME TAB -->
+        <div id="home" class="tab-content flex items-center justify-center min-h-[80vh] px-6 py-24 relative">
+            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
+            <div class="max-w-4xl mx-auto text-center relative z-10">
+                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-4 inline-block px-3 py-1 border border-gold/30 rounded-full">
+                    Executive Leadership & Global Operations
+                </span>
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 text-white">
+                    Goukens-sy <span class="text-gold">Business Support</span>
+                </h1>
+                <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+                    Operating remotely from anywhere in the world. We don’t pay an employee to look good in an office; we pay for their knowledge, execution, and value.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button onclick="showTab('vision')" class="px-8 py-4 bg-gold text-obsidian font-bold tracking-wider uppercase text-sm hover:bg-gold-light transition rounded-sm shadow-lg shadow-gold/10">
+                        Read Our Vision
+                    </button>
+                    <button onclick="showTab('join')" class="px-8 py-4 border border-gold/50 text-white font-bold tracking-wider uppercase text-sm hover:border-gold transition rounded-sm">
+                        Join Our Network
+                    </button>
+                </div>
             </div>
         </div>
 
-        <!-- Section 2: Beyond Remote Boundaries -->
-        <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
-            <h2 class="text-2xl font-bold text-gold mb-6 flex items-center gap-3">
-                <i class="fa-solid fa-earth-americas text-lg"></i> Beyond Remote Boundaries
-            </h2>
-            <p class="text-gray-300 mb-4 leading-relaxed">
-                The traditional debate around remote versus in-office work misses the forest for the trees. The real evolution isn't about where work is done—it is about how intelligently it is executed.
-            </p>
-            <p class="text-gray-300 leading-relaxed">
-                Outdated remote-work rules treat physical location as a proxy for productivity. In reality, true operational excellence is built on trust, transparent performance metrics, and borderless talent acquisition. By stepping past arbitrary geographic restrictions, companies tap into top-tier global expertise that instantly elevates their capabilities.
-            </p>
-        </div>
+        <!-- VISION TAB -->
+        <div id="vision" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-12">
+            <div class="text-center mb-12">
+                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 inline-block px-3 py-1 border border-gold/30 rounded-full">Strategic Outlook</span>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-white">Our Core Vision</h1>
+            </div>
 
-        <!-- Section 3: AI-Driven Operational Shift -->
-        <div id="services" class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
-            <h2 class="text-2xl font-bold text-gold mb-6 flex items-center gap-3">
-                <i class="fa-solid fa-microchip text-lg"></i> The AI-Driven Operational Shift
-            </h2>
-            <p class="text-gray-300 mb-4 leading-relaxed">
-                While the strategic landscape evolves, the interim management and Business Process Outsourcing (BPO) landscapes are moving far too slowly when it comes to fully integrating AI-augmented workflows.
-            </p>
-            <p class="text-gray-300 mb-6 leading-relaxed">
-                Administrative drag, manual bottlenecks, and legacy communication loops are draining corporate resources. The future belongs to organizations that treat AI not as a buzzword, but as the core engine of day-to-day execution:
-            </p>
-            <ul class="space-y-3 text-gray-300 pl-2">
-                <li class="flex items-start gap-3">
-                    <span class="text-gold font-bold mt-1">▪</span>
-                    <div><strong class="text-gold-light">Autonomous Workflows:</strong> Replacing repetitive friction points with intelligent automation.</div>
-                </li>
-                <li class="flex items-start gap-3">
-                    <span class="text-gold font-bold mt-1">▪</span>
-                    <div><strong class="text-gold-light">Agile Leadership:</strong> Deploying fractional executive talent that hits the ground running on day one without onboarding lag.</div>
-                </li>
-                <li class="flex items-start gap-3">
-                    <span class="text-gold font-bold mt-1">▪</span>
-                    <div><strong class="text-gold-light">Outcome-Centric Culture:</strong> Measuring success strictly by output, efficiency, and real-world impact.</div>
-                </li>
-            </ul>
-        </div>
+            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
+                <h2 class="text-2xl font-bold text-gold mb-6 flex items-center gap-3">
+                    <i class="fa-solid fa-bullseye text-lg"></i> Executive Leadership & Global Operations
+                </h2>
+                <p class="text-gray-300 mb-4 leading-relaxed">
+                    For decades, the standard playbook for scaling enterprise operations involved adding layers of management, maintaining bloated physical offices, and viewing talent through a restrictive geographic lens. Today, that legacy model is a liability.
+                </p>
+                <p class="text-gray-300 mb-6 leading-relaxed">
+                    As part of our executive leadership managing global business support operations, we speak with Western corporate leaders every week who face a hard truth: clients don't hire an executive for their seat presence or desk hours. They hire raw talent, unyielding agility, and uncompromising execution.
+                </p>
+                <div class="border-l-2 border-gold pl-5 my-6 py-3 bg-gold/5 italic text-gray-200">
+                    "It is high time to fully embrace the new way of working: operating remotely from anywhere in the world. We don’t pay an employee to look good in an office; we pay for their knowledge, execution, and value. The traditional suit-and-tie corporate culture is old school—look at Elon Musk, the richest man in the world, who leads in a T-shirt."
+                </div>
+            </div>
 
-        <!-- Section 4: Reshaping the Labor Market -->
-        <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
-            <h2 class="text-2xl font-bold text-gold mb-6 flex items-center gap-3">
-                <i class="fa-solid fa-users-gear text-lg"></i> Reshaping the Labor Market
-            </h2>
-            <p class="text-gray-300 mb-4 leading-relaxed">
-                As senior-level executives, we recognize a vital truth: getting older doesn't mean we stop evaluating or evolving. In a few years, we will be succeeded by the brilliant minds working under us today. If we do not fundamentally reshape how we view the global labor market and embrace technological evolution right now, businesses risk being left completely behind tomorrow. Scaling efficiently requires bridging Western corporate strategy with high-performance, tech-forward execution hubs.
-            </p>
-            <p class="text-gray-300 mb-6 leading-relaxed">
-                Operational leadership in the AI era demands a commitment to speed, precision, and an absolute rejection of legacy limitations.
-            </p>
-            <p class="text-gold-light font-medium mb-6">
-                Are you still managing your operations by yesterday's rules, or is your business ready for the AI era and the new century?
-            </p>
-            <p class="text-gray-300 leading-relaxed">
-                Whether you are looking to deploy global tech talent, optimize your operational workflow through AI-augmented systems, explore our Employer of Record (EOR) capabilities, or invite our leadership for speaking engagements, our executive team is ready to assist you.
-            </p>
-        </div>
+            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
+                <h2 class="text-2xl font-bold text-gold mb-6 flex items-center gap-3">
+                    <i class="fa-solid fa-earth-americas text-lg"></i> Beyond Remote Boundaries
+                </h2>
+                <p class="text-gray-300 mb-4 leading-relaxed">
+                    The traditional debate around remote versus in-office work misses the forest for the trees. The real evolution isn't about where work is done—it is about how intelligently it is executed.
+                </p>
+                <p class="text-gray-300 leading-relaxed">
+                    Outdated remote-work rules treat physical location as a proxy for productivity. In reality, true operational excellence is built on trust, transparent performance metrics, and borderless talent acquisition. By stepping past arbitrary geographic restrictions, companies tap into top-tier global expertise that instantly elevates their capabilities.
+                </p>
+            </div>
 
-        <!-- Section 5: Schedule an Executive Consultation -->
-        <div id="contact" class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
-            <h2 class="text-2xl font-bold text-gold mb-4 flex items-center gap-3">
-                <i class="fa-regular fa-calendar-days text-lg"></i> Schedule an Executive Consultation or Seminar
-            </h2>
-            <p class="text-gray-300 mb-6 leading-relaxed">
-                Skip the back-and-forth emails. Select a convenient date and time below to book an automated consultation or schedule our leadership for corporate meetings, strategy sessions, and online seminars / webinars on AI, remote workforce management, and global BPO scaling.
-            </p>
-            
-            <div class="border border-dashed border-gold/40 rounded-sm p-8 text-center bg-obsidian/50 text-gray-400 italic">
-                [Embed Automated Booking Calendar / e.g., YouCanBookMe Widget]
+            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
+                <h2 class="text-2xl font-bold text-gold mb-6 flex items-center gap-3">
+                    <i class="fa-solid fa-users-gear text-lg"></i> Reshaping the Labor Market
+                </h2>
+                <p class="text-gray-300 mb-4 leading-relaxed">
+                    As senior-level executives, we recognize a vital truth: getting older doesn't mean we stop evaluating or evolving. In a few years, we will be succeeded by the brilliant minds working under us today. If we do not fundamentally reshape how we view the global labor market and embrace technological evolution right now, businesses risk being left completely behind tomorrow. Scaling efficiently requires bridging Western corporate strategy with high-performance, tech-forward execution hubs.
+                </p>
+                <p class="text-gold-light font-medium mt-4">
+                    Are you still managing your operations by yesterday's rules, or is your business ready for the AI era and the new century?
+                </p>
             </div>
         </div>
 
-        <!-- Section 6: Direct Inquiries -->
-        <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
-            <h2 class="text-2xl font-bold text-gold mb-4 flex items-center gap-3">
-                <i class="fa-solid fa-envelope text-lg"></i> Direct Inquiries
-            </h2>
-            <p class="text-gray-300 leading-relaxed">
-                Voor specifieke vragen of direct contact met de directie bereik je ons via de officiële kanalen of e-mail.
-            </p>
+        <!-- SERVICES TAB -->
+        <div id="services" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-12">
+            <div class="text-center mb-12">
+                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 inline-block px-3 py-1 border border-gold/30 rounded-full">Operational Excellence</span>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-white">Our Services & Expertise</h1>
+            </div>
+
+            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
+                <h2 class="text-2xl font-bold text-gold mb-6 flex items-center gap-3">
+                    <i class="fa-solid fa-microchip text-lg"></i> The AI-Driven Operational Shift
+                </h2>
+                <p class="text-gray-300 mb-4 leading-relaxed">
+                    While the strategic landscape evolves, the interim management and Business Process Outsourcing (BPO) landscapes are moving far too slowly when it comes to fully integrating AI-augmented workflows.
+                </p>
+                <p class="text-gray-300 mb-6 leading-relaxed">
+                    Administrative drag, manual bottlenecks, and legacy communication loops are draining corporate resources. The future belongs to organizations that treat AI not as a buzzword, but as the core engine of day-to-day execution:
+                </p>
+                <ul class="space-y-3 text-gray-300 pl-2">
+                    <li class="flex items-start gap-3">
+                        <span class="text-gold font-bold mt-1">▪</span>
+                        <div><strong class="text-gold-light">Autonomous Workflows:</strong> Replacing repetitive friction points with intelligent automation.</div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-gold font-bold mt-1">▪</span>
+                        <div><strong class="text-gold-light">Agile Leadership:</strong> Deploying fractional executive talent that hits the ground running on day one without onboarding lag.</div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-gold font-bold mt-1">▪</span>
+                        <div><strong class="text-gold-light">Outcome-Centric Culture:</strong> Measuring success strictly by output, efficiency, and real-world impact.</div>
+                    </li>
+                </ul>
+            </div>
         </div>
 
-        <!-- Registration Form Section for Candidates -->
-        <div id="join" class="bg-surface border border-gold rounded-lg p-8 md:p-10 shadow-2xl">
-            <h2 class="text-3xl font-bold text-gold mb-2">Register Your Profile</h2>
-            <p class="text-gray-400 text-sm mb-8 leading-relaxed">
-                Ready to take the next step in your career? Please submit your professional details and CV securely below, and our team will match your skill set with upcoming global projects.
-            </p>
-            
-            <!-- Tally Form Embed -->
-            <iframe data-tally-src="https://tally.so/r/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" title="Goukens-Sy Candidate Registration"></iframe>
-            <script>window.Tally||(window.Tally={});if(!window.Tally.load){v=function(){le.iframe.src=e+(e.includes("?")?"&":"?")+"transparentBackground=1"};if(document.querySelector('script[src*="tally.so/widgets/embed.js"]'))v();else{s=document.createElement("script");s.src="https://tally.so/widgets/embed.js";s.async=!0;s.onload=function(){Tally.loadEmbeds()};s.onerror=function(){};document.body.appendChild(s);}};</script>
+        <!-- JOIN NETWORK TAB -->
+        <div id="join" class="tab-content hidden max-w-4xl mx-auto px-6 py-16">
+            <div class="bg-surface border border-gold rounded-lg p-8 md:p-10 shadow-2xl">
+                <h1 class="text-3xl font-bold text-gold mb-2">Register Your Profile</h1>
+                <p class="text-gray-400 text-sm mb-8 leading-relaxed">
+                    Ready to take the next step in your career? Please submit your professional details and CV securely below, and our team will match your skill set with upcoming global projects.
+                </p>
+                
+                <!-- Tally Form Embed -->
+                <iframe data-tally-src="https://tally.so/r/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" title="Goukens-Sy Candidate Registration"></iframe>
+                <script>window.Tally||(window.Tally={});if(!window.Tally.load){v=function(){le.iframe.src=e+(e.includes("?")?"&":"?")+"transparentBackground=1"};if(document.querySelector('script[src*="tally.so/widgets/embed.js"]'))v();else{s=document.createElement("script");s.src="https://tally.so/widgets/embed.js";s.async=!0;s.onload=function(){Tally.loadEmbeds()};s.onerror=function(){};document.body.appendChild(s);}};</script>
+            </div>
         </div>
 
-    </div>
+        <!-- CONTACT TAB -->
+        <div id="contact" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-12">
+            <div class="text-center mb-12">
+                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 inline-block px-3 py-1 border border-gold/30 rounded-full">Get in Touch</span>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-white">Executive Consultations & Inquiries</h1>
+            </div>
+
+            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
+                <h2 class="text-2xl font-bold text-gold mb-4 flex items-center gap-3">
+                    <i class="fa-regular fa-calendar-days text-lg"></i> Schedule an Executive Consultation or Seminar
+                </h2>
+                <p class="text-gray-300 mb-6 leading-relaxed">
+                    Skip the back-and-forth emails. Select a convenient date and time below to book an automated consultation or schedule our leadership for corporate meetings, strategy sessions, and online seminars / webinars on AI, remote workforce management, and global BPO scaling.
+                </p>
+                <div class="border border-dashed border-gold/40 rounded-sm p-8 text-center bg-obsidian/50 text-gray-400 italic">
+                    [Embed Automated Booking Calendar / e.g., YouCanBookMe Widget]
+                </div>
+            </div>
+
+            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl">
+                <h2 class="text-2xl font-bold text-gold mb-4 flex items-center gap-3">
+                    <i class="fa-solid fa-envelope text-lg"></i> Direct Inquiries
+                </h2>
+                <p class="text-gray-300 leading-relaxed">
+                    Voor specifieke vragen of direct contact met de directie bereik je ons via de officiële kanalen of e-mail.
+                </p>
+            </div>
+        </div>
+
+    </main>
 
     <!-- Footer -->
     <footer class="bg-surface border-t border-gold/20 py-12 px-6 text-center text-sm text-gray-500 mt-20">
@@ -189,7 +232,7 @@
             <div class="text-gold font-bold tracking-widest flex items-center gap-2">
                 <i class="fa-solid fa-gem"></i> GOUKENS-SY
             </div>
-            <p>&copy; 2026 Goukens-sy Business Support. All rights reserved. Executive Leadership & Global Operations.</p>
+            <p>&copy; 2026 Goukens-sy Business Support. All rights reserved.</p>
             <div class="flex gap-6 text-gray-400">
                 <a href="#" class="hover:text-gold transition"><i class="fa-brands fa-linkedin-in"></i></a>
                 <a href="#" class="hover:text-gold transition"><i class="fa-brands fa-x-twitter"></i></a>
