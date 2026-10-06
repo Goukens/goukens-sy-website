@@ -22,193 +22,32 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- MASTER DATABASE MET ALLE 23 VACATURES (ALLEEN VOOR B2B KLANTEN) -->
+    <!-- MASTER DATABASE MET ALLE 23 VACATURES -->
     <script>
         const jobsDatabase = [
-            { 
-                id: 1, 
-                title: "UB03_1261_Code-Switching Project - RECORDING Role - SWEDISH & fluent English (sv-SE_English)", 
-                desc: "We are seeking native Swedish speakers with fluent English for a high-priority research project focused on natural code-switching utterance recording. Participants will be required to read prompts and engage in structured conversational audio tasks. Requirements: Native speaker of Swedish from Sweden, fluent bilingual proficiency in English, stable internet connection, and high-quality recording environment.", 
-                lang: "Swedish (Sweden)", 
-                cat: "Recording", 
-                close: "2026-09-23" 
-            },
-            { 
-                id: 2, 
-                title: "UB03_1261_Code-Switching Project - RECORDING Role - Portugal Portuguese & fluent English (pt-PT_English)", 
-                desc: "Recruiting native Portugal Portuguese speakers with professional fluency in English for advanced linguistic data collection. The project aims to map natural code-switching patterns in bilingual speakers. Ideal candidates have clear articulation and availability to complete audio modules within the specified project window.", 
-                lang: "Portuguese (Portugal)", 
-                cat: "Recording", 
-                close: "2026-09-23" 
-            },
-            { 
-                id: 3, 
-                title: "UB03_1261_Code-Switching Project - RECORDING Role - native FINNISH & fluent English (fi-FI_English)", 
-                desc: "We are looking for native Finnish speakers based in Finland who possess fluent English language skills. This research initiative focuses on capturing authentic code-switching phenomena. Strict audio quality guidelines apply; use of an external headset microphone is mandatory.", 
-                lang: "Finnish (Finland)", 
-                cat: "Recording", 
-                close: "2026-09-23" 
-            },
-            { 
-                id: 4, 
-                title: "UB03_1261_Code-Switching Project - RECORDING Role - MALAYSIAN & fluent English (ms-MY_English)", 
-                desc: "Seeking native Malaysian speakers for research-focused bilingual utterance collection. Tasks involve reading specific text prompts transitioning smoothly between Malay and English. Flexible scheduling, remote execution, and prompt milestone delivery required.", 
-                lang: "Malay (Malaysia)", 
-                cat: "Recording", 
-                close: "2026-09-24" 
-            },
-            { 
-                id: 5, 
-                title: "UB03_1261_Code-Switching Project - RECORDING Role - native Spanish Spain and Catalan (es-ES_ca-ES)", 
-                desc: "We are seeking native speakers fluent in both Spain Spanish (es-ES) and Catalan (ca-ES) for specialized code-switching data collection. Candidates will record bilingual dialogues designed to train advanced voice recognition models.", 
-                lang: "Spanish / Catalan", 
-                cat: "Recording", 
-                close: "2026-09-23" 
-            },
-            { 
-                id: 6, 
-                title: "UB03_1261_Code-Switching Project - RECORDING Role - CATALAN & fluent English (ca-ES_English)", 
-                desc: "Recruiting native Catalan speakers with robust English proficiency for speech research modules. Involves phonetic tracking and natural language transitions in a controlled remote recording framework.", 
-                lang: "Catalan (Spain)", 
-                cat: "Recording", 
-                close: "2026-09-24" 
-            },
-            { 
-                id: 7, 
-                title: "UB03_1261_Code-Switching Project - RECORDING Role - native French Arabic and fluent France French (ar-FR_fr-FR)", 
-                desc: "We are seeking native speakers for a research project focusing on French Arabic phrasing combined with fluent France French. High attention to phonetic detail and proper accentuation is required.", 
-                lang: "Arabic / French", 
-                cat: "Recording", 
-                close: "2026-09-22" 
-            },
-            { 
-                id: 8, 
-                title: "UB03_1261_Code-Switching Project - RECORDING Role - Hebrew (Israel) & fluent English (he-IL_English)", 
-                desc: "We are seeking native Hebrew speakers from Israel with fluent English capabilities for code-switching speech research. Task includes short audio recording tasks meeting rigorous technical standards.", 
-                lang: "Hebrew (Israel)", 
-                cat: "Recording", 
-                close: "2026-09-22" 
-            },
-            { 
-                id: 9, 
-                title: "UB03_1261_Code-Switching Project - RECORDING Role - GREEK & fluent English (el-GR_English)", 
-                desc: "Recruiting native Greek speakers based in Greece with professional fluency in English for advanced speech research modules and code-switching data collection.", 
-                lang: "Greek (Greece)", 
-                cat: "Recording", 
-                close: "2026-09-24" 
-            },
-            { 
-                id: 10, 
-                title: "UB03_1261_Code-Switching Project - RECORDING Role - HUNGARIAN & fluent English (hu-HU_English)", 
-                desc: "Seeking native Hungarian speakers with fluent English capabilities for structured audio recording tasks capturing natural linguistic code-switching.", 
-                lang: "Hungarian (Hungary)", 
-                cat: "Recording", 
-                close: "2026-09-24" 
-            },
-            { 
-                id: 11, 
-                title: "UB03_1261_Code-Switching Project - RECORDING Role - ROMANIAN & fluent English (ro-RO_English)", 
-                desc: "We are looking for native Romanian speakers with fluent English to participate in specialized linguistic speech recording datasets.", 
-                lang: "Romanian (Romania)", 
-                cat: "Recording", 
-                close: "2026-09-24" 
-            },
-            { 
-                id: 12, 
-                title: "UB03_1261_Code-Switching Project - RECORDING Role - CZECH & fluent English (cs-CZ_English)", 
-                desc: "Recruiting native Czech speakers with fluent English for high-priority conversational data gathering and audio prompt evaluations.", 
-                lang: "Czech (Czech Republic)", 
-                cat: "Recording", 
-                close: "2026-09-24" 
-            },
-            { 
-                id: 13, 
-                title: "UB03_1261_Code-Switching Project - RECORDING Role - POLISH & fluent English (pl-PL_English)", 
-                desc: "Seeking native Polish speakers with robust English proficiency for linguistic research focusing on natural bilingual transitions.", 
-                lang: "Polish (Poland)", 
-                cat: "Recording", 
-                close: "2026-09-24" 
-            },
-            { 
-                id: 14, 
-                title: "UB03_1261_Code-Switching Project - RECORDING Role - DANISH & fluent English (da-DK_English)", 
-                desc: "We are seeking native Danish speakers with fluent English for specialized research tasks involving acoustic capture and phonetic prompt execution.", 
-                lang: "Danish (Denmark)", 
-                cat: "Recording", 
-                close: "2026-09-24" 
-            },
-            { 
-                id: 15, 
-                title: "UB03_1261_Code-Switching Project - RECORDING Role - NORWEGIAN & fluent English (no-NO_English)", 
-                desc: "Recruiting native Norwegian speakers with professional English skills to contribute to global speech technology datasets.", 
-                lang: "Norwegian (Norway)", 
-                cat: "Recording", 
-                close: "2026-09-24" 
-            },
-            { 
-                id: 16, 
-                title: "UB03_1261_Code-Switching Project - RECORDING Role - SLOVAK & fluent English (sk-SK_English)", 
-                desc: "Seeking native Slovak speakers with fluent English proficiency for remote audio collection and transcription evaluation modules.", 
-                lang: "Slovakia (Slovak)", 
-                cat: "Recording", 
-                close: "2026-09-24" 
-            },
-            { 
-                id: 17, 
-                title: "UB03_1261_Code-Switching Project - RECORDING Role - ICELANDIC & fluent English (is-IS_English)", 
-                desc: "Recruiting native Icelandic speakers with fluent English for phonetic evaluation and code-switching data research.", 
-                lang: "Icelandic (Iceland)", 
-                cat: "Recording", 
-                close: "2026-09-25" 
-            },
-            { 
-                id: 18, 
-                title: "UB03_1261_Code-Switching Project - RECORDING Role - CROATIAN & fluent English (hr-HR_English)", 
-                desc: "Seeking native Croatian speakers with fluent English for speech datasets and conversational dialogue collection.", 
-                lang: "Croatian (Croatia)", 
-                cat: "Recording", 
-                close: "2026-09-25" 
-            },
-            { 
-                id: 19, 
-                title: "UB03_1261_Code-Switching Project - RECORDING Role - BULGARIAN & fluent English (bg-BG_English)", 
-                desc: "Seeking native Bulgarian speakers with professional English for audio recording research and bilingual transition tasks.", 
-                lang: "Bulgarian (Bulgaria)", 
-                cat: "Recording", 
-                close: "2026-09-25" 
-            },
-            { 
-                id: 20, 
-                title: "UB03_1261_Code-Switching Project - RECORDING Role - SERBIAN & fluent English (sr-RS_English)", 
-                desc: "Recruiting native Serbian speakers with fluent English for audio collection and linguistic research tasks.", 
-                lang: "Serbian (Serbia)", 
-                cat: "Recording", 
-                close: "2026-09-25" 
-            },
-            { 
-                id: 21, 
-                title: "UB03_1261_Code-Switching Project - TRANSCRIPTION Role - GERMAN & English (de-DE_English)", 
-                desc: "Quality assurance auditing and transcription review for bilingual German-English customer interaction datasets.", 
-                lang: "German (Germany)", 
-                cat: "Transcription", 
-                close: "2026-09-26" 
-            },
-            { 
-                id: 22, 
-                title: "UB03_1261_Code-Switching Project - TRANSCRIPTION Role - FRENCH & English (fr-FR_English)", 
-                desc: "Reviewing and auditing transcribed audio logs for France French and English conversational AI models.", 
-                lang: "French (France)", 
-                cat: "Transcription", 
-                close: "2026-09-26" 
-            },
-            { 
-                id: 23, 
-                title: "UB03_1261_Code-Switching Project - TRANSCRIPTION Role - JAPANESE & English (ja-JP_English)", 
-                desc: "Detailed transcription verification and text alignment for Japanese-English bilingual corpus collections.", 
-                lang: "Japanese (Japan)", 
-                cat: "Transcription", 
-                close: "2026-09-26" 
-            }
+            { id: 1, title: "UB03_1261_Code-Switching Project - RECORDING Role - SWEDISH & fluent English (sv-SE_English)", desc: "We are seeking native Swedish speakers with fluent English for a high-priority research project focused on natural code-switching utterance recording. Requirements: Native speaker of Swedish from Sweden, fluent bilingual proficiency in English, stable internet connection, and high-quality recording environment.", lang: "Swedish (Sweden)", cat: "Recording", close: "2026-09-23" },
+            { id: 2, title: "UB03_1261_Code-Switching Project - RECORDING Role - Portugal Portuguese & fluent English (pt-PT_English)", desc: "Recruiting native Portugal Portuguese speakers with professional fluency in English for advanced linguistic data collection.", lang: "Portuguese (Portugal)", cat: "Recording", close: "2026-09-23" },
+            { id: 3, title: "UB03_1261_Code-Switching Project - RECORDING Role - native FINNISH & fluent English (fi-FI_English)", desc: "We are looking for native Finnish speakers based in Finland who possess fluent English language skills.", lang: "Finnish (Finland)", cat: "Recording", close: "2026-09-23" },
+            { id: 4, title: "UB03_1261_Code-Switching Project - RECORDING Role - MALAYSIAN & fluent English (ms-MY_English)", desc: "Seeking native Malaysian speakers for research-focused bilingual utterance collection.", lang: "Malay (Malaysia)", cat: "Recording", close: "2026-09-24" },
+            { id: 5, title: "UB03_1261_Code-Switching Project - RECORDING Role - native Spanish Spain and Catalan (es-ES_ca-ES)", desc: "Seeking native speakers fluent in both Spain Spanish (es-ES) and Catalan (ca-ES).", lang: "Spanish / Catalan", cat: "Recording", close: "2026-09-23" },
+            { id: 6, title: "UB03_1261_Code-Switching Project - RECORDING Role - CATALAN & fluent English (ca-ES_English)", desc: "Recruiting native Catalan speakers with robust English proficiency for speech research modules.", lang: "Catalan (Spain)", cat: "Recording", close: "2026-09-24" },
+            { id: 7, title: "UB03_1261_Code-Switching Project - RECORDING Role - native French Arabic and fluent France French (ar-FR_fr-FR)", desc: "Seeking native speakers for French Arabic phrasing combined with fluent France French.", lang: "Arabic / French", cat: "Recording", close: "2026-09-22" },
+            { id: 8, title: "UB03_1261_Code-Switching Project - RECORDING Role - Hebrew (Israel) & fluent English (he-IL_English)", desc: "Seeking native Hebrew speakers from Israel with fluent English capabilities.", lang: "Hebrew (Israel)", cat: "Recording", close: "2026-09-22" },
+            { id: 9, title: "UB03_1261_Code-Switching Project - RECORDING Role - GREEK & fluent English (el-GR_English)", desc: "Recruiting native Greek speakers based in Greece with professional fluency in English.", lang: "Greek (Greece)", cat: "Recording", close: "2026-09-24" },
+            { id: 10, title: "UB03_1261_Code-Switching Project - RECORDING Role - HUNGARIAN & fluent English (hu-HU_English)", desc: "Seeking native Hungarian speakers with fluent English capabilities.", lang: "Hungarian (Hungary)", cat: "Recording", close: "2026-09-24" },
+            { id: 11, title: "UB03_1261_Code-Switching Project - RECORDING Role - ROMANIAN & fluent English (ro-RO_English)", desc: "Looking for native Romanian speakers with fluent English.", lang: "Romanian (Romania)", cat: "Recording", close: "2026-09-24" },
+            { id: 12, title: "UB03_1261_Code-Switching Project - RECORDING Role - CZECH & fluent English (cs-CZ_English)", desc: "Recruiting native Czech speakers with fluent English.", lang: "Czech (Czech Republic)", cat: "Recording", close: "2026-09-24" },
+            { id: 13, title: "UB03_1261_Code-Switching Project - RECORDING Role - POLISH & fluent English (pl-PL_English)", desc: "Seeking native Polish speakers with robust English proficiency.", lang: "Polish (Poland)", cat: "Recording", close: "2026-09-24" },
+            { id: 14, title: "UB03_1261_Code-Switching Project - RECORDING Role - DANISH & fluent English (da-DK_English)", desc: "Seeking native Danish speakers with fluent English.", lang: "Danish (Denmark)", cat: "Recording", close: "2026-09-24" },
+            { id: 15, title: "UB03_1261_Code-Switching Project - RECORDING Role - NORWEGIAN & fluent English (no-NO_English)", desc: "Recruiting native Norwegian speakers with professional English.", lang: "Norwegian (Norway)", cat: "Recording", close: "2026-09-24" },
+            { id: 16, title: "UB03_1261_Code-Switching Project - RECORDING Role - SLOVAK & fluent English (sk-SK_English)", desc: "Seeking native Slovak speakers with fluent English.", lang: "Slovakia (Slovak)", cat: "Recording", close: "2026-09-24" },
+            { id: 17, title: "UB03_1261_Code-Switching Project - RECORDING Role - ICELANDIC & fluent English (is-IS_English)", desc: "Recruiting native Icelandic speakers with fluent English.", lang: "Icelandic (Iceland)", cat: "Recording", close: "2026-09-25" },
+            { id: 18, title: "UB03_1261_Code-Switching Project - RECORDING Role - CROATIAN & fluent English (hr-HR_English)", desc: "Seeking native Croatian speakers with fluent English.", lang: "Croatian (Croatia)", cat: "Recording", close: "2026-09-25" },
+            { id: 19, title: "UB03_1261_Code-Switching Project - RECORDING Role - BULGARIAN & fluent English (bg-BG_English)", desc: "Seeking native Bulgarian speakers with professional English.", lang: "Bulgarian (Bulgaria)", cat: "Recording", close: "2026-09-25" },
+            { id: 20, title: "UB03_1261_Code-Switching Project - RECORDING Role - SERBIAN & fluent English (sr-RS_English)", desc: "Recruiting native Serbian speakers with fluent English.", lang: "Serbian (Serbia)", cat: "Recording", close: "2026-09-25" },
+            { id: 21, title: "UB03_1261_Code-Switching Project - TRANSCRIPTION Role - GERMAN & English (de-DE_English)", desc: "Quality assurance auditing and transcription review for German-English datasets.", lang: "German (Germany)", cat: "Transcription", close: "2026-09-26" },
+            { id: 22, title: "UB03_1261_Code-Switching Project - TRANSCRIPTION Role - FRENCH & English (fr-FR_English)", desc: "Reviewing and auditing transcribed audio logs for France French.", lang: "French (France)", cat: "Transcription", close: "2026-09-26" },
+            { id: 23, title: "UB03_1261_Code-Switching Project - TRANSCRIPTION Role - JAPANESE & English (ja-JP_English)", desc: "Detailed transcription verification for Japanese-English bilingual corpus.", lang: "Japanese (Japan)", cat: "Transcription", close: "2026-09-26" }
         ];
     </script>
 </head>
@@ -223,21 +62,19 @@
                 <button onclick="showTab('home')" id="link-home" class="nav-link text-gold font-semibold border-b border-gold pb-1 transition">Home</button>
                 <button onclick="showTab('vision')" id="link-vision" class="nav-link hover:text-gold transition">Vision</button>
                 <button onclick="showTab('services')" id="link-services" class="nav-link hover:text-gold transition">Services</button>
-                <button onclick="showTab('contact')" id="link-contact" class="nav-link hover:text-gold transition">Contact & Agenda</button>
-                <!-- B2B KLANTEN TOEGANG (DISCREET VERBORGEN VOOR PUBLIEK) -->
-                <button onclick="checkJobAccess()" id="link-b2b" class="nav-link hover:text-gold transition text-gold-light border border-gold/40 px-3 py-1 rounded bg-surface text-xs">
-                    <i class="fa-solid fa-lock mr-1"></i> B2B Client Access
-                </button>
+                <button onclick="showTab('jobs')" id="link-jobs" class="nav-link hover:text-gold transition">Job Board</button>
+                <button onclick="showTab('contact')" id="link-contact" class="nav-link hover:text-gold transition">Contact</button>
+                <button onclick="showTab('agenda')" id="link-agenda" class="nav-link hover:text-gold transition">Agenda</button>
             </nav>
         </div>
     </header>
 
     <main class="flex-grow">
-        <!-- HOME SECTIE (UITGEBREID MET FOTO'S & RIJKE TEKST) -->
+        <!-- HOME SECTIE -->
         <div id="home" class="tab-content max-w-5xl mx-auto px-6 py-16 space-y-16">
             <div class="text-center space-y-4">
                 <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold px-3 py-1 border border-gold/30 rounded-full inline-block bg-surface">
-                    Executive Leadership & Global Operations - Enterprise Edition
+                    Executive Leadership & Global Operations
                 </span>
                 <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white">
                     Goukens-sy <span class="text-gold">Business Support</span>
@@ -247,7 +84,6 @@
                 </p>
             </div>
 
-            <!-- Hero Image & Manifesto -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-card border border-gold/20 p-8 md:p-12 rounded-sm shadow-2xl">
                 <div class="space-y-6">
                     <span class="text-gold font-mono text-xs tracking-widest uppercase">The Paradigm Shift</span>
@@ -260,54 +96,33 @@
                     </p>
                 </div>
                 <div class="rounded-sm overflow-hidden border border-gold/30 shadow-2xl">
-                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" alt="Executive Leadership" class="w-full h-80 object-cover hover:scale-105 transition duration-500">
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" alt="Executive Leadership" class="w-full h-80 object-cover">
                 </div>
             </div>
 
-            <!-- Secondary Feature Grid with Photos -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-card border border-gold/20 rounded-sm overflow-hidden shadow-xl flex flex-col">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" alt="Global Operations" class="w-full h-full object-cover hover:scale-105 transition duration-500">
-                    </div>
+                    <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" alt="Global Operations" class="w-full h-full object-cover"></div>
                     <div class="p-6 space-y-3 flex-grow">
-                        <div class="w-10 h-10 bg-gold/10 text-gold rounded flex items-center justify-center text-lg">
-                            <i class="fa-solid fa-globe"></i>
-                        </div>
+                        <div class="w-10 h-10 bg-gold/10 text-gold rounded flex items-center justify-center text-lg"><i class="fa-solid fa-globe"></i></div>
                         <h3 class="text-lg font-bold text-white">Global Remote Infrastructure</h3>
-                        <p class="text-gray-300 text-sm leading-relaxed">
-                            Operating seamlessly across international time zones with dedicated remote teams, ensuring continuous workflow execution and maximum efficiency without geographic limitations.
-                        </p>
+                        <p class="text-gray-300 text-sm leading-relaxed">Operating seamlessly across international time zones with dedicated remote teams, ensuring continuous workflow execution.</p>
                     </div>
                 </div>
-
                 <div class="bg-card border border-gold/20 rounded-sm overflow-hidden shadow-xl flex flex-col">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80" alt="AI & Automation" class="w-full h-full object-cover hover:scale-105 transition duration-500">
-                    </div>
+                    <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80" alt="AI" class="w-full h-full object-cover"></div>
                     <div class="p-6 space-y-3 flex-grow">
-                        <div class="w-10 h-10 bg-gold/10 text-gold rounded flex items-center justify-center text-lg">
-                            <i class="fa-solid fa-brain"></i>
-                        </div>
+                        <div class="w-10 h-10 bg-gold/10 text-gold rounded flex items-center justify-center text-lg"><i class="fa-solid fa-brain"></i></div>
                         <h3 class="text-lg font-bold text-white">Smart Workflows & AI Integration</h3>
-                        <p class="text-gray-300 text-sm leading-relaxed">
-                            Leveraging state-of-the-art artificial intelligence tools, data annotation frameworks, and automated pipeline systems to accelerate enterprise productivity and precision.
-                        </p>
+                        <p class="text-gray-300 text-sm leading-relaxed">Leveraging artificial intelligence tools, data annotation frameworks, and automated pipeline systems.</p>
                     </div>
                 </div>
-
                 <div class="bg-card border border-gold/20 rounded-sm overflow-hidden shadow-xl flex flex-col">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Strategic Advisory" class="w-full h-full object-cover hover:scale-105 transition duration-500">
-                    </div>
+                    <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Security" class="w-full h-full object-cover"></div>
                     <div class="p-6 space-y-3 flex-grow">
-                        <div class="w-10 h-10 bg-gold/10 text-gold rounded flex items-center justify-center text-lg">
-                            <i class="fa-solid fa-shield-halved"></i>
-                        </div>
+                        <div class="w-10 h-10 bg-gold/10 text-gold rounded flex items-center justify-center text-lg"><i class="fa-solid fa-shield-halved"></i></div>
                         <h3 class="text-lg font-bold text-white">Enterprise Grade Security</h3>
-                        <p class="text-gray-300 text-sm leading-relaxed">
-                            Maintaining the highest standards of confidentiality, data protection, and rigorous compliance protocols across all corporate advisory and operational campaigns.
-                        </p>
+                        <p class="text-gray-300 text-sm leading-relaxed">Maintaining the highest standards of confidentiality, data protection, and rigorous compliance protocols.</p>
                     </div>
                 </div>
             </div>
@@ -318,299 +133,185 @@
             <div class="text-center space-y-4">
                 <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold px-3 py-1 border border-gold/30 rounded-full inline-block bg-surface">Strategic Outlook</span>
                 <h1 class="text-3xl md:text-5xl font-extrabold text-white">The Comprehensive Architecture of Modern Enterprise</h1>
-                <p class="text-gray-300 max-w-2xl mx-auto text-sm md:text-base">Redefining corporate governance, borderless productivity, and systemic execution for the global economy.</p>
             </div>
-
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-card border border-gold/20 p-8 md:p-10 rounded-sm shadow-2xl">
                 <div class="space-y-6">
                     <span class="text-gold font-mono text-xs tracking-widest uppercase">Pillar 01</span>
                     <h2 class="text-2xl font-bold text-white">The Death of the Legacy Corporate Office</h2>
-                    <p class="text-gray-300 text-sm md:text-base leading-relaxed">
-                        Eliminating geographic and logistical bottlenecks to scale with surgical precision. Traditional real estate overheads and commute-dependent staffing models restrict organizational agility. By migrating entirely to digital ecosystems, we unlock a frictionless environment where productivity is measured purely by output, creativity, and strategic deliverables.
-                    </p>
-                    <ul class="space-y-2 text-xs text-gray-400">
-                        <li><i class="fa-solid fa-check text-gold mr-2"></i> Zero physical real estate overhead</li>
-                        <li><i class="fa-solid fa-check text-gold mr-2"></i> Complete elimination of commute friction</li>
-                        <li><i class="fa-solid fa-check text-gold mr-2"></i> Output-driven corporate metrics</li>
-                    </ul>
+                    <p class="text-gray-300 text-sm md:text-base leading-relaxed">Eliminating geographic and logistical bottlenecks to scale with surgical precision. Traditional real estate overheads restrict agility.</p>
                 </div>
-                <div class="rounded-sm overflow-hidden border border-gold/30 shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Modern Architecture" class="w-full h-72 object-cover hover:scale-105 transition duration-500">
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-card border border-gold/20 p-8 md:p-10 rounded-sm shadow-2xl">
-                <div class="rounded-sm overflow-hidden border border-gold/30 shadow-lg order-2 md:order-1">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Global Remote Team" class="w-full h-72 object-cover hover:scale-105 transition duration-500">
-                </div>
-                <div class="space-y-6 order-1 md:order-2">
-                    <span class="text-gold font-mono text-xs tracking-widest uppercase">Pillar 02</span>
-                    <h2 class="text-2xl font-bold text-white">Decentralized Talent & Global Deployment</h2>
-                    <p class="text-gray-300 text-sm md:text-base leading-relaxed">
-                        Access to elite capabilities knows no postal code. Through Goukens-sy Business Support, organizations tap into a vetted international workforce capable of managing complex operations, advanced data annotation, voice collection, and multi-layered quality assurance without administrative friction.
-                    </p>
-                    <ul class="space-y-2 text-xs text-gray-400">
-                        <li><i class="fa-solid fa-check text-gold mr-2"></i> Access to global linguistic experts</li>
-                        <li><i class="fa-solid fa-check text-gold mr-2"></i> Rigorous multi-tier vetting protocols</li>
-                        <li><i class="fa-solid fa-check text-gold mr-2"></i> Seamless cross-border project scaling</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-card border border-gold/20 p-8 md:p-10 rounded-sm shadow-2xl">
-                <div class="space-y-6">
-                    <span class="text-gold font-mono text-xs tracking-widest uppercase">Pillar 03</span>
-                    <h2 class="text-2xl font-bold text-white">Data-Driven Value Creation</h2>
-                    <p class="text-gray-300 text-sm md:text-base leading-relaxed">
-                        Value is derived strictly from tangible contributions. Modern business infrastructure values autonomous execution over physical oversight, ensuring that every operational hour directly reinforces enterprise growth and project milestone achievement.
-                    </p>
-                    <ul class="space-y-2 text-xs text-gray-400">
-                        <li><i class="fa-solid fa-check text-gold mr-2"></i> Transparent performance tracking</li>
-                        <li><i class="fa-solid fa-check text-gold mr-2"></i> Milestone-based project execution</li>
-                        <li><i class="fa-solid fa-check text-gold mr-2"></i> Optimized enterprise resource allocation</li>
-                    </ul>
-                </div>
-                <div class="rounded-sm overflow-hidden border border-gold/30 shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80" alt="Data & Strategy" class="w-full h-72 object-cover hover:scale-105 transition duration-500">
-                </div>
+                <div class="rounded-sm overflow-hidden border border-gold/30 shadow-lg"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Architecture" class="w-full h-72 object-cover"></div>
             </div>
         </div>
 
-        <!-- SERVICES SECTIE (UITGEBREID MET DIEPGAANDE UITLEG & FOTO'S) -->
+        <!-- SERVICES SECTIE -->
         <div id="services" class="tab-content hidden max-w-5xl mx-auto px-6 py-16 space-y-16">
             <div class="text-center space-y-4">
                 <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold px-3 py-1 border border-gold/30 rounded-full inline-block bg-surface">Operational Excellence</span>
                 <h1 class="text-3xl md:text-5xl font-extrabold text-white">Comprehensive Services & Enterprise Solutions</h1>
-                <p class="text-gray-300 max-w-2xl mx-auto text-sm md:text-base">Executing high-tier operations with absolute precision, advanced technology, and professional expertise.</p>
             </div>
-
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Service 1 -->
                 <div class="bg-card border border-gold/20 rounded-sm overflow-hidden shadow-xl flex flex-col">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80" alt="Audio & Voice Recording" class="w-full h-full object-cover hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-card to-transparent"></div>
-                    </div>
-                    <div class="p-8 space-y-4 flex-grow flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <div class="w-10 h-10 bg-gold/10 text-gold rounded flex items-center justify-center text-lg">
-                                <i class="fa-solid fa-microphone-lines"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-white">Voice & Audio Data Collection</h3>
-                            <p class="text-gray-300 text-sm leading-relaxed">
-                                We specialize in managing large-scale, high-fidelity multilingual speech recording campaigns. Our operations encompass native phonetic data gathering, complex code-switching research modules, conversational dialogue collection, and customized dataset curation specifically designed for global artificial intelligence developers, voice recognition engineers, and machine learning enterprises requiring pristine acoustic training material.
-                            </p>
-                        </div>
-                        <div class="pt-4 border-t border-gold/10 text-xs text-gold font-semibold uppercase tracking-wider">
-                            Multi-Language Capabilities Available Across 30+ Regions
-                        </div>
+                    <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80" alt="Voice" class="w-full h-full object-cover"></div>
+                    <div class="p-8 space-y-4 flex-grow">
+                        <h3 class="text-xl font-bold text-white">Voice & Audio Data Collection</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">Specialized in managing large-scale, high-fidelity multilingual speech recording campaigns, phonetic gathering, and code-switching research.</p>
                     </div>
                 </div>
-
-                <!-- Service 2 -->
                 <div class="bg-card border border-gold/20 rounded-sm overflow-hidden shadow-xl flex flex-col">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Transcription & QA" class="w-full h-full object-cover hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-card to-transparent"></div>
-                    </div>
-                    <div class="p-8 space-y-4 flex-grow flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <div class="w-10 h-10 bg-gold/10 text-gold rounded flex items-center justify-center text-lg">
-                                <i class="fa-solid fa-file-shield"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-white">Transcription & Quality Assurance Auditing</h3>
-                            <p class="text-gray-300 text-sm leading-relaxed">
-                                Accuracy is paramount in data processing. Our rigorous quality assurance (QA) auditing framework provides meticulous verification of transcribed audio logs, real-world customer interaction datasets, localization checks, and exact text-alignment validation. We ensure that every data corpus meets strict international compliance and enterprise-grade formatting standards before final delivery.
-                            </p>
-                        </div>
-                        <div class="pt-4 border-t border-gold/10 text-xs text-gold font-semibold uppercase tracking-wider">
-                            ISO-Standard Multi-Tier Quality Verification
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="bg-card border border-gold/20 rounded-sm overflow-hidden shadow-xl flex flex-col">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80" alt="Remote Operations" class="w-full h-full object-cover hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-card to-transparent"></div>
-                    </div>
-                    <div class="p-8 space-y-4 flex-grow flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <div class="w-10 h-10 bg-gold/10 text-gold rounded flex items-center justify-center text-lg">
-                                <i class="fa-solid fa-laptop-code"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-white">Digital Operations & Remote Business Support</h3>
-                            <p class="text-gray-300 text-sm leading-relaxed">
-                                Empower your enterprise with flawless remote administrative execution. We provide structured campaign management, professional appointment setting, lead generation script development, client communication coordination, and specialized technical support. Our teams integrate smoothly with your existing digital workflows to maintain continuous operational momentum around the clock.
-                            </p>
-                        </div>
-                        <div class="pt-4 border-t border-gold/10 text-xs text-gold font-semibold uppercase tracking-wider">
-                            24/7 Global Workflow Execution & Management
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service 4 -->
-                <div class="bg-card border border-gold/20 rounded-sm overflow-hidden shadow-xl flex flex-col">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="Executive Advisory" class="w-full h-full object-cover hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-card to-transparent"></div>
-                    </div>
-                    <div class="p-8 space-y-4 flex-grow flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <div class="w-10 h-10 bg-gold/10 text-gold rounded flex items-center justify-center text-lg">
-                                <i class="fa-solid fa-chart-line"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-white">Executive Strategy & Corporate Advisory</h3>
-                            <p class="text-gray-300 text-sm leading-relaxed">
-                                High-level corporate structuring and strategic advisory for international ventures. We guide organizations through complex processes including company incorporation, feasibility assessments for large-scale industrial projects (such as water desalination, resource extraction, and tailing recovery), and streamlined process optimization designed for sustainable global expansion.
-                            </p>
-                        </div>
-                        <div class="pt-4 border-t border-gold/10 text-xs text-gold font-semibold uppercase tracking-wider">
-                            Strategic Enterprise Consulting & Feasibility Analysis
-                        </div>
+                    <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Transcription" class="w-full h-full object-cover"></div>
+                    <div class="p-8 space-y-4 flex-grow">
+                        <h3 class="text-xl font-bold text-white">Transcription & QA Auditing</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">Rigorous quality assurance auditing framework providing meticulous verification of transcribed audio logs and dataset localization checks.</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- CONTACT SECTIE & AGENDA -->
-        <div id="contact" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-12">
-            <div class="text-center mb-12">
-                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 inline-block px-3 py-1 border border-gold/30 rounded-full bg-surface">Get in Touch</span>
-                <h1 class="text-3xl md:text-5xl font-extrabold text-white">Direct Executive Consultation</h1>
-                <p class="text-gray-300 max-w-xl mx-auto mt-4 text-sm md:text-base">
-                    Ready to discuss global operations, corporate advisory, or project partnerships? Book your direct consultation session using our secure booking agenda below.
-                </p>
+        <!-- JOB BOARD & FORMULIER SECTIE (DIRECT ZICHTBAAR, GEEN PIN) -->
+        <div id="jobs" class="tab-content hidden max-w-6xl mx-auto px-6 py-16 space-y-12">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-surface p-6 rounded-lg border border-gold/20 shadow-xl">
+                <div>
+                    <span class="text-gold uppercase tracking-widest text-xs font-semibold">Active Portal</span>
+                    <h1 class="text-2xl md:text-3xl font-extrabold text-white">Global Job & Project Board</h1>
+                </div>
             </div>
 
-            <div class="bg-card border border-gold/30 border-l-4 border-l-gold p-8 md:p-12 rounded-sm shadow-2xl text-center space-y-6">
+            <!-- Filters -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 bg-card p-6 rounded-lg border border-gold/20">
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-gold font-semibold mb-2">Search Jobs</label>
+                    <input type="text" id="job-search" oninput="renderJobTable()" placeholder="Filter by title, language..." class="w-full bg-surface border border-gold/30 rounded px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-gold font-semibold mb-2">Category</label>
+                    <select id="job-cat-filter" onchange="renderJobTable()" class="w-full bg-surface border border-gold/30 rounded px-3 py-2.5 text-sm text-white focus:outline-none focus:border-gold">
+                        <option value="">All Categories</option>
+                        <option value="Recording">Recording</option>
+                        <option value="Transcription">Transcription</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-gold font-semibold mb-2">Sort</label>
+                    <select id="job-sort" onchange="renderJobTable()" class="w-full bg-surface border border-gold/30 rounded px-3 py-2.5 text-sm text-white focus:outline-none focus:border-gold">
+                        <option value="newest">Closing Soon</option>
+                        <option value="title">Alphabetical</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Tabel -->
+            <div class="bg-surface border border-gold/20 rounded-lg overflow-hidden shadow-2xl">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-card border-b border-gold/20 text-gold text-xs uppercase tracking-wider">
+                                <th class="p-4 font-bold">Position Title</th>
+                                <th class="p-4 font-bold">Language / Region</th>
+                                <th class="p-4 font-bold">Category</th>
+                                <th class="p-4 font-bold">Closing Date</th>
+                                <th class="p-4 font-bold text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="job-table-body" class="divide-y divide-gold/10 text-sm"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Direct Invulformulier -->
+            <div id="application-form-section" class="bg-card border border-gold/30 p-8 rounded-lg shadow-2xl space-y-6">
+                <div>
+                    <span class="text-gold uppercase tracking-widest text-xs font-semibold">Direct Application</span>
+                    <h3 class="text-2xl font-bold text-white">Sollicitatie- / Aanmeldformulier</h3>
+                    <p class="text-gray-300 text-sm mt-1">Vul onderstaand formulier in om direct te solliciteren op een project of vacature.</p>
+                </div>
+                <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-gold font-semibold mb-1">Volledige Naam</label>
+                            <input type="text" required class="w-full bg-surface border border-gold/30 rounded px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold" placeholder="Jouw naam">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-gold font-semibold mb-1">E-mailadres</label>
+                            <input type="email" required class="w-full bg-surface border border-gold/30 rounded px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold" placeholder="naam@voorbeeld.com">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-gold font-semibold mb-1">Selecteer Positie / Vacature</label>
+                            <input type="text" id="selected-job-input" class="w-full bg-surface border border-gold/30 rounded px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold" placeholder="Klik op 'Select' bij een vacature hierboven">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-gold font-semibold mb-1">Moedertaal / Regio</label>
+                            <input type="text" required class="w-full bg-surface border border-gold/30 rounded px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold" placeholder="Bijv. Nederlands (België/Nederland)">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gold font-semibold mb-1">Bericht of Ervaring</label>
+                        <textarea rows="4" class="w-full bg-surface border border-gold/30 rounded px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold" placeholder="Vertel kort over je ervaring met audio-opnames of transcriptie..."></textarea>
+                    </div>
+                    <button type="submit" class="px-8 py-3 bg-gold text-obsidian font-bold text-xs uppercase tracking-widest rounded hover:bg-gold-light transition shadow-lg">
+                        Verstuur Sollicitatie
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- CONTACT SECTIE -->
+        <div id="contact" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-8">
+            <div class="text-center mb-8">
+                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 inline-block px-3 py-1 border border-gold/30 rounded-full bg-surface">Get in Touch</span>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-white">Contact & Inquiries</h1>
+                <p class="text-gray-300 max-w-xl mx-auto mt-4 text-sm md:text-base">Ready to discuss global operations, corporate advisory, or project partnerships?</p>
+            </div>
+            <div class="bg-card border border-gold/30 p-8 rounded-sm shadow-2xl space-y-6">
+                <form onsubmit="alert('Bericht succesvol verzonden!'); return false;" class="space-y-4">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gold font-semibold mb-1">Naam</label>
+                        <input type="text" required class="w-full bg-surface border border-gold/30 rounded px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gold font-semibold mb-1">E-mailadres</label>
+                        <input type="email" required class="w-full bg-surface border border-gold/30 rounded px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gold font-semibold mb-1">Uw Bericht</label>
+                        <textarea rows="4" required class="w-full bg-surface border border-gold/30 rounded px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold"></textarea>
+                    </div>
+                    <button type="submit" class="px-8 py-3 bg-gold text-obsidian font-bold text-xs uppercase tracking-widest rounded hover:bg-gold-light transition">Verstuur Bericht</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- AGENDA SECTIE -->
+        <div id="agenda" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-8">
+            <div class="text-center mb-8">
+                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 inline-block px-3 py-1 border border-gold/30 rounded-full bg-surface">Direct Booking</span>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-white">Online Agenda</h1>
+                <p class="text-gray-300 max-w-xl mx-auto mt-4 text-sm md:text-base">Book your direct consultation session using our secure booking agenda.</p>
+            </div>
+            <div class="bg-card border border-gold/30 p-8 md:p-12 rounded-sm shadow-2xl text-center space-y-6">
                 <div class="w-16 h-16 bg-gold/10 text-gold rounded-full flex items-center justify-center mx-auto text-2xl">
                     <i class="fa-regular fa-calendar-check"></i>
                 </div>
                 <h3 class="text-2xl font-bold text-white">Schedule Your Appointment Online</h3>
-                <p class="text-gray-300 text-sm max-w-lg mx-auto">
-                    Select a convenient time slot for an executive strategy session or project consultation directly through our automated booking system.
-                </p>
                 <a href="https://geert-goukens.dayschedule.com" target="_blank" class="inline-block px-8 py-3.5 bg-gold text-obsidian font-bold rounded-sm hover:bg-gold-light transition uppercase text-xs tracking-widest shadow-lg">
-                    <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> Open Booking Agenda
+                    <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> Open Dayschedule Agenda
                 </a>
-            </div>
-        </div>
-
-        <!-- B2B JOB BOARD & CANDIDATE PORTAL VIEW (ALLEEN VOOR B2B KLANTEN MET CODE) -->
-        <div id="jobs" class="tab-content hidden max-w-6xl mx-auto px-6 py-16 space-y-8">
-            <div id="job-locked-view" class="hidden bg-surface border border-gold/40 p-12 rounded-lg text-center space-y-6 shadow-2xl">
-                <div class="w-20 h-20 bg-gold/15 text-gold rounded-full flex items-center justify-center mx-auto text-3xl shadow-inner">
-                    <i class="fa-solid fa-lock"></i>
-                </div>
-                <h1 class="text-3xl font-bold text-white">B2B Client Portal Protected</h1>
-                <p class="text-gray-300 max-w-md mx-auto text-sm">
-                    This restricted section is exclusively intended for B2B partners and clients. Please enter your secure access PIN code to unlock the active global vacancies.
-                </p>
-                <button onclick="checkJobAccess()" class="px-8 py-3.5 bg-gold text-obsidian font-bold text-xs uppercase tracking-widest rounded hover:bg-gold-light transition shadow-lg">
-                    Enter B2B Access PIN
-                </button>
-            </div>
-
-            <div id="job-board-view" class="space-y-8">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-surface p-6 rounded-lg border border-gold/20 shadow-xl">
-                    <div>
-                        <span class="text-gold uppercase tracking-widest text-xs font-semibold">B2B Client Portal - Live Feed</span>
-                        <h1 class="text-2xl md:text-3xl font-extrabold text-white">Active Global Job Opportunities</h1>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <button onclick="lockJobBoard()" class="px-4 py-2 bg-card hover:bg-gold/10 text-gold border border-gold/30 rounded text-xs font-bold uppercase tracking-wider transition flex items-center gap-2">
-                            <i class="fa-solid fa-lock"></i> Lock Portal
-                        </button>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 bg-card p-6 rounded-lg border border-gold/20">
-                    <div>
-                        <label class="block text-xs uppercase tracking-wider text-gold font-semibold mb-2">Search Jobs</label>
-                        <div class="relative">
-                            <i class="fa-solid fa-search absolute left-3.5 top-3.5 text-gray-400 text-sm"></i>
-                            <input type="text" id="job-search" oninput="renderJobTable()" placeholder="Filter by title, language..." class="w-full bg-surface border border-gold/30 rounded px-10 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-gold">
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-wider text-gold font-semibold mb-2">Filter by Category</label>
-                        <select id="job-cat-filter" onchange="renderJobTable()" class="w-full bg-surface border border-gold/30 rounded px-3 py-2.5 text-sm text-white focus:outline-none focus:border-gold">
-                            <option value="">All Categories</option>
-                            <option value="Recording">Recording</option>
-                            <option value="Transcription">Transcription</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-wider text-gold font-semibold mb-2">Sort Order</label>
-                        <select id="job-sort" onchange="renderJobTable()" class="w-full bg-surface border border-gold/30 rounded px-3 py-2.5 text-sm text-white focus:outline-none focus:border-gold">
-                            <option value="newest">Closing Soon / Newest</option>
-                            <option value="title">Alphabetical (Title)</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="bg-surface border border-gold/20 rounded-lg overflow-hidden shadow-2xl">
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left border-collapse">
-                            <thead>
-                                <tr class="bg-card border-b border-gold/20 text-gold text-xs uppercase tracking-wider">
-                                    <th class="p-4 font-bold">Position Title</th>
-                                    <th class="p-4 font-bold">Language / Region</th>
-                                    <th class="p-4 font-bold">Category</th>
-                                    <th class="p-4 font-bold">Closing Date</th>
-                                    <th class="p-4 font-bold text-right">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody id="job-table-body" class="divide-y divide-gold/10 text-sm">
-                                <!-- Dynamisch gevuld via JavaScript -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <div id="job-detail-view" class="hidden space-y-6 bg-surface border border-gold/30 p-8 rounded-lg shadow-2xl">
-                <button onclick="backToList()" class="px-4 py-2 bg-card hover:bg-gold/10 text-gold border border-gold/30 rounded text-xs font-bold uppercase tracking-wider transition flex items-center gap-2">
-                    <i class="fa-solid fa-arrow-left"></i> Back to Portal List
-                </button>
-                <div class="border-b border-gold/20 pb-6 space-y-3">
-                    <div class="flex items-center gap-3">
-                        <span id="detail-cat" class="px-3 py-1 bg-gold/10 text-gold border border-gold/30 rounded-full text-xs font-bold uppercase">Category</span>
-                        <span id="detail-date" class="text-xs text-gray-400 font-medium">Closing: 2026-09-23</span>
-                    </div>
-                    <h1 id="detail-title" class="text-2xl md:text-3xl font-extrabold text-white">Job Title Placeholder</h1>
-                    <p id="detail-lang" class="text-gold font-semibold text-sm">Language Placeholder</p>
-                </div>
-                <div class="space-y-4">
-                    <h3 class="text-white font-bold text-base uppercase tracking-wider">Project Description & Requirements</h3>
-                    <p id="detail-desc" class="text-gray-300 text-base leading-relaxed bg-card p-6 rounded border border-gold/10">
-                        Description placeholder...
-                    </p>
-                </div>
-                <div class="pt-6 border-t border-gold/20 flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <p class="text-xs text-gray-400">Ready to proceed? Book a consultation via our agenda to coordinate placement.</p>
-                    <a href="#contact" onclick="showTab('contact')" class="px-8 py-3 bg-gold text-obsidian font-bold text-xs uppercase tracking-widest rounded hover:bg-gold-light transition shadow">
-                        Book Consultation
-                    </a>
-                </div>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-surface border-t border-gold/20 py-12 px-6 text-center text-sm text-gray-500 mt-20">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
             <div class="text-gold font-bold tracking-widest flex items-center gap-2">
                 <i class="fa-solid fa-gem"></i> GOUKENS-SY
             </div>
-            <p>&copy; 2026 Goukens-sy Business Support. All rights reserved. Global Operations & Executive Advisory.</p>
+            <p>&copy; 2026 Goukens-sy Business Support. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- CORE JAVASCRIPT LOGICA -->
+    <!-- JAVASCRIPT LOGICA -->
     <script>
         function renderJobTable() {
             const searchInput = document.getElementById('job-search').value.toLowerCase();
@@ -619,9 +320,7 @@
             
             let filtered = jobsDatabase.filter(job => {
                 const matchText = (job.title + " " + job.desc + " " + job.lang).toLowerCase();
-                const matchesSearch = matchText.includes(searchInput);
-                const matchesCat = catFilter === "" || job.cat === catFilter;
-                return matchesSearch && matchesCat;
+                return matchText.includes(searchInput) && (catFilter === "" || job.cat === catFilter);
             });
 
             if (sortBy === 'title') {
@@ -640,21 +339,31 @@
 
             filtered.forEach(job => {
                 const tr = document.createElement('tr');
-                tr.className = "hover:bg-card/80 cursor-pointer transition border-b border-gold/10";
-                tr.onclick = () => openJobDetail(job);
+                tr.className = "hover:bg-card/80 transition border-b border-gold/10";
                 tr.innerHTML = `
                     <td class="p-4 font-semibold text-white max-w-xs truncate">${job.title}</td>
                     <td class="p-4"><span class="text-xs bg-gold/10 text-gold px-2.5 py-1 rounded border border-gold/30 font-medium">${job.lang}</span></td>
                     <td class="p-4 text-xs text-gray-300 font-medium">${job.cat}</td>
                     <td class="p-4 text-xs text-gray-400">${job.close}</td>
                     <td class="p-4 text-right">
-                        <button class="px-3 py-1 bg-gold/10 hover:bg-gold hover:text-obsidian text-gold border border-gold/30 rounded text-xs font-bold transition">
-                            View
+                        <button onclick="selectJob('${job.title.replace(/'/g, "\\'")}')" class="px-3 py-1 bg-gold/10 hover:bg-gold hover:text-obsidian text-gold border border-gold/30 rounded text-xs font-bold transition">
+                            Select & Apply
                         </button>
                     </td>
                 `;
                 tbody.appendChild(tr);
             });
+        }
+
+        function selectJob(title) {
+            document.getElementById('selected-job-input').value = title;
+            document.getElementById('application-form-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            alert('Je sollicitatie is succesvol ontvangen!');
+            event.target.reset();
         }
 
         function showTab(tabId) {
@@ -667,49 +376,9 @@
             });
             const activeLink = document.getElementById('link-' + tabId);
             if(activeLink) {
-                activeLink.classList.add('text-gold', 'font-semibold');
+                activeLink.classList.add('text-gold', 'font-semibold', 'border-b', 'border-gold');
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function checkJobAccess() {
-            showTab('jobs');
-            const pin = prompt("Enter your B2B Client Access PIN code:");
-            if (pin === "Gouk7507@") {
-                document.getElementById('job-locked-view').classList.add('hidden');
-                document.getElementById('job-board-view').classList.remove('hidden');
-                document.getElementById('job-detail-view').classList.add('hidden');
-                renderJobTable();
-            } else {
-                if(pin !== null) alert("Incorrect access code.");
-                document.getElementById('job-board-view').classList.add('hidden');
-                document.getElementById('job-detail-view').classList.add('hidden');
-                document.getElementById('job-locked-view').classList.remove('hidden');
-            }
-        }
-
-        function lockJobBoard() {
-            document.getElementById('job-board-view').classList.add('hidden');
-            document.getElementById('job-detail-view').classList.add('hidden');
-            document.getElementById('job-locked-view').classList.remove('hidden');
-        }
-
-        function openJobDetail(job) {
-            document.getElementById('job-board-view').classList.add('hidden');
-            document.getElementById('job-locked-view').classList.add('hidden');
-            document.getElementById('job-detail-view').classList.remove('hidden');
-
-            document.getElementById('detail-title').innerText = job.title;
-            document.getElementById('detail-desc').innerText = job.desc;
-            document.getElementById('detail-lang').innerText = "Language / Region: " + job.lang;
-            document.getElementById('detail-cat').innerText = job.cat;
-            document.getElementById('detail-date').innerText = "Closing: " + job.close;
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function backToList() {
-            document.getElementById('job-detail-view').classList.add('hidden');
-            document.getElementById('job-board-view').classList.remove('hidden');
         }
     </script>
 </body>
