@@ -69,13 +69,13 @@
     </script>
 </head>
 <body class="bg-obsidian text-gray-200 font-sans antialiased selection:bg-gold selection:text-obsidian flex flex-col min-h-screen">
-    <!-- Header / Navigation -->
+    <!-- Header / Navigation (Vergroot lettertype) -->
     <header class="sticky top-0 z-50 bg-obsidian/95 backdrop-blur-md border-b border-gold/20">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="#home" onclick="showTab('home')" class="text-xl md:text-2xl font-bold tracking-wider text-gold flex items-center gap-2 cursor-pointer">
                 <i class="fa-solid fa-gem text-gold"></i> GOUKENS-SY
             </a>
-            <nav class="hidden md:flex items-center gap-6 text-sm uppercase tracking-widest">
+            <nav class="hidden md:flex items-center gap-8 text-base md:text-lg uppercase tracking-widest font-medium">
                 <button onclick="showTab('home')" id="link-home" class="nav-link text-gold font-semibold border-b border-gold pb-1 transition">Home</button>
                 <button onclick="showTab('vision')" id="link-vision" class="nav-link hover:text-gold transition">Vision</button>
                 <button onclick="showTab('services')" id="link-services" class="nav-link hover:text-gold transition">Services</button>
@@ -91,7 +91,7 @@
         <div id="home" class="tab-content px-6 py-16 relative">
             <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
             <div class="max-w-4xl mx-auto text-center relative z-10 space-y-8">
-                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold px-3 py-1 border border-gold/30 rounded-full inline-block">
+                <span class="text-gold uppercase tracking-[0.3em] text-sm md:text-base font-semibold px-4 py-1.5 border border-gold/40 rounded-full inline-block">
                     Executive Leadership & Global Operations
                 </span>
                 
@@ -147,7 +147,7 @@
         <!-- VISION TAB (EXTENDED) -->
         <div id="vision" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-12">
             <div class="text-center mb-12">
-                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 inline-block px-3 py-1 border border-gold/30 rounded-full">Strategic Outlook</span>
+                <span class="text-gold uppercase tracking-[0.3em] text-sm md:text-base font-semibold mb-3 inline-block px-4 py-1.5 border border-gold/40 rounded-full">Strategic Outlook</span>
                 <h1 class="text-3xl md:text-5xl font-extrabold text-white">Our Core Vision & Philosophy</h1>
             </div>
             <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-xl h-72 md:h-80">
@@ -198,16 +198,19 @@
             </div>
             <div class="bg-surface border border-gold/30 rounded-sm p-8 shadow-xl space-y-4">
                 <h3 class="text-xl font-bold text-gold">Security and Data Privacy Standards</h3>
-                <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+                <p class="text-gray-300 text-base md:text-base leading-relaxed">
                     We maintain rigorous data handling protocols across all remote nodes. Confidentiality, data encryption, and secure cloud environments ensure that our corporate partners retain absolute ownership and security over their intellectual property and sensitive datasets.
                 </p>
             </div>
         </div>
-        <!-- SERVICES TAB (ALL 10 CATEGORIES) -->
+        <!-- SERVICES TAB (ALL 10 CATEGORIES WITH VERGROOTDE BADGE) -->
         <div id="services" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-12">
             <div class="text-center mb-12">
-                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 inline-block px-3 py-1 border border-gold/30 rounded-full">Operational Excellence</span>
-                <h1 class="text-3xl md:text-5xl font-extrabold text-white">Comprehensive Services & Enterprise Solutions</h1>
+                <!-- Operational Excellence Badge vergroot -->
+                <span class="text-gold uppercase tracking-[0.3em] text-sm md:text-base font-semibold mb-4 inline-block px-5 py-2 border border-gold/40 rounded-full shadow-md">
+                    Operational Excellence
+                </span>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-white mt-2">Comprehensive Services & Enterprise Solutions</h1>
             </div>
             
             <!-- Service 1 -->
@@ -394,7 +397,7 @@
                 </div>
             </div>
 
-            <!-- Service 9: BV Boekhouding & Financial Administration -->
+            <!-- Service 9 -->
             <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
                 <h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
                     <i class="fa-solid fa-calculator text-xl"></i> Financial Administration & Bookkeeping Support
@@ -412,7 +415,7 @@
                 </ul>
             </div>
 
-            <!-- Service 10: Recruitment & Global Talent Acquisition -->
+            <!-- Service 10 -->
             <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
                 <h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
                     <i class="fa-solid fa-users-viewfinder text-xl"></i> Recruitment & Global Talent Acquisition
@@ -430,7 +433,7 @@
                 </ul>
             </div>
 
-            <!-- PHOTO BREAK 5 (Na service 10) -->
+            <!-- PHOTO BREAK 5 -->
             <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-xl h-64 md:h-80 my-8">
                 <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80" alt="Financial and Recruitment Excellence" class="w-full h-full object-cover brightness-75">
                 <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
