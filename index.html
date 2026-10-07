@@ -875,7 +875,275 @@ For Clients & Partners Only
 </div>
 </div>
 </main>
+<div id="job-board-container" class="hidden space-y-6 transition-all duration-300">
+    
+    <!-- HOOFDTITEL: Altijd over de volle breedte bovenaan -->
+    <div id="job-header-banner" class="bg-card p-6 rounded-xl border border-gold/30 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+            <span class="text-gold text-xs font-semibold uppercase tracking-wider bg-gold/10 px-3 py-1 rounded-full">Explore opportunities</span>
+            <h1 class="text-2xl md:text-3xl font-bold text-white mt-2">Active Project Openings & Vacancies</h1>
+        </div>
+        <p class="text-xs text-gray-400 bg-surface px-4 py-2 rounded-lg border border-gold/10">Page 1 of 10 (16 roles per page)</p>
+    </div>
 
+    <!-- WRAPPER VOOR SPLIT-SCREEN (Linker kolom met kaarten + Rechter kolom met formulier) -->
+    <div id="split-screen-wrapper" class="grid grid-cols-1 lg:grid-cols-1 gap-6 items-start transition-all duration-300">
+        
+        <!-- LINKER KOLOM: Vacature rooster -->
+        <div id="left-column" class="lg:col-span-12 space-y-6">
+            
+            <!-- Rooster van 16 tegels -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Tegel 1 -->
+                <div onclick="selectJob('Network Engineer - Talent Network', '$50 - $70 / hour', 'Engineering', 'Global network infrastructure monitoring, routing configuration, and technical troubleshooting.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-3">
+                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
+                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Network Engineer</h2>
+                        <p class="text-gold font-semibold">$50 - $70 / hour</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New opportunity</span>
+                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
+
+                <!-- Tegel 2 -->
+                <div onclick="selectJob('Systems & Integration Engineering Experts', '$100 - $120 / hour', 'Engineering', 'Enterprise systems architecture, API integrations, and cloud workflow automation.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-3">
+                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
+                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Systems & Integration Experts</h2>
+                        <p class="text-gold font-semibold">$100 - $120 / hour</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New opportunity</span>
+                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
+
+                <!-- Tegel 3 -->
+                <div onclick="selectJob('Software & Firmware Engineering Experts', '$100 - $120 / hour', 'Engineering', 'Robust software development, firmware programming, and hardware-software integration.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-3">
+                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
+                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Software & Firmware Experts</h2>
+                        <p class="text-gold font-semibold">$100 - $120 / hour</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New opportunity</span>
+                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
+
+                <!-- Tegel 4 -->
+                <div onclick="selectJob('Mechanical Engineering Experts', '$100 - $120 / hour', 'Engineering', 'Industrial mechanical design, system testing, and technical documentation support.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-3">
+                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
+                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Mechanical Engineering Experts</h2>
+                        <p class="text-gold font-semibold">$100 - $120 / hour</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New opportunity</span>
+                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
+
+                <!-- Tegel 5 -->
+                <div onclick="selectJob('Electrical & Hardware Engineering Experts', '$100 - $120 / hour', 'Engineering', 'Electrical circuit analysis, hardware validation, and prototype testing coordination.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-3">
+                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
+                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Electrical & Hardware Experts</h2>
+                        <p class="text-gold font-semibold">$100 - $120 / hour</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New opportunity</span>
+                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
+
+                <!-- Tegel 6 -->
+                <div onclick="selectJob('German Language and Literature Expert', '$50 / hour', 'Humanities & Language', 'High-accuracy German literature analysis, transcription, translation, and cultural curation.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-3">
+                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Humanities & Language</span>
+                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">German Language Expert</h2>
+                        <p class="text-gold font-semibold">$50 / hour</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">4 hired this month</span>
+                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
+
+                <!-- Tegel 7 -->
+                <div onclick="selectJob('Generalist Expert', '$40 - $70 / hour', 'Operations & Support', 'Cross-functional administrative support, task coordination, and workflow management.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-3">
+                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Operations & Support</span>
+                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Generalist Expert</h2>
+                        <p class="text-gold font-semibold">$40 - $70 / hour</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">13 hired this month</span>
+                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
+
+                <!-- Tegel 8 -->
+                <div onclick="selectJob('Data Analysis Expert', '$70 - $120 / hour', 'Analytics & Research', 'Comprehensive dataset processing, statistical modeling, and business intelligence reporting.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-3">
+                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Analytics & Research</span>
+                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Data Analysis Expert</h2>
+                        <p class="text-gold font-semibold">$70 - $120 / hour</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New opportunity</span>
+                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
+
+                <!-- Tegel 9 -->
+                <div onclick="selectJob('Education & Training Expert', '$30 - $85 / hour', 'Education & Coaching', 'Custom corporate training program design and interactive skill development workshops.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-3">
+                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Education & Coaching</span>
+                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Education & Training Expert</h2>
+                        <p class="text-gold font-semibold">$30 - $85 / hour</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New opportunity</span>
+                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
+
+                <!-- Tegel 10 -->
+                <div onclick="selectJob('Office & Productivity Software Expert', '$60 - $70 / hour', 'Administration', 'Advanced spreadsheet optimization, document management, and productivity tool deployment.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-3">
+                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Administration</span>
+                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Productivity Software Expert</h2>
+                        <p class="text-gold font-semibold">$60 - $70 / hour</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New opportunity</span>
+                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
+
+                <!-- Tegel 11 -->
+                <div onclick="selectJob('Finance Expert', '$60 - $180 / hour', 'Finance & Accounting', 'Budgetary forecasting, financial modeling assistance, and fiscal record-keeping support.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-3">
+                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Finance & Accounting</span>
+                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Finance Expert</h2>
+                        <p class="text-gold font-semibold">$60 - $180 / hour</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New opportunity</span>
+                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
+
+                <!-- Tegel 12 -->
+                <div onclick="selectJob('Humanities Expert', '$45 - $60 / hour', 'Humanities & Language', 'Specialized cultural research, content localization, and academic verification support.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-3">
+                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Humanities & Language</span>
+                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Humanities Expert</h2>
+                        <p class="text-gold font-semibold">$45 - $60 / hour</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New opportunity</span>
+                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
+
+                <!-- Tegel 13 -->
+                <div onclick="selectJob('Arts & Design Expert', '$60 - $80 / hour', 'Creative & Design', 'Marketing collateral creation, presentation design, and digital asset curation.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-3">
+                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Creative & Design</span>
+                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Arts & Design Expert</h2>
+                        <p class="text-gold font-semibold">$60 - $80 / hour</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New opportunity</span>
+                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
+
+                <!-- Tegel 14 -->
+                <div onclick="selectJob('Legal Expert', '$60 - $150 / hour', 'Legal & Compliance', 'Corporate compliance support, contract review assistance, and regulatory documentation.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-3">
+                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Legal & Compliance</span>
+                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Legal Expert</h2>
+                        <p class="text-gold font-semibold">$60 - $150 / hour</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New opportunity</span>
+                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
+
+                <!-- Tegel 15 -->
+                <div onclick="selectJob('Engineering Expert', '$60 - $125 / hour', 'Engineering', 'Cross-disciplinary engineering consulting, technical review, and project management.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-3">
+                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
+                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Engineering Expert</h2>
+                        <p class="text-gold font-semibold">$60 - $125 / hour</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New opportunity</span>
+                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
+
+                <!-- Tegel 16 -->
+                <div onclick="selectJob('Software Engineering Expert', '$70 - $150 / hour', 'Engineering', 'Advanced application development, codebase optimization, and code review auditing.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-3">
+                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
+                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Software Engineering Expert</h2>
+                        <p class="text-gold font-semibold">$70 - $150 / hour</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New opportunity</span>
+                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paginering Knoppen (1 t/m 10) -->
+            <div class="flex justify-center items-center gap-2 pt-8">
+                <button class="px-4 py-2 bg-card border border-gold/30 text-gold rounded-lg text-sm font-bold">1</button>
+                <button class="px-4 py-2 bg-obsidian border border-gold/20 text-gray-400 rounded-lg text-sm hover:text-gold">2</button>
+                <button class="px-4 py-2 bg-obsidian border border-gold/20 text-gray-400 rounded-lg text-sm hover:text-gold">3</button>
+                <span class="text-gray-500 px-2">...</span>
+                <button class="px-4 py-2 bg-obsidian border border-gold/20 text-gray-400 rounded-lg text-sm hover:text-gold">10</button>
+            </div>
+        </div>
+
+        <!-- RECHTER KOLOM: Het detailpaneel en Tally formulier -->
+        <div id="right-column" class="hidden lg:col-span-6 sticky top-24">
+            <div id="right-empty-state" class="bg-card border border-gold/30 rounded-xl p-12 text-center space-y-4 min-h-[500px] flex flex-col justify-center items-center">
+                <div class="text-gold text-3xl"><i class="fa-regular fa-hand-pointer"></i></div>
+                <h3 class="text-xl font-bold text-white">Select a vacancy</h3>
+                <p class="text-gray-400 text-sm max-w-sm">Click on any opportunity on the left to view full details and submit your application directly on the right.</p>
+            </div>
+
+            <div id="right-detail-content" class="hidden bg-card border border-gold/40 rounded-xl p-6 shadow-2xl space-y-6">
+                <div class="border-b border-gold/20 pb-4">
+                    <span id="panel-cat" class="text-gold text-xs font-semibold uppercase tracking-wider bg-gold/10 px-3 py-1 rounded-full"></span>
+                    <h2 id="panel-title" class="text-2xl font-extrabold text-white mt-2"></h2>
+                    <p id="panel-rate" class="text-gold font-bold text-lg mt-1"></p>
+                </div>
+
+                <div>
+                    <h4 class="text-xs uppercase tracking-wider text-gray-400 mb-1">Role Description</h4>
+                    <p id="panel-desc" class="text-gray-200 text-sm leading-relaxed"></p>
+                </div>
+
+                <div class="space-y-2 pt-2 border-t border-gold/20">
+                    <h4 class="text-xs uppercase tracking-wider text-gold font-semibold">Application Form</h4>
+                    <div class="bg-surface border border-gold/30 rounded-lg p-1">
+                        <iframe id="panel-tally-iframe" data-tally-src="" loading="lazy" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" title="Application Form"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
 <!-- Footer -->
 <footer class="bg-surface border-t border-gold/20 py-12 px-6 text-center text-sm md:text-base text-gray-400 mt-20">
 <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
