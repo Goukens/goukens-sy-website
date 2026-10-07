@@ -41,10 +41,8 @@
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-        // Access check with password prompt using Gouk7507@
         function checkJobAccess() {
             const passcode = prompt("Enter access code to view the Job Board (Candidates register via Portal, or use access code):");
-            
             if (passcode === "Gouk7507@") {
                 showTab('jobs');
                 document.getElementById('job-locked-view').classList.add('hidden');
@@ -100,7 +98,6 @@
                 <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white">
                     Goukens-sy <span class="text-gold">Business Support</span>
                 </h1>
-                <!-- Home Photo -->
                 <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-2xl h-80 md:h-[400px]">
                     <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80" alt="Global Corporate Architecture" class="w-full h-full object-cover brightness-75 hover:scale-105 transition duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent"></div>
@@ -109,7 +106,6 @@
                         <p class="text-white text-2xl font-bold mt-1">Uncompromising Execution Across Borders</p>
                     </div>
                 </div>
-                <!-- Expanded Introduction -->
                 <div class="text-left space-y-6 bg-card border border-gold/20 p-8 md:p-12 rounded-sm shadow-2xl">
                     <p class="text-gray-200 text-lg md:text-xl font-medium leading-relaxed italic border-l-2 border-gold pl-4">
                         "Operating remotely from anywhere in the world. We don’t pay an employee to look good in an office; we pay for their knowledge, execution, and value."
@@ -192,7 +188,6 @@
                     The organizations that will dominate the coming decades are those built on agility rather than physical scale. We reject corporate bureaucracy in favor of streamlined, high-performance execution teams. Whether managing multi-language audio transcription campaigns, orchestrating complex resource feasibility studies, or driving sophisticated digital transformation projects, our approach guarantees optimal efficiency and measurable results.
                 </p>
             </div>
-            <!-- Extra Block 1 in Vision -->
             <div class="bg-card border border-gold/20 rounded-sm p-8 shadow-xl space-y-4">
                 <h3 class="text-xl font-bold text-gold">Core Operational Pillars</h3>
                 <ul class="list-disc pl-5 space-y-2 text-gray-300 text-sm md:text-base">
@@ -201,7 +196,6 @@
                     <li><strong class="text-white">Continuous Innovation:</strong> Early adoption of state-of-the-art administrative and AI tooling.</li>
                 </ul>
             </div>
-            <!-- Extra Block 2 in Vision -->
             <div class="bg-surface border border-gold/30 rounded-sm p-8 shadow-xl space-y-4">
                 <h3 class="text-xl font-bold text-gold">Security and Data Privacy Standards</h3>
                 <p class="text-gray-300 text-sm md:text-base leading-relaxed">
@@ -209,13 +203,14 @@
                 </p>
             </div>
         </div>
-        <!-- SERVICES TAB (EXTENDED) -->
+        <!-- SERVICES TAB (EXTENDED - STEP BY STEP) -->
         <div id="services" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-12">
             <div class="text-center mb-12">
                 <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold mb-3 inline-block px-3 py-1 border border-gold/30 rounded-full">Operational Excellence</span>
                 <h1 class="text-3xl md:text-5xl font-extrabold text-white">Comprehensive Services & Enterprise Solutions</h1>
             </div>
             
+            <!-- Service 1 (Met nieuwe sub-taken als test) -->
             <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-4">
                 <h2 class="text-2xl font-bold text-gold flex items-center gap-3">
                     <i class="fa-solid fa-microchip text-lg"></i> AI Data Annotation & Content Moderation
@@ -223,8 +218,14 @@
                 <p class="text-gray-300 leading-relaxed text-base md:text-lg">
                     Advanced data annotation, prompt engineering, and rigorous quality assurance for AI models.
                 </p>
+                <ul class="list-disc pl-5 pt-2 space-y-1 text-gray-400 text-sm">
+                    <li>Text, image, and video data labeling for machine learning models</li>
+                    <li>Prompt engineering and response evaluation</li>
+                    <li>Content moderation, safety filtering, and compliance checks</li>
+                </ul>
             </div>
             
+            <!-- Service 2 -->
             <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-4">
                 <h2 class="text-2xl font-bold text-gold flex items-center gap-3">
                     <i class="fa-solid fa-headset text-lg"></i> Customer Experience & Voice Operations
@@ -234,7 +235,7 @@
                 </p>
             </div>
 
-            <!-- TEST PHOTO BREAK 1 (Na de eerste 2 services) -->
+            <!-- PHOTO BREAK 1 -->
             <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-xl h-64 md:h-80 my-8">
                 <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=80" alt="Professional Business Operations" class="w-full h-full object-cover brightness-75">
                 <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
@@ -244,6 +245,7 @@
                 </div>
             </div>
 
+            <!-- Service 3 -->
             <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-4">
                 <h2 class="text-2xl font-bold text-gold flex items-center gap-3">
                     <i class="fa-solid fa-user-tie text-lg"></i> Executive Support & Virtual Assistance
@@ -253,6 +255,7 @@
                 </p>
             </div>
 
+            <!-- Service 4 -->
             <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-4">
                 <h2 class="text-2xl font-bold text-gold flex items-center gap-3">
                     <i class="fa-solid fa-briefcase text-lg"></i> General Business Support & Administration
@@ -262,7 +265,7 @@
                 </p>
             </div>
 
-            <!-- TEST PHOTO BREAK 2 (Na de 4e service) -->
+            <!-- PHOTO BREAK 2 -->
             <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-xl h-64 md:h-80 my-8">
                 <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80" alt="Modern Workspace" class="w-full h-full object-cover brightness-75">
                 <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
@@ -272,6 +275,7 @@
                 </div>
             </div>
 
+            <!-- Service 5 -->
             <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-4">
                 <h2 class="text-2xl font-bold text-gold flex items-center gap-3">
                     <i class="fa-solid fa-bullhorn text-lg"></i> Lead Generation & Travel Marketing
@@ -281,6 +285,7 @@
                 </p>
             </div>
 
+            <!-- Service 6 -->
             <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-4">
                 <h2 class="text-2xl font-bold text-gold flex items-center gap-3">
                     <i class="fa-solid fa-gears text-lg"></i> Specialized Technical & Engineering Projects
@@ -290,7 +295,7 @@
                 </p>
             </div>
 
-            <!-- TEST PHOTO BREAK 3 (Na de 6e service) -->
+            <!-- PHOTO BREAK 3 -->
             <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-xl h-64 md:h-80 my-8">
                 <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=80" alt="Engineering and Technical Projects" class="w-full h-full object-cover brightness-75">
                 <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
@@ -300,6 +305,7 @@
                 </div>
             </div>
 
+            <!-- Service 7 -->
             <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-4">
                 <h2 class="text-2xl font-bold text-gold flex items-center gap-3">
                     <i class="fa-solid fa-language text-lg"></i> Transcription, Translation & Localization
@@ -309,6 +315,7 @@
                 </p>
             </div>
 
+            <!-- Service 8 -->
             <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-4">
                 <h2 class="text-2xl font-bold text-gold flex items-center gap-3">
                     <i class="fa-solid fa-graduation-cap text-lg"></i> Training & Skill Development Programs
@@ -317,23 +324,30 @@
                     Designing and coordinating structured training programs and global talent development.
                 </p>
             </div>
+
+            <!-- PHOTO BREAK 4 -->
+            <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-xl h-64 md:h-80 my-8">
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1600&q=80" alt="Training and Talent Development" class="w-full h-full object-cover brightness-75">
+                <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
+                <div class="absolute bottom-6 left-6 right-6">
+                    <span class="text-gold text-xs tracking-widest uppercase font-semibold">Talent & Growth</span>
+                    <p class="text-white text-xl font-bold">Empowering Global Expertise & Future Skills</p>
+                </div>
+            </div>
         </div>
-        <!-- CANDIDATE PORTAL TAB (TALLY REGISTRATION) -->
+        <!-- CANDIDATE PORTAL TAB -->
         <div id="portal" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-8">
             <div class="bg-surface border border-gold rounded-lg p-8 md:p-10 shadow-2xl space-y-6">
                 <h1 class="text-3xl font-bold text-gold mb-2">Candidate Portal & Email Registration</h1>
                 <p class="text-gray-300 text-sm leading-relaxed">
-                    Register with your e-mail address below via our secure Tally form to unlock <strong class="text-gold">30 days of free access</strong> to our exclusive Job Board. After 30 days, continued access requires a renewal via our secure Wise payment link ($9 / month or $25 / quarter).
+                    Register with your e-mail address below via our secure Tally form to unlock <strong class="text-gold">30 days of free access</strong> to our exclusive Job Board.
                 </p>
-                
-                <!-- Tally Form Embed -->
                 <iframe data-tally-src="https://tally.so/r/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0" title="Goukens-Sy Candidate Portal"></iframe>
                 <script>window.Tally||(window.Tally={});if(!window.Tally.load){v=function(){le.iframe.src=e+(e.includes("?")?"&":"?")+"transparentBackground=1"};if(document.querySelector('script[src*="tally.so/widgets/embed.js"]'))v();else{s=document.createElement("script");s.src="https://tally.so/widgets/embed.js";s.async=!0;s.onload=function(){Tally.loadEmbeds()};s.onerror=function(){};document.body.appendChild(s);}};</script>
             </div>
         </div>
-        <!-- JOB BOARD TAB (PROTECTED BY ACCESS CODE Gouk7507@) -->
+        <!-- JOB BOARD TAB -->
         <div id="jobs" class="tab-content hidden max-w-5xl mx-auto px-6 py-16 space-y-8">
-            
             <div id="job-locked-view" class="hidden bg-surface border border-gold/40 p-10 rounded-lg text-center space-y-6 shadow-2xl">
                 <div class="w-16 h-16 bg-gold/15 text-gold rounded-full flex items-center justify-center mx-auto text-2xl">
                     <i class="fa-solid fa-lock"></i>
@@ -343,107 +357,18 @@
                     Enter Access Code
                 </button>
             </div>
-            <!-- UNLOCKED BOARD VIEW -->
             <div id="job-board-view" class="space-y-6">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-card p-6 rounded-lg border border-gold/30">
                     <div>
                         <span class="text-gold text-xs font-semibold uppercase tracking-wider bg-gold/10 px-3 py-1 rounded-full">Authorized Access Area</span>
                         <h1 class="text-2xl font-bold text-white mt-2">Active Project Openings & Vacancies</h1>
                     </div>
-                    <div class="text-right text-xs text-gray-400 space-y-1">
-                        <div><span class="text-gold font-bold">Access Status:</span> Unlocked via Passcode</div>
-                        <!-- Wise Payment Renewal Links -->
-                        <div class="pt-1 flex gap-2 justify-end">
-                            <a href="HIER_JE_WISE_LINK_INVOEGEN" target="_blank" class="px-2.5 py-1 bg-gold text-obsidian font-bold rounded hover:bg-gold-light transition">Renew Monthly ($9)</a>
-                            <a href="HIER_JE_WISE_LINK_INVOEGEN" target="_blank" class="px-2.5 py-1 border border-gold text-gold font-bold rounded hover:bg-gold/10 transition">Renew Quarterly ($25)</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-surface border border-gold/20 rounded-lg overflow-hidden shadow-2xl">
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left border-collapse text-sm">
-                            <thead>
-                                <tr class="bg-card text-gray-400 border-b border-gold/20 uppercase text-xs tracking-wider">
-                                    <th class="p-4">Project / Title</th>
-                                    <th class="p-4">Status</th>
-                                    <th class="p-4">Language / Region</th>
-                                    <th class="p-4">Category</th>
-                                    <th class="p-4">Closing Date</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-gold/10 text-gray-300">
-                                <tr onclick="openJobDetail('OC05 | Phase 2 - USA-based Utterance Audio Recording', 'AlxBlock is recruiting 10 native English speakers in the U.S. for audio recording tasks and voice collection campaigns.', 'English (United States)', '2026-10-01')" class="hover:bg-card/60 cursor-pointer transition">
-                                    <td class="p-4 font-semibold text-white">OC05 | Phase 2 - USA-based Utterance Audio Recording</td>
-                                    <td class="p-4"><span class="px-2.5 py-1 bg-blue-950 text-blue-400 border border-blue-800 rounded-full text-xs">Active</span></td>
-                                    <td class="p-4"><span class="text-xs bg-gold/10 text-gold px-2 py-1 rounded border border-gold/30">English (US)</span></td>
-                                    <td class="p-4 text-xs text-gray-400">Audio Recording</td>
-                                    <td class="p-4 text-xs text-gray-400">2026-10-01</td>
-                                </tr>
-                                <tr onclick="openJobDetail('UB03_1261_Code-Switching Project - RECORDING ROLE', 'We are seeking native speakers for a research project focused on code-switching between Dutch (Netherlands) and English.', 'Dutch (Netherlands)', '2026-09-21')" class="hover:bg-card/60 cursor-pointer transition">
-                                    <td class="p-4 font-semibold text-white">UB03_1261_Code-Switching Project - DUTCH & English</td>
-                                    <td class="p-4"><span class="px-2.5 py-1 bg-blue-950 text-blue-400 border border-blue-800 rounded-full text-xs">Active</span></td>
-                                    <td class="p-4"><span class="text-xs bg-gold/10 text-gold px-2 py-1 rounded border border-gold/30">Dutch (Netherlands)</span></td>
-                                    <td class="p-4 text-xs text-gray-400">Linguistic Recording</td>
-                                    <td class="p-4 text-xs text-gray-400">2026-09-21</td>
-                                </tr>
-                                <tr onclick="openJobDetail('GS-EXEC-08 | Fractional Operations Support & Appointment Setting', 'Coordinating ongoing outbound service campaigns, voice collection, transcription, and appointment setting through Goukenssy Business Support Services.', 'English (Global)', '2026-11-15')" class="hover:bg-card/60 cursor-pointer transition">
-                                    <td class="p-4 font-semibold text-white">GS-EXEC-08 | Lead Generation & Appointment Setting Campaign</td>
-                                    <td class="p-4"><span class="px-2.5 py-1 bg-blue-950 text-blue-400 border border-blue-800 rounded-full text-xs">Active</span></td>
-                                    <td class="p-4"><span class="text-xs bg-gold/10 text-gold px-2 py-1 rounded border border-gold/30">English (Global)</span></td>
-                                    <td class="p-4 text-xs text-gray-400">Outbound Support</td>
-                                    <td class="p-4 text-xs text-gray-400">2026-11-15</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
                 </div>
             </div>
-            <!-- 3. JOB DETAIL VIEW -->
             <div id="job-detail-view" class="hidden space-y-6">
                 <button onclick="backToList()" class="px-4 py-2 bg-card border border-gold/40 text-gold text-xs font-bold uppercase rounded hover:bg-gold hover:text-obsidian transition">
                     <i class="fa-solid fa-arrow-left mr-2"></i> Back to Job List
                 </button>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="md:col-span-2 bg-surface border border-gold/30 rounded-lg p-8 space-y-6 shadow-2xl">
-                        <div class="flex items-center gap-3 border-b border-gold/20 pb-4">
-                            <i class="fa-solid fa-briefcase text-gold text-xl"></i>
-                            <div>
-                                <h2 class="text-xl font-bold text-white" id="detail-title">Project Title</h2>
-                                <span class="text-xs text-gray-400">Full description & requirements</span>
-                            </div>
-                        </div>
-                        <div class="space-y-4 text-gray-300 text-sm leading-relaxed">
-                            <h3 class="font-bold text-gold text-base">1. Project Overview:</h3>
-                            <p id="detail-desc">Project description goes here...</p>
-                            <h3 class="font-bold text-gold text-base pt-2">2. Requirements & Workflow:</h3>
-                            <ul class="list-disc pl-5 space-y-1">
-                                <li>Fully remote execution with flexible weekly deadlines.</li>
-                                <li>Direct submission and tracking via your candidate profile.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="bg-surface border border-gold/30 rounded-lg p-6 space-y-6 shadow-xl h-fit">
-                        <h3 class="text-gold font-bold uppercase text-xs tracking-wider border-b border-gold/20 pb-3">Job Details</h3>
-                        
-                        <div>
-                            <span class="text-xs text-gray-400 uppercase block mb-1">Status</span>
-                            <span class="px-3 py-1 bg-blue-950 text-blue-400 border border-blue-800 rounded-full text-xs font-semibold">Active</span>
-                        </div>
-                        <div>
-                            <span class="text-xs text-gray-400 uppercase block mb-1">Timeline Closing</span>
-                            <span class="text-sm text-gray-200" id="detail-closing">2026-09-21</span>
-                        </div>
-                        <div>
-                            <span class="text-xs text-gray-400 uppercase block mb-1">Language Requirement</span>
-                            <span class="inline-block bg-gold/10 text-gold px-3 py-1 rounded border border-gold/30 text-xs mt-1" id="detail-lang">English / Dutch</span>
-                        </div>
-                        <div class="pt-4 border-t border-gold/20">
-                            <a href="#portal" onclick="showTab('portal')" class="block text-center py-3 bg-gold text-obsidian font-bold text-xs uppercase tracking-wider rounded hover:bg-gold-light transition shadow-lg">
-                                Apply via Portal / Submit CV
-                            </a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <!-- CONTACT TAB -->
@@ -454,7 +379,6 @@
             </div>
             <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 shadow-xl text-center space-y-6">
                 <h2 class="text-2xl font-bold text-gold mb-2">Schedule a Client Consultation</h2>
-                <p class="text-gray-300 max-w-md mx-auto text-sm">Direct engagement and scheduling for corporate clients, partnership inquiries, and executive advisory sessions.</p>
                 <a href="https://geert-goukens.dayschedule.com" target="_blank" class="inline-block px-6 py-3 bg-gold text-obsidian font-bold rounded-sm hover:bg-gold-light transition uppercase text-sm tracking-wider shadow-lg">
                     <i class="fa-regular fa-calendar-check mr-2"></i> Book Client Meeting
                 </a>
