@@ -1,8 +1,3 @@
-Helemaal helder! We halen het wachtwoord er voor nu helemaal af (zodat je er meteen zonder code of wachtwoord in kunt), we zorgen ervoor dat de rest van de website onaangeraakt blijft, en we bouwen exact het gewenste Job Board: volledig open, voorzien van filters zoals op je voorbeeld, en gevuld met precies 8 mooie tegels die direct doorlinken naar jouw Tally-formulieren.
-
-Hier is de volledige, complete HTML-code van de website:
-
-HTML
 <!DOCTYPE html><html lang="en" class="scroll-smooth"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,7 +40,6 @@ HTML
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
         
-        // Direct toegang zonder wachtwoord naar het Job Board
         function openJobBoard() {
             showTab('jobs');
             document.getElementById('job-board-view').classList.remove('hidden');
@@ -69,13 +63,11 @@ HTML
             document.getElementById('job-board-view').classList.remove('hidden');
         }
         
-        // Filter Dropdown menu
         function toggleDropdown(id) {
             const dropdown = document.getElementById(id);
             dropdown.classList.toggle('hidden');
         }
 
-        // Filter functie op basis van categorie/domein
         function filterJobs(category) {
             const cards = document.querySelectorAll('.job-card');
             cards.forEach(card => {
@@ -89,7 +81,6 @@ HTML
             document.getElementById('filter-dropdown').classList.add('hidden');
         }
 
-        // Zoekfunctie
         function searchJobs() {
             const input = document.getElementById('job-search').value.toLowerCase();
             const cards = document.querySelectorAll('.job-card');
@@ -101,6 +92,12 @@ HTML
                     card.style.display = 'none';
                 }
             });
+        }
+        
+        function resetLocationFilter() {
+            const cards = document.querySelectorAll('.job-card');
+            cards.forEach(card => card.style.display = 'flex');
+            document.getElementById('location-tag').classList.add('hidden');
         }
     </script>
     <script async src="https://tally.so/widgets/embed.js"></script>
@@ -183,15 +180,15 @@ HTML
             </div>
         </div>
 
-        <!-- JOB BOARD TAB (GRID, FILTERS & 8 TILES) -->
+        <!-- JOB BOARD TAB -->
         <div id="jobs" class="tab-content hidden max-w-7xl mx-auto px-6 py-16 space-y-8">
             
-            <div id="job-board-view" class="space-y-8">
+            <div id="job-board-view" class="space-y-6">
                 
-                <!-- Filters & Zoekbalk Werkgroep -->
+                <!-- Bovenste werkbalk met Zoeken, Locatie-filter en Filters -->
                 <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 bg-card p-6 md:p-8 rounded-lg border border-gold/30 shadow-xl">
                     <div>
-                        <span class="text-gold text-xs font-semibold uppercase tracking-wider bg-gold/10 px-3 py-1 rounded-full">Explore Opportunities</span>
+                        <span class="text-gold text-xs font-semibold uppercase tracking-wider bg-gold/10 px-3 py-1 rounded-full">Explore opportunities</span>
                         <h1 class="text-2xl md:text-3xl font-bold text-white mt-2">Active Project Openings & Vacancies</h1>
                     </div>
 
@@ -222,109 +219,118 @@ HTML
                     </div>
                 </div>
 
-                <!-- Rooster van exact 8 vacaturekaarten -->
+                <!-- Actieve Locatie Filter Tag (zoals in jouw screenshot)[cite: 6] -->
+                <div id="location-tag" class="flex items-center gap-2">
+                    <span class="inline-flex items-center gap-1.5 bg-surface border border-gold/30 text-white text-xs font-medium px-3 py-1.5 rounded-md shadow-sm">
+                        <i class="fa-solid fa-location-dot text-gold text-xs"></i> Location 
+                        <button onclick="resetLocationFilter()" class="ml-1 text-gray-400 hover:text-gold"><i class="fa-solid fa-xmark"></i></button>
+                    </span>
+                    <button onclick="resetLocationFilter()" class="text-xs text-gold hover:underline font-medium">Clear</button>
+                </div>
+
+                <!-- Rooster van exact 8 vacaturekaarten (tarieven 10$ lager) -->
                 <div id="job-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     
                     <!-- Tegel 1 -->
-                    <div class="job-card bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group" data-category="ai" onclick="openJobDetail('Multimodal Image Expert', '$30 / hour', 'AI Data & Vision', 'https://tally.so/r/JOUW_TALLY_FORM_ID')">
+                    <div class="job-card bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group" data-category="ai" onclick="openJobDetail('Multimodal Image Expert', '$20 / hour', 'AI Data & Vision', 'https://tally.so/r/JOUW_TALLY_FORM_ID')">
                         <div class="space-y-3">
                             <span class="text-xs text-gold uppercase tracking-wider font-semibold">AI Data & Vision</span>
                             <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Multimodal Image Expert</h2>
-                            <p class="text-gold font-semibold">$30 / hour</p>
+                            <p class="text-gold font-semibold">$20 / hour</p>
                         </div>
                         <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New</span>
+                            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
                             <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
                         </div>
                     </div>
 
                     <!-- Tegel 2 -->
-                    <div class="job-card bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group" data-category="engineering" onclick="openJobDetail('Network Engineer - Talent Network', '$50 - $70 / hour', 'Engineering', 'https://tally.so/r/JOUW_TALLY_FORM_ID')">
+                    <div class="job-card bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group" data-category="engineering" onclick="openJobDetail('Network Engineer - Talent Network', '$40 - $60 / hour', 'Engineering', 'https://tally.so/r/JOUW_TALLY_FORM_ID')">
                         <div class="space-y-3">
                             <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
                             <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Network Engineer</h2>
-                            <p class="text-gold font-semibold">$50 - $70 / hour</p>
+                            <p class="text-gold font-semibold">$40 - $60 / hour</p>
                         </div>
                         <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New</span>
+                            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
                             <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
                         </div>
                     </div>
 
                     <!-- Tegel 3 -->
-                    <div class="job-card bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group" data-category="engineering" onclick="openJobDetail('Systems & Integration Expert', '$100 - $120 / hour', 'Engineering', 'https://tally.so/r/JOUW_TALLY_FORM_ID')">
+                    <div class="job-card bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group" data-category="engineering" onclick="openJobDetail('Systems & Integration Expert', '$90 - $110 / hour', 'Engineering', 'https://tally.so/r/JOUW_TALLY_FORM_ID')">
                         <div class="space-y-3">
                             <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
                             <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Systems & Integration Expert</h2>
-                            <p class="text-gold font-semibold">$100 - $120 / hour</p>
+                            <p class="text-gold font-semibold">$90 - $110 / hour</p>
                         </div>
                         <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New</span>
+                            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
                             <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
                         </div>
                     </div>
 
                     <!-- Tegel 4 -->
-                    <div class="job-card bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group" data-category="operations" onclick="openJobDetail('Generalist Expert', '$40 - $70 / hour', 'Operations & Support', 'https://tally.so/r/JOUW_TALLY_FORM_ID')">
+                    <div class="job-card bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group" data-category="operations" onclick="openJobDetail('Generalist Expert', '$30 - $60 / hour', 'Operations & Support', 'https://tally.so/r/JOUW_TALLY_FORM_ID')">
                         <div class="space-y-3">
                             <span class="text-xs text-gold uppercase tracking-wider font-semibold">Operations & Support</span>
                             <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Generalist Expert</h2>
-                            <p class="text-gold font-semibold">$40 - $70 / hour</p>
+                            <p class="text-gold font-semibold">$30 - $60 / hour</p>
                         </div>
                         <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New</span>
+                            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
                             <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
                         </div>
                     </div>
 
                     <!-- Tegel 5 -->
-                    <div class="job-card bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group" data-category="ai" onclick="openJobDetail('Data Analysis Expert', '$70 - $120 / hour', 'AI Data & Vision', 'https://tally.so/r/JOUW_TALLY_FORM_ID')">
+                    <div class="job-card bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group" data-category="ai" onclick="openJobDetail('Data Analysis Expert', '$60 - $110 / hour', 'AI Data & Vision', 'https://tally.so/r/JOUW_TALLY_FORM_ID')">
                         <div class="space-y-3">
                             <span class="text-xs text-gold uppercase tracking-wider font-semibold">AI Data & Vision</span>
                             <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Data Analysis Expert</h2>
-                            <p class="text-gold font-semibold">$70 - $120 / hour</p>
+                            <p class="text-gold font-semibold">$60 - $110 / hour</p>
                         </div>
                         <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New</span>
+                            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
                             <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
                         </div>
                     </div>
 
                     <!-- Tegel 6 -->
-                    <div class="job-card bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group" data-category="engineering" onclick="openJobDetail('Software & Firmware Expert', '$100 - $120 / hour', 'Engineering', 'https://tally.so/r/JOUW_TALLY_FORM_ID')">
+                    <div class="job-card bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group" data-category="engineering" onclick="openJobDetail('Software & Firmware Expert', '$90 - $110 / hour', 'Engineering', 'https://tally.so/r/JOUW_TALLY_FORM_ID')">
                         <div class="space-y-3">
                             <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
                             <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Software & Firmware Expert</h2>
-                            <p class="text-gold font-semibold">$100 - $120 / hour</p>
+                            <p class="text-gold font-semibold">$90 - $110 / hour</p>
                         </div>
                         <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New</span>
+                            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
                             <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
                         </div>
                     </div>
 
                     <!-- Tegel 7 -->
-                    <div class="job-card bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group" data-category="operations" onclick="openJobDetail('Education & Training Expert', '$30 - $85 / hour', 'Operations & Support', 'https://tally.so/r/JOUW_TALLY_FORM_ID')">
+                    <div class="job-card bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group" data-category="operations" onclick="openJobDetail('Education & Training Expert', '$20 - $75 / hour', 'Operations & Support', 'https://tally.so/r/JOUW_TALLY_FORM_ID')">
                         <div class="space-y-3">
                             <span class="text-xs text-gold uppercase tracking-wider font-semibold">Operations & Support</span>
                             <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Education & Training Expert</h2>
-                            <p class="text-gold font-semibold">$30 - $85 / hour</p>
+                            <p class="text-gold font-semibold">$20 - $75 / hour</p>
                         </div>
                         <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New</span>
+                            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
                             <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
                         </div>
                     </div>
 
                     <!-- Tegel 8 -->
-                    <div class="job-card bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group" data-category="operations" onclick="openJobDetail('Finance Expert', '$60 - $180 / hour', 'Operations & Support', 'https://tally.so/r/JOUW_TALLY_FORM_ID')">
+                    <div class="job-card bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group" data-category="operations" onclick="openJobDetail('Finance Expert', '$50 - $170 / hour', 'Operations & Support', 'https://tally.so/r/JOUW_TALLY_FORM_ID')">
                         <div class="space-y-3">
                             <span class="text-xs text-gold uppercase tracking-wider font-semibold">Operations & Support</span>
                             <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Finance Expert</h2>
-                            <p class="text-gold font-semibold">$60 - $180 / hour</p>
+                            <p class="text-gold font-semibold">$50 - $170 / hour</p>
                         </div>
                         <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New</span>
+                            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
                             <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
                         </div>
                     </div>
@@ -332,7 +338,7 @@ HTML
                 </div>
             </div>
 
-            <!-- Job Detail View (Opent wanneer je op een tegel klikt) -->
+            <!-- Job Detail View -->
             <div id="job-detail-view" class="hidden bg-card border border-gold/40 rounded-xl p-8 md:p-12 shadow-2xl space-y-8 max-w-4xl mx-auto">
                 <div class="flex items-center justify-between border-b border-gold/20 pb-6">
                     <div>
