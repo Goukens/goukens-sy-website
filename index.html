@@ -51,12 +51,12 @@
                 showTab('portal');
             }
         }
-        function openJobDetail(jobTitle, jobDesc, payRate, closingDate) {
+        function openJobDetail(jobTitle, jobDesc, lang, closingDate) {
             document.getElementById('job-board-view').classList.add('hidden');
             document.getElementById('job-detail-view').classList.remove('hidden');
             document.getElementById('detail-title').innerText = jobTitle;
-            document.getElementById('detail-desc').innerHTML = jobDesc;
-            document.getElementById('detail-pay').innerText = payRate;
+            document.getElementById('detail-desc').innerText = jobDesc;
+            document.getElementById('detail-lang').innerText = lang;
             document.getElementById('detail-closing').innerText = closingDate;
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -195,7 +195,7 @@
             </div>
         </div>
 
-        <!-- VISION TAB -->
+        <!-- VISION TAB (UITGEBREID) -->
         <div id="vision" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-12">
             <div class="text-center mb-12 space-y-4">
                 <span class="text-gold uppercase tracking-[0.3em] text-sm md:text-base font-semibold px-5 py-2 border border-gold/40 rounded-full shadow-md inline-block">
@@ -207,6 +207,7 @@
                 </p>
             </div>
 
+            <!-- Vision Photo 1 -->
             <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-2xl h-72 md:h-96">
                 <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1600&q=80" alt="Executive Strategy" class="w-full h-full object-cover brightness-75 hover:scale-105 transition duration-700">
                 <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent"></div>
@@ -216,6 +217,7 @@
                 </div>
             </div>
 
+            <!-- Vision Block 1 -->
             <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-12 shadow-xl space-y-6">
                 <h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
                     <i class="fa-solid fa-bullseye text-xl"></i> Executive Leadership & Global Operations
@@ -231,6 +233,7 @@
                 </p>
             </div>
 
+            <!-- Vision Photo 2 -->
             <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-2xl h-72 md:h-96">
                 <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80" alt="Global Operations" class="w-full h-full object-cover brightness-75">
                 <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent"></div>
@@ -240,6 +243,7 @@
                 </div>
             </div>
 
+            <!-- Vision Block 2 -->
             <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-12 shadow-xl space-y-6">
                 <h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
                     <i class="fa-solid fa-compass text-xl"></i> The Future of Enterprise Scalability
@@ -247,10 +251,50 @@
                 <p class="text-gray-200 text-base md:text-lg leading-relaxed">
                     The organizations that will dominate the coming decades are those built on agility rather than physical scale. We reject corporate bureaucracy in favor of streamlined, high-performance execution teams. Whether managing multi-language audio transcription campaigns, orchestrating complex resource feasibility studies, or driving sophisticated digital transformation projects, our approach guarantees optimal efficiency and measurable results.
                 </p>
+                <p class="text-gray-200 text-base md:text-lg leading-relaxed">
+                    By decoupling productivity from physical real estate, we empower businesses to tap into specialized expertise instantly. This ensures that every resource deployed delivers direct, high-value outcomes aligned with corporate strategic milestones.
+                </p>
+            </div>
+
+            <!-- Vision Block 3: Core Pillars -->
+            <div class="bg-card border border-gold/20 rounded-sm p-8 md:p-12 shadow-xl space-y-6">
+                <h3 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+                    <i class="fa-solid fa-layer-group text-xl"></i> Core Operational Pillars
+                </h3>
+                <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                    Our operational framework rests upon foundational pillars designed to guarantee stability, security, and continuous high-level performance across all global projects:
+                </p>
+                <ul class="space-y-4 text-gray-200 text-base md:text-lg pt-2">
+                    <li class="bg-surface p-5 rounded-sm border border-gold/20">
+                        <strong class="text-gold block mb-1 text-lg">1. Uncompromising Quality & Vetting</strong>
+                        Strict screening, rigorous assessment, and continuous performance evaluations of global talents to match elite Western corporate standards.
+                    </li>
+                    <li class="bg-surface p-5 rounded-sm border border-gold/20">
+                        <strong class="text-gold block mb-1 text-lg">2. Radical Transparency & Accountability</strong>
+                        Clear milestones, real-time progress tracking, verifiable deliverables, and unobstructed communication channels between client teams and remote specialists.
+                    </li>
+                    <li class="bg-surface p-5 rounded-sm border border-gold/20">
+                        <strong class="text-gold block mb-1 text-lg">3. Continuous Innovation & Tooling</strong>
+                        Early adoption and seamless integration of state-of-the-art administrative automation, AI-augmented workflows, and secure digital collaboration tools.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Vision Block 4: Security & Privacy -->
+            <div class="bg-surface border border-gold/40 rounded-sm p-8 md:p-12 shadow-xl space-y-6">
+                <h3 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+                    <i class="fa-solid fa-lock text-xl"></i> Security and Data Privacy Standards
+                </h3>
+                <p class="text-gray-200 text-base md:text-lg leading-relaxed">
+                    We maintain rigorous data handling protocols across all decentralized remote nodes. Confidentiality, enterprise-grade data encryption, and secure cloud environments ensure that our corporate partners retain absolute ownership, control, and security over their intellectual property, proprietary software, and sensitive datasets.
+                </p>
+                <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                    Trust is the bedrock of autonomous global operations. Our strict compliance frameworks guarantee peace of mind for executives managing mission-critical projects across international borders.
+                </p>
             </div>
         </div>
 
-        <!-- SERVICES TAB -->
+        <!-- SERVICES TAB (ALL 10 CATEGORIES) -->
         <div id="services" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-12">
             <div class="text-center mb-12">
                 <span class="text-gold uppercase tracking-[0.3em] text-sm md:text-base font-semibold mb-4 inline-block px-5 py-2 border border-gold/40 rounded-full shadow-md">
@@ -259,6 +303,7 @@
                 <h1 class="text-3xl md:text-5xl font-extrabold text-white mt-2">Comprehensive Services & Enterprise Solutions</h1>
             </div>
             
+            <!-- Service 1 -->
             <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
                 <h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
                     <i class="fa-solid fa-microchip text-xl"></i> AI Data Annotation & Content Moderation
@@ -266,10 +311,174 @@
                 <p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">
                     Advanced data annotation, prompt engineering, and rigorous quality assurance tailored for cutting-edge artificial intelligence models and digital platforms.
                 </p>
+                <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                    We deliver high-precision dataset labeling and safety filtering to ensure your AI systems operate with maximum accuracy, contextual awareness, and strict adherence to industry compliance standards.
+                </p>
+                <ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
+                    <li>Comprehensive text, image, and video data labeling for advanced machine learning models</li>
+                    <li>Expert prompt engineering, model training support, and response evaluation</li>
+                    <li>Thorough content moderation, safety filtering, and rigorous compliance checks</li>
+                </ul>
+            </div>
+            
+            <!-- Service 2 -->
+            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
+                <h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+                    <i class="fa-solid fa-headset text-xl"></i> Customer Experience & Voice Operations
+                </h2>
+                <p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">
+                    Top-tier customer support, dynamic voice campaigns, and seamless multilingual communication management.
+                </p>
+                <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                    We empower your brand with exceptional customer relationship management, providing professional multi-channel support and voice interaction campaigns that build enduring customer loyalty.
+                </p>
+                <ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
+                    <li>Multilingual customer support, ticketing, and dedicated client relationship management</li>
+                    <li>Inbound and outbound professional voice campaigns tailored to global markets</li>
+                    <li>Audio utterance collection, voice recording tasks, and speech dataset curation</li>
+                </ul>
+            </div>
+
+            <!-- PHOTO BREAK 1 -->
+            <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-xl h-64 md:h-80 my-8">
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=80" alt="Professional Business Operations" class="w-full h-full object-cover brightness-75">
+                <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
+                <div class="absolute bottom-6 left-6 right-6">
+                    <span class="text-gold text-xs tracking-widest uppercase font-semibold">Global Infrastructure</span>
+                    <p class="text-white text-xl font-bold">Seamless Execution & Dedicated Support</p>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
+                <h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+                    <i class="fa-solid fa-user-tie text-xl"></i> Executive Support & Virtual Assistance
+                </h2>
+                <p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">
+                    Professional virtual assistance and tailored administrative support designed for executive leadership teams and busy entrepreneurs.
+                </p>
+                <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                    By offloading time-consuming day-to-day administrative burdens, we allow executives to focus entirely on high-level strategy, business growth, and key decision-making.
+                </p>
+                <ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
+                    <li>Complex calendar management, schedule optimization, and executive correspondence</li>
+                    <li>Executive travel planning, logistical arrangements, and itinerary coordination</li>
+                    <li>Confidential document preparation, presentation design, and detailed executive reporting</li>
+                </ul>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
+                <h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+                    <i class="fa-solid fa-briefcase text-xl"></i> General Business Support & Administration
+                </h2>
+                <p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">
+                    Comprehensive corporate administration, database management, and operational workflow coordination.
+                </p>
+                <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                    We streamline your back-office operations to ensure data integrity, smooth internal processes, and maximum administrative efficiency across all departments.
+                </p>
+                <ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
+                    <li>Reliable corporate administration, record keeping, and document archiving</li>
+                    <li>Precise data entry, database maintenance, cleansing, and rigorous verification</li>
+                    <li>Operational workflow optimization, task tracking, and cross-departmental coordination</li>
+                </ul>
+            </div>
+
+            <!-- PHOTO BREAK 2 -->
+            <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-xl h-64 md:h-80 my-8">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80" alt="Modern Workspace" class="w-full h-full object-cover brightness-75">
+                <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
+                <div class="absolute bottom-6 left-6 right-6">
+                    <span class="text-gold text-xs tracking-widest uppercase font-semibold">Executive Strategy</span>
+                    <p class="text-white text-xl font-bold">Streamlining Workflows & Enterprise Solutions</p>
+                </div>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
+                <h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+                    <i class="fa-solid fa-bullhorn text-xl"></i> Lead Generation & Travel Marketing
+                </h2>
+                <p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">
+                    Targeted lead generation, sales pipeline support, and promotional marketing campaigns specialized for premium vacation packages and travel services.
+                </p>
+                <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                    We drive customer acquisition and revenue growth by developing high-converting marketing scripts, executing strategic outreach, and nurturing high-value prospects.
+                </p>
+                <ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
+                    <li>Strategic outbound lead generation, prospect research, and custom script development</li>
+                    <li>Compelling promotional marketing materials for vacation packages and all-inclusive travel services</li>
+                    <li>Sales pipeline management, follow-up coordination, and professional appointment setting</li>
+                </ul>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
+                <h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+                    <i class="fa-solid fa-gears text-xl"></i> Specialized Technical & Engineering Projects
+                </h2>
+                <p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">
+                    Advanced project support for technical and industrial initiatives, including comprehensive feasibility studies for large-scale resource extraction.
+                </p>
+                <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                    We provide rigorous research, operational planning, and technical documentation for complex engineering ventures, ensuring precision and strategic foresight.
+                </p>
+                <ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
+                    <li>In-depth feasibility studies for water desalination plants and industrial infrastructure projects</li>
+                    <li>Industrial resource extraction planning, including detailed copper tailing recovery strategies</li>
+                    <li>Technical project coordination, milestone tracking, and specialized report documentation</li>
+                </ul>
+            </div>
+
+            <!-- PHOTO BREAK 3 -->
+            <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-xl h-64 md:h-80 my-8">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=80" alt="Engineering and Technical Projects" class="w-full h-full object-cover brightness-75">
+                <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
+                <div class="absolute bottom-6 left-6 right-6">
+                    <span class="text-gold text-xs tracking-widest uppercase font-semibold">Technical Excellence</span>
+                    <p class="text-white text-xl font-bold">Precision Engineering & Industrial Feasibility</p>
+                </div>
+            </div>
+
+            <!-- Service 7 -->
+            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
+                <h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+                    <i class="fa-solid fa-language text-xl"></i> Transcription, Translation & Localization
+                </h2>
+                <p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">
+                    Multilingual transcription, professional translation, and specialized linguistic research including advanced code-switching analysis.
+                </p>
+                <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                    We bridge communication gaps across global markets with accurate linguistic processing, detailed transcriptions, and culturally nuanced translations for digital and corporate assets.
+                </p>
+                <ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
+                    <li>High-accuracy audio transcription and professional translation across multiple languages</li>
+                    <li>Specialized linguistic research projects focused heavily on bilingual and multi-language code-switching</li>
+                    <li>Localization of corporate documents, software interfaces, and digital content for regional markets</li>
+                </ul>
+            </div>
+
+            <!-- Service 8 -->
+            <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
+                <h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+                    <i class="fa-solid fa-graduation-cap text-xl"></i> Training & Skill Development Programs
+                </h2>
+                <p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">
+                    Designing and coordinating structured training programs, workshops, and global talent development initiatives.
+                </p>
+                <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                    We elevate organizational capability by creating comprehensive onboarding modules and specialized educational frameworks that empower remote teams to excel.
+                </p>
+                <ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
+                    <li>Designing structured onboarding modules and training frameworks for remote workforces</li>
+                    <li>Interactive skill development workshops, knowledge transfer sessions, and operational training</li>
+                    <li>Global talent mentoring, performance tracking, and continuous professional guidance</li>
+                </ul>
             </div>
         </div>
 
-        <!-- CANDIDATE PORTAL TAB -->
+        <!-- CANDIDATE PORTAL TAB (MET TALLY EMBED) -->
         <div id="portal" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-8">
             <div class="bg-surface border border-gold rounded-lg p-8 md:p-10 shadow-2xl space-y-6">
                 <h1 class="text-3xl md:text-4xl font-bold text-gold mb-2">Candidate Portal & Email Registration</h1>
@@ -280,77 +489,22 @@
             </div>
         </div>
 
-        <!-- JOB BOARD TAB (LIST & DETAIL VIEWS) -->
+        <!-- JOB BOARD TAB -->
         <div id="jobs" class="tab-content hidden max-w-5xl mx-auto px-6 py-16 space-y-8">
-            <!-- Job List View -->
+            <div id="job-locked-view" class="hidden bg-surface border border-gold/40 p-10 rounded-lg text-center space-y-6 shadow-2xl">
+                <div class="w-16 h-16 bg-gold/15 text-gold rounded-full flex items-center justify-center mx-auto text-2xl">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <h1 class="text-2xl md:text-3xl font-bold text-white">Exclusive Job Board Protected</h1>
+                <button onclick="checkJobAccess()" class="px-6 py-3 bg-gold text-obsidian font-bold text-xs uppercase tracking-wider rounded hover:bg-gold-light transition shadow-lg">
+                    Enter Access Code
+                </button>
+            </div>
             <div id="job-board-view" class="space-y-6">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-card p-6 md:p-8 rounded-lg border border-gold/30">
                     <div>
                         <span class="text-gold text-xs font-semibold uppercase tracking-wider bg-gold/10 px-3 py-1 rounded-full">Authorized Access Area</span>
                         <h1 class="text-2xl md:text-3xl font-bold text-white mt-2">Active Project Openings & Vacancies</h1>
-                    </div>
-                </div>
-
-                <!-- Job Card: Multimodal Image Expert -->
-                <div class="bg-card border border-gold/30 rounded-xl p-6 md:p-8 shadow-xl hover:border-gold transition flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-                    <div class="space-y-2">
-                        <div class="flex items-center gap-3">
-                            <span class="bg-gold/15 text-gold text-xs px-3 py-1 rounded-full font-semibold uppercase tracking-wider">New Opportunity</span>
-                            <span class="text-gray-400 text-sm"><i class="fa-solid fa-user-plus text-gold mr-1"></i> Referral Bonus: $120</span>
-                        </div>
-                        <h2 class="text-2xl font-bold text-white">Multimodal Image Expert</h2>
-                        <p class="text-gold font-semibold text-lg">$30 / hour</p>
-                        <p class="text-gray-300 text-sm max-w-2xl">
-                            Compare pairs of AI-generated images built from the same prompt, judge quality, prompt alignment, and provide clear rationales.
-                        </p>
-                    </div>
-                    <button onclick="openJobDetail('Multimodal Image Expert', `
-                        <p class='text-gray-300 mb-4'>Image SxS Analysis is a project in which expert raters compare pairs of AI-generated images built from the same prompt and select a preferred image, with model identities blinded.</p>
-                        <p class='text-gray-300 mb-4'>For each task you'll review two images side by side against the original prompt and judge which one is better overall, weighing prompt alignment, visual quality, anatomy and structure, rendered text, and artifacts. You'll pick a preference (or mark both good or both bad) and write a short rationale explaining your choice. Careful, consistent judgment matters more than speed.</p>
-                        <p class='text-gray-300 mb-4'>You'll start with a paid onboarding quiz (\$20, whether you pass or not). Pass it and you move onto project tasks at \$30/hr.</p>
-                        <h3 class='text-xl font-bold text-gold mt-6 mb-2'>Requirements</h3>
-                        <p class='text-gray-300 mb-4'>Fluent English, a sharp eye for visual detail, and the ability to explain your reasoning clearly in writing. No specialist degree required.</p>
-                        <p class='text-gray-300 mb-4'>We consider all qualified applicants without regard to legally protected characteristics and provide reasonable accommodations upon request.</p>
-                        <h3 class='text-xl font-bold text-gold mt-6 mb-2'>Contract and Payment Terms</h3>
-                        <ul class='list-disc pl-5 space-y-2 text-gray-300 mb-4'>
-                            <li>You will be engaged as an independent contractor.</li>
-                            <li>This is a fully remote role that can be completed on your own schedule.</li>
-                            <li>Projects can be extended, shortened, or concluded early depending on needs and performance.</li>
-                            <li>Your work will not involve access to confidential or proprietary information from any employer, client, or institution.</li>
-                            <li>Payments are weekly on Stripe or Wise based on services rendered.</li>
-                            <li>Please note: We are unable to support H1-B or STEM OPT candidates at this time.</li>
-                        </ul>
-                        <h3 class='text-xl font-bold text-gold mt-6 mb-2'>About the Project & Referrals</h3>
-                        <p class='text-gray-300 mb-4'>You will work on projects that focus on training and enhancing AI systems with leading AI labs and enterprises. Share your referral link to earn up to \$120 for each successful referral.</p>
-                    `, '$30 / hour', 'Openings Available')" class="px-6 py-3 bg-gold text-obsidian font-bold rounded hover:bg-gold-light transition uppercase text-sm tracking-wider shadow-md whitespace-nowrap">
-                        Apply <i class="fa-solid fa-arrow-right ml-1"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Job Detail View (Hidden by default, opened via Apply) -->
-            <div id="job-detail-view" class="hidden bg-card border border-gold/40 rounded-xl p-8 md:p-12 shadow-2xl space-y-8">
-                <div class="flex items-center justify-between border-b border-gold/20 pb-6">
-                    <div>
-                        <span id="detail-pay" class="text-gold font-semibold text-lg bg-gold/10 px-3 py-1 rounded-full"></span>
-                        <h1 id="detail-title" class="text-3xl md:text-4xl font-extrabold text-white mt-3"></h1>
-                    </div>
-                    <button onclick="backToList()" class="px-4 py-2 border border-gold/50 text-gold font-bold rounded hover:bg-gold/10 transition text-sm">
-                        <i class="fa-solid fa-arrow-left mr-1"></i> Back to List
-                    </button>
-                </div>
-
-                <div id="detail-desc" class="space-y-4 text-gray-300 leading-relaxed">
-                    <!-- Dynamic Job Content -->
-                </div>
-
-                <div class="border-t border-gold/20 pt-8 space-y-6">
-                    <h3 class="text-2xl font-bold text-gold">Submit Your Application</h3>
-                    <p class="text-gray-300 text-sm">Fill out the form below to apply directly for this vacancy:</p>
-                    
-                    <!-- Hier kun je de Tally formulier embed voor deze specifieke vacature plaatsen -->
-                    <div class="bg-surface border border-gold/30 rounded-lg p-4">
-                        <iframe data-tally-src="https://tally.so/r/JOUW_TALLY_FORM_ID?transparentBackground=1" loading="lazy" width="100%" height="700" frameborder="0" marginheight="0" marginwidth="0" title="Multimodal Image Expert Application"></iframe>
                     </div>
                 </div>
             </div>
