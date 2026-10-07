@@ -27,6 +27,8 @@
     <script async src="https://tally.so/widgets/embed.js"></script>
     <style>
         body { background-color: #0a0a0a; color: #e5e5e5; font-family: ui-sans-serif, system-ui, sans-serif; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col selection:bg-gold selection:text-obsidian">
@@ -51,12 +53,12 @@
         </div>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-surface border-b border-gold/20 px-6 py-4 space-y-3">
-            <button onclick="showTab('home'); toggleMobileMenu()" class="block w-text-left text-gold py-1">Home</button>
-            <button onclick="showTab('vision'); toggleMobileMenu()" class="block w-text-left text-gray-300 py-1">Vision</button>
-            <button onclick="showTab('services'); toggleMobileMenu()" class="block w-text-left text-gray-300 py-1">Services</button>
-            <button onclick="showTab('portal'); toggleMobileMenu()" class="block w-text-left text-gray-300 py-1">Candidate Portal</button>
-            <button onclick="showTab('jobs'); toggleMobileMenu()" class="block w-text-left text-gray-300 py-1 flex items-center gap-1.5"><i class="fa-solid fa-lock text-xs text-gold"></i> Job Board</button>
-            <button onclick="showTab('contact'); toggleMobileMenu()" class="block w-text-left text-gray-300 py-1">Contact</button>
+            <button onclick="showTab('home'); toggleMobileMenu()" class="block w-full text-left text-gold py-1">Home</button>
+            <button onclick="showTab('vision'); toggleMobileMenu()" class="block w-full text-left text-gray-300 py-1">Vision</button>
+            <button onclick="showTab('services'); toggleMobileMenu()" class="block w-full text-left text-gray-300 py-1">Services</button>
+            <button onclick="showTab('portal'); toggleMobileMenu()" class="block w-full text-left text-gray-300 py-1">Candidate Portal</button>
+            <button onclick="showTab('jobs'); toggleMobileMenu()" class="block w-full text-left text-gray-300 py-1 flex items-center gap-1.5"><i class="fa-solid fa-lock text-xs text-gold"></i> Job Board</button>
+            <button onclick="showTab('contact'); toggleMobileMenu()" class="block w-full text-left text-gray-300 py-1">Contact</button>
         </div>
     </header>
 
@@ -64,7 +66,7 @@
     <main class="flex-grow">
 
         <!-- HOME TAB -->
-        <div id="home" class="tab-content max-w-6xl mx-auto px-6 py-20 space-y-16">
+        <div id="home" class="tab-content active max-w-6xl mx-auto px-6 py-20 space-y-16">
             <div class="text-center space-y-6 max-w-3xl mx-auto">
                 <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold px-4 py-2 border border-gold/40 rounded-full inline-block bg-gold/5">
                     Executive Leadership & Global Operations
@@ -87,7 +89,7 @@
         </div>
 
         <!-- VISION TAB -->
-        <div id="vision" class="tab-content hidden max-w-4xl mx-auto px-6 py-20 space-y-12">
+        <div id="vision" class="tab-content max-w-4xl mx-auto px-6 py-20 space-y-12">
             <div class="text-center space-y-4">
                 <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold px-4 py-2 border border-gold/40 rounded-full inline-block">Strategic Outlook</span>
                 <h1 class="text-3xl md:text-5xl font-extrabold text-white">Our Core Vision & Principles</h1>
@@ -99,7 +101,7 @@
         </div>
 
         <!-- SERVICES TAB -->
-        <div id="services" class="tab-content hidden max-w-5xl mx-auto px-6 py-20 space-y-12">
+        <div id="services" class="tab-content max-w-5xl mx-auto px-6 py-20 space-y-12">
             <div class="text-center space-y-4">
                 <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold px-4 py-2 border border-gold/40 rounded-full inline-block">Operational Excellence</span>
                 <h1 class="text-3xl md:text-5xl font-extrabold text-white">Comprehensive Services</h1>
@@ -125,7 +127,7 @@
         </div>
 
         <!-- CANDIDATE PORTAL TAB -->
-        <div id="portal" class="tab-content hidden max-w-4xl mx-auto px-6 py-20 space-y-8">
+        <div id="portal" class="tab-content max-w-4xl mx-auto px-6 py-20 space-y-8">
             <div class="bg-card border border-gold rounded-xl p-8 md:p-12 shadow-2xl space-y-6">
                 <h1 class="text-3xl font-bold text-gold">Candidate Portal & Registration</h1>
                 <p class="text-gray-300">Register via our secure Tally form below to unlock 30 days of free access to our exclusive Job Board.</p>
@@ -134,7 +136,7 @@
         </div>
 
         <!-- JOB BOARD TAB -->
-        <div id="jobs" class="tab-content hidden max-w-7xl mx-auto px-6 py-12 space-y-8">
+        <div id="jobs" class="tab-content max-w-7xl mx-auto px-6 py-12 space-y-8">
             <!-- Locked View -->
             <div id="job-locked-view" class="bg-card border border-gold/30 rounded-xl p-12 text-center space-y-6 max-w-xl mx-auto mt-12 shadow-2xl">
                 <div class="text-gold text-5xl mb-2"><i class="fa-solid fa-lock"></i></div>
@@ -153,97 +155,32 @@
                         <h1 class="text-2xl md:text-3xl font-extrabold text-white mt-2">Professional Project Openings</h1>
                         <p class="text-gray-400 text-sm mt-1">Select any role below to inspect specifications and apply directly.</p>
                     </div>
-                    <div class="flex items-center gap-2">
-                        <button onclick="switchJobPage(1)" class="px-3 py-1.5 bg-gold/20 text-gold text-xs rounded border border-gold/30 hover:bg-gold hover:text-obsidian transition">Page 1</button>
-                        <button onclick="switchJobPage(2)" class="px-3 py-1.5 bg-gold/20 text-gold text-xs rounded border border-gold/30 hover:bg-gold hover:text-obsidian transition">Page 2</button>
-                        <button onclick="switchJobPage(3)" class="px-3 py-1.5 bg-gold/20 text-gold text-xs rounded border border-gold/30 hover:bg-gold hover:text-obsidian transition">Page 3</button>
-                        <button onclick="switchJobPage(4)" class="px-3 py-1.5 bg-gold/20 text-gold text-xs rounded border border-gold/30 hover:bg-gold hover:text-obsidian transition">Page 4</button>
-                    </div>
                 </div>
 
                 <!-- SPLIT SCREEN -->
                 <div id="split-screen-wrapper" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                     <!-- Left Column: Job Cards Grid -->
                     <div id="left-column" class="lg:col-span-12 space-y-6 transition-all duration-300">
-                        
-                        <!-- JOB PAGE 1 -->
-                        <div class="job-page space-y-6" id="job-page-1">
-                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                <div onclick="selectJob('Network Engineer', '$50 - $70 / hour', 'Engineering', 'Global network infrastructure monitoring, routing configuration, and technical troubleshooting.')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition space-y-4">
-                                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
-                                    <h3 class="text-lg font-bold text-white">Network Engineer</h3>
-                                    <p class="text-gold font-semibold">$50 - $70 / hour</p>
-                                    <div class="text-xs text-gold font-medium pt-2 border-t border-gold/10">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></div>
-                                </div>
-                                <div onclick="selectJob('Systems & Integration Experts', '$100 - $120 / hour', 'Engineering', 'Enterprise systems architecture, API integrations, and robust cloud workflow automation.')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition space-y-4">
-                                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
-                                    <h3 class="text-lg font-bold text-white">Systems & Integration Experts</h3>
-                                    <p class="text-gold font-semibold">$100 - $120 / hour</p>
-                                    <div class="text-xs text-gold font-medium pt-2 border-t border-gold/10">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></div>
-                                </div>
-                                <div onclick="selectJob('German Language Expert', '$50 / hour', 'Humanities & Language', 'High-accuracy German literature analysis, specialized transcription, translation, and cultural curation.')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition space-y-4">
-                                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Humanities & Language</span>
-                                    <h3 class="text-lg font-bold text-white">German Language Expert</h3>
-                                    <p class="text-gold font-semibold">$50 / hour</p>
-                                    <div class="text-xs text-gold font-medium pt-2 border-t border-gold/10">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></div>
-                                </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div onclick="selectJob('Network Engineer', '$50 - $70 / hour', 'Engineering', 'Global network infrastructure monitoring, routing configuration, and technical troubleshooting.')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition space-y-4">
+                                <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
+                                <h3 class="text-lg font-bold text-white">Network Engineer</h3>
+                                <p class="text-gold font-semibold">$50 - $70 / hour</p>
+                                <div class="text-xs text-gold font-medium pt-2 border-t border-gold/10">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></div>
+                            </div>
+                            <div onclick="selectJob('Cloud Infrastructure Architects', '$110 - $140 / hour', 'Engineering', 'Designing and maintaining resilient multi-cloud architectures, Kubernetes clusters, and automated deployment pipelines.')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition space-y-4">
+                                <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
+                                <h3 class="text-lg font-bold text-white">Cloud Infrastructure Architects</h3>
+                                <p class="text-gold font-semibold">$110 - $140 / hour</p>
+                                <div class="text-xs text-gold font-medium pt-2 border-t border-gold/10">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></div>
+                            </div>
+                            <div onclick="selectJob('Financial Analysts', '$75 - $110 / hour', 'Finance & Analytics', 'Analyzing corporate expenditure, financial modeling, budgeting forecasting, and variance reporting.')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition space-y-4">
+                                <span class="text-xs text-gold uppercase tracking-wider font-semibold">Finance & Analytics</span>
+                                <h3 class="text-lg font-bold text-white">Financial Analysts</h3>
+                                <p class="text-gold font-semibold">$75 - $110 / hour</p>
+                                <div class="text-xs text-gold font-medium pt-2 border-t border-gold/10">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></div>
                             </div>
                         </div>
-
-                        <!-- JOB PAGE 2 -->
-                        <div class="job-page hidden space-y-6" id="job-page-2">
-                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                <div onclick="selectJob('Cloud Infrastructure Architects', '$110 - $140 / hour', 'Engineering', 'Designing and maintaining resilient multi-cloud architectures, Kubernetes clusters, and automated deployment pipelines.')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition space-y-4">
-                                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
-                                    <h3 class="text-lg font-bold text-white">Cloud Infrastructure Architects</h3>
-                                    <p class="text-gold font-semibold">$110 - $140 / hour</p>
-                                    <div class="text-xs text-gold font-medium pt-2 border-t border-gold/10">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></div>
-                                </div>
-                                <div onclick="selectJob('DevOps & CI/CD Engineers', '$90 - $125 / hour', 'Engineering', 'Building and maintaining automated continuous integration and delivery pipelines, Docker containers, and server monitoring.')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition space-y-4">
-                                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
-                                    <h3 class="text-lg font-bold text-white">DevOps & CI/CD Engineers</h3>
-                                    <p class="text-gold font-semibold">$90 - $125 / hour</p>
-                                    <div class="text-xs text-gold font-medium pt-2 border-t border-gold/10">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- JOB PAGE 3 -->
-                        <div class="job-page hidden space-y-6" id="job-page-3">
-                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                <div onclick="selectJob('Financial Analysts', '$75 - $110 / hour', 'Finance & Analytics', 'Analyzing corporate expenditure, financial modeling, budgeting forecasting, and variance reporting.')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition space-y-4">
-                                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Finance & Analytics</span>
-                                    <h3 class="text-lg font-bold text-white">Financial Analysts</h3>
-                                    <p class="text-gold font-semibold">$75 - $110 / hour</p>
-                                    <div class="text-xs text-gold font-medium pt-2 border-t border-gold/10">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></div>
-                                </div>
-                                <div onclick="selectJob('Market Research Analysts', '$55 - $90 / hour', 'Research & Strategy', 'Conducting market research, competitor benchmarking, industry trend analysis, and strategic intelligence reports.')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition space-y-4">
-                                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Research & Strategy</span>
-                                    <h3 class="text-lg font-bold text-white">Market Research Analysts</h3>
-                                    <p class="text-gold font-semibold">$55 - $90 / hour</p>
-                                    <div class="text-xs text-gold font-medium pt-2 border-t border-gold/10">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- JOB PAGE 4 -->
-                        <div class="job-page hidden space-y-6" id="job-page-4">
-                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                <div onclick="selectJob('Training Program Designers', '$55 - $95 / hour', 'Education & Coaching', 'Designing structured corporate training modules, learning paths, and employee skill development frameworks.')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition space-y-4">
-                                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Education & Coaching</span>
-                                    <h3 class="text-lg font-bold text-white">Training Program Designers</h3>
-                                    <p class="text-gold font-semibold">$55 - $95 / hour</p>
-                                    <div class="text-xs text-gold font-medium pt-2 border-t border-gold/10">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></div>
-                                </div>
-                                <div onclick="selectJob('Global Operations Directors', '$130 - $200 / hour', 'Executive Leadership', 'Directing global remote operations, corporate scaling strategy, multi-hub coordination, and executive planning.')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition space-y-4">
-                                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Executive Leadership</span>
-                                    <h3 class="text-lg font-bold text-white">Global Operations Directors</h3>
-                                    <p class="text-gold font-semibold">$130 - $200 / hour</p>
-                                    <div class="text-xs text-gold font-medium pt-2 border-t border-gold/10">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
 
                     <!-- Right Column: Split-screen detail pane -->
@@ -270,7 +207,7 @@
         </div>
 
         <!-- CONTACT TAB -->
-        <div id="contact" class="tab-content hidden max-w-4xl mx-auto px-6 py-20 space-y-8">
+        <div id="contact" class="tab-content max-w-4xl mx-auto px-6 py-20 space-y-8">
             <div class="bg-card border border-gold/30 rounded-xl p-8 md:p-12 shadow-2xl space-y-6 text-center">
                 <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold px-4 py-2 border border-gold/40 rounded-full inline-block">Get In Touch</span>
                 <h1 class="text-3xl font-extrabold text-white">Client Consultation</h1>
@@ -291,9 +228,9 @@
     <!-- JAVASCRIPT LOGIC -->
     <script>
         function showTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
             const target = document.getElementById(tabId);
-            if (target) target.classList.remove('hidden');
+            if (target) target.classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -310,13 +247,6 @@
             } else if (code !== null) {
                 alert("Invalid access code.");
             }
-        }
-
-        function switchJobPage(pageNum) {
-            document.querySelectorAll('.job-page').forEach(page => page.classList.add('hidden'));
-            const target = document.getElementById('job-page-' + pageNum);
-            if (target) target.classList.remove('hidden');
-            closeJobDetail();
         }
 
         function selectJob(title, rate, cat, desc) {
