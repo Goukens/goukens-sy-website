@@ -1,1857 +1,346 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Goukens-sy Business Support | Executive Leadership & Global Operations</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        obsidian: '#0d0d0d',
-        gold: '#d4af37',
-        'gold-light': '#f3e5ab',
-        surface: '#141414',
-        card: '#1c1c1c'
-      }
-    }
-  }
-}
-</script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<script>
-function showTab(tabId) {
-  const tabs = document.querySelectorAll('.tab-content');
-  tabs.forEach(tab => tab.classList.add('hidden'));
-  const targetTab = document.getElementById(tabId);
-  if (targetTab) {
-    targetTab.classList.remove('hidden');
-  }
-  const navLinks = document.querySelectorAll('.nav-link');
-  navLinks.forEach(link => {
-    link.classList.remove('text-gold', 'font-semibold', 'border-b', 'border-gold');
-    link.classList.add('hover:text-gold');
-  });
-  const activeLink = document.getElementById('link-' + tabId);
-  if(activeLink) {
-    activeLink.classList.remove('hover:text-gold');
-    activeLink.classList.add('text-gold', 'font-semibold', 'border-b', 'border-gold', 'pb-1');
-  }
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function checkJobAccess() {
-  const passcode = prompt("Enter access code to view the Job Board (Candidates register via Portal, or use access code):");
-  if (passcode === "Gouk7507@") {
-    showTab('jobs');
-    document.getElementById('job-locked-view').classList.add('hidden');
-    document.getElementById('job-board-container').classList.remove('hidden');
-  } else {
-    alert("Incorrect access code. Please register via the Candidate Portal or enter the correct code.");
-    showTab('portal');
-  }
-}
-
-function selectJob(title, rate, category, desc, tallyUrl) {
-    const wrapper = document.getElementById('split-screen-wrapper');
-    const leftCol = document.getElementById('left-column');
-    const rightCol = document.getElementById('right-column');
-    
-    wrapper.classList.remove('lg:grid-cols-1');
-    wrapper.classList.add('lg:grid-cols-12');
-    
-    leftCol.classList.remove('lg:col-span-12');
-    leftCol.classList.add('lg:col-span-6');
-    
-    rightCol.classList.remove('hidden');
-    rightCol.classList.add('lg:col-span-6');
-    
-    document.getElementById('right-empty-state').classList.add('hidden');
-    document.getElementById('right-detail-content').classList.remove('hidden');
-    
-    document.getElementById('panel-title').innerText = title;
-    document.getElementById('panel-rate').innerText = rate;
-    document.getElementById('panel-cat').innerText = category;
-    document.getElementById('panel-desc').innerText = desc;
-    
-    const iframe = document.getElementById('panel-tally-iframe');
-    iframe.src = tallyUrl + "?transparentBackground=1";
-    
-    window.scrollTo({ top: 400, behavior: 'smooth' });
-}
-</script>
-<script async src="https://tally.so/widgets/embed.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goukens-Sy Business Support Inc. | Executive Operations & Global Talent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#0a0a0a',
+                        surface: '#141414',
+                        card: '#1a1a1a',
+                        gold: {
+                            DEFAULT: '#d4af37',
+                            light: '#e6c55c',
+                            dark: '#aa8c2c'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <script async src="https://tally.so/widgets/embed.js"></script>
+    <style>
+        body { background-color: #0a0a0a; color: #e5e5e5; font-family: ui-sans-serif, system-ui, sans-serif; }
+    </style>
 </head>
-<body class="bg-obsidian text-gray-200 font-sans antialiased selection:bg-gold selection:text-obsidian flex flex-col min-h-screen">
+<body class="min-h-screen flex flex-col selection:bg-gold selection:text-obsidian">
 
-<!-- Header / Navigation -->
-<header class="sticky top-0 z-50 bg-obsidian/95 backdrop-blur-md border-b border-gold/20">
-<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-<a href="#home" onclick="showTab('home')" class="text-xl md:text-2xl font-bold tracking-wider text-gold flex items-center gap-2 cursor-pointer">
-<i class="fa-solid fa-gem text-gold"></i> GOUKENS-SY
-</a>
-<nav class="hidden md:flex items-center gap-8 text-base md:text-lg uppercase tracking-widest font-medium">
-<button onclick="showTab('home')" id="link-home" class="nav-link text-gold font-semibold border-b border-gold pb-1 transition">Home</button>
-<button onclick="showTab('vision')" id="link-vision" class="nav-link hover:text-gold transition">Vision</button>
-<button onclick="showTab('services')" id="link-services" class="nav-link hover:text-gold transition">Services</button>
-<button onclick="showTab('portal')" id="link-portal" class="nav-link hover:text-gold transition">Candidate Portal</button>
-<button onclick="checkJobAccess()" id="link-jobs" class="nav-link hover:text-gold transition text-gold-light">Job Board</button>
-<button onclick="showTab('contact')" id="link-contact" class="nav-link hover:text-gold transition">Contact</button>
-</nav>
-</div>
-</header>
-
-<main class="flex-grow">
-
-<!-- HOME TAB -->
-<div id="home" class="tab-content max-w-4xl mx-auto px-6 py-16 relative space-y-12">
-<div class="absolute inset-0 opacity-10 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
-<div class="text-center relative z-10 space-y-6">
-<span class="text-gold uppercase tracking-[0.3em] text-sm md:text-base font-semibold px-5 py-2 border border-gold/40 rounded-full shadow-md inline-block">
-Executive Leadership & Global Operations
-</span>
-<h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white">
-Goukens-sy <span class="text-gold">Business Support</span>
-</h1>
-</div>
-
-<div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-2xl h-80 md:h-[400px]">
-<img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80" alt="Global Corporate Architecture" class="w-full h-full object-cover brightness-75 hover:scale-105 transition duration-700">
-<div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent"></div>
-<div class="absolute bottom-8 left-8 right-8 text-left">
-<span class="text-gold text-xs tracking-widest uppercase font-semibold">Global Scale & Excellence</span>
-<p class="text-white text-2xl font-bold mt-1">Uncompromising Execution Across Borders</p>
-</div>
-</div>
-
-<div class="text-left space-y-6 bg-card border border-gold/20 p-8 md:p-12 rounded-sm shadow-2xl">
-<p class="text-gray-100 text-lg md:text-xl font-medium leading-relaxed italic border-l-2 border-gold pl-4">
-"Operating remotely from anywhere in the world. We don’t pay an employee to look good in an office; we pay for their knowledge, execution, and value."
-</p>
-<p class="text-gray-200 text-base md:text-lg leading-relaxed">
-In an economic landscape defined by rapid technological disruption and borderless markets, the traditional corporate playbook—built on bloated physical headquarters, rigid geographical constraints, and unnecessary management layers—has proven to be an obsolete liability. Modern enterprises require absolute agility, unyielding execution, and access to elite talent unhindered by zip codes.
-</p>
-<p class="text-gray-200 text-base md:text-lg leading-relaxed">
-At Goukens-sy Business Support, we bridge high-level Western corporate strategy with world-class, tech-forward execution hubs, eliminating geographical constraints and traditional overhead costs.
-</p>
-</div>
-<!-- SERVICES TAB -->
-<div id="services" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-12">
-<div class="text-center mb-12">
-<span class="text-gold uppercase tracking-[0.3em] text-sm md:text-base font-semibold mb-4 inline-block px-5 py-2 border border-gold/40 rounded-full shadow-md">
-Operational Excellence
-</span>
-<h1 class="text-3xl md:text-5xl font-extrabold text-white mt-2">Comprehensive Services & Enterprise Solutions</h1>
-<p class="text-gray-300 text-lg max-w-2xl mx-auto mt-4">
-Tailored execution capabilities designed to scale modern enterprises with precision, agility, and elite domain expertise.
-</p>
-</div>
-
-<div class="space-y-10">
-<!-- Service 1 -->
-<div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
-<h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3"><i class="fa-solid fa-microchip text-xl"></i> 1. AI Data Annotation & Content Moderation</h2>
-<p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">Advanced data annotation, prompt engineering, and rigorous quality assurance tailored for cutting-edge artificial intelligence models and digital platforms.</p>
-<p class="text-gray-300 text-base md:text-lg leading-relaxed">We deliver high-precision dataset labeling and safety filtering to ensure your AI systems operate with maximum accuracy, contextual awareness, and strict adherence to industry compliance standards.</p>
-<ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
-<li>Comprehensive text, image, and video data labeling for advanced machine learning models</li>
-<li>Expert prompt engineering, model training support, and response evaluation</li>
-<li>Thorough content moderation, safety filtering, and rigorous compliance checks</li>
-</ul>
-</div>
-
-<!-- Service 2 -->
-<div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
-<h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3"><i class="fa-solid fa-headset text-xl"></i> 2. Customer Experience & Voice Operations</h2>
-<p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">Top-tier customer support, dynamic voice campaigns, and seamless multilingual communication management.</p>
-<p class="text-gray-300 text-base md:text-lg leading-relaxed">We empower your brand with exceptional customer relationship management, providing professional multi-channel support and voice interaction campaigns that build enduring customer loyalty.</p>
-<ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
-<li>Multilingual customer support, ticketing, and dedicated client relationship management</li>
-<li>Inbound and outbound professional voice campaigns tailored to global markets</li>
-<li>Audio utterance collection, voice recording tasks, and speech dataset curation</li>
-</ul>
-</div>
-
-<!-- Service 3 -->
-<div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
-<h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3"><i class="fa-solid fa-user-tie text-xl"></i> 3. Executive Support & Virtual Assistance</h2>
-<p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">Professional virtual assistance and tailored administrative support designed for executive leadership teams and busy entrepreneurs.</p>
-<p class="text-gray-300 text-base md:text-lg leading-relaxed">By offloading time-consuming day-to-day administrative burdens, we allow executives to focus entirely on high-level strategy, business growth, and key decision-making.</p>
-<ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
-<li>Complex calendar management, schedule optimization, and executive correspondence</li>
-<li>Executive travel planning, logistical arrangements, and itinerary coordination</li>
-<li>Confidential document preparation, presentation design, and detailed executive reporting</li>
-</ul>
-</div>
-
-<!-- Service 4 -->
-<div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
-<h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3"><i class="fa-solid fa-briefcase text-xl"></i> 4. General Business Support & Administration</h2>
-<p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">Comprehensive corporate administration, database management, and operational workflow coordination.</p>
-<p class="text-gray-300 text-base md:text-lg leading-relaxed">We streamline your back-office operations to ensure data integrity, smooth internal processes, and maximum administrative efficiency across all departments.</p>
-<ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
-<li>Reliable corporate administration, record keeping, and document archiving</li>
-<li>Precise data entry, database maintenance, cleansing, and rigorous verification</li>
-<li>Operational workflow optimization, task tracking, and cross-departmental coordination</li>
-</ul>
-</div>
-
-<!-- Service 5 -->
-<div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
-<h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3"><i class="fa-solid fa-chart-line text-xl"></i> 5. Market Research & Feasibility Analysis</h2>
-<p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">In-depth industrial research, water desalination feasibility studies, and copper tailing recovery assessments.</p>
-<p class="text-gray-300 text-base md:text-lg leading-relaxed">We deliver rigorous, data-driven market insights and technical feasibility analyses that empower leadership to evaluate complex industrial projects with total confidence.</p>
-<ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
-<li>Comprehensive feasibility studies for large-scale industrial and resource extraction projects</li>
-<li>Strategic market research, competitor benchmarking, and macroeconomic trend analysis</li>
-<li>Technical reporting, resource recovery evaluation, and actionable strategic recommendations</li>
-</ul>
-</div>
-
-<!-- Service 6 -->
-<div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
-<h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3"><i class="fa-solid fa-bullhorn text-xl"></i> 6. Lead Generation & Marketing Campaigns</h2>
-<p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">Targeted lead generation scripts, all-inclusive travel marketing materials, and high-conversion outreach campaigns.</p>
-<p class="text-gray-300 text-base md:text-lg leading-relaxed">We craft compelling marketing copy and structured outbound campaigns designed to capture high-value prospects and accelerate commercial growth across global consumer markets.</p>
-<ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
-<li>Custom lead generation scripts, cold outreach strategies, and sales funnel optimization</li>
-<li>Creative marketing collateral for vacation packages and all-inclusive travel services</li>
-<li>Multi-channel campaign execution, performance tracking, and conversion rate enhancement</li>
-</ul>
-</div>
-
-<!-- Service 7 -->
-<div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
-<h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3"><i class="fa-solid fa-graduation-cap text-xl"></i> 7. Education, Training & Corporate Coaching</h2>
-<p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">Specialized professional training, skill development programs, and tailored educational content curation.</p>
-<p class="text-gray-300 text-base md:text-lg leading-relaxed">We elevate organizational capability through structured coaching modules and comprehensive training frameworks designed to foster continuous professional excellence.</p>
-<ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
-<li>Custom corporate training program design and interactive skill development workshops</li>
-<li>Educational curriculum structuring, material creation, and progress assessment frameworks</li>
-<li>Specialized coaching for remote execution teams and operational leadership development</li>
-</ul>
-</div>
-
-<!-- Service 8 -->
-<div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
-<h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3"><i class="fa-solid fa-code text-xl"></i> 8. Software & Engineering Solutions</h2>
-<p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">Robust software development, firmware engineering, and advanced systems integration services.</p>
-<p class="text-gray-300 text-base md:text-lg leading-relaxed">We deliver scalable technical architecture and rigorous engineering execution to support complex digital platforms and automated hardware-software ecosystems.</p>
-<ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
-<li>Custom software development, application maintenance, and firmware programming</li>
-<li>Complex systems integration, API connectivity, and infrastructure scalability testing</li>
-<li>Rigorous technical auditing, code review, and quality assurance engineering</li>
-</ul>
-</div>
-
-<!-- Service 9 -->
-<div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
-<h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3"><i class="fa-solid fa-coins text-xl"></i> 9. Financial & Administrative Support</h2>
-<p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">Precise financial record-keeping, budgeting assistance, and comprehensive fiscal reporting.</p>
-<p class="text-gray-300 text-base md:text-lg leading-relaxed">We maintain pristine financial documentation and streamline accounting workflows to give executive leadership complete clarity over fiscal performance and capital allocation.</p>
-<ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
-<li>Detailed expense tracking, bookkeeping support, and financial statement organization</li>
-<li>Budgetary forecasting, financial modeling assistance, and variance reporting</li>
-<li>Corporate compliance auditing support and secure fiscal document management</li>
-</ul>
-</div>
-
-<!-- Service 10 -->
-<div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
-<h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3"><i class="fa-solid fa-globe text-xl"></i> 10. Humanities & Language Specialization</h2>
-<p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">Expert linguistic analysis, multilingual translation, and specialized cultural research services.</p>
-<p class="text-gray-300 text-base md:text-lg leading-relaxed">We bridge cultural and linguistic barriers with precision translation, contextual editing, and expert humanities research tailored for global communication strategies.</p>
-<ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
-<li>High-accuracy multilingual translation, localization, and contextual editing</li>
-<li>German and global language literature analysis, transcription, and curation</li>
-<li>Specialized cultural research, content localization, and academic verification support</li>
-</ul>
-</div>
-</div>
-</div>
-
-<!-- CANDIDATE PORTAL TAB -->
-<div id="portal" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-8">
-<div class="bg-surface border border-gold rounded-lg p-8 md:p-12 shadow-2xl space-y-6">
-<h1 class="text-3xl md:text-4xl font-bold text-gold mb-2">Candidate Portal & Email Registration</h1>
-<p class="text-gray-200 text-base md:text-lg leading-relaxed">
-Register with your e-mail address below via our secure Tally form to unlock <strong class="text-gold">30 days of free access</strong> to our exclusive Job Board.
-</p>
-<iframe data-tally-src="https://tally.so/r/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0" title="Goukens-Sy Candidate Portal"></iframe>
-</div>
-</div>
-<!-- JOB BOARD TAB (STANDAARD VOLLEDIGE BREEDTE, SPLIT-SCREEN BIJ KLIK) -->
-<div id="jobs" class="tab-content hidden max-w-[1400px] mx-auto px-4 py-8">
-<div id="job-locked-view" class="bg-card border border-gold/30 rounded-xl p-10 text-center space-y-6 max-w-xl mx-auto mt-12 shadow-2xl">
-<div class="text-gold text-5xl mb-2"><i class="fa-solid fa-lock"></i></div>
-<h2 class="text-2xl md:text-3xl font-bold text-white">Job Board Access Restricted</h2>
-<p class="text-gray-300 text-base leading-relaxed">Please enter your authorized access code or register via the Candidate Portal to unlock and view active project opportunities.</p>
-<button onclick="checkJobAccess()" class="px-8 py-3.5 bg-gold text-obsidian font-bold rounded-sm hover:bg-gold-light transition uppercase text-sm tracking-wider shadow-lg">
-Enter Access Code
-</button>
-</div>
-
-<div id="job-board-container" class="hidden space-y-6 transition-all duration-300">
-    <div class="bg-card p-6 md:p-8 rounded-xl border border-gold/30 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-xl">
-        <div>
-            <span class="text-gold text-xs font-semibold uppercase tracking-wider bg-gold/10 px-3 py-1 rounded-full border border-gold/20">Exclusive Opportunities</span>
-            <h1 class="text-2xl md:text-3xl font-extrabold text-white mt-2">Active Project Openings & Professional Roles</h1>
-            <p class="text-gray-400 text-sm mt-1">Select any position below to inspect detailed specifications and submit your application.</p>
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-obsidian/95 backdrop-blur border-b border-gold/20">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#home" onclick="showTab('home')" class="text-xl md:text-2xl font-extrabold tracking-wider text-gold flex items-center gap-3 cursor-pointer">
+                <i class="fa-solid fa-gem text-gold"></i> GOUKENS-SY
+            </a>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <button onclick="showTab('home')" class="nav-btn text-gold transition hover:text-gold-light" data-tab="home">Home</button>
+                <button onclick="showTab('vision')" class="nav-btn text-gray-300 transition hover:text-gold" data-tab="vision">Vision</button>
+                <button onclick="showTab('services')" class="nav-btn text-gray-300 transition hover:text-gold" data-tab="services">Services</button>
+                <button onclick="showTab('portal')" class="nav-btn text-gray-300 transition hover:text-gold" data-tab="portal">Candidate Portal</button>
+                <button onclick="showTab('jobs')" class="nav-btn text-gray-300 transition hover:text-gold flex items-center gap-1.5" data-tab="jobs"><i class="fa-solid fa-lock text-xs text-gold"></i> Job Board</button>
+                <button onclick="showTab('contact')" class="nav-btn text-gray-300 transition hover:text-gold" data-tab="contact">Contact</button>
+            </nav>
+            <button onclick="toggleMobileMenu()" class="md:hidden text-gold text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </div>
-        <div class="flex items-center gap-3">
-            <span class="text-xs text-gold bg-surface px-4 py-2.5 rounded-lg border border-gold/20 font-medium">Page 1 of 4 (Roles 1 - 16)</span>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-surface border-b border-gold/20 px-6 py-4 space-y-3">
+            <button onclick="showTab('home'); toggleMobileMenu()" class="block w-text-left text-gold py-1">Home</button>
+            <button onclick="showTab('vision'); toggleMobileMenu()" class="block w-text-left text-gray-300 py-1">Vision</button>
+            <button onclick="showTab('services'); toggleMobileMenu()" class="block w-text-left text-gray-300 py-1">Services</button>
+            <button onclick="showTab('portal'); toggleMobileMenu()" class="block w-text-left text-gray-300 py-1">Candidate Portal</button>
+            <button onclick="showTab('jobs'); toggleMobileMenu()" class="block w-text-left text-gray-300 py-1 flex items-center gap-1.5"><i class="fa-solid fa-lock text-xs text-gold"></i> Job Board</button>
+            <button onclick="showTab('contact'); toggleMobileMenu()" class="block w-text-left text-gray-300 py-1">Contact</button>
         </div>
-    </div>
+    </header>
 
-    <!-- SPLIT-SCREEN WRAPPER -->
-    <div id="split-screen-wrapper" class="grid grid-cols-1 lg:grid-cols-1 gap-6 items-start transition-all duration-300">
-        
-        <!-- LINKER KOLOM: Rooster van vacatures -->
-        <div id="left-column" class="lg:col-span-12 space-y-6 transition-all duration-300">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Vacature 1 -->
-                <div onclick="selectJob('Network Engineer - Talent Network', '$50 - $70 / hour', 'Engineering', 'Global network infrastructure monitoring, routing configuration, and technical troubleshooting across decentralized operational nodes.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                    <div class="space-y-3">
-                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
-                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Network Engineer</h2>
-                        <p class="text-gold font-semibold">$50 - $70 / hour</p>
-                    </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New opportunity</span>
-                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                    </div>
-                </div>
+    <!-- MAIN CONTAINER -->
+    <main class="flex-grow">
 
-                <!-- Vacature 2 -->
-                <div onclick="selectJob('Systems & Integration Engineering Experts', '$100 - $120 / hour', 'Engineering', 'Enterprise systems architecture, API integrations, and robust cloud workflow automation for global corporate partners.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                    <div class="space-y-3">
-                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
-                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Systems & Integration Experts</h2>
-                        <p class="text-gold font-semibold">$100 - $120 / hour</p>
-                    </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New opportunity</span>
-                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                    </div>
-                </div>
-
-                <!-- Vacature 3 -->
-                <div onclick="selectJob('Software & Firmware Engineering Experts', '$100 - $120 / hour', 'Engineering', 'Robust software development, firmware programming, and automated hardware-software integration protocols.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                    <div class="space-y-3">
-                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
-                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Software & Firmware Experts</h2>
-                        <p class="text-gold font-semibold">$100 - $120 / hour</p>
-                    </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New opportunity</span>
-                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                    </div>
-                </div>
-
-                <!-- Vacature 4 -->
-                <div onclick="selectJob('Mechanical Engineering Experts', '$100 - $120 / hour', 'Engineering', 'Industrial mechanical design, system testing, structural analysis, and technical documentation support.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                    <div class="space-y-3">
-                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
-                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Mechanical Engineering Experts</h2>
-                        <p class="text-gold font-semibold">$100 - $120 / hour</p>
-                    </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New opportunity</span>
-                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                    </div>
+        <!-- HOME TAB -->
+        <div id="home" class="tab-content max-w-6xl mx-auto px-6 py-20 space-y-16">
+            <div class="text-center space-y-6 max-w-3xl mx-auto">
+                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold px-4 py-2 border border-gold/40 rounded-full inline-block bg-gold/5">
+                    Executive Leadership & Global Operations
+                </span>
+                <h1 class="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight">
+                    Elite Execution & <span class="text-gold">Decentralized Support</span>
+                </h1>
+                <p class="text-gray-300 text-lg md:text-xl leading-relaxed">
+                    Powering modern enterprise growth through advanced AI annotation, rigorous market research, multi-channel voice operations, and bespoke administrative mastery.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 pt-4">
+                    <button onclick="showTab('jobs')" class="px-8 py-4 bg-gold text-obsidian font-bold rounded-sm hover:bg-gold-light transition uppercase text-sm tracking-wider shadow-lg">
+                        Explore Job Board
+                    </button>
+                    <button onclick="showTab('services')" class="px-8 py-4 bg-surface border border-gold/40 text-gold font-bold rounded-sm hover:bg-gold/10 transition uppercase text-sm tracking-wider">
+                        View Services
+                    </button>
                 </div>
             </div>
-           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-                <!-- Vacature 5 -->
-                <div onclick="selectJob('Electrical & Hardware Engineering Experts', '$100 - $120 / hour', 'Engineering', 'Electrical circuit analysis, hardware validation, component testing, and prototype evaluation for high-tech systems.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                    <div class="space-y-3">
-                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
-                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Electrical & Hardware Experts</h2>
-                        <p class="text-gold font-semibold">$100 - $120 / hour</p>
-                    </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New opportunity</span>
-                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                    </div>
-                </div>
+        </div>
 
-                <!-- Vacature 6 -->
-                <div onclick="selectJob('German Language and Literature Expert', '$50 / hour', 'Humanities & Language', 'High-accuracy German literature analysis, specialized transcription, translation, and cultural curation.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                    <div class="space-y-3">
-                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Humanities & Language</span>
-                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">German Language Expert</h2>
-                        <p class="text-gold font-semibold">$50 / hour</p>
-                    </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">4 hired this month</span>
-                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                    </div>
-                </div>
+        <!-- VISION TAB -->
+        <div id="vision" class="tab-content hidden max-w-4xl mx-auto px-6 py-20 space-y-12">
+            <div class="text-center space-y-4">
+                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold px-4 py-2 border border-gold/40 rounded-full inline-block">Strategic Outlook</span>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-white">Our Core Vision & Principles</h1>
+            </div>
+            <div class="bg-card border border-gold/30 rounded-xl p-8 md:p-12 shadow-2xl space-y-6 text-gray-300 text-lg leading-relaxed">
+                <p>Goukens-Sy Business Support Inc. was founded on the principle that modern enterprises require agile, high-caliber remote execution without traditional corporate friction.</p>
+                <p>Operating from our primary hub in the Legazpi area alongside a robust decentralized international network, we deliver precision across AI annotation, industrial resource feasibility studies, and comprehensive virtual assistance.</p>
+            </div>
+        </div>
 
-                <!-- Vacature 7 -->
-                <div onclick="selectJob('Generalist Expert', '$40 - $70 / hour', 'Operations & Support', 'Cross-functional administrative support, task coordination, operational workflow management, and client communication.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                    <div class="space-y-3">
-                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Operations & Support</span>
-                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Generalist Expert</h2>
-                        <p class="text-gold font-semibold">$40 - $70 / hour</p>
-                    </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">13 hired this month</span>
-                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                    </div>
+        <!-- SERVICES TAB -->
+        <div id="services" class="tab-content hidden max-w-5xl mx-auto px-6 py-20 space-y-12">
+            <div class="text-center space-y-4">
+                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold px-4 py-2 border border-gold/40 rounded-full inline-block">Operational Excellence</span>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-white">Comprehensive Services</h1>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-card border border-gold/20 p-8 rounded-xl shadow-xl space-y-3">
+                    <h3 class="text-xl font-bold text-gold flex items-center gap-2"><i class="fa-solid fa-microchip"></i> 1. AI Data Annotation & Moderation</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">High-precision dataset labeling, safety filtering, and prompt engineering for leading artificial intelligence models.</p>
                 </div>
-
-                <!-- Vacature 8 -->
-                <div onclick="selectJob('Data Analysis Expert', '$70 - $120 / hour', 'Analytics & Research', 'Comprehensive dataset processing, statistical modeling, data cleaning, and corporate intelligence reporting.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                    <div class="space-y-3">
-                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Analytics & Research</span>
-                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Data Analysis Expert</h2>
-                        <p class="text-gold font-semibold">$70 - $120 / hour</p>
-                    </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New opportunity</span>
-                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                    </div>
+                <div class="bg-card border border-gold/20 p-8 rounded-xl shadow-xl space-y-3">
+                    <h3 class="text-xl font-bold text-gold flex items-center gap-2"><i class="fa-solid fa-headset"></i> 2. Customer Experience & Voice Operations</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">Multilingual customer support, professional voice campaigns, and audio utterance dataset curation.</p>
+                </div>
+                <div class="bg-card border border-gold/20 p-8 rounded-xl shadow-xl space-y-3">
+                    <h3 class="text-xl font-bold text-gold flex items-center gap-2"><i class="fa-solid fa-user-tie"></i> 3. Executive Support & Virtual Assistance</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">Calendar optimization, executive correspondence, travel arrangements, and confidential reporting.</p>
+                </div>
+                <div class="bg-card border border-gold/20 p-8 rounded-xl shadow-xl space-y-3">
+                    <h3 class="text-xl font-bold text-gold flex items-center gap-2"><i class="fa-solid fa-chart-line"></i> 4. Market Research & Feasibility Analysis</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">Industrial feasibility studies, water desalination assessments, and copper tailing recovery evaluations.</p>
                 </div>
             </div>
+        </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-                <!-- Vacature 9 -->
-                <div onclick="selectJob('Water Desalination & Industrial Resource Experts', '$100 - $150 / hour', 'Industrial & Environmental', 'Feasibility studies, technical design, and strategic consulting for water desalination and industrial resource recovery.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                    <div class="space-y-3">
-                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Industrial & Environmental</span>
-                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Water Desalination Experts</h2>
-                        <p class="text-gold font-semibold">$100 - $150 / hour</p>
-                    </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Specialist project</span>
-                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                    </div>
-                </div>
+        <!-- CANDIDATE PORTAL TAB -->
+        <div id="portal" class="tab-content hidden max-w-4xl mx-auto px-6 py-20 space-y-8">
+            <div class="bg-card border border-gold rounded-xl p-8 md:p-12 shadow-2xl space-y-6">
+                <h1 class="text-3xl font-bold text-gold">Candidate Portal & Registration</h1>
+                <p class="text-gray-300">Register via our secure Tally form below to unlock 30 days of free access to our exclusive Job Board.</p>
+                <iframe data-tally-src="https://tally.so/r/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0" title="Candidate Portal"></iframe>
+            </div>
+        </div>
 
-                <!-- Vacature 10 -->
-                <div onclick="selectJob('Copper Tailing Recovery & Mineral Extraction Experts', '$100 - $150 / hour', 'Industrial & Environmental', 'Technical assessment, metallurgical analysis, and recovery optimization for copper tailings and mineral processing.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                    <div class="space-y-3">
-                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Industrial & Environmental</span>
-                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Copper Tailing Recovery Experts</h2>
-                        <p class="text-gold font-semibold">$100 - $150 / hour</p>
-                    </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Specialist project</span>
-                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                    </div>
-                </div>
-
-                <!-- Vacature 11 -->
-                <div onclick="selectJob('Voice Collection & Transcription Specialists', '$35 - $60 / hour', 'Voice & Audio', 'High-accuracy audio utterance recording, voice collection, phonetic transcription, and dataset verification.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                    <div class="space-y-3">
-                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Voice & Audio</span>
-                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Voice Collection Specialists</h2>
-                        <p class="text-gold font-semibold">$35 - $60 / hour</p>
-                    </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Active campaign</span>
-                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                    </div>
-                </div>
-
-                <!-- Vacature 12 -->
-                <div onclick="selectJob('Appointment Setting & Outbound Campaign Specialists', '$40 - $70 / hour', 'Sales & Marketing', 'B2B appointment setting, lead qualification, and outbound voice campaign execution for global enterprises.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                    <div class="space-y-3">
-                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Sales & Marketing</span>
-                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Appointment Setting Specialists</h2>
-                        <p class="text-gold font-semibold">$40 - $70 / hour</p>
-                    </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Active campaign</span>
-                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                    </div>
-                </div>
+        <!-- JOB BOARD TAB -->
+        <div id="jobs" class="tab-content hidden max-w-7xl mx-auto px-6 py-12 space-y-8">
+            <!-- Locked View -->
+            <div id="job-locked-view" class="bg-card border border-gold/30 rounded-xl p-12 text-center space-y-6 max-w-xl mx-auto mt-12 shadow-2xl">
+                <div class="text-gold text-5xl mb-2"><i class="fa-solid fa-lock"></i></div>
+                <h2 class="text-2xl font-bold text-white">Job Board Access Restricted</h2>
+                <p class="text-gray-300 text-sm leading-relaxed">Please enter your authorized access code (<code class="text-gold">Gouk7507@</code>) or register via the Candidate Portal to unlock active project opportunities.</p>
+                <button onclick="checkJobAccess()" class="px-8 py-3.5 bg-gold text-obsidian font-bold rounded-sm hover:bg-gold-light transition uppercase text-sm tracking-wider shadow-lg">
+                    Enter Access Code
+                </button>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-                <!-- Vacature 13 -->
-                <div onclick="selectJob('Lead Generation & Travel Marketing Copywriters', '$40 - $75 / hour', 'Sales & Marketing', 'Development of lead generation scripts, marketing copy, and promotional materials for vacation packages and travel services.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                    <div class="space-y-3">
-                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Sales & Marketing</span>
-                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Lead Gen & Travel Copywriters</h2>
-                        <p class="text-gold font-semibold">$40 - $75 / hour</p>
+            <!-- Unlocked Board -->
+            <div id="job-board-container" class="hidden space-y-8">
+                <div class="bg-card p-6 md:p-8 rounded-xl border border-gold/30 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-xl">
+                    <div>
+                        <span class="text-gold text-xs font-semibold uppercase tracking-wider bg-gold/10 px-3 py-1 rounded-full border border-gold/20">Active Roster</span>
+                        <h1 class="text-2xl md:text-3xl font-extrabold text-white mt-2">Professional Project Openings</h1>
+                        <p class="text-gray-400 text-sm mt-1">Select any role below to inspect specifications and apply directly.</p>
                     </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Active campaign</span>
-                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                    </div>
-                </div>
-
-                <!-- Vacature 14 -->
-                <div onclick="selectJob('AI Training, Content Moderation & Annotation Specialists', '$35 - $65 / hour', 'AI & Data Operations', 'Account management, Remotasks, OneForma, Appen data annotation, moderation, and AI model training tasks.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                    <div class="space-y-3">
-                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">AI & Data Operations</span>
-                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">AI Training & Moderation Specialists</h2>
-                        <p class="text-gold font-semibold">$35 - $65 / hour</p>
-                    </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">High volume</span>
-                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    <div class="flex items-center gap-2">
+                        <button onclick="switchJobPage(1)" class="px-3 py-1.5 bg-gold/20 text-gold text-xs rounded border border-gold/30 hover:bg-gold hover:text-obsidian transition">Page 1</button>
+                        <button onclick="switchJobPage(2)" class="px-3 py-1.5 bg-gold/20 text-gold text-xs rounded border border-gold/30 hover:bg-gold hover:text-obsidian transition">Page 2</button>
+                        <button onclick="switchJobPage(3)" class="px-3 py-1.5 bg-gold/20 text-gold text-xs rounded border border-gold/30 hover:bg-gold hover:text-obsidian transition">Page 3</button>
+                        <button onclick="switchJobPage(4)" class="px-3 py-1.5 bg-gold/20 text-gold text-xs rounded border border-gold/30 hover:bg-gold hover:text-obsidian transition">Page 4</button>
                     </div>
                 </div>
 
-                <!-- Vacature 15 -->
-                <div onclick="selectJob('Corporate Training & Coaching Instructors', '$50 - $90 / hour', 'Education & Coaching', 'Design and delivery of specialized corporate training modules, workshops, and skill enhancement programs.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                    <div class="space-y-3">
-                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Education & Coaching</span>
-                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Corporate Training Instructors</h2>
-                        <p class="text-gold font-semibold">$50 - $90 / hour</p>
-                    </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New opportunity</span>
-                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                    </div>
-                </div>
+                <!-- SPLIT SCREEN -->
+                <div id="split-screen-wrapper" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    <!-- Left Column: Job Cards Grid -->
+                    <div id="left-column" class="lg:col-span-12 space-y-6 transition-all duration-300">
+                        
+                        <!-- JOB PAGE 1 -->
+                        <div class="job-page space-y-6" id="job-page-1">
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <div onclick="selectJob('Network Engineer', '$50 - $70 / hour', 'Engineering', 'Global network infrastructure monitoring, routing configuration, and technical troubleshooting.')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition space-y-4">
+                                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
+                                    <h3 class="text-lg font-bold text-white">Network Engineer</h3>
+                                    <p class="text-gold font-semibold">$50 - $70 / hour</p>
+                                    <div class="text-xs text-gold font-medium pt-2 border-t border-gold/10">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></div>
+                                </div>
+                                <div onclick="selectJob('Systems & Integration Experts', '$100 - $120 / hour', 'Engineering', 'Enterprise systems architecture, API integrations, and robust cloud workflow automation.')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition space-y-4">
+                                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
+                                    <h3 class="text-lg font-bold text-white">Systems & Integration Experts</h3>
+                                    <p class="text-gold font-semibold">$100 - $120 / hour</p>
+                                    <div class="text-xs text-gold font-medium pt-2 border-t border-gold/10">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></div>
+                                </div>
+                                <div onclick="selectJob('German Language Expert', '$50 / hour', 'Humanities & Language', 'High-accuracy German literature analysis, specialized transcription, translation, and cultural curation.')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition space-y-4">
+                                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Humanities & Language</span>
+                                    <h3 class="text-lg font-bold text-white">German Language Expert</h3>
+                                    <p class="text-gold font-semibold">$50 / hour</p>
+                                    <div class="text-xs text-gold font-medium pt-2 border-t border-gold/10">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></div>
+                                </div>
+                            </div>
+                        </div>
 
-                <!-- Vacature 16 -->
-                <div onclick="selectJob('Financial & Administrative Support Specialists', '$45 - $80 / hour', 'Finance & Admin', 'Bookkeeping assistance, expense categorization, financial record management, and administrative reporting.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                    <div class="space-y-3">
-                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Finance & Admin</span>
-                        <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Financial Support Specialists</h2>
-                        <p class="text-gold font-semibold">$45 - $80 / hour</p>
-                    </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                        <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Core team</span>
-                        <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                    </div>
-                </div>
-            </div> 
-            <!-- RECHTER KOLOM: Split-screen detail & Tally embed paneel -->
-            <div id="right-column" class="hidden lg:col-span-6 transition-all duration-300">
-                <div class="sticky top-28 bg-card border border-gold/40 rounded-xl p-6 md:p-8 shadow-2xl space-y-6">
-                    <!-- Lege staat voordat er op een vacature geklikt is -->
-                    <div id="right-empty-state" class="text-center py-16 space-y-4">
-                        <div class="text-gold/50 text-4xl"><i class="fa-solid fa-hand-pointer"></i></div>
-                        <h3 class="text-xl font-bold text-white">Select a Position</h3>
-                        <p class="text-gray-400 text-sm max-w-sm mx-auto">Click any job card from the list to instantly view complete role requirements, compensation rates, and open the integrated application form right here.</p>
+                        <!-- JOB PAGE 2 -->
+                        <div class="job-page hidden space-y-6" id="job-page-2">
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <div onclick="selectJob('Cloud Infrastructure Architects', '$110 - $140 / hour', 'Engineering', 'Designing and maintaining resilient multi-cloud architectures, Kubernetes clusters, and automated deployment pipelines.')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition space-y-4">
+                                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
+                                    <h3 class="text-lg font-bold text-white">Cloud Infrastructure Architects</h3>
+                                    <p class="text-gold font-semibold">$110 - $140 / hour</p>
+                                    <div class="text-xs text-gold font-medium pt-2 border-t border-gold/10">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></div>
+                                </div>
+                                <div onclick="selectJob('DevOps & CI/CD Engineers', '$90 - $125 / hour', 'Engineering', 'Building and maintaining automated continuous integration and delivery pipelines, Docker containers, and server monitoring.')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition space-y-4">
+                                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
+                                    <h3 class="text-lg font-bold text-white">DevOps & CI/CD Engineers</h3>
+                                    <p class="text-gold font-semibold">$90 - $125 / hour</p>
+                                    <div class="text-xs text-gold font-medium pt-2 border-t border-gold/10">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- JOB PAGE 3 -->
+                        <div class="job-page hidden space-y-6" id="job-page-3">
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <div onclick="selectJob('Financial Analysts', '$75 - $110 / hour', 'Finance & Analytics', 'Analyzing corporate expenditure, financial modeling, budgeting forecasting, and variance reporting.')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition space-y-4">
+                                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Finance & Analytics</span>
+                                    <h3 class="text-lg font-bold text-white">Financial Analysts</h3>
+                                    <p class="text-gold font-semibold">$75 - $110 / hour</p>
+                                    <div class="text-xs text-gold font-medium pt-2 border-t border-gold/10">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></div>
+                                </div>
+                                <div onclick="selectJob('Market Research Analysts', '$55 - $90 / hour', 'Research & Strategy', 'Conducting market research, competitor benchmarking, industry trend analysis, and strategic intelligence reports.')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition space-y-4">
+                                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Research & Strategy</span>
+                                    <h3 class="text-lg font-bold text-white">Market Research Analysts</h3>
+                                    <p class="text-gold font-semibold">$55 - $90 / hour</p>
+                                    <div class="text-xs text-gold font-medium pt-2 border-t border-gold/10">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- JOB PAGE 4 -->
+                        <div class="job-page hidden space-y-6" id="job-page-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <div onclick="selectJob('Training Program Designers', '$55 - $95 / hour', 'Education & Coaching', 'Designing structured corporate training modules, learning paths, and employee skill development frameworks.')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition space-y-4">
+                                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Education & Coaching</span>
+                                    <h3 class="text-lg font-bold text-white">Training Program Designers</h3>
+                                    <p class="text-gold font-semibold">$55 - $95 / hour</p>
+                                    <div class="text-xs text-gold font-medium pt-2 border-t border-gold/10">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></div>
+                                </div>
+                                <div onclick="selectJob('Global Operations Directors', '$130 - $200 / hour', 'Executive Leadership', 'Directing global remote operations, corporate scaling strategy, multi-hub coordination, and executive planning.')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition space-y-4">
+                                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Executive Leadership</span>
+                                    <h3 class="text-lg font-bold text-white">Global Operations Directors</h3>
+                                    <p class="text-gold font-semibold">$130 - $200 / hour</p>
+                                    <div class="text-xs text-gold font-medium pt-2 border-t border-gold/10">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <!-- Geselecteerde vacature inhoud -->
-                    <div id="right-detail-content" class="hidden space-y-6">
+                    <!-- Right Column: Split-screen detail pane -->
+                    <div id="right-column" class="hidden lg:col-span-5 bg-card border border-gold/40 rounded-xl p-6 shadow-2xl space-y-6 sticky top-28">
                         <div class="flex justify-between items-start border-b border-gold/20 pb-4">
                             <div>
                                 <span id="panel-cat" class="text-xs text-gold uppercase tracking-wider font-semibold bg-gold/10 px-3 py-1 rounded-full border border-gold/20">Category</span>
-                                <h2 id="panel-title" class="text-2xl font-bold text-white mt-2">Job Title</h2>
-                                <p id="panel-rate" class="text-gold font-bold text-lg mt-1">$00 / hour</p>
+                                <h2 id="panel-title" class="text-xl font-bold text-white mt-2">Job Title</h2>
+                                <p id="panel-rate" class="text-gold font-bold text-base mt-1">$00 / hour</p>
                             </div>
-                            <button onclick="document.getElementById('right-column').classList.add('hidden'); document.getElementById('left-column').classList.remove('lg:col-span-6'); document.getElementById('left-column').classList.add('lg:col-span-12'); document.getElementById('split-screen-wrapper').classList.remove('lg:grid-cols-12'); document.getElementById('split-screen-wrapper').classList.add('lg:grid-cols-1'); document.getElementById('right-empty-state').classList.remove('hidden'); document.getElementById('right-detail-content').classList.add('hidden');" class="text-gray-400 hover:text-gold text-xl p-2" title="Close panel">
-                                <i class="fa-solid fa-xmark"></i>
-                            </button>
+                            <button onclick="closeJobDetail()" class="text-gray-400 hover:text-gold text-xl p-2"><i class="fa-solid fa-xmark"></i></button>
                         </div>
-
-                        <div class="space-y-3 bg-surface p-4 rounded-lg border border-gold/10">
-                            <h4 class="text-sm font-semibold text-gold uppercase tracking-wider">Role Overview & Responsibilities</h4>
-                            <p id="panel-desc" class="text-gray-300 text-sm leading-relaxed">Detailed job description will appear here when selected.</p>
+                        <div class="space-y-2 bg-surface p-4 rounded-lg border border-gold/10">
+                            <h4 class="text-xs font-semibold text-gold uppercase tracking-wider">Role Overview</h4>
+                            <p id="panel-desc" class="text-gray-300 text-sm leading-relaxed">Description...</p>
                         </div>
-
-                        <div class="space-y-3">
-                            <h4 class="text-sm font-semibold text-gold uppercase tracking-wider">Secure Direct Application Form</h4>
-                            <div class="rounded-lg overflow-hidden border border-gold/20 bg-obsidian p-2">
-                                <iframe id="panel-tally-iframe" src="" loading="lazy" width="100%" height="550" frameborder="0" marginheight="0" marginwidth="0" title="Application Form"></iframe>
-                            </div>
+                        <div class="space-y-2">
+                            <h4 class="text-xs font-semibold text-gold uppercase tracking-wider">Application Form</h4>
+                            <iframe id="panel-tally-iframe" src="https://tally.so/r/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="450" frameborder="0"></iframe>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-        </div> <!-- Einde split-screen wrapper -->
-    </div> <!-- Einde job-board-container -->
-
-    <!-- PAGINA 2: VACATURES 17 t/m 32 -->
-    <div id="job-board-page-2" class="space-y-6 mt-12 pt-12 border-t border-gold/20">
-        <div class="bg-card p-6 md:p-8 rounded-xl border border-gold/30 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-xl">
-            <div>
-                <span class="text-gold text-xs font-semibold uppercase tracking-wider bg-gold/10 px-3 py-1 rounded-full border border-gold/20">Expanded Roster</span>
-                <h1 class="text-2xl md:text-3xl font-extrabold text-white mt-2">Active Project Openings & Professional Roles</h1>
-                <p class="text-gray-400 text-sm mt-1">Specialized technical and operational positions across global execution divisions.</p>
-            </div>
-            <div class="flex items-center gap-3">
-                <span class="text-xs text-gold bg-surface px-4 py-2.5 rounded-lg border border-gold/20 font-medium">Page 2 of 4 (Roles 17 - 32)</span>
+        <!-- CONTACT TAB -->
+        <div id="contact" class="tab-content hidden max-w-4xl mx-auto px-6 py-20 space-y-8">
+            <div class="bg-card border border-gold/30 rounded-xl p-8 md:p-12 shadow-2xl space-y-6 text-center">
+                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold px-4 py-2 border border-gold/40 rounded-full inline-block">Get In Touch</span>
+                <h1 class="text-3xl font-extrabold text-white">Client Consultation</h1>
+                <iframe data-tally-src="https://tally.so/r/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="700" frameborder="0"></iframe>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Vacature 17 -->
-            <div onclick="selectJob('Advanced Cloud Infrastructure Architects', '$110 - $140 / hour', 'Engineering', 'Designing and maintaining resilient multi-cloud architectures, Kubernetes clusters, and automated deployment pipelines.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Cloud Infrastructure Architects</h2>
-                    <p class="text-gold font-semibold">$110 - $140 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Specialist role</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
+    </main>
 
-            <!-- Vacature 18 -->
-            <div onclick="selectJob('Cybersecurity & Compliance Auditors', '$90 - $130 / hour', 'Engineering', 'Conducting rigorous security audits, penetration testing, vulnerability assessments, and ISO/GDPR compliance reviews.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Cybersecurity Auditors</h2>
-                    <p class="text-gold font-semibold">$90 - $130 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">High demand</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 19 -->
-            <div onclick="selectJob('Full-Stack Web Application Developers', '$75 - $110 / hour', 'Engineering', 'Building high-performance web applications using modern JavaScript frameworks, Tailwind CSS, Node.js, and SQL databases.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Full-Stack Web Developers</h2>
-                    <p class="text-gold font-semibold">$75 - $110 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Core tech</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 20 -->
-            <div onclick="selectJob('API Integration & Microservices Specialists', '$80 - $120 / hour', 'Engineering', 'Developing robust RESTful and GraphQL APIs, managing microservices communication, and optimizing backend data exchange.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">API & Microservices Specialists</h2>
-                    <p class="text-gold font-semibold">$80 - $120 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New opportunity</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
+    <!-- FOOTER -->
+    <footer class="bg-surface border-t border-gold/20 py-12 mt-20 text-gray-400 text-xs">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+            <p>&copy; 2026 Goukens-sy Business Support Inc. All rights reserved.</p>
+            <p class="text-gold">Legazpi Area & Decentralized Networks</p>
         </div>
-    </div>
-</div>
-!-- PAGINA 2 VERVOLG: Vacatures 21 t/m 32 -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-            <!-- Vacature 21 -->
-            <div onclick="selectJob('DevOps & Automated CI/CD Pipeline Engineers', '$90 - $125 / hour', 'Engineering', 'Building and maintaining automated continuous integration and delivery pipelines, Docker containers, and server monitoring.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">DevOps & CI/CD Engineers</h2>
-                    <p class="text-gold font-semibold">$90 - $125 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Active role</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 22 -->
-            <div onclick="selectJob('Database Administration & Optimization Experts', '$80 - $115 / hour', 'Engineering', 'Managing SQL and NoSQL databases, query performance tuning, index optimization, and secure data backups.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Database Administration Experts</h2>
-                    <p class="text-gold font-semibold">$80 - $115 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Specialist</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 23 -->
-            <div onclick="selectJob('Embedded Systems & IoT Engineers', '$95 - $130 / hour', 'Engineering', 'Developing firmware, micro-controller programming, sensor integration, and IoT device connectivity.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Embedded Systems & IoT Engineers</h2>
-                    <p class="text-gold font-semibold">$95 - $130 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Hardware project</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 24 -->
-            <div onclick="selectJob('UI/UX Design & Frontend Prototyping Specialists', '$65 - $95 / hour', 'Design & Frontend', 'Creating intuitive user interfaces, wireframes, high-fidelity prototypes, and Tailwind CSS responsive layouts.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Design & Frontend</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">UI/UX & Frontend Specialists</h2>
-                    <p class="text-gold font-semibold">$65 - $95 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Creative role</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-            <!-- Vacature 25 -->
-            <div onclick="selectJob('Multilingual Customer Support Representatives', '$30 - $55 / hour', 'Customer Support', 'Handling inbound client inquiries, live chat support, ticket resolution, and customer success management.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Customer Support</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Multilingual Support Reps</h2>
-                    <p class="text-gold font-semibold">$30 - $55 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">High volume</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 26 -->
-            <div onclick="selectJob('Technical Helpdesk & IT Support Specialists', '$40 - $70 / hour', 'Customer Support', 'Troubleshooting hardware and software issues, remote desktop assistance, and IT infrastructure ticket routing.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Customer Support</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Technical Helpdesk Specialists</h2>
-                    <p class="text-gold font-semibold">$40 - $70 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Active role</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 27 -->
-            <div onclick="selectJob('VIP Client Relationship Managers', '$50 - $85 / hour', 'Customer Support', 'Managing enterprise client accounts, retention strategy, onboarding, and personalized stakeholder communication.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Customer Support</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">VIP Client Managers</h2>
-                    <p class="text-gold font-semibold">$50 - $85 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Executive support</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 28 -->
-            <div onclick="selectJob('Live Chat & Moderation Supervisors', '$35 - $60 / hour', 'Customer Support', 'Supervising live chat support teams, monitoring response quality, and managing customer escalation workflows.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Customer Support</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Chat & Moderation Supervisors</h2>
-                    <p class="text-gold font-semibold">$35 - $60 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Supervisory</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-            <!-- Vacature 29 -->
-            <div onclick="selectJob('Executive Virtual Assistants', '$45 - $80 / hour', 'Executive Support', 'Managing executive calendars, arranging international travel logistics, and handling confidential correspondence.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Executive Support</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Executive Virtual Assistants</h2>
-                    <p class="text-gold font-semibold">$45 - $80 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">High demand</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 30 -->
-            <div onclick="selectJob('Legal & Corporate Administrative Assistants', '$50 - $90 / hour', 'Executive Support', 'Drafting legal document templates, corporate compliance tracking, minute-taking, and contract archiving.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Executive Support</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Legal Admin Assistants</h2>
-                    <p class="text-gold font-semibold">$50 - $90 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Specialist</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 31 -->
-            <div onclick="selectJob('Executive Presentation & Report Designers', '$40 - $70 / hour', 'Executive Support', 'Designing professional slide decks, executive dashboards, and visual performance reporting materials.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Executive Support</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Presentation & Report Designers</h2>
-                    <p class="text-gold font-semibold">$40 - $70 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Creative role</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 32 -->
-            <div onclick="selectJob('Inbox Management & Correspondence Specialists', '$35 - $60 / hour', 'Executive Support', 'Prioritizing executive email boxes, drafting replies, and filtering communication channels.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Executive Support</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Inbox Management Specialists</h2>
-                    <p class="text-gold font-semibold">$35 - $60 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Active role</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-        </div>
-
-    <!-- PAGINA 3: VACATURES 33 t/m 48 -->
-    <div id="job-board-page-3" class="space-y-6 mt-12 pt-12 border-t border-gold/20">
-        <div class="bg-card p-6 md:p-8 rounded-xl border border-gold/30 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-xl">
-            <div>
-                <span class="text-gold text-xs font-semibold uppercase tracking-wider bg-gold/10 px-3 py-1 rounded-full border border-gold/20">Advanced Roster</span>
-                <h1 class="text-2xl md:text-3xl font-extrabold text-white mt-2">Active Project Openings & Professional Roles</h1>
-                <p class="text-gray-400 text-sm mt-1">Specialized research, financial, AI training, and marketing project roles.</p>
-            </div>
-            <div class="flex items-center gap-3">
-                <span class="text-xs text-gold bg-surface px-4 py-2.5 rounded-lg border border-gold/20 font-medium">Page 3 of 4 (Roles 33 - 48)</span>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Vacature 33 -->
-            <div onclick="selectJob('Financial Analysts & Budgeting Specialists', '$75 - $110 / hour', 'Finance & Analytics', 'Analyzing corporate expenditure, financial modeling, budgeting forecasting, and variance reporting.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Finance & Analytics</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Financial Analysts</h2>
-                    <p class="text-gold font-semibold">$75 - $110 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Core finance</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 34 -->
-            <div onclick="selectJob('Bookkeeping & Expense Tracking Specialists', '$40 - $70 / hour', 'Finance & Analytics', 'Recording daily transactions, invoice management, bank reconciliations, and expense categorization.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Finance & Analytics</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Bookkeeping Specialists</h2>
-                    <p class="text-gold font-semibold">$40 - $70 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Active role</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 35 -->
-            <div onclick="selectJob('Tax Compliance & Audit Assistants', '$60 - $95 / hour', 'Finance & Analytics', 'Preparing tax documentation, auditing financial statements, and ensuring regulatory compliance across jurisdictions.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Finance & Analytics</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Tax Compliance Assistants</h2>
-                    <p class="text-gold font-semibold">$60 - $95 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Specialist</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 36 -->
-            <div onclick="selectJob('Payroll Management Specialists', '$45 - $75 / hour', 'Finance & Analytics', 'Processing global payroll, calculating deductions, tax withholding management, and salary reporting.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Finance & Analytics</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Payroll Management Specialists</h2>
-                    <p class="text-gold font-semibold">$45 - $75 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Core admin</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-            <!-- Vacature 37 -->
-            <div onclick="selectJob('Market Research & Competitor Analysts', '$55 - $90 / hour', 'Research & Strategy', 'Conducting market research, competitor benchmarking, industry trend analysis, and strategic intelligence reports.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Research & Strategy</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Market Research Analysts</h2>
-                    <p class="text-gold font-semibold">$55 - $90 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Strategic</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 38 -->
-            <div onclick="selectJob('Feasibility Study Researchers (Industrial Projects)', '$90 - $140 / hour', 'Research & Strategy', 'Conducting comprehensive technical and economic feasibility studies for industrial infrastructure and resource projects.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Research & Strategy</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Feasibility Study Researchers</h2>
-                    <p class="text-gold font-semibold">$90 - $140 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Specialist project</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 39 -->
-            <div onclick="selectJob('Data Cleaning & Verification Specialists', '$35 - $60 / hour', 'AI & Data Operations', 'Scrubbing datasets, verifying records, data deduplication, and ensuring database integrity for AI training.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">AI & Data Operations</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Data Cleaning Specialists</h2>
-                    <p class="text-gold font-semibold">$35 - $60 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">High volume</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 40 -->
-            <div onclick="selectJob('Prompt Engineering & AI Model Trainers', '$50 - $95 / hour', 'AI & Data Operations', 'Designing prompts, testing AI model outputs, safety alignment, and response quality scoring.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">AI & Data Operations</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Prompt Engineering Trainers</h2>
-                    <p class="text-gold font-semibold">$50 - $95 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Cutting edge</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-            <!-- Vacature 41 -->
-            <div onclick="selectJob('Content Moderators & Safety Filtering Specialists', '$35 - $60 / hour', 'AI & Data Operations', 'Reviewing user-generated text and media content, enforcing safety guidelines, and filtering policy violations.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">AI & Data Operations</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Content Moderators</h2>
-                    <p class="text-gold font-semibold">$35 - $60 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Active campaign</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 42 -->
-            <div onclick="selectJob('Voice Collection & Phonetic Transcription Experts', '$35 - $65 / hour', 'Voice & Audio', 'Recording speech samples, phoneme phonetic transcription, and acoustic dataset quality checking.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Voice & Audio</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Voice Transcription Experts</h2>
-                    <p class="text-gold font-semibold">$35 - $65 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Active campaign</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 43 -->
-            <div onclick="selectJob('B2B Lead Generation Scripters & Copywriters', '$45 - $80 / hour', 'Sales & Marketing', 'Writing high-converting cold outreach scripts, sales emails, and multichannel prospecting sequences.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Sales & Marketing</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Lead Gen Scripters</h2>
-                    <p class="text-gold font-semibold">$45 - $80 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Sales campaign</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 44 -->
-            <div onclick="selectJob('Vacation Package & Travel Marketing Specialists', '$40 - $75 / hour', 'Sales & Marketing', 'Creating promotional collateral, all-inclusive travel packages marketing copy, and digital advertising campaigns.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Sales & Marketing</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Travel Marketing Specialists</h2>
-                    <p class="text-gold font-semibold">$40 - $75 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Active project</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-            <!-- Vacature 45 -->
-            <div onclick="selectJob('Appointment Setting & Qualification Specialists', '$40 - $70 / hour', 'Sales & Marketing', 'Conducting outbound prospect calls, qualifying leads, and booking executive sales appointments.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Sales & Marketing</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Appointment Setters</h2>
-                    <p class="text-gold font-semibold">$40 - $70 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">High demand</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 46 -->
-            <div onclick="selectJob('SEO & Content Marketing Strategists', '$50 - $85 / hour', 'Sales & Marketing', 'Optimizing web pages for search engines, keyword research, SEO auditing, and traffic growth strategy.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Sales & Marketing</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">SEO Strategists</h2>
-                    <p class="text-gold font-semibold">$50 - $85 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Growth marketing</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 47 -->
-            <div onclick="selectJob('Social Media & Community Managers', '$40 - $70 / hour', 'Sales & Marketing', 'Managing online brand communities, posting schedules, engagement tracking, and reputation management.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Sales & Marketing</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Community Managers</h2>
-                    <p class="text-gold font-semibold">$40 - $70 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Active role</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 48 -->
-            <div onclick="selectJob('Email Marketing Campaign Specialists', '$45 - $75 / hour', 'Sales & Marketing', 'Designing email newsletters, drip sequences, segmentation, and open-rate conversion tracking.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Sales & Marketing</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Email Campaign Specialists</h2>
-                    <p class="text-gold font-semibold">$45 - $75 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Marketing</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- PAGINA 4: VACATURES 49 t/m 64 (Laatste set vacatures) -->
-    <div id="job-board-page-4" class="space-y-6 mt-12 pt-12 border-t border-gold/20">
-        <div class="bg-card p-6 md:p-8 rounded-xl border border-gold/30 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-xl">
-            <div>
-                <span class="text-gold text-xs font-semibold uppercase tracking-wider bg-gold/10 px-3 py-1 rounded-full border border-gold/20">Final Roster</span>
-                <h1 class="text-2xl md:text-3xl font-extrabold text-white mt-2">Active Project Openings & Professional Roles</h1>
-                <p class="text-gray-400 text-sm mt-1">Specialized education, humanities, general administration, and executive project roles.</p>
-            </div>
-            <div class="flex items-center gap-3">
-                <span class="text-xs text-gold bg-surface px-4 py-2.5 rounded-lg border border-gold/20 font-medium">Page 4 of 4 (Roles 49 - 64)</span>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Vacature 49 -->
-            <div onclick="selectJob('Corporate Training Program Designers', '$55 - $95 / hour', 'Education & Coaching', 'Designing structured corporate training modules, learning paths, and employee skill development frameworks.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Education & Coaching</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Training Program Designers</h2>
-                    <p class="text-gold font-semibold">$55 - $95 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Specialist</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 50 -->
-            <div onclick="selectJob('Remote Team Leadership Coaches', '$65 - $110 / hour', 'Education & Coaching', 'Coaching remote team managers on asynchronous workflows, performance tracking, and communication.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Education & Coaching</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Leadership Coaches</h2>
-                    <p class="text-gold font-semibold">$65 - $110 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Executive coaching</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 51 -->
-            <div onclick="selectJob('Educational Curriculum Curators', '$45 - $80 / hour', 'Education & Coaching', 'Curating educational resources, structuring course materials, and verifying academic content accuracy.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Education & Coaching</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Curriculum Curators</h2>
-                    <p class="text-gold font-semibold">$45 - $80 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Active role</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 52 -->
-            <div onclick="selectJob('Workshop Facilitators & Presenters', '$50 - $90 / hour', 'Education & Coaching', 'Facilitating interactive online workshops, training sessions, and professional development webinars.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Education & Coaching</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Workshop Facilitators</h2>
-                    <p class="text-gold font-semibold">$50 - $90 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Interactive</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-            <!-- Vacature 53 -->
-            <div onclick="selectJob('Multilingual Translation & Localization Experts', '$45 - $80 / hour', 'Humanities & Language', 'Translating corporate documents, website localization, and cultural adaptation for global markets.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Humanities & Language</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Translation & Localization Experts</h2>
-                    <p class="text-gold font-semibold">$45 - $80 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Global support</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 54 -->
-            <div onclick="selectJob('Cultural Research & Anthropology Specialists', '$50 - $90 / hour', 'Humanities & Language', 'Conducting specialized cultural research, academic literature review, and demographic contextual analysis.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Humanities & Language</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Cultural Research Specialists</h2>
-                    <p class="text-gold font-semibold">$50 - $90 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Academic research</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 55 -->
-            <div onclick="selectJob('Academic Editing & Proofreading Specialists', '$40 - $70 / hour', 'Humanities & Language', 'Proofreading academic papers, corporate whitepapers, editing research reports, and grammar verification.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Humanities & Language</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Academic Editors</h2>
-                    <p class="text-gold font-semibold">$40 - $70 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Active role</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 56 -->
-            <div onclick="selectJob('Transcription & Audio Archiving Specialists', '$35 - $60 / hour', 'Humanities & Language', 'Transcribing historical audio recordings, interviews, conference sessions, and archival document indexing.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Humanities & Language</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Audio Archiving Specialists</h2>
-                    <p class="text-gold font-semibold">$35 - $60 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Active campaign</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-            <!-- Vacature 57 -->
-            <div onclick="selectJob('General Operations & Back-Office Coordinators', '$40 - $70 / hour', 'Operations & Support', 'Coordinating back-office workflows, document filing, inventory tracking, and operational database updates.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Operations & Support</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Back-Office Coordinators</h2>
-                    <p class="text-gold font-semibold">$40 - $70 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Core operations</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 58 -->
-            <div onclick="selectJob('Data Entry & Quality Control Operators', '$30 - $55 / hour', 'Operations & Support', 'Performing high-speed data entry, validation checks, error scrubbing, and batch record verification.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Operations & Support</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Data Entry Operators</h2>
-                    <p class="text-gold font-semibold">$30 - $55 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">High volume</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 59 -->
-            <div onclick="selectJob('Process Optimization & Workflow Auditors', '$60 - $100 / hour', 'Operations & Support', 'Analyzing corporate operational bottlenecks, redesigning workflows, and implementing efficiency frameworks.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Operations & Support</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Workflow Auditors</h2>
-                    <p class="text-gold font-semibold">$60 - $100 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Process engineering</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 60 -->
-            <div onclick="selectJob('Cross-Departmental Project Liaison Specialists', '$50 - $85 / hour', 'Operations & Support', 'Bridging communication gaps between technical teams, executive leadership, and external partners.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Operations & Support</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Project Liaison Specialists</h2>
-                    <p class="text-gold font-semibold">$50 - $85 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Active role</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-            <!-- Vacature 61 -->
-            <div onclick="selectJob('Industrial Project Execution Supervisors', '$100 - $150 / hour', 'Industrial & Environmental', 'Supervising large-scale industrial projects, resource extraction initiatives, and operational execution milestones.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Industrial & Environmental</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Industrial Project Supervisors</h2>
-                    <p class="text-gold font-semibold">$100 - $150 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Specialist project</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 62 -->
-            <div onclick="selectJob('Environmental Impact Assessment Specialists', '$90 - $130 / hour', 'Industrial & Environmental', 'Evaluating environmental safety compliance, impact mitigation studies, and industrial sustainability auditing.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Industrial & Environmental</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Environmental Impact Specialists</h2>
-                    <p class="text-gold font-semibold">$90 - $130 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Specialist</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 63 -->
-            <div onclick="selectJob('Water Treatment & Desalination Engineers', '$110 - $160 / hour', 'Industrial & Environmental', 'Engineering design, filtration system optimization, and technical oversight for water desalination facilities.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Industrial & Environmental</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Water Desalination Engineers</h2>
-                    <p class="text-gold font-semibold">$110 - $160 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Core industrial</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 64 -->
-            <div onclick="selectJob('Global Operations Strategy Directors', '$130 - $200 / hour', 'Executive Leadership', 'Directing global remote operations, corporate scaling strategy, multi-hub coordination, and executive planning.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Executive Leadership</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Global Operations Directors</h2>
-                    <p class="text-gold font-semibold">$130 - $200 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Executive leadership</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- CONTACT TAB -->
-<div id="contact" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-8">
-<div class="bg-card border border-gold/30 rounded-xl p-8 md:p-12 shadow-2xl space-y-6">
-<div class="text-center space-y-3">
-<span class="text-gold uppercase tracking-[0.3em] text-sm font-semibold px-4 py-1.5 border border-gold/40 rounded-full inline-block">Get In Touch</span>
-<h1 class="text-3xl md:text-4xl font-extrabold text-white">Client Consultation & Inquiries</h1>
-<p class="text-gray-300 text-base max-w-lg mx-auto">Connect directly with our executive operations team to discuss enterprise partnerships and custom support solutions.</p>
-</div>
-<div class="pt-6">
-<iframe data-tally-src="https://tally.so/r/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="750" frameborder="0" marginheight="0" marginwidth="0" title="Goukens-Sy Contact Form"></iframe>
-</div>
-</div>
-</div>
-
-</main>
-
-<!-- FOOTER -->
-<footer class="bg-surface border-t border-gold/20 py-12 mt-20 text-gray-400 text-sm">
-<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-<div class="space-y-3">
-<a href="#home" onclick="showTab('home')" class="text-lg font-bold text-gold flex items-center gap-2 cursor-pointer">
-<i class="fa-solid fa-gem text-gold"></i> GOUKENS-SY
-</a>
-<p class="text-gray-400 text-xs leading-relaxed">Executive Leadership & Global Operations. Operating remotely across borders with unyielding execution standards.</p>
-</div>
-<div class="space-y-2">
-<h4 class="text-white font-semibold uppercase tracking-wider text-xs text-gold">Quick Navigation</h4>
-<ul class="space-y-1.5 text-xs">
-<li><button onclick="showTab('home')" class="hover:text-gold transition">Home</button></li>
-<li><button onclick="showTab('vision')" class="hover:text-gold transition">Vision</button></li>
-<li><button onclick="showTab('services')" class="hover:text-gold transition">Services</button></li>
-<li><button onclick="showTab('portal')" class="hover:text-gold transition">Candidate Portal</button></li>
-</ul>
-</div>
-<div class="space-y-2">
-<h4 class="text-white font-semibold uppercase tracking-wider text-xs text-gold">Secure Access</h4>
-<ul class="space-y-1.5 text-xs">
-<li><button onclick="checkJobAccess()" class="hover:text-gold transition">Job Board (Code: Gouk7507@)</button></li>
-<li><button onclick="showTab('contact')" class="hover:text-gold transition">Client Consultation</button></li>
-</ul>
-</div>
-<div class="space-y-2">
-<h4 class="text-white font-semibold uppercase tracking-wider text-xs text-gold">Global Hubs</h4>
-<p class="text-xs text-gray-400 leading-relaxed">Legazpi Area & International Decentralized Execution Networks. Uncompromising talent delivery worldwide.</p>
-</div>
-</div>
-<div class="max-w-7xl mx-auto px-6 pt-8 border-t border-gold/10 text-center text-xs text-gray-500">
-&copy; 2026 Goukens-sy Business Support Inc. All rights reserved. Designed for elite decentralized execution.
-</div>
-</footer>
-
-</body>
-</html>
-<!-- PAGINA 3: VACATURES 33 t/m 48 -->
-    <div id="job-board-page-3" class="space-y-6 mt-12 pt-12 border-t border-gold/20">
-        <div class="bg-card p-6 md:p-8 rounded-xl border border-gold/30 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-xl">
-            <div>
-                <span class="text-gold text-xs font-semibold uppercase tracking-wider bg-gold/10 px-3 py-1 rounded-full border border-gold/20">Advanced Roster</span>
-                <h1 class="text-2xl md:text-3xl font-extrabold text-white mt-2">Active Project Openings & Professional Roles</h1>
-                <p class="text-gray-400 text-sm mt-1">Specialized research, financial, AI training, and marketing project roles.</p>
-            </div>
-            <div class="flex items-center gap-3">
-                <span class="text-xs text-gold bg-surface px-4 py-2.5 rounded-lg border border-gold/20 font-medium">Page 3 of 4 (Roles 33 - 48)</span>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Vacature 33 -->
-            <div onclick="selectJob('Financial Analysts & Budgeting Specialists', '$75 - $110 / hour', 'Finance & Analytics', 'Analyzing corporate expenditure, financial modeling, budgeting forecasting, and variance reporting.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Finance & Analytics</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Financial Analysts</h2>
-                    <p class="text-gold font-semibold">$75 - $110 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Core finance</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 34 -->
-            <div onclick="selectJob('Bookkeeping & Expense Tracking Specialists', '$40 - $70 / hour', 'Finance & Analytics', 'Recording daily transactions, invoice management, bank reconciliations, and expense categorization.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Finance & Analytics</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Bookkeeping Specialists</h2>
-                    <p class="text-gold font-semibold">$40 - $70 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Active role</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 35 -->
-            <div onclick="selectJob('Tax Compliance & Audit Assistants', '$60 - $95 / hour', 'Finance & Analytics', 'Preparing tax documentation, auditing financial statements, and ensuring regulatory compliance across jurisdictions.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Finance & Analytics</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Tax Compliance Assistants</h2>
-                    <p class="text-gold font-semibold">$60 - $95 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Specialist</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 36 -->
-            <div onclick="selectJob('Payroll Management Specialists', '$45 - $75 / hour', 'Finance & Analytics', 'Processing global payroll, calculating deductions, tax withholding management, and salary reporting.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Finance & Analytics</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Payroll Management Specialists</h2>
-                    <p class="text-gold font-semibold">$45 - $75 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Core admin</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-            <!-- Vacature 37 -->
-            <div onclick="selectJob('Market Research & Competitor Analysts', '$55 - $90 / hour', 'Research & Strategy', 'Conducting market research, competitor benchmarking, industry trend analysis, and strategic intelligence reports.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Research & Strategy</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Market Research Analysts</h2>
-                    <p class="text-gold font-semibold">$55 - $90 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Strategic</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 38 -->
-            <div onclick="selectJob('Feasibility Study Researchers (Industrial Projects)', '$90 - $140 / hour', 'Research & Strategy', 'Conducting comprehensive technical and economic feasibility studies for industrial infrastructure and resource projects.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Research & Strategy</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Feasibility Study Researchers</h2>
-                    <p class="text-gold font-semibold">$90 - $140 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Specialist project</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 39 -->
-            <div onclick="selectJob('Data Cleaning & Verification Specialists', '$35 - $60 / hour', 'AI & Data Operations', 'Scrubbing datasets, verifying records, data deduplication, and ensuring database integrity for AI training.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">AI & Data Operations</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Data Cleaning Specialists</h2>
-                    <p class="text-gold font-semibold">$35 - $60 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">High volume</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 40 -->
-            <div onclick="selectJob('Prompt Engineering & AI Model Trainers', '$50 - $95 / hour', 'AI & Data Operations', 'Designing prompts, testing AI model outputs, safety alignment, and response quality scoring.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">AI & Data Operations</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Prompt Engineering Trainers</h2>
-                    <p class="text-gold font-semibold">$50 - $95 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Cutting edge</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-            <!-- Vacature 41 -->
-            <div onclick="selectJob('Content Moderators & Safety Filtering Specialists', '$35 - $60 / hour', 'AI & Data Operations', 'Reviewing user-generated text and media content, enforcing safety guidelines, and filtering policy violations.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">AI & Data Operations</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Content Moderators</h2>
-                    <p class="text-gold font-semibold">$35 - $60 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Active campaign</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 42 -->
-            <div onclick="selectJob('Voice Collection & Phonetic Transcription Experts', '$35 - $65 / hour', 'Voice & Audio', 'Recording speech samples, phoneme phonetic transcription, and acoustic dataset quality checking.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Voice & Audio</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Voice Transcription Experts</h2>
-                    <p class="text-gold font-semibold">$35 - $65 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Active campaign</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 43 -->
-            <div onclick="selectJob('B2B Lead Generation Scripters & Copywriters', '$45 - $80 / hour', 'Sales & Marketing', 'Writing high-converting cold outreach scripts, sales emails, and multichannel prospecting sequences.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Sales & Marketing</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Lead Gen Scripters</h2>
-                    <p class="text-gold font-semibold">$45 - $80 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Sales campaign</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 44 -->
-            <div onclick="selectJob('Vacation Package & Travel Marketing Specialists', '$40 - $75 / hour', 'Sales & Marketing', 'Creating promotional collateral, all-inclusive travel packages marketing copy, and digital advertising campaigns.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Sales & Marketing</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Travel Marketing Specialists</h2>
-                    <p class="text-gold font-semibold">$40 - $75 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Active project</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-            <!-- Vacature 45 -->
-            <div onclick="selectJob('Appointment Setting & Qualification Specialists', '$40 - $70 / hour', 'Sales & Marketing', 'Conducting outbound prospect calls, qualifying leads, and booking executive sales appointments.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Sales & Marketing</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Appointment Setters</h2>
-                    <p class="text-gold font-semibold">$40 - $70 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">High demand</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 46 -->
-            <div onclick="selectJob('SEO & Content Marketing Strategists', '$50 - $85 / hour', 'Sales & Marketing', 'Optimizing web pages for search engines, keyword research, SEO auditing, and traffic growth strategy.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Sales & Marketing</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">SEO Strategists</h2>
-                    <p class="text-gold font-semibold">$50 - $85 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Growth marketing</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 47 -->
-            <div onclick="selectJob('Social Media & Community Managers', '$40 - $70 / hour', 'Sales & Marketing', 'Managing online brand communities, posting schedules, engagement tracking, and reputation management.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Sales & Marketing</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Community Managers</h2>
-                    <p class="text-gold font-semibold">$40 - $70 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Active role</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 48 -->
-            <div onclick="selectJob('Email Marketing Campaign Specialists', '$45 - $75 / hour', 'Sales & Marketing', 'Designing email newsletters, drip sequences, segmentation, and open-rate conversion tracking.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Sales & Marketing</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Email Campaign Specialists</h2>
-                    <p class="text-gold font-semibold">$45 - $75 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Marketing</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- PAGINA 4: VACATURES 49 t/m 64 (Laatste set vacatures) -->
-    <div id="job-board-page-4" class="space-y-6 mt-12 pt-12 border-t border-gold/20">
-        <div class="bg-card p-6 md:p-8 rounded-xl border border-gold/30 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-xl">
-            <div>
-                <span class="text-gold text-xs font-semibold uppercase tracking-wider bg-gold/10 px-3 py-1 rounded-full border border-gold/20">Final Roster</span>
-                <h1 class="text-2xl md:text-3xl font-extrabold text-white mt-2">Active Project Openings & Professional Roles</h1>
-                <p class="text-gray-400 text-sm mt-1">Specialized education, humanities, general administration, and executive project roles.</p>
-            </div>
-            <div class="flex items-center gap-3">
-                <span class="text-xs text-gold bg-surface px-4 py-2.5 rounded-lg border border-gold/20 font-medium">Page 4 of 4 (Roles 49 - 64)</span>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Vacature 49 -->
-            <div onclick="selectJob('Corporate Training Program Designers', '$55 - $95 / hour', 'Education & Coaching', 'Designing structured corporate training modules, learning paths, and employee skill development frameworks.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Education & Coaching</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Training Program Designers</h2>
-                    <p class="text-gold font-semibold">$55 - $95 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Specialist</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 50 -->
-            <div onclick="selectJob('Remote Team Leadership Coaches', '$65 - $110 / hour', 'Education & Coaching', 'Coaching remote team managers on asynchronous workflows, performance tracking, and communication.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Education & Coaching</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Leadership Coaches</h2>
-                    <p class="text-gold font-semibold">$65 - $110 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Executive coaching</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 51 -->
-            <div onclick="selectJob('Educational Curriculum Curators', '$45 - $80 / hour', 'Education & Coaching', 'Curating educational resources, structuring course materials, and verifying academic content accuracy.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Education & Coaching</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Curriculum Curators</h2>
-                    <p class="text-gold font-semibold">$45 - $80 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Active role</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 52 -->
-            <div onclick="selectJob('Workshop Facilitators & Presenters', '$50 - $90 / hour', 'Education & Coaching', 'Facilitating interactive online workshops, training sessions, and professional development webinars.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Education & Coaching</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Workshop Facilitators</h2>
-                    <p class="text-gold font-semibold">$50 - $90 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Interactive</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-            <!-- Vacature 53 -->
-            <div onclick="selectJob('Multilingual Translation & Localization Experts', '$45 - $80 / hour', 'Humanities & Language', 'Translating corporate documents, website localization, and cultural adaptation for global markets.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Humanities & Language</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Translation & Localization Experts</h2>
-                    <p class="text-gold font-semibold">$45 - $80 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Global support</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 54 -->
-            <div onclick="selectJob('Cultural Research & Anthropology Specialists', '$50 - $90 / hour', 'Humanities & Language', 'Conducting specialized cultural research, academic literature review, and demographic contextual analysis.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Humanities & Language</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Cultural Research Specialists</h2>
-                    <p class="text-gold font-semibold">$50 - $90 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Academic research</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 55 -->
-            <div onclick="selectJob('Academic Editing & Proofreading Specialists', '$40 - $70 / hour', 'Humanities & Language', 'Proofreading academic papers, corporate whitepapers, editing research reports, and grammar verification.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Humanities & Language</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Academic Editors</h2>
-                    <p class="text-gold font-semibold">$40 - $70 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Active role</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 56 -->
-            <div onclick="selectJob('Transcription & Audio Archiving Specialists', '$35 - $60 / hour', 'Humanities & Language', 'Transcribing historical audio recordings, interviews, conference sessions, and archival document indexing.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Humanities & Language</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Audio Archiving Specialists</h2>
-                    <p class="text-gold font-semibold">$35 - $60 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Active campaign</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-            <!-- Vacature 57 -->
-            <div onclick="selectJob('General Operations & Back-Office Coordinators', '$40 - $70 / hour', 'Operations & Support', 'Coordinating back-office workflows, document filing, inventory tracking, and operational database updates.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Operations & Support</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Back-Office Coordinators</h2>
-                    <p class="text-gold font-semibold">$40 - $70 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Core operations</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 58 -->
-            <div onclick="selectJob('Data Entry & Quality Control Operators', '$30 - $55 / hour', 'Operations & Support', 'Performing high-speed data entry, validation checks, error scrubbing, and batch record verification.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Operations & Support</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Data Entry Operators</h2>
-                    <p class="text-gold font-semibold">$30 - $55 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">High volume</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 59 -->
-            <div onclick="selectJob('Process Optimization & Workflow Auditors', '$60 - $100 / hour', 'Operations & Support', 'Analyzing corporate operational bottlenecks, redesigning workflows, and implementing efficiency frameworks.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Operations & Support</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Workflow Auditors</h2>
-                    <p class="text-gold font-semibold">$60 - $100 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Process engineering</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 60 -->
-            <div onclick="selectJob('Cross-Departmental Project Liaison Specialists', '$50 - $85 / hour', 'Operations & Support', 'Bridging communication gaps between technical teams, executive leadership, and external partners.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Operations & Support</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Project Liaison Specialists</h2>
-                    <p class="text-gold font-semibold">$50 - $85 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Active role</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-            <!-- Vacature 61 -->
-            <div onclick="selectJob('Industrial Project Execution Supervisors', '$100 - $150 / hour', 'Industrial & Environmental', 'Supervising large-scale industrial projects, resource extraction initiatives, and operational execution milestones.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Industrial & Environmental</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Industrial Project Supervisors</h2>
-                    <p class="text-gold font-semibold">$100 - $150 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Specialist project</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 62 -->
-            <div onclick="selectJob('Environmental Impact Assessment Specialists', '$90 - $130 / hour', 'Industrial & Environmental', 'Evaluating environmental safety compliance, impact mitigation studies, and industrial sustainability auditing.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Industrial & Environmental</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Environmental Impact Specialists</h2>
-                    <p class="text-gold font-semibold">$90 - $130 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Specialist</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 63 -->
-            <div onclick="selectJob('Water Treatment & Desalination Engineers', '$110 - $160 / hour', 'Industrial & Environmental', 'Engineering design, filtration system optimization, and technical oversight for water desalination facilities.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Industrial & Environmental</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Water Desalination Engineers</h2>
-                    <p class="text-gold font-semibold">$110 - $160 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Core industrial</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-
-            <!-- Vacature 64 -->
-            <div onclick="selectJob('Global Operations Strategy Directors', '$130 - $200 / hour', 'Executive Leadership', 'Directing global remote operations, corporate scaling strategy, multi-hub coordination, and executive planning.', 'https://tally.so/r/JOUW_TALLY_FORM_ID')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-                <div class="space-y-3">
-                    <span class="text-xs text-gold uppercase tracking-wider font-semibold">Executive Leadership</span>
-                    <h2 class="text-lg font-bold text-white group-hover:text-gold transition">Global Operations Directors</h2>
-                    <p class="text-gold font-semibold">$130 - $200 / hour</p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-                    <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Executive leadership</span>
-                    <span class="text-gold font-medium">View & Apply <i class="fa-solid fa-arrow-right ml-1"></i></span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- CONTACT TAB -->
-<div id="contact" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-8">
-<div class="bg-card border border-gold/30 rounded-xl p-8 md:p-12 shadow-2xl space-y-6">
-<div class="text-center space-y-3">
-<span class="text-gold uppercase tracking-[0.3em] text-sm font-semibold px-4 py-1.5 border border-gold/40 rounded-full inline-block">Get In Touch</span>
-<h1 class="text-3xl md:text-4xl font-extrabold text-white">Client Consultation & Inquiries</h1>
-<p class="text-gray-300 text-base max-w-lg mx-auto">Connect directly with our executive operations team to discuss enterprise partnerships, custom support solutions, and global talent deployment.</p>
-</div>
-<div class="space-y-4 pt-4">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-<div class="bg-surface p-6 rounded-lg border border-gold/20 space-y-2">
-<h3 class="text-gold font-bold text-lg flex items-center gap-2"><i class="fa-solid fa-location-dot"></i> Global Headquarters</h3>
-<p class="text-gray-300 text-sm leading-relaxed">Legazpi Area, Philippines & Decentralized International Operational Hubs.</p>
-</div>
-<div class="bg-surface p-6 rounded-lg border border-gold/20 space-y-2">
-<h3 class="text-gold font-bold text-lg flex items-center gap-2"><i class="fa-solid fa-clock"></i> Execution Cadence</h3>
-<p class="text-gray-300 text-sm leading-relaxed">Continuous 24/7 remote operational support across global time zones and regional markets.</p>
-</div>
-</div>
-<div class="pt-2">
-<iframe data-tally-src="https://tally.so/r/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="750" frameborder="0" marginheight="0" marginwidth="0" title="Goukens-Sy Contact Form"></iframe>
-</div>
-</div>
-</div>
-</div>
-
-</main>
-<!-- FOOTER -->
-<footer class="bg-surface border-t border-gold/20 py-16 mt-20 text-gray-400 text-sm">
-<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-<div class="space-y-4">
-<a href="#home" onclick="showTab('home')" class="text-xl font-bold text-gold flex items-center gap-2 cursor-pointer">
-<i class="fa-solid fa-gem text-gold"></i> GOUKENS-SY
-</a>
-<p class="text-gray-400 text-xs leading-relaxed">
-Executive Leadership & Global Operations. Operating remotely across borders with unyielding execution standards, advanced AI-augmented workflows, and elite decentralized talent acquisition.
-</p>
-<div class="flex items-center gap-4 pt-2 text-gold">
-<span class="w-8 h-8 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center text-xs"><i class="fa-solid fa-globe"></i></span>
-<span class="w-8 h-8 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center text-xs"><i class="fa-solid fa-shield-halved"></i></span>
-<span class="w-8 h-8 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center text-xs"><i class="fa-solid fa-gem"></i></span>
-</div>
-</div>
-
-<div class="space-y-3">
-<h4 class="text-white font-semibold uppercase tracking-wider text-xs text-gold">Quick Navigation</h4>
-<ul class="space-y-2 text-xs">
-<li><button onclick="showTab('home')" class="hover:text-gold transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-gold"></i> Home</button></li>
-<li><button onclick="showTab('vision')" class="hover:text-gold transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-gold"></i> Vision</button></li>
-<li><button onclick="showTab('services')" class="hover:text-gold transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-gold"></i> Services</button></li>
-<li><button onclick="showTab('portal')" class="hover:text-gold transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-gold"></i> Candidate Portal</button></li>
-</ul>
-</div>
-
-<div class="space-y-3">
-<h4 class="text-white font-semibold uppercase tracking-wider text-xs text-gold">Secure Access</h4>
-<ul class="space-y-2 text-xs">
-<li><button onclick="checkJobAccess()" class="hover:text-gold transition flex items-center gap-2"><i class="fa-solid fa-lock text-[10px] text-gold"></i> Job Board (Code: Gouk7507@)</button></li>
-<li><button onclick="showTab('contact')" class="hover:text-gold transition flex items-center gap-2"><i class="fa-solid fa-envelope text-[10px] text-gold"></i> Client Consultation</button></li>
-</ul>
-</div>
-
-<div class="space-y-3">
-<h4 class="text-white font-semibold uppercase tracking-wider text-xs text-gold">Global Hubs</h4>
-<p class="text-xs text-gray-400 leading-relaxed">
-Legazpi Area & International Decentralized Execution Networks. Uncompromising talent delivery worldwide without traditional office overhead.
-</p>
-<div class="pt-2 text-xs text-gold font-medium">
-Status: Operational (24/7)
-</div>
-</div>
-</div>
-<div class="max-w-7xl mx-auto px-6 pt-8 border-t border-gold/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-<p>&copy; 2026 Goukens-sy Business Support Inc. All rights reserved. Designed for elite decentralized execution.</p>
-<div class="flex items-center gap-6">
-<span class="hover:text-gold transition cursor-pointer">Privacy Policy</span>
-<span class="hover:text-gold transition cursor-pointer">Terms of Service</span>
-<span class="hover:text-gold transition cursor-pointer">Security Standards</span>
-</div>
-</div>
-</footer>
-<!-- Final Closure & Closing Tag Validation -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  console.log("Goukens-sy Business Support platform fully initialized and operational.");
-});
-</script>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            const target = document.getElementById(tabId);
+            if (target) target.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu) menu.classList.toggle('hidden');
+        }
+
+        function checkJobAccess() {
+            const code = prompt("Enter Authorized Access Code:");
+            if (code === "Gouk7507@") {
+                document.getElementById('job-locked-view').classList.add('hidden');
+                document.getElementById('job-board-container').classList.remove('hidden');
+            } else if (code !== null) {
+                alert("Invalid access code.");
+            }
+        }
+
+        function switchJobPage(pageNum) {
+            document.querySelectorAll('.job-page').forEach(page => page.classList.add('hidden'));
+            const target = document.getElementById('job-page-' + pageNum);
+            if (target) target.classList.remove('hidden');
+            closeJobDetail();
+        }
+
+        function selectJob(title, rate, cat, desc) {
+            document.getElementById('panel-title').innerText = title;
+            document.getElementById('panel-rate').innerText = rate;
+            document.getElementById('panel-cat').innerText = cat;
+            document.getElementById('panel-desc').innerText = desc;
+            
+            const leftCol = document.getElementById('left-column');
+            const rightCol = document.getElementById('right-column');
+            
+            leftCol.classList.remove('lg:col-span-12');
+            leftCol.classList.add('lg:col-span-7');
+            rightCol.classList.remove('hidden');
+        }
+
+        function closeJobDetail() {
+            const leftCol = document.getElementById('left-column');
+            const rightCol = document.getElementById('right-column');
+            
+            rightCol.classList.add('hidden');
+            leftCol.classList.remove('lg:col-span-7');
+            leftCol.classList.add('lg:col-span-12');
+        }
+    </script>
 </body>
 </html>
