@@ -51,6 +51,19 @@ alert("Incorrect access code. Please register via the Candidate Portal or enter 
 showTab('portal');
 }
 }
+  function switchJobPage(pageNum) {
+    const page1 = document.getElementById('job-page-1');
+    const page2 = document.getElementById('job-page-2');
+
+    if (pageNum === 1) {
+        if (page1) page1.classList.remove('hidden');
+        if (page2) page2.classList.add('hidden');
+    } else {
+        if (page1) page1.classList.add('hidden');
+        if (page2) page2.classList.remove('hidden');
+    }
+    window.scrollTo({ top: 200, behavior: 'smooth' });
+}  
 function openJobDetail(jobTitle, jobDesc, lang, closingDate) {
 document.getElementById('job-board-view').classList.add('hidden');
 const detailView = document.getElementById('job-detail-view');
