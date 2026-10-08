@@ -6,7 +6,7 @@
 <script>
 tailwind.config = {
 theme: {
-extend: {F
+extend: {
 colors: {
 obsidian: '#0d0d0d',
 gold: '#d4af37',
@@ -100,7 +100,9 @@ Executive Leadership & Global Operations
 Goukens-sy <span class="text-gold">Business Support</span>
 </h1>
 </div>
+Hier is Blok 2 van 5 (het vervolg van de Home-tab en de volledige Vision-tab):
 
+HTML
 <!-- Home Photo -->
 <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-2xl h-80 md:h-[400px]">
 <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80" alt="Global Corporate Architecture" class="w-full h-full object-cover brightness-75 hover:scale-105 transition duration-700">
@@ -235,7 +237,9 @@ For decades, the standard playbook for scaling enterprise operations involved ad
 By eliminating geographic and logistical bottlenecks, Goukens-sy Business Support allows companies to scale with surgical precision. Our philosophy centers on absolute transparency, merit-based execution, and leveraging modern digital infrastructure to connect top-tier global talent directly with high-impact enterprises.
 </p>
 </div>
+Hier is Blok 3 van 5 (het vervolg van de Vision-tab en alle Services):
 
+HTML
 <!-- Vision Photo 2 -->
 <div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-2xl h-72 md:h-96">
 <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80" alt="Global Operations" class="w-full h-full object-cover brightness-75">
@@ -504,6 +508,9 @@ We bridge cultural and linguistic barriers with precision translation, contextua
 </ul>
 </div>
 </div>
+Hier is Blok 4 van 5 (met de Candidate Portal, de nieuwe zoekbalk en alle vacatures):
+
+HTML
 <!-- CANDIDATE PORTAL TAB -->
 <div id="portal" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-8">
 <div class="bg-surface border border-gold rounded-lg p-8 md:p-10 shadow-2xl space-y-6">
@@ -533,262 +540,245 @@ Authorized Access Area
 </span>
 <h1 class="text-3xl md:text-5xl font-extrabold text-white mt-2">Active Project Openings & Vacancies</h1>
 <p class="text-gray-300 text-lg max-w-2xl mx-auto">
-Browse our complete remote roster spanning all specialized domains.
+Browse our complete remote roster or type keywords below to instantly find specific roles.
 </p>
+
+<!-- Search Bar for Job Board -->
+<div class="max-w-md mx-auto pt-4">
+<div class="relative">
+<span class="absolute inset-y-0 left-0 flex items-center pl-4 text-gold"><i class="fa-solid fa-search"></i></span>
+<input type="text" id="job-search-input" onkeyup="filterJobs()" placeholder="Search roles by keyword (e.g. Engineer, Medical, Data)..." class="w-full bg-card border border-gold/40 text-white placeholder-gray-400 text-sm rounded-lg pl-11 pr-4 py-3 focus:outline-none focus:border-gold shadow-inner">
 </div>
-
-<!-- Complete Grid Container (64 Roles across all 4 pages, -$10 pricing) -->
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-    <!-- Pagina 1 -->
-    <div onclick="openJobDetail('Network Engineer - Talent Network', 'Global network infrastructure monitoring, routing configuration, and technical troubleshooting.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Network Engineer</h2><p class="text-gold font-semibold text-lg">$40 - $60 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Systems & Integration Engineering Experts', 'Enterprise systems architecture, API integrations, and cloud workflow automation.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Systems & Integration</h2><p class="text-gold font-semibold text-lg">$90 - $110 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Software & Firmware Engineering Experts', 'Embedded firmware programming, software architecture development, and debugging.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Software & Firmware</h2><p class="text-gold font-semibold text-lg">$90 - $110 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Mechanical Engineering Experts', 'Mechanical design, CAD modeling, and industrial hardware prototyping.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Mechanical Engineering</h2><p class="text-gold font-semibold text-lg">$90 - $110 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Electrical & Hardware Engineering Experts', 'Electrical circuit design, PCB layouts, and hardware testing.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Electrical & Hardware</h2><p class="text-gold font-semibold text-lg">$90 - $110 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('German Language and Literature Expert', 'German literature analysis, specialized transcription, and translation.', 'German', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Humanities</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">German Language</h2><p class="text-gold font-semibold text-lg">$40 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Specialist</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Generalist Expert', 'Cross-functional administrative support, task coordination, and workflow management.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Operations</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Generalist Expert</h2><p class="text-gold font-semibold text-lg">$30 - $60 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Data Analysis Expert', 'Dataset cleaning, statistical processing, and executive reporting for business operations.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Analytics</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Data Analysis Expert</h2><p class="text-gold font-semibold text-lg">$60 - $110 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Education & Training Expert', 'Educational curriculum structuring, workshop coordination, and remote coaching.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Education</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Education & Training</h2><p class="text-gold font-semibold text-lg">$20 - $75 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Office & Productivity Software Expert', 'Advanced spreadsheet modeling, document structuring, and workflow optimization.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Operations</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Office Software</h2><p class="text-gold font-semibold text-lg">$50 - $60 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Finance Expert', 'Financial bookkeeping, budget analysis, and corporate fiscal reporting.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Finance</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Finance Expert</h2><p class="text-gold font-semibold text-lg">$50 - $170 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Humanities Expert', 'Cultural research, academic editing, and historical document analysis.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Humanities</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Humanities Expert</h2><p class="text-gold font-semibold text-lg">$35 - $50 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Arts & Design Expert', 'UI/UX design, graphic assets creation, and visual brand presentation.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Design</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Arts & Design Expert</h2><p class="text-gold font-semibold text-lg">$50 - $70 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Creative</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Legal Expert', 'Legal document drafting, compliance tracking, and contract review support.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Legal</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Legal Expert</h2><p class="text-gold font-semibold text-lg">$50 - $140 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Specialist</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Engineering Expert', 'General engineering oversight, design reviews, and technical consulting.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Engineering Expert</h2><p class="text-gold font-semibold text-lg">$50 - $115 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Software Engineering Expert', 'Full-stack software development, code refactoring, and automated testing.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Software Engineering</h2><p class="text-gold font-semibold text-lg">$60 - $140 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-
-    <!-- Pagina 2 -->
-    <div onclick="openJobDetail('Consumer & Lifestyle Expert', 'Consumer trend analysis, lifestyle research, and market behavioral studies.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Lifestyle</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Consumer & Lifestyle</h2><p class="text-gold font-semibold text-lg">$40 - $65 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Medical Expert', 'Clinical review, medical literature analysis, and healthcare dataset validation.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Medical</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Medical Expert</h2><p class="text-gold font-semibold text-lg">$50 - $170 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Life, Physical & Social Science Expert', 'Scientific research evaluation, data interpretation, and cross-discipline studies.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Science</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Science Expert</h2><p class="text-gold font-semibold text-lg">$50 - $110 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Business Operations Expert', 'Enterprise operations streamlining, workflow auditing, and strategic planning.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Operations</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Business Operations</h2><p class="text-gold font-semibold text-lg">$80 - $110 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Language & Audio Expert', 'Audio dataset curation, phonetic transcription, and linguistic processing.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Audio</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Language & Audio</h2><p class="text-gold font-semibold text-lg">$25 - $40 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Electrical Engineering Expert', 'Circuit analysis, hardware testing, and electrical component design review.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Electrical Engineering</h2><p class="text-gold font-semibold text-lg">$60 - $110 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Mechanical Engineering Expert', 'CAD drafting, stress analysis, and mechanical prototyping validation.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Mechanical Engineering</h2><p class="text-gold font-semibold text-lg">$60 - $115 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Mathematics Expert', 'Advanced mathematical modeling, algorithm verification, and quantitative analysis.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Mathematics</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Mathematics Expert</h2><p class="text-gold font-semibold text-lg">$30 - $65 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Physics Expert', 'Physical sciences modeling, experimental data review, and technical research.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Physics</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Physics Expert</h2><p class="text-gold font-semibold text-lg">$60 - $90 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Materials Science Expert', 'Material testing documentation, structural property evaluation, and research.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Materials</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Materials Science</h2><p class="text-gold font-semibold text-lg">$50 - $110 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Chemistry Expert', 'Chemical composition analysis, laboratory safety protocols, and research support.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Chemistry</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Chemistry Expert</h2><p class="text-gold font-semibold text-lg">$55 - $95 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Biotechnology Expert', 'Biotech research data verification, genetic dataset review, and analysis.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Biotech</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Biotechnology Expert</h2><p class="text-gold font-semibold text-lg">$100 - $115 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Biology Expert', 'Biological data curation, taxonomy research, and ecological study support.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Biology</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Biology Expert</h2><p class="text-gold font-semibold text-lg">$60 - $95 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Machine Learning Expert', 'Model training evaluation, neural network optimization, and dataset annotation.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">AI / ML</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Machine Learning</h2><p class="text-gold font-semibold text-lg">$60 - $110 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Asset & Wealth Management Expert', 'Portfolio analysis, financial asset tracking, and wealth advisory reporting.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Finance</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Asset & Wealth Mgmt</h2><p class="text-gold font-semibold text-lg">$90 - $120 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Management Consulting Expert', 'Corporate restructuring analysis, strategic advisory, and operational efficiency consulting.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Consulting</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Management Consulting</h2><p class="text-gold font-semibold text-lg">$80 - $110 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-
-    <!-- Pagina 3 -->
-    <div onclick="openJobDetail('Legal Expert (J.D./LL.B.)', 'Advanced legal research, contract structuring, and regulatory compliance review.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Legal</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Legal Expert (J.D.)</h2><p class="text-gold font-semibold text-lg">$90 - $140 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Specialist</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Medical Expert (M.D./D.O.)', 'Specialized clinical assessment, medical validation, and healthcare consultation.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Medical</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Medical Expert (M.D.)</h2><p class="text-gold font-semibold text-lg">$105 - $140 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Specialist</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Investment Banking Expert', 'Financial modeling, valuation analysis, and M&A advisory support.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Finance</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Investment Banking</h2><p class="text-gold font-semibold text-lg">$90 - $120 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Legacy Codebase Migration Expert', 'Refactoring legacy systems, system modernization, and architectural migration.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Legacy Codebase Migration</h2><p class="text-gold font-semibold text-lg">$190 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Expert</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Cybersecurity Research Expert – Offensive', 'Penetration testing, vulnerability research, and security auditing.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Security</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Cybersecurity (Offensive)</h2><p class="text-gold font-semibold text-lg">$190 - $240 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Expert</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Compliance & Risk Specialist Talent Network', 'Regulatory compliance tracking, risk assessment, and policy auditing.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Compliance</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Compliance & Risk</h2><p class="text-gold font-semibold text-lg">$50 - $70 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Management Consultant Talent Network', 'Strategic business consulting, process optimization, and executive advisory.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Consulting</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Management Consultant</h2><p class="text-gold font-semibold text-lg">$50 - $90 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Physical Scientist Talent Network', 'Physical research, laboratory studies, and scientific data review.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Science</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Physical Scientist</h2><p class="text-gold font-semibold text-lg">$50 - $70 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Graphic & UX/UI Designer Talent Network', 'Digital asset creation, user interface design, and visual brand layouts.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Design</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Graphic & UX/UI Designer</h2><p class="text-gold font-semibold text-lg">$50 - $70 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Creative</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Marketing Specialist Talent Network', 'Digital marketing campaigns, outreach strategy, and brand promotion.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Marketing</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Marketing Specialist</h2><p class="text-gold font-semibold text-lg">$50 - $70 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('HR & Administration Specialist Talent Network', 'Talent onboarding, HR support, and corporate administrative management.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">HR</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">HR & Administration</h2><p class="text-gold font-semibold text-lg">$50 - $70 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Financial Analyst Talent Network', 'Fiscal forecasting, budget tracking, and financial data reporting.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Finance</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Financial Analyst</h2><p class="text-gold font-semibold text-lg">$50 - $170 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Chemist Talent Network', 'Chemical laboratory testing, formula verification, and research support.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Chemistry</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Chemist Talent Network</h2><p class="text-gold font-semibold text-lg">$50 - $70 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Biologist Talent Network', 'Biological research, data collection, and ecological project reporting.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Biology</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Biologist Talent Network</h2><p class="text-gold font-semibold text-lg">$50 - $70 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Mathematician Talent Network', 'Mathematical computation, statistical research, and data modeling.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Mathematics</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Mathematician Network</h2><p class="text-gold font-semibold text-lg">$50 - $70 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Lawyer Talent Network', 'Legal consultation, document drafting, and regulatory analysis.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Legal</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Lawyer Talent Network</h2><p class="text-gold font-semibold text-lg">$50 - $140 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Specialist</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-
-    <!-- Pagina 4 -->
-    <div onclick="openJobDetail('Physicist Talent Network', 'Advanced physical research, experimental analysis, and technical computation.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Physics</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Physicist Network</h2><p class="text-gold font-semibold text-lg">$50 - $70 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Nursing Talent Network', 'Healthcare support, clinical documentation review, and nursing consultation.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Medical</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Nursing Talent Network</h2><p class="text-gold font-semibold text-lg">$50 - $110 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Physician Talent Network', 'Specialized medical diagnosis review, clinical protocol evaluation, and research.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Medical</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Physician Talent Network</h2><p class="text-gold font-semibold text-lg">$100 - $240 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Expert</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Machine Learning Engineer Talent Network', 'AI pipeline engineering, neural network architecture, and model training.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">AI / ML</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">ML Engineer Network</h2><p class="text-gold font-semibold text-lg">$60 - $240 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Expert</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Business Intelligence Analyst Talent Network', 'Data visualization, enterprise analytics, and reporting dashboard development.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Analytics</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Business Intelligence</h2><p class="text-gold font-semibold text-lg">$60 - $110 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Software Engineer (AI-Native Platform & Tools)', 'Building AI-native development platforms, tooling, and infrastructure automation.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">AI-Native Software Eng</h2><p class="text-gold font-semibold text-lg">$60 - $100 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Frontend Engineer Talent Network', 'Web interface development, user experience implementation, and frontend optimization.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Frontend Engineer</h2><p class="text-gold font-semibold text-lg">$60 - $140 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('DevOps / Platform Engineer Talent Network', 'Cloud infrastructure management, CI/CD pipelines, and systems reliability.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">DevOps Engineer</h2><p class="text-gold font-semibold text-lg">$60 - $140 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Backend Engineer Talent Network', 'Server-side architecture, database optimization, and high-performance API design.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Backend Engineer</h2><p class="text-gold font-semibold text-lg">$60 - $140 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Full-Stack Engineer Talent Network', 'End-to-end software development spanning frontend and backend architecture.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Full-Stack Engineer</h2><p class="text-gold font-semibold text-lg">$60 - $140 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('SOC Investigation Specialist Talent Network', 'Security operations center monitoring, threat hunting, and incident response.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Security</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">SOC Specialist</h2><p class="text-gold font-semibold text-lg">$60 - $85 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
-    <div onclick="openJobDetail('Applied Engineer, Evaluations Role', 'Algorithmic assessment, model benchmarking, and system performance evaluations.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Applied Engineer</h2><p class="text-gold font-semibold text-lg">$90 - $110 / hour</p></div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
-    </div>
 </div>
 </div>
 
+<!-- Job Grid Container (All 16 Roles with updated -$10 pricing) -->
+<div id="job-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pt-4">
+    <div class="job-card" data-title="consumer & lifestyle expert" data-desc="Consumer trend analysis, lifestyle research, and market behavioral studies.">
+    <div onclick="openJobDetail('Consumer & Lifestyle Expert', 'Consumer trend analysis, lifestyle research, and market behavioral studies.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group h-full">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Lifestyle</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Consumer & Lifestyle</h2>
+            <p class="text-gold font-semibold text-lg">$40 - $65 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
+    </div>
+
+    <div class="job-card" data-title="medical expert" data-desc="Clinical review, medical literature analysis, and healthcare dataset validation.">
+    <div onclick="openJobDetail('Medical Expert', 'Clinical review, medical literature analysis, and healthcare dataset validation.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group h-full">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Medical</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Medical Expert</h2>
+            <p class="text-gold font-semibold text-lg">$50 - $170 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
+    </div>
+
+    <div class="job-card" data-title="life physical & social science expert" data-desc="Scientific research evaluation, data interpretation, and cross-discipline studies.">
+    <div onclick="openJobDetail('Life, Physical & Social Science Expert', 'Scientific research evaluation, data interpretation, and cross-discipline studies.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group h-full">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Science</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Science Expert</h2>
+            <p class="text-gold font-semibold text-lg">$50 - $110 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
+    </div>
+
+    <div class="job-card" data-title="business operations expert" data-desc="Enterprise operations streamlining, workflow auditing, and strategic planning.">
+    <div onclick="openJobDetail('Business Operations Expert', 'Enterprise operations streamlining, workflow auditing, and strategic planning.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group h-full">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Operations</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Business Operations</h2>
+            <p class="text-gold font-semibold text-lg">$80 - $110 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
+    </div>
+
+    <div class="job-card" data-title="language & audio expert" data-desc="Audio dataset curation, phonetic transcription, and linguistic processing.">
+    <div onclick="openJobDetail('Language & Audio Expert', 'Audio dataset curation, phonetic transcription, and linguistic processing.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group h-full">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Audio & Language</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Language & Audio</h2>
+            <p class="text-gold font-semibold text-lg">$25 - $40 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
+    </div>
+
+    <div class="job-card" data-title="electrical engineering expert" data-desc="Circuit analysis, hardware testing, and electrical component design review.">
+    <div onclick="openJobDetail('Electrical Engineering Expert', 'Circuit analysis, hardware testing, and electrical component design review.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group h-full">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Electrical Engineering</h2>
+            <p class="text-gold font-semibold text-lg">$60 - $110 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
+    </div>
+
+    <div class="job-card" data-title="mechanical engineering expert" data-desc="CAD drafting, stress analysis, and mechanical prototyping validation.">
+    <div onclick="openJobDetail('Mechanical Engineering Expert', 'CAD drafting, stress analysis, and mechanical prototyping validation.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group h-full">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Mechanical Engineering</h2>
+            <p class="text-gold font-semibold text-lg">$60 - $115 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
+    </div>
+
+    <div class="job-card" data-title="mathematics expert" data-desc="Advanced mathematical modeling, algorithm verification, and quantitative analysis.">
+    <div onclick="openJobDetail('Mathematics Expert', 'Advanced mathematical modeling, algorithm verification, and quantitative analysis.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group h-full">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Mathematics</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Mathematics Expert</h2>
+            <p class="text-gold font-semibold text-lg">$30 - $65 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
+    </div>
+
+    <div class="job-card" data-title="physics expert" data-desc="Physical sciences modeling, experimental data review, and technical research.">
+    <div onclick="openJobDetail('Physics Expert', 'Physical sciences modeling, experimental data review, and technical research.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group h-full">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Physics</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Physics Expert</h2>
+            <p class="text-gold font-semibold text-lg">$60 - $90 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
+    </div>
+
+    <div class="job-card" data-title="materials science expert" data-desc="Material testing documentation, structural property evaluation, and research.">
+    <div onclick="openJobDetail('Materials Science Expert', 'Material testing documentation, structural property evaluation, and research.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group h-full">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Materials Science</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Materials Science</h2>
+            <p class="text-gold font-semibold text-lg">$50 - $110 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
+    </div>
+
+    <div class="job-card" data-title="chemistry expert" data-desc="Chemical composition analysis, laboratory safety protocols, and research support.">
+    <div onclick="openJobDetail('Chemistry Expert', 'Chemical composition analysis, laboratory safety protocols, and research support.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group h-full">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Chemistry</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Chemistry Expert</h2>
+            <p class="text-gold font-semibold text-lg">$55 - $95 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
+    </div>
+
+    <div class="job-card" data-title="biotechnology expert" data-desc="Biotech research data verification, genetic dataset review, and analysis.">
+    <div onclick="openJobDetail('Biotechnology Expert', 'Biotech research data verification, genetic dataset review, and analysis.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group h-full">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Biotechnology</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Biotechnology Expert</h2>
+            <p class="text-gold font-semibold text-lg">$100 - $115 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
+    </div>
+
+    <div class="job-card" data-title="biology expert" data-desc="Biological data curation, taxonomy research, and ecological study support.">
+    <div onclick="openJobDetail('Biology Expert', 'Biological data curation, taxonomy research, and ecological study support.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group h-full">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Biology</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Biology Expert</h2>
+            <p class="text-gold font-semibold text-lg">$60 - $95 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
+    </div>
+
+    <div class="job-card" data-title="machine learning expert" data-desc="Model training evaluation, neural network optimization, and dataset annotation.">
+    <div onclick="openJobDetail('Machine Learning Expert', 'Model training evaluation, neural network optimization, and dataset annotation.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group h-full">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Machine Learning</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Machine Learning</h2>
+            <p class="text-gold font-semibold text-lg">$60 - $110 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
+    </div>
+
+    <div class="job-card" data-title="asset & wealth management expert" data-desc="Portfolio analysis, financial asset tracking, and wealth advisory reporting.">
+    <div onclick="openJobDetail('Asset & Wealth Management Expert', 'Portfolio analysis, financial asset tracking, and wealth advisory reporting.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group h-full">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Finance</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Asset & Wealth Mgmt</h2>
+            <p class="text-gold font-semibold text-lg">$90 - $120 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
+    </div>
+
+    <div class="job-card" data-title="management consulting expert" data-desc="Corporate restructuring analysis, strategic advisory, and operational efficiency consulting.">
+    <div onclick="openJobDetail('Management Consulting Expert', 'Corporate restructuring analysis, strategic advisory, and operational efficiency consulting.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group h-full">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Consulting</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Management Consulting</h2>
+            <p class="text-gold font-semibold text-lg">$80 - $110 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
+    </div>
+</div>
+</div>  
 <!-- Job Detail View -->
 <div id="job-detail-view" class="hidden bg-card border border-gold/40 rounded-xl p-8 md:p-12 shadow-2xl space-y-8 max-w-4xl mx-auto">
 <div class="flex items-center justify-between border-b border-gold/20 pb-6">
@@ -856,5 +846,22 @@ Direct calendar scheduling for corporate partners, enterprise stakeholders, and 
 <p>&copy; 2026 Goukens-sy Business Support. All rights reserved.</p>
 </div>
 </footer>
+
+<!-- Automatisch Zoekfilter Script -->
+<script>
+function filterJobs() {
+const input = document.getElementById('job-search-input').value.toLowerCase();
+const cards = document.querySelectorAll('.job-card');
+cards.forEach(card => {
+const title = card.getAttribute('data-title') || '';
+const desc = card.getAttribute('data-desc') || '';
+if (title.includes(input) || desc.includes(input)) {
+card.style.display = 'block';
+} else {
+card.style.display = 'none';
+}
+});
+}
+</script>
 </body>
-</html>
+</html>    
