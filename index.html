@@ -60,6 +60,29 @@ document.getElementById('detail-lang').innerText = lang;
 document.getElementById('detail-closing').innerText = closingDate;
 window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+<!-- Job Detail View (Split-screen) -->
+<div id="job-detail-view" class="hidden space-y-8 max-w-4xl mx-auto bg-card border border-gold/30 p-8 md:p-12 rounded-sm shadow-2xl">
+    <button onclick="backToList()" class="text-gold text-sm font-semibold hover:underline flex items-center gap-2">
+        <i class="fa-solid fa-arrow-left"></i> Back to Job Roster
+    </button>
+    <div class="space-y-3 border-b border-gold/20 pb-6">
+        <h1 id="detail-title" class="text-3xl font-extrabold text-white">Job Title</h1>
+        <div class="flex flex-wrap gap-4 text-xs text-gray-300">
+            <span class="bg-surface px-3 py-1 rounded border border-gold/20"><strong class="text-gold">Compensation:</strong> <span id="detail-lang">Rate</span></span>
+            <span class="bg-surface px-3 py-1 rounded border border-gold/20"><strong class="text-gold">Status:</strong> <span id="detail-closing">Open</span></span>
+        </div>
+    </div>
+    <div class="space-y-4">
+        <h3 class="text-lg font-bold text-gold">Role Specifications & Responsibilities</h3>
+        <p id="detail-desc" class="text-gray-200 text-base leading-relaxed">Description...</p>
+    </div>
+    <div class="pt-6 border-t border-gold/20 space-y-4">
+        <h3 class="text-lg font-bold text-gold">Secure Direct Application</h3>
+        <div class="bg-surface p-2 rounded border border-gold/20">
+            <iframe data-tally-src="https://tally.so/r/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="550" frameborder="0" title="Application Form"></iframe>
+        </div>
+    </div>
+</div>    
 function backToList() {
 document.getElementById('job-detail-view').classList.add('hidden');
 document.getElementById('job-board-view').classList.remove('hidden');
