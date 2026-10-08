@@ -53,7 +53,9 @@ showTab('portal');
 }
 function openJobDetail(jobTitle, jobDesc, lang, closingDate) {
 document.getElementById('job-board-view').classList.add('hidden');
-document.getElementById('job-detail-view').classList.remove('hidden');
+const detailView = document.getElementById('job-detail-view');
+detailView.classList.remove('hidden');
+detailView.style.display = 'block';
 document.getElementById('detail-title').innerText = jobTitle;
 document.getElementById('detail-desc').innerText = jobDesc;
 document.getElementById('detail-lang').innerText = lang;
@@ -61,8 +63,11 @@ document.getElementById('detail-closing').innerText = closingDate;
 window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 function backToList() {
-document.getElementById('job-detail-view').classList.add('hidden');
+const detailView = document.getElementById('job-detail-view');
+detailView.classList.add('hidden');
+detailView.style.display = 'none';
 document.getElementById('job-board-view').classList.remove('hidden');
+window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
 <script async src="https://tally.so/widgets/embed.js"></script></head><body class="bg-obsidian text-gray-200 font-sans antialiased selection:bg-gold selection:text-obsidian flex flex-col min-h-screen">
@@ -499,7 +504,6 @@ We bridge cultural and linguistic barriers with precision translation, contextua
 </ul>
 </div>
 </div>
-
 <!-- CANDIDATE PORTAL TAB -->
 <div id="portal" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-8">
 <div class="bg-surface border border-gold rounded-lg p-8 md:p-10 shadow-2xl space-y-6">
@@ -533,111 +537,199 @@ Browse our active remote roles and submit your application securely via Tally.
 </p>
 </div>
 
-<!-- Job Grid (8 vacatures) -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-<!-- Job 1 -->
-<div onclick="openJobDetail('Multimodal Image Expert', 'Advanced AI image dataset annotation and computer vision model training support.', 'English / Global', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-<div class="space-y-3">
-<span class="text-xs text-gold uppercase tracking-wider font-semibold">AI & Vision</span>
-<h2 class="text-xl font-bold text-white group-hover:text-gold transition">Multimodal Image Expert</h2>
-<p class="text-gold font-semibold text-lg">$30 / hour</p>
-</div>
-<div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-<span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
-<span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
-</div>
-</div>
+<!-- 4x4 Grid Container (16 Roles, -$10 pricing) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div onclick="openJobDetail('Multimodal Image Expert', 'Advanced AI image dataset annotation and computer vision model training support.', 'English / Global', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">AI & Vision</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Multimodal Image Expert</h2>
+            <p class="text-gold font-semibold text-lg">$20 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
 
-<!-- Job 2 -->
-<div onclick="openJobDetail('Network Engineer - Talent Network', 'Global network infrastructure monitoring, routing configuration, and technical troubleshooting.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-<div class="space-y-3">
-<span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
-<h2 class="text-xl font-bold text-white group-hover:text-gold transition">Network Engineer</h2>
-<p class="text-gold font-semibold text-lg">$50 - $70 / hour</p>
-</div>
-<div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-<span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
-<span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
-</div>
-</div>
+    <div onclick="openJobDetail('Network Engineer', 'Global network infrastructure monitoring, routing configuration, and technical troubleshooting.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Network Engineer</h2>
+            <p class="text-gold font-semibold text-lg">$40 - $60 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
 
-<!-- Job 3 -->
-<div onclick="openJobDetail('Systems & Integration Expert', 'Enterprise systems architecture, API integrations, and cloud workflow automation.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-<div class="space-y-3">
-<span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
-<h2 class="text-xl font-bold text-white group-hover:text-gold transition">Systems & Integration</h2>
-<p class="text-gold font-semibold text-lg">$100 - $120 / hour</p>
-</div>
-<div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-<span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
-<span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
-</div>
-</div>
+    <div onclick="openJobDetail('Systems & Integration Expert', 'Enterprise systems architecture, API integrations, and cloud workflow automation.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Systems & Integration</h2>
+            <p class="text-gold font-semibold text-lg">$90 - $110 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
 
-<!-- Job 4 -->
-<div onclick="openJobDetail('Generalist Expert', 'Cross-functional administrative support, task coordination, and workflow management.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-<div class="space-y-3">
-<span class="text-xs text-gold uppercase tracking-wider font-semibold">Operations</span>
-<h2 class="text-xl font-bold text-white group-hover:text-gold transition">Generalist Expert</h2>
-<p class="text-gold font-semibold text-lg">$40 - $70 / hour</p>
-</div>
-<div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-<span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
-<span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
-</div>
-</div>
+    <div onclick="openJobDetail('Generalist Expert', 'Cross-functional administrative support, task coordination, and workflow management.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Operations</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Generalist Expert</h2>
+            <p class="text-gold font-semibold text-lg">$30 - $60 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
 
-<!-- Job 5 -->
-<div onclick="openJobDetail('Data Analysis Expert', 'Dataset cleaning, statistical processing, and executive reporting for business operations.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-<div class="space-y-3">
-<span class="text-xs text-gold uppercase tracking-wider font-semibold">Analytics</span>
-<h2 class="text-xl font-bold text-white group-hover:text-gold transition">Data Analysis Expert</h2>
-<p class="text-gold font-semibold text-lg">$70 - $120 / hour</p>
-</div>
-<div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-<span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
-<span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
-</div>
-</div>
+    <div onclick="openJobDetail('Data Analysis Expert', 'Dataset cleaning, statistical processing, and executive reporting for business operations.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Analytics</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Data Analysis Expert</h2>
+            <p class="text-gold font-semibold text-lg">$60 - $110 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
 
-<!-- Job 6 -->
-<div onclick="openJobDetail('Software & Firmware Expert', 'Embedded firmware programming, software architecture development, and debugging.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-<div class="space-y-3">
-<span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
-<h2 class="text-xl font-bold text-white group-hover:text-gold transition">Software & Firmware</h2>
-<p class="text-gold font-semibold text-lg">$100 - $120 / hour</p>
-</div>
-<div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-<span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
-<span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
-</div>
-</div>
+    <div onclick="openJobDetail('Software & Firmware Expert', 'Embedded firmware programming, software architecture development, and debugging.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Software & Firmware</h2>
+            <p class="text-gold font-semibold text-lg">$90 - $110 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
 
-<!-- Job 7 -->
-<div onclick="openJobDetail('Education & Training Expert', 'Educational curriculum structuring, workshop coordination, and remote coaching.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-<div class="space-y-3">
-<span class="text-xs text-gold uppercase tracking-wider font-semibold">Education</span>
-<h2 class="text-xl font-bold text-white group-hover:text-gold transition">Education & Training</h2>
-<p class="text-gold font-semibold text-lg">$30 - $85 / hour</p>
-</div>
-<div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-<span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
-<span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
-</div>
-</div>
+    <div onclick="openJobDetail('Education & Training Expert', 'Educational curriculum structuring, workshop coordination, and remote coaching.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Education</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Education & Training</h2>
+            <p class="text-gold font-semibold text-lg">$20 - $75 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
 
-<!-- Job 8 -->
-<div onclick="openJobDetail('Finance Expert', 'Financial bookkeeping, budget analysis, and corporate fiscal reporting.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-<div class="space-y-3">
-<span class="text-xs text-gold uppercase tracking-wider font-semibold">Finance</span>
-<h2 class="text-xl font-bold text-white group-hover:text-gold transition">Finance Expert</h2>
-<p class="text-gold font-semibold text-lg">$60 - $180 / hour</p>
-</div>
-<div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-<span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
-<span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
-</div>
-</div>
+    <div onclick="openJobDetail('Finance Expert', 'Financial bookkeeping, budget analysis, and corporate fiscal reporting.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Finance</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Finance Expert</h2>
+            <p class="text-gold font-semibold text-lg">$50 - $170 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
+
+    <div onclick="openJobDetail('Mechanical Engineering Expert', 'Mechanical design, CAD modeling, and industrial hardware prototyping.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Mechanical Engineering</h2>
+            <p class="text-gold font-semibold text-lg">$90 - $110 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
+
+    <div onclick="openJobDetail('Electrical & Hardware Expert', 'Electrical circuit design, PCB layouts, and hardware testing.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Electrical & Hardware</h2>
+            <p class="text-gold font-semibold text-lg">$90 - $110 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
+
+    <div onclick="openJobDetail('German Language Expert', 'German literature analysis, specialized transcription, and translation.', 'German / English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Humanities</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">German Language Expert</h2>
+            <p class="text-gold font-semibold text-lg">$40 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> Specialist</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
+
+    <div onclick="openJobDetail('Office Software Expert', 'Advanced spreadsheet modeling, document structuring, and workflow optimization.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Operations</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Office Software Expert</h2>
+            <p class="text-gold font-semibold text-lg">$50 - $60 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
+
+    <div onclick="openJobDetail('Humanities Expert', 'Cultural research, academic editing, and historical document analysis.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Humanities</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Humanities Expert</h2>
+            <p class="text-gold font-semibold text-lg">$35 - $50 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
+
+    <div onclick="openJobDetail('Arts & Design Expert', 'UI/UX design, graphic assets creation, and visual brand presentation.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Design</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Arts & Design Expert</h2>
+            <p class="text-gold font-semibold text-lg">$50 - $70 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> Creative role</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
+
+    <div onclick="openJobDetail('Legal Expert', 'Legal document drafting, compliance tracking, and contract review support.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Legal</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Legal Expert</h2>
+            <p class="text-gold font-semibold text-lg">$50 - $140 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> Specialist</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
+
+    <div onclick="openJobDetail('Software Engineering Expert', 'Full-stack software development, code refactoring, and automated testing.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+        <div class="space-y-3">
+            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
+            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Software Engineering Expert</h2>
+            <p class="text-gold font-semibold text-lg">$60 - $140 / hour</p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+        </div>
+    </div>
 </div>
 </div>
 
@@ -672,7 +764,7 @@ Browse our active remote roles and submit your application securely via Tally.
 <h3 class="text-xl font-bold text-gold">Submit Your Application</h3>
 <p class="text-gray-300 text-sm">Please fill out the secure application form below:</p>
 <div class="bg-surface border border-gold/30 rounded-lg p-2">
-<iframe data-tally-src="https://tally.so/r/JOUW_TALLY_FORM_ID?transparentBackground=1" loading="lazy" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0" title="Job Application Form"></iframe>
+<iframe data-tally-src="https://tally.so/r/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0" title="Job Application Form"></iframe>
 </div>
 </div>
 </div>
