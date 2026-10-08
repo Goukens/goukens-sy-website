@@ -1,309 +1,712 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Goukens-sy Business Support | Executive Leadership & Global Operations</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        obsidian: '#0d0d0d',
-                        gold: '#d4af37',
-                        'gold-light': '#f3e5ab',
-                        surface: '#141414',
-                        card: '#1c1c1c'
-                    }
-                }
-            }
-        }
-    </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script async src="https://tally.so/widgets/embed.js"></script>
-</head>
-<body class="bg-obsidian text-gray-200 font-sans antialiased selection:bg-gold selection:text-obsidian flex flex-col min-h-screen">
+<!DOCTYPE html><html lang="en" class="scroll-smooth"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Goukens-sy Business Support | Executive Leadership & Global Operations</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+obsidian: '#0d0d0d',
+gold: '#d4af37',
+'gold-light': '#f3e5ab',
+surface: '#141414',
+card: '#1c1c1c'
+}
+}
+}
+}
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script>
+function showTab(tabId) {
+const tabs = document.querySelectorAll('.tab-content');
+tabs.forEach(tab => tab.classList.add('hidden'));
+const targetTab = document.getElementById(tabId);
+if (targetTab) {
+targetTab.classList.remove('hidden');
+}
+const navLinks = document.querySelectorAll('.nav-link');
+navLinks.forEach(link => {
+link.classList.remove('text-gold', 'font-semibold', 'border-b', 'border-gold');
+link.classList.add('hover:text-gold');
+});
+const activeLink = document.getElementById('link-' + tabId);
+if(activeLink) {
+activeLink.classList.remove('hover:text-gold');
+activeLink.classList.add('text-gold', 'font-semibold', 'border-b', 'border-gold', 'pb-1');
+}
+window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function checkJobAccess() {
+const passcode = prompt("Enter access code to view the Job Board (Candidates register via Portal, or use access code):");
+if (passcode === "Gouk7507@") {
+showTab('jobs');
+document.getElementById('job-locked-view').classList.add('hidden');
+document.getElementById('job-board-view').classList.remove('hidden');
+document.getElementById('job-detail-view').classList.add('hidden');
+} else {
+alert("Incorrect access code. Please register via the Candidate Portal or enter the correct code.");
+showTab('portal');
+}
+}
+function openJobDetail(jobTitle, jobDesc, lang, closingDate) {
+document.getElementById('job-board-view').classList.add('hidden');
+document.getElementById('job-detail-view').classList.remove('hidden');
+document.getElementById('detail-title').innerText = jobTitle;
+document.getElementById('detail-desc').innerText = jobDesc;
+document.getElementById('detail-lang').innerText = lang;
+document.getElementById('detail-closing').innerText = closingDate;
+window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function backToList() {
+document.getElementById('job-detail-view').classList.add('hidden');
+document.getElementById('job-board-view').classList.remove('hidden');
+}
+</script>
+<script async src="https://tally.so/widgets/embed.js"></script></head><body class="bg-obsidian text-gray-200 font-sans antialiased selection:bg-gold selection:text-obsidian flex flex-col min-h-screen">
 <!-- Header / Navigation -->
 <header class="sticky top-0 z-50 bg-obsidian/95 backdrop-blur-md border-b border-gold/20">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <a href="#home" onclick="showTab('home')" class="text-xl md:text-2xl font-bold tracking-wider text-gold flex items-center gap-2 cursor-pointer">
-            <i class="fa-solid fa-gem text-gold"></i> GOUKENS-SY
-        </a>
-        <nav class="hidden md:flex items-center gap-8 text-base md:text-lg uppercase tracking-widest font-medium">
-            <button onclick="showTab('home')" id="link-home" class="nav-link text-gold font-semibold border-b border-gold pb-1 transition">Home</button>
-            <button onclick="showTab('vision')" id="link-vision" class="nav-link hover:text-gold transition">Vision</button>
-            <button onclick="showTab('services')" id="link-services" class="nav-link hover:text-gold transition">Services</button>
-            <button onclick="showTab('portal')" id="link-portal" class="nav-link hover:text-gold transition">Candidate Portal</button>
-            <button onclick="checkJobAccess()" id="link-jobs" class="nav-link hover:text-gold transition text-gold-light">Job Board</button>
-            <button onclick="showTab('contact')" id="link-contact" class="nav-link hover:text-gold transition">Contact</button>
-        </nav>
-    </div>
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<a href="#home" onclick="showTab('home')" class="text-xl md:text-2xl font-bold tracking-wider text-gold flex items-center gap-2 cursor-pointer">
+<i class="fa-solid fa-gem text-gold"></i> GOUKENS-SY
+</a>
+<nav class="hidden md:flex items-center gap-8 text-base md:text-lg uppercase tracking-widest font-medium">
+<button onclick="showTab('home')" id="link-home" class="nav-link text-gold font-semibold border-b border-gold pb-1 transition">Home</button>
+<button onclick="showTab('vision')" id="link-vision" class="nav-link hover:text-gold transition">Vision</button>
+<button onclick="showTab('services')" id="link-services" class="nav-link hover:text-gold transition">Services</button>
+<button onclick="showTab('portal')" id="link-portal" class="nav-link hover:text-gold transition">Candidate Portal</button>
+<button onclick="checkJobAccess()" id="link-jobs" class="nav-link hover:text-gold transition text-gold-light">Job Board</button>
+<button onclick="showTab('contact')" id="link-contact" class="nav-link hover:text-gold transition">Contact</button>
+</nav>
+</div>
 </header>
+<!-- Main Content Container -->
 <main class="flex-grow">
- <!-- HOME TAB -->
-<div id="home" class="tab-content max-w-4xl mx-auto px-6 py-16 space-y-12">
-    <div class="text-center space-y-6">
-        <span class="text-gold uppercase tracking-[0.3em] text-sm md:text-base font-semibold px-5 py-2 border border-gold/40 rounded-full inline-block">Executive Leadership & Global Operations</span>
-        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white">Goukens-sy <span class="text-gold">Business Support</span></h1>
-    </div>
-    <div class="bg-card border border-gold/20 p-8 md:p-12 rounded-sm shadow-2xl space-y-6">
-        <p class="text-gray-100 text-lg md:text-xl font-medium leading-relaxed italic border-l-2 border-gold pl-4">
-            "Operating remotely from anywhere in the world. We don’t pay an employee to look good in an office; we pay for their knowledge, execution, and value."
-        </p>
-        <p class="text-gray-200 text-base leading-relaxed">
-            At Goukens-sy Business Support, we bridge high-level Western corporate strategy with world-class, tech-forward execution hubs.
-        </p>
-    </div>
+<!-- HOME TAB -->
+<div id="home" class="tab-content max-w-4xl mx-auto px-6 py-16 relative space-y-12">
+<div class="absolute inset-0 opacity-10 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
+<div class="text-center relative z-10 space-y-6">
+<span class="text-gold uppercase tracking-[0.3em] text-sm md:text-base font-semibold px-5 py-2 border border-gold/40 rounded-full shadow-md inline-block">
+Executive Leadership & Global Operations
+</span>
+<h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white">
+Goukens-sy <span class="text-gold">Business Support</span>
+</h1>
 </div>
 
-<!-- VISION TAB -->
+<!-- Home Photo -->
+<div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-2xl h-80 md:h-[400px]">
+<img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80" alt="Global Corporate Architecture" class="w-full h-full object-cover brightness-75 hover:scale-105 transition duration-700">
+<div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8 text-left">
+<span class="text-gold text-xs tracking-widest uppercase font-semibold">Global Scale & Excellence</span>
+<p class="text-white text-2xl font-bold mt-1">Uncompromising Execution Across Borders</p>
+</div>
+</div>
+
+<!-- Introductie -->
+<div class="text-left space-y-6 bg-card border border-gold/20 p-8 md:p-12 rounded-sm shadow-2xl">
+<p class="text-gray-100 text-lg md:text-xl font-medium leading-relaxed italic border-l-2 border-gold pl-4">
+"Operating remotely from anywhere in the world. We don’t pay an employee to look good in an office; we pay for their knowledge, execution, and value."
+</p>
+<p class="text-gray-200 text-base md:text-lg leading-relaxed">
+In an economic landscape defined by rapid technological disruption and borderless markets, the traditional corporate playbook—built on bloated physical headquarters, rigid geographical constraints, and unnecessary management layers—has proven to be an obsolete liability. Modern enterprises require absolute agility, unyielding execution, and access to elite talent unhindered by zip codes.
+</p>
+<div class="my-6 rounded-sm overflow-hidden border border-gold/20 h-64 md:h-72">
+<img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" alt="Team Collaboration" class="w-full h-full object-cover brightness-75">
+</div>
+<p class="text-gray-200 text-base md:text-lg leading-relaxed">
+At Goukens-sy Business Support, we bridge high-level Western corporate strategy with world-class, tech-forward execution hubs. By dismantling administrative drag and integrating cutting-edge, AI-augmented workflows, we empower organizations to scale their operations efficiently while maintaining total transparency and uncompromising quality standards.
+</p>
+</div>
+
+<!-- BLOK 1 -->
+<div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-4">
+<h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+<i class="fa-solid fa-globe text-xl"></i> Total Flexibility & Borderless Talent
+</h2>
+<p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">
+Borderless talent acquisition designed specifically for high-performance remote teams and modern enterprises.
+</p>
+<p class="text-gray-300 text-base md:text-lg leading-relaxed">
+By bypassing local hiring restrictions, we connect organizations directly with seasoned professionals across the globe. This grants leadership teams the ultimate freedom to scale up or down dynamically based on active project demands without fixed overhead friction.
+</p>
+</div>
+
+<!-- BLOK 2 -->
+<div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-4">
+<h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+<i class="fa-solid fa-shield-halved text-xl"></i> Global Operations & Strategic Execution
+</h2>
+<p class="text-gray-300 text-base md:text-lg leading-relaxed">
+In een snel veranderende wereldeconomie is het hanteren van een starre, fysieke infrastructuur een kostbare en onnodige belemmering geworden voor ambitieuze ondernemingen. Wij geloven rotsvast in een volledig gedecentraliseerde benadering: het opereren vanuit een krachtig, internationaal netwerk van doorgewinterde specialisten. Door deze flexibele opzet snijden we door alle traditionele managementlagen en operationele vertragingen heen. Dit stelt ons in staat om bliksemvluchtig te schakelen, maatwerk van topniveau te leveren en bedrijfsprocessen naadloos en zonder wrijving te integreren binnen jouw bestaande bedrijfsstructuur. Het resultaat is een wendbare organisatie die klaarstapt voor de uitdagingen van de moderne markt.
+</p>
+</div>
+
+<!-- BLOK 3 -->
+<div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-4">
+<h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+<i class="fa-solid fa-hand-holding-dollar text-xl"></i> Value-Driven Compensation & Direct Impact
+</h2>
+<p class="text-gray-300 text-base md:text-lg leading-relaxed">
+De traditionele 9-tot-5 kantoorcultuur meet productiviteit vaak af aan fysieke aanwezigheid in plaats van daadwerkelijke output. Wij verwerpen dit achterhaalde model volledig. Onze filosofie is gebaseerd op de overtuiging dat je experts niet betaalt om 'goed voor de dag te komen' in een kantoor, maar voor hun diepgaande vakkennis, hun creatieve probleemoplossend vermogen en hun feilloze executie. Onze compensatiestructuur en samenwerkingen zijn daarom strikt gekoppeld aan kwalitatieve resultaten en concrete opleveringen. Hierdoor ben je als organisatie altijd verzekerd van ongeëvenaarde kwaliteit, maximale efficiëntie en een directe, meetbare impact op je rendement en bedrijfsresultaten.
+</p>
+</div>
+
+<div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-xl h-64 md:h-80">
+<img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80" alt="Value-Driven Work and Focus" class="w-full h-full object-cover brightness-75">
+<div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-6 left-6 right-6">
+<span class="text-gold text-xs tracking-widest uppercase font-semibold">Result & Impact</span>
+<p class="text-white text-xl font-bold">Expertise, Execution & Measurable Value</p>
+</div>
+</div>
+
+<!-- BLOK 4 -->
+<div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-4">
+<h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+<i class="fa-solid fa-microchip text-xl"></i> Advanced Automation & Future-Proof Scaling
+</h2>
+<p class="text-gray-300 text-base md:text-lg leading-relaxed">
+De sleutel tot duurzame groei in de eenentwintigste eeuw ligt in het slim combineren van menselijk talent en geavanceerde technologie. Wij integreren state-of-the-art AI-architecturen, geautomatiseerde workflows en digitale administratieve systemen direct in de operationele processen. Hiermee elimineren we structureel alle administratieve wrijving, repetitieve handelingen en menselijke fouten die de productiviteit doorgaans afbreken. Dankzij deze toekomstgerichte infrastructuur kun je als onderneming je capaciteit en teams moeiteloos op- of afschalen naarmate de marktomstandigheden of projecten daarom vragen, zonder vast te zitten aan inflexibele vaste lasten of langdurige operationele rompslomp.
+</p>
+</div>
+
+<div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-xl h-64 md:h-80">
+<img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80" alt="Advanced Automation and Scaling" class="w-full h-full object-cover brightness-75">
+<div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-6 left-6 right-6">
+<span class="text-gold text-xs tracking-widest uppercase font-semibold">Future-Proof Innovation</span>
+<p class="text-white text-xl font-bold">Smart Automation & Scalable Growth</p>
+</div>
+</div>
+
+<div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
+<button onclick="showTab('services')" class="px-8 py-4 bg-gold text-obsidian font-bold tracking-wider uppercase text-sm hover:bg-gold-light transition rounded-sm shadow-lg shadow-gold/10">
+Explore Capabilities
+</button>
+<button onclick="showTab('contact')" class="px-8 py-4 border border-gold/50 text-white font-bold tracking-wider uppercase text-sm hover:border-gold transition rounded-sm">
+Client Consultation
+</button>
+</div>
+</div>
+
+<!-- VISION TAB (UITGEBREID) -->
 <div id="vision" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-12">
-    <div class="text-center mb-12 space-y-4">
-        <span class="text-gold uppercase tracking-[0.3em] text-sm md:text-base font-semibold px-5 py-2 border border-gold/40 rounded-full inline-block">Strategic Outlook & Philosophy</span>
-        <h1 class="text-3xl md:text-5xl font-extrabold text-white mt-2">Our Core Vision & Strategic Paradigm</h1>
-    </div>
-    <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-12 shadow-xl space-y-6">
-        <h2 class="text-2xl font-bold text-gold">Executive Leadership & Global Operations</h2>
-        <p class="text-gray-200 text-base leading-relaxed">For decades, the standard playbook for scaling enterprise operations involved adding layers of management...</p>
-    </div>
+<div class="text-center mb-12 space-y-4">
+<span class="text-gold uppercase tracking-[0.3em] text-sm md:text-base font-semibold px-5 py-2 border border-gold/40 rounded-full shadow-md inline-block">
+Strategic Outlook & Philosophy
+</span>
+<h1 class="text-3xl md:text-5xl font-extrabold text-white mt-2">Our Core Vision & Strategic Paradigm</h1>
+<p class="text-gray-300 text-lg max-w-2xl mx-auto">
+Redefining enterprise operations through absolute decentralization, unyielding execution excellence, and high-performance remote ecosystems.
+</p>
+</div>
+
+<!-- Vision Photo 1 -->
+<div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-2xl h-72 md:h-96">
+<img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1600&q=80" alt="Executive Strategy" class="w-full h-full object-cover brightness-75 hover:scale-105 transition duration-700">
+<div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8">
+<span class="text-gold text-xs tracking-widest uppercase font-semibold">Leadership Philosophy</span>
+<p class="text-white text-2xl font-bold mt-1">Transcending Physical Office Boundaries</p>
+</div>
+</div>
+
+<!-- Vision Block 1 -->
+<div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-12 shadow-xl space-y-6">
+<h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+<i class="fa-solid fa-bullseye text-xl"></i> Executive Leadership & Global Operations
+</h2>
+<p class="text-gray-200 text-base md:text-lg leading-relaxed">
+For decades, the standard playbook for scaling enterprise operations involved adding layers of management, maintaining bloated physical offices, and viewing talent through a restrictive geographic lens. Today, that legacy model is an operational liability that burdens modern enterprises with unnecessary fixed overhead and sluggish decision-making cycles.
+</p>
+<div class="border-l-2 border-gold pl-6 my-6 py-4 bg-gold/5 italic text-gray-100 text-lg md:text-xl font-medium">
+"Operating remotely from anywhere in the world. We don’t pay an employee to look good in an office; we pay for their knowledge, execution, and value."
+</div>
+<p class="text-gray-200 text-base md:text-lg leading-relaxed">
+By eliminating geographic and logistical bottlenecks, Goukens-sy Business Support allows companies to scale with surgical precision. Our philosophy centers on absolute transparency, merit-based execution, and leveraging modern digital infrastructure to connect top-tier global talent directly with high-impact enterprises.
+</p>
+</div>
+
+<!-- Vision Photo 2 -->
+<div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-2xl h-72 md:h-96">
+<img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80" alt="Global Operations" class="w-full h-full object-cover brightness-75">
+<div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8">
+<span class="text-gold text-xs tracking-widest uppercase font-semibold">Borderless Execution</span>
+<p class="text-white text-2xl font-bold mt-1">Unlocking Global Potential Without Limits</p>
+</div>
+</div>
+
+<!-- Vision Block 2 -->
+<div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-12 shadow-xl space-y-6">
+<h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+<i class="fa-solid fa-compass text-xl"></i> The Future of Enterprise Scalability
+</h2>
+<p class="text-gray-200 text-base md:text-lg leading-relaxed">
+The organizations that will dominate the coming decades are those built on agility rather than physical scale. We reject corporate bureaucracy in favor of streamlined, high-performance execution teams. Whether managing multi-language audio transcription campaigns, orchestrating complex resource feasibility studies, or driving sophisticated digital transformation projects, our approach guarantees optimal efficiency and measurable results.
+</p>
+<p class="text-gray-200 text-base md:text-lg leading-relaxed">
+By decoupling productivity from physical real estate, we empower businesses to tap into specialized expertise instantly. This ensures that every resource deployed delivers direct, high-value outcomes aligned with corporate strategic milestones.
+</p>
+</div>
+
+<!-- Vision Block 3: Core Pillars -->
+<div class="bg-card border border-gold/20 rounded-sm p-8 md:p-12 shadow-xl space-y-6">
+<h3 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+<i class="fa-solid fa-layer-group text-xl"></i> Core Operational Pillars
+</h3>
+<p class="text-gray-300 text-base md:text-lg leading-relaxed">
+Our operational framework rests upon foundational pillars designed to guarantee stability, security, and continuous high-level performance across all global projects:
+</p>
+<ul class="space-y-4 text-gray-200 text-base md:text-lg pt-2">
+<li class="bg-surface p-5 rounded-sm border border-gold/20">
+<strong class="text-gold block mb-1 text-lg">1. Uncompromising Quality & Vetting</strong>
+Strict screening, rigorous assessment, and continuous performance evaluations of global talents to match elite Western corporate standards.
+</li>
+<li class="bg-surface p-5 rounded-sm border border-gold/20">
+<strong class="text-gold block mb-1 text-lg">2. Radical Transparency & Accountability</strong>
+Clear milestones, real-time progress tracking, verifiable deliverables, and unobstructed communication channels between client teams and remote specialists.
+</li>
+<li class="bg-surface p-5 rounded-sm border border-gold/20">
+<strong class="text-gold block mb-1 text-lg">3. Continuous Innovation & Tooling</strong>
+Early adoption and seamless integration of state-of-the-art administrative automation, AI-augmented workflows, and secure digital collaboration tools.
+</li>
+</ul>
+</div>
+
+<!-- Vision Block 4: Security & Privacy -->
+<div class="bg-surface border border-gold/40 rounded-sm p-8 md:p-12 shadow-xl space-y-6">
+<h3 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+<i class="fa-solid fa-lock text-xl"></i> Security and Data Privacy Standards
+</h3>
+<p class="text-gray-200 text-base md:text-lg leading-relaxed">
+We maintain rigorous data handling protocols across all decentralized remote nodes. Confidentiality, enterprise-grade data encryption, and secure cloud environments ensure that our corporate partners retain absolute ownership, control, and security over their intellectual property, proprietary software, and sensitive datasets.
+</p>
+<p class="text-gray-300 text-base md:text-lg leading-relaxed">
+Trust is the bedrock of autonomous global operations. Our strict compliance frameworks guarantee peace of mind for executives managing mission-critical projects across international borders.
+</p>
+</div>
 </div>
 
 <!-- SERVICES TAB -->
 <div id="services" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-12">
-    <div class="text-center mb-12">
-        <span class="text-gold uppercase tracking-[0.3em] text-sm md:text-base font-semibold px-5 py-2 border border-gold/40 rounded-full inline-block">Operational Excellence</span>
-        <h1 class="text-3xl md:text-5xl font-extrabold text-white mt-2">Comprehensive Services</h1>
-    </div>
-    <div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
-        <h2 class="text-2xl font-bold text-gold">AI Data Annotation & Content Moderation</h2>
-        <p class="text-gray-300 text-base leading-relaxed">Advanced data annotation, prompt engineering, and rigorous quality assurance tailored for cutting-edge artificial intelligence models.</p>
-    </div>
+<div class="text-center mb-12">
+<span class="text-gold uppercase tracking-[0.3em] text-sm md:text-base font-semibold mb-4 inline-block px-5 py-2 border border-gold/40 rounded-full shadow-md">
+Operational Excellence
+</span>
+<h1 class="text-3xl md:text-5xl font-extrabold text-white mt-2">Comprehensive Services & Enterprise Solutions</h1>
 </div>
+<!-- Service 1 -->
+<div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
+<h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+<i class="fa-solid fa-microchip text-xl"></i> AI Data Annotation & Content Moderation
+</h2>
+<p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">
+Advanced data annotation, prompt engineering, and rigorous quality assurance tailored for cutting-edge artificial intelligence models and digital platforms.
+</p>
+<p class="text-gray-300 text-base md:text-lg leading-relaxed">
+We deliver high-precision dataset labeling and safety filtering to ensure your AI systems operate with maximum accuracy, contextual awareness, and strict adherence to industry compliance standards.
+</p>
+<ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
+<li>Comprehensive text, image, and video data labeling for advanced machine learning models</li>
+<li>Expert prompt engineering, model training support, and response evaluation</li>
+<li>Thorough content moderation, safety filtering, and rigorous compliance checks</li>
+</ul>
+</div>
+<!-- Service 2 -->
+<div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
+<h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+<i class="fa-solid fa-headset text-xl"></i> Customer Experience & Voice Operations
+</h2>
+<p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">
+Top-tier customer support, dynamic voice campaigns, and seamless multilingual communication management.
+</p>
+<p class="text-gray-300 text-base md:text-lg leading-relaxed">
+We empower your brand with exceptional customer relationship management, providing professional multi-channel support and voice interaction campaigns that build enduring customer loyalty.
+</p>
+<ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
+<li>Multilingual customer support, ticketing, and dedicated client relationship management</li>
+<li>Inbound and outbound professional voice campaigns tailored to global markets</li>
+<li>Audio utterance collection, voice recording tasks, and speech dataset curation</li>
+</ul>
+</div>
+
+<!-- PHOTO BREAK 1 -->
+<div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-xl h-64 md:h-80 my-8">
+<img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=80" alt="Professional Business Operations" class="w-full h-full object-cover brightness-75">
+<div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-6 left-6 right-6">
+<span class="text-gold text-xs tracking-widest uppercase font-semibold">Global Infrastructure</span>
+<p class="text-white text-xl font-bold">Seamless Execution & Dedicated Support</p>
+</div>
+</div>
+
+<!-- Service 3 -->
+<div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
+<h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+<i class="fa-solid fa-user-tie text-xl"></i> Executive Support & Virtual Assistance
+</h2>
+<p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">
+Professional virtual assistance and tailored administrative support designed for executive leadership teams and busy entrepreneurs.
+</p>
+<p class="text-gray-300 text-base md:text-lg leading-relaxed">
+By offloading time-consuming day-to-day administrative burdens, we allow executives to focus entirely on high-level strategy, business growth, and key decision-making.
+</p>
+<ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
+<li>Complex calendar management, schedule optimization, and executive correspondence</li>
+<li>Executive travel planning, logistical arrangements, and itinerary coordination</li>
+<li>Confidential document preparation, presentation design, and detailed executive reporting</li>
+</ul>
+</div>
+
+<!-- Service 4 -->
+<div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
+<h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+<i class="fa-solid fa-briefcase text-xl"></i> General Business Support & Administration
+</h2>
+<p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">
+Comprehensive corporate administration, database management, and operational workflow coordination.
+</p>
+<p class="text-gray-300 text-base md:text-lg leading-relaxed">
+We streamline your back-office operations to ensure data integrity, smooth internal processes, and maximum administrative efficiency across all departments.
+</p>
+<ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
+<li>Reliable corporate administration, record keeping, and document archiving</li>
+<li>Precise data entry, database maintenance, cleansing, and rigorous verification</li>
+<li>Operational workflow optimization, task tracking, and cross-departmental coordination</li>
+</ul>
+</div>
+
+<!-- PHOTO BREAK 2 -->
+<div class="relative rounded-sm overflow-hidden border border-gold/30 shadow-xl h-64 md:h-80 my-8">
+<img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80" alt="Modern Workspace" class="w-full h-full object-cover brightness-75">
+<div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-6 left-6 right-6">
+<span class="text-gold text-xs tracking-widest uppercase font-semibold">Executive Strategy</span>
+<p class="text-white text-xl font-bold">Streamlining Workflows & Enterprise Solutions</p>
+</div>
+</div>
+
+<!-- Service 5 -->
+<div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
+<h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+<i class="fa-solid fa-chart-line text-xl"></i> Market Research & Feasibility Analysis
+</h2>
+<p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">
+In-depth industrial research, water desalination feasibility studies, and copper tailing recovery assessments.
+</p>
+<p class="text-gray-300 text-base md:text-lg leading-relaxed">
+We deliver rigorous, data-driven market insights and technical feasibility analyses that empower leadership to evaluate complex industrial projects with total confidence.
+</p>
+<ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
+<li>Comprehensive feasibility studies for large-scale industrial and resource extraction projects</li>
+<li>Strategic market research, competitor benchmarking, and macroeconomic trend analysis</li>
+<li>Technical reporting, resource recovery evaluation, and actionable strategic recommendations</li>
+</ul>
+</div>
+
+<!-- Service 6 -->
+<div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
+<h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+<i class="fa-solid fa-bullhorn text-xl"></i> Lead Generation & Marketing Campaigns
+</h2>
+<p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">
+Targeted lead generation scripts, all-inclusive travel marketing materials, and high-conversion outreach campaigns.
+</p>
+<p class="text-gray-300 text-base md:text-lg leading-relaxed">
+We craft compelling marketing copy and structured outbound campaigns designed to capture high-value prospects and accelerate commercial growth across global consumer markets.
+</p>
+<ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
+<li>Custom lead generation scripts, cold outreach strategies, and sales funnel optimization</li>
+<li>Creative marketing collateral for vacation packages and all-inclusive travel services</li>
+<li>Multi-channel campaign execution, performance tracking, and conversion rate enhancement</li>
+</ul>
+</div>
+
+<!-- Service 7 -->
+<div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
+<h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+<i class="fa-solid fa-graduation-cap text-xl"></i> Education, Training & Corporate Coaching
+</h2>
+<p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">
+Specialized professional training, skill development programs, and tailored educational content curation.
+</p>
+<p class="text-gray-300 text-base md:text-lg leading-relaxed">
+We elevate organizational capability through structured coaching modules and comprehensive training frameworks designed to foster continuous professional excellence.
+</p>
+<ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
+<li>Custom corporate training program design and interactive skill development workshops</li>
+<li>Educational curriculum structuring, material creation, and progress assessment frameworks</li>
+<li>Specialized coaching for remote execution teams and operational leadership development</li>
+</ul>
+</div>
+
+<!-- Service 8 -->
+<div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
+<h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+<i class="fa-solid fa-code text-xl"></i> Software & Engineering Solutions
+</h2>
+<p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">
+Robust software development, firmware engineering, and advanced systems integration services.
+</p>
+<p class="text-gray-300 text-base md:text-lg leading-relaxed">
+We deliver scalable technical architecture and rigorous engineering execution to support complex digital platforms and automated hardware-software ecosystems.
+</p>
+<ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
+<li>Custom software development, application maintenance, and firmware programming</li>
+<li>Complex systems integration, API connectivity, and infrastructure scalability testing</li>
+<li>Rigorous technical auditing, code review, and quality assurance engineering</li>
+</ul>
+</div>
+
+<!-- Service 9 -->
+<div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
+<h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+<i class="fa-solid fa-coins text-xl"></i> Financial & Administrative Support
+</h2>
+<p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">
+Precise financial record-keeping, budgeting assistance, and comprehensive fiscal reporting.
+</p>
+<p class="text-gray-300 text-base md:text-lg leading-relaxed">
+We maintain pristine financial documentation and streamline accounting workflows to give executive leadership complete clarity over fiscal performance and capital allocation.
+</p>
+<ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
+<li>Detailed expense tracking, bookkeeping support, and financial statement organization</li>
+<li>Budgetary forecasting, financial modeling assistance, and variance reporting</li>
+<li>Corporate compliance auditing support and secure fiscal document management</li>
+</ul>
+</div>
+
+<!-- Service 10 -->
+<div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-10 shadow-xl space-y-5">
+<h2 class="text-2xl md:text-3xl font-bold text-gold flex items-center gap-3">
+<i class="fa-solid fa-globe text-xl"></i> Humanities & Language Specialization
+</h2>
+<p class="text-gray-200 text-lg md:text-xl leading-relaxed font-medium">
+Expert linguistic analysis, multilingual translation, and specialized cultural research services.
+</p>
+<p class="text-gray-300 text-base md:text-lg leading-relaxed">
+We bridge cultural and linguistic barriers with precision translation, contextual editing, and expert humanities research tailored for global communication strategies.
+</p>
+<ul class="list-disc pl-6 pt-2 space-y-2 text-gray-200 text-base md:text-lg">
+<li>High-accuracy multilingual translation, localization, and contextual editing</li>
+<li>German and global language literature analysis, transcription, and curation</li>
+<li>Specialized cultural research, content localization, and academic verification support</li>
+</ul>
+</div>
+</div>
+
 <!-- CANDIDATE PORTAL TAB -->
 <div id="portal" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-8">
-    <div class="bg-card border border-gold/30 rounded-sm p-8 md:p-12 shadow-2xl space-y-6">
-        <div class="text-center space-y-3">
-            <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold px-4 py-1.5 border border-gold/40 rounded-full inline-block">Talent Acquisition</span>
-            <h1 class="text-3xl md:text-4xl font-extrabold text-white">Candidate Registration & Portal</h1>
-        </div>
-        <div class="pt-6">
-            <iframe data-tally-src="https://tally.so/r/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="750" frameborder="0" title="Candidate Portal"></iframe>
-        </div>
-    </div>
+<div class="bg-surface border border-gold rounded-lg p-8 md:p-10 shadow-2xl space-y-6">
+<h1 class="text-3xl md:text-4xl font-bold text-gold mb-2">Candidate Portal & Email Registration</h1>
+<p class="text-gray-200 text-base md:text-lg leading-relaxed">
+Register with your e-mail address below via our secure Tally form to unlock <strong class="text-gold">30 days of free access</strong> to our exclusive Job Board.
+</p>
+<iframe data-tally-src="https://tally.so/r/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0" title="Goukens-Sy Candidate Portal"></iframe>
+</div>
 </div>
 
 <!-- JOB BOARD TAB -->
 <div id="jobs" class="tab-content hidden max-w-7xl mx-auto px-6 py-16 space-y-8">
-    <!-- Locked View -->
-    <div id="job-locked-view" class="bg-card border border-gold/30 rounded-sm p-12 text-center space-y-6 max-w-xl mx-auto shadow-2xl">
-        <div class="text-gold text-5xl mb-2"><i class="fa-solid fa-lock"></i></div>
-        <h2 class="text-2xl font-bold text-white">Job Board Access Restricted</h2>
-        <p class="text-gray-300 text-sm leading-relaxed">Please enter your authorized access code (<code class="text-gold">Gouk7507@</code>) or register via the Candidate Portal.</p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4 pt-2">
-            <button onclick="checkJobAccess()" class="px-6 py-3 bg-gold text-obsidian font-bold rounded-sm hover:bg-gold-light transition uppercase text-xs tracking-wider">Enter Access Code</button>
-            <button onclick="showTab('portal')" class="px-6 py-3 border border-gold/50 text-white font-bold rounded-sm hover:border-gold transition uppercase text-xs tracking-wider">Candidate Portal</button>
-        </div>
-    </div>
-
-    <!-- Unlocked Job Board View (4x4 Grid met 16 rollen en $10 lagere prijzen) -->
-    <div id="job-board-view" class="hidden space-y-8">
-        <div class="bg-card p-6 md:p-8 rounded-sm border border-gold/30 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-xl">
-            <div>
-                <span class="text-gold text-xs font-semibold uppercase tracking-wider bg-gold/10 px-3 py-1 rounded-full border border-gold/20">Active Roster</span>
-                <h1 class="text-2xl md:text-3xl font-extrabold text-white mt-2">Available Project Roles</h1>
-                <p class="text-gray-400 text-sm mt-1">Select any role below to review complete specifications and submit your application.</p>
-            </div>
-        </div>
-
-        <!-- 4x4 Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            <div onclick="openJobDetail('Multimodal Image Expert', 'High-precision multimodal dataset labeling, visual analysis, and AI training support.', '$20 / hour', 'Open')" class="bg-card border border-gold/30 hover:border-gold rounded-sm p-6 shadow-xl cursor-pointer transition space-y-3 group">
-                <span class="text-xs text-gold uppercase tracking-wider font-semibold">AI & Vision</span>
-                <h3 class="text-lg font-bold text-white group-hover:text-gold transition">Multimodal Image Expert</h3>
-                <p class="text-gold font-semibold">$20 / hour</p>
-            </div>
-            <div onclick="openJobDetail('Network Engineer', 'Global network infrastructure monitoring and routing configuration.', '$40 - $60 / hour', 'Open')" class="bg-card border border-gold/30 hover:border-gold rounded-sm p-6 shadow-xl cursor-pointer transition space-y-3 group">
-                <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
-                <h3 class="text-lg font-bold text-white group-hover:text-gold transition">Network Engineer</h3>
-                <p class="text-gold font-semibold">$40 - $60 / hour</p>
-            </div>
-            <div onclick="openJobDetail('Systems & Integration Experts', 'Enterprise systems architecture and API integrations.', '$90 - $110 / hour', 'Open')" class="bg-card border border-gold/30 hover:border-gold rounded-sm p-6 shadow-xl cursor-pointer transition space-y-3 group">
-                <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
-                <h3 class="text-lg font-bold text-white group-hover:text-gold transition">Systems & Integration</h3>
-                <p class="text-gold font-semibold">$90 - $110 / hour</p>
-            </div>
-            <div onclick="openJobDetail('Generalist Expert', 'Coordinating back-office workflows and document filing.', '$30 - $60 / hour', 'Open')" class="bg-card border border-gold/30 hover:border-gold rounded-sm p-6 shadow-xl cursor-pointer transition space-y-3 group">
-                <span class="text-xs text-gold uppercase tracking-wider font-semibold">Operations</span>
-                <h3 class="text-lg font-bold text-white group-hover:text-gold transition">Generalist Expert</h3>
-                <p class="text-gold font-semibold">$30 - $60 / hour</p>
-            </div>
-            <div onclick="openJobDetail('Data Analysis Expert', 'Analyzing corporate datasets and generating BI insights.', '$60 - $110 / hour', 'Open')" class="bg-card border border-gold/30 hover:border-gold rounded-sm p-6 shadow-xl cursor-pointer transition space-y-3 group">
-                <span class="text-xs text-gold uppercase tracking-wider font-semibold">Analytics</span>
-                <h3 class="text-lg font-bold text-white group-hover:text-gold transition">Data Analysis Expert</h3>
-                <p class="text-gold font-semibold">$60 - $110 / hour</p>
-            </div>
-            <div onclick="openJobDetail('Software & Firmware', 'Developing firmware and microcontroller programming.', '$90 - $110 / hour', 'Open')" class="bg-card border border-gold/30 hover:border-gold rounded-sm p-6 shadow-xl cursor-pointer transition space-y-3 group">
-                <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
-                <h3 class="text-lg font-bold text-white group-hover:text-gold transition">Software & Firmware</h3>
-                <p class="text-gold font-semibold">$90 - $110 / hour</p>
-            </div>
-            <div onclick="openJobDetail('Education & Training', 'Designing corporate training modules and skill frameworks.', '$20 - $75 / hour', 'Open')" class="bg-card border border-gold/30 hover:border-gold rounded-sm p-6 shadow-xl cursor-pointer transition space-y-3 group">
-                <span class="text-xs text-gold uppercase tracking-wider font-semibold">Education</span>
-                <h3 class="text-lg font-bold text-white group-hover:text-gold transition">Education & Training</h3>
-                <p class="text-gold font-semibold">$20 - $75 / hour</p>
-            </div>
-            <div onclick="openJobDetail('Finance Expert', 'Analyzing corporate expenditure and financial modeling.', '$50 - $170 / hour', 'Open')" class="bg-card border border-gold/30 hover:border-gold rounded-sm p-6 shadow-xl cursor-pointer transition space-y-3 group">
-                <span class="text-xs text-gold uppercase tracking-wider font-semibold">Finance</span>
-                <h3 class="text-lg font-bold text-white group-hover:text-gold transition">Finance Expert</h3>
-                <p class="text-gold font-semibold">$50 - $170 / hour</p>
-            </div>
-            <div onclick="openJobDetail('Mechanical Engineering', 'CAD modeling and industrial hardware prototyping.', '$90 - $110 / hour', 'Open')" class="bg-card border border-gold/30 hover:border-gold rounded-sm p-6 shadow-xl cursor-pointer transition space-y-3 group">
-                <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
-                <h3 class="text-lg font-bold text-white group-hover:text-gold transition">Mechanical Engineering</h3>
-                <p class="text-gold font-semibold">$90 - $110 / hour</p>
-            </div>
-            <div onclick="openJobDetail('Electrical & Hardware', 'Electrical circuit design and PCB layouts.', '$90 - $110 / hour', 'Open')" class="bg-card border border-gold/30 hover:border-gold rounded-sm p-6 shadow-xl cursor-pointer transition space-y-3 group">
-                <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
-                <h3 class="text-lg font-bold text-white group-hover:text-gold transition">Electrical & Hardware</h3>
-                <p class="text-gold font-semibold">$90 - $110 / hour</p>
-            </div>
-            <div onclick="openJobDetail('German Language Expert', 'German literature analysis and specialized translation.', '$40 / hour', 'Open')" class="bg-card border border-gold/30 hover:border-gold rounded-sm p-6 shadow-xl cursor-pointer transition space-y-3 group">
-                <span class="text-xs text-gold uppercase tracking-wider font-semibold">Humanities</span>
-                <h3 class="text-lg font-bold text-white group-hover:text-gold transition">German Language Expert</h3>
-                <p class="text-gold font-semibold">$40 / hour</p>
-            </div>
-            <div onclick="openJobDetail('Office Software Expert', 'Advanced spreadsheet modeling and workflow optimization.', '$50 - $60 / hour', 'Open')" class="bg-card border border-gold/30 hover:border-gold rounded-sm p-6 shadow-xl cursor-pointer transition space-y-3 group">
-                <span class="text-xs text-gold uppercase tracking-wider font-semibold">Operations</span>
-                <h3 class="text-lg font-bold text-white group-hover:text-gold transition">Office Software Expert</h3>
-                <p class="text-gold font-semibold">$50 - $60 / hour</p>
-            </div>
-            <div onclick="openJobDetail('Humanities Expert', 'Cultural research and academic editing.', '$35 - $50 / hour', 'Open')" class="bg-card border border-gold/30 hover:border-gold rounded-sm p-6 shadow-xl cursor-pointer transition space-y-3 group">
-                <span class="text-xs text-gold uppercase tracking-wider font-semibold">Humanities</span>
-                <h3 class="text-lg font-bold text-white group-hover:text-gold transition">Humanities Expert</h3>
-                <p class="text-gold font-semibold">$35 - $50 / hour</p>
-            </div>
-            <div onclick="openJobDetail('Arts & Design Expert', 'UI/UX design and visual brand presentation.', '$50 - $70 / hour', 'Open')" class="bg-card border border-gold/30 hover:border-gold rounded-sm p-6 shadow-xl cursor-pointer transition space-y-3 group">
-                <span class="text-xs text-gold uppercase tracking-wider font-semibold">Design</span>
-                <h3 class="text-lg font-bold text-white group-hover:text-gold transition">Arts & Design Expert</h3>
-                <p class="text-gold font-semibold">$50 - $70 / hour</p>
-            </div>
-            <div onclick="openJobDetail('Legal Expert', 'Legal document drafting and contract review support.', '$50 - $140 / hour', 'Open')" class="bg-card border border-gold/30 hover:border-gold rounded-sm p-6 shadow-xl cursor-pointer transition space-y-3 group">
-                <span class="text-xs text-gold uppercase tracking-wider font-semibold">Legal</span>
-                <h3 class="text-lg font-bold text-white group-hover:text-gold transition">Legal Expert</h3>
-                <p class="text-gold font-semibold">$50 - $140 / hour</p>
-            </div>
-            <div onclick="openJobDetail('Software Engineering Expert', 'Full-stack software development and automated testing.', '$60 - $140 / hour', 'Open')" class="bg-card border border-gold/30 hover:border-gold rounded-sm p-6 shadow-xl cursor-pointer transition space-y-3 group">
-                <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
-                <h3 class="text-lg font-bold text-white group-hover:text-gold transition">Software Engineering Expert</h3>
-                <p class="text-gold font-semibold">$60 - $140 / hour</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Job Detail View -->
-    <div id="job-detail-view" class="hidden space-y-8 max-w-4xl mx-auto bg-card border border-gold/30 p-8 md:p-12 rounded-sm shadow-2xl">
-        <button onclick="backToList()" class="text-gold text-sm font-semibold hover:underline flex items-center gap-2">
-            <i class="fa-solid fa-arrow-left"></i> Back to Job Roster
-        </button>
-        <div class="space-y-3 border-b border-gold/20 pb-6">
-            <h1 id="detail-title" class="text-3xl font-extrabold text-white">Job Title</h1>
-            <div class="flex flex-wrap gap-4 text-xs text-gray-300">
-                <span class="bg-surface px-3 py-1 rounded border border-gold/20"><strong class="text-gold">Compensation:</strong> <span id="detail-lang">Rate</span></span>
-                <span class="bg-surface px-3 py-1 rounded border border-gold/20"><strong class="text-gold">Status:</strong> <span id="detail-closing">Open</span></span>
-            </div>
-        </div>
-        <div class="space-y-4">
-            <h3 class="text-lg font-bold text-gold">Role Specifications & Responsibilities</h3>
-            <p id="detail-desc" class="text-gray-200 text-base leading-relaxed">Description...</p>
-        </div>
-        <div class="pt-6 border-t border-gold/20 space-y-4">
-            <h3 class="text-lg font-bold text-gold">Secure Direct Application</h3>
-            <div class="bg-surface p-2 rounded border border-gold/20">
-                <iframe data-tally-src="https://tally.so/r/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="550" frameborder="0" title="Application Form"></iframe>
-            </div>
-        </div>
-    </div>
+<div id="job-locked-view" class="bg-card border border-gold/30 rounded-xl p-10 text-center space-y-6 max-w-xl mx-auto">
+<div class="text-gold text-4xl"><i class="fa-solid fa-lock"></i></div>
+<h2 class="text-2xl font-bold text-white">Job Board Access Restricted</h2>
+<p class="text-gray-300">Please enter your access code or register via the Candidate Portal to view active opportunities.</p>
+<button onclick="checkJobAccess()" class="px-8 py-3 bg-gold text-obsidian font-bold rounded hover:bg-gold-light transition uppercase text-sm tracking-wider">
+Enter Access Code
+</button>
 </div>
+
+<div id="job-board-view" class="hidden space-y-8">
+<div class="text-center space-y-4">
+<span class="text-gold uppercase tracking-[0.3em] text-sm md:text-base font-semibold px-5 py-2 border border-gold/40 rounded-full shadow-md inline-block">
+Authorized Access Area
+</span>
+<h1 class="text-3xl md:text-5xl font-extrabold text-white mt-2">Active Project Openings & Vacancies</h1>
+<p class="text-gray-300 text-lg max-w-2xl mx-auto">
+Browse our active remote roles and submit your application securely via Tally.
+</p>
+</div>
+
+<!-- Job Grid (8 vacatures) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Job 1 -->
+<div onclick="openJobDetail('Multimodal Image Expert', 'Advanced AI image dataset annotation and computer vision model training support.', 'English / Global', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+<div class="space-y-3">
+<span class="text-xs text-gold uppercase tracking-wider font-semibold">AI & Vision</span>
+<h2 class="text-xl font-bold text-white group-hover:text-gold transition">Multimodal Image Expert</h2>
+<p class="text-gold font-semibold text-lg">$30 / hour</p>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+<span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+<span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+</div>
+</div>
+
+<!-- Job 2 -->
+<div onclick="openJobDetail('Network Engineer - Talent Network', 'Global network infrastructure monitoring, routing configuration, and technical troubleshooting.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+<div class="space-y-3">
+<span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
+<h2 class="text-xl font-bold text-white group-hover:text-gold transition">Network Engineer</h2>
+<p class="text-gold font-semibold text-lg">$50 - $70 / hour</p>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+<span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+<span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+</div>
+</div>
+
+<!-- Job 3 -->
+<div onclick="openJobDetail('Systems & Integration Expert', 'Enterprise systems architecture, API integrations, and cloud workflow automation.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+<div class="space-y-3">
+<span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
+<h2 class="text-xl font-bold text-white group-hover:text-gold transition">Systems & Integration</h2>
+<p class="text-gold font-semibold text-lg">$100 - $120 / hour</p>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+<span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+<span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+</div>
+</div>
+
+<!-- Job 4 -->
+<div onclick="openJobDetail('Generalist Expert', 'Cross-functional administrative support, task coordination, and workflow management.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+<div class="space-y-3">
+<span class="text-xs text-gold uppercase tracking-wider font-semibold">Operations</span>
+<h2 class="text-xl font-bold text-white group-hover:text-gold transition">Generalist Expert</h2>
+<p class="text-gold font-semibold text-lg">$40 - $70 / hour</p>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+<span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+<span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+</div>
+</div>
+
+<!-- Job 5 -->
+<div onclick="openJobDetail('Data Analysis Expert', 'Dataset cleaning, statistical processing, and executive reporting for business operations.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+<div class="space-y-3">
+<span class="text-xs text-gold uppercase tracking-wider font-semibold">Analytics</span>
+<h2 class="text-xl font-bold text-white group-hover:text-gold transition">Data Analysis Expert</h2>
+<p class="text-gold font-semibold text-lg">$70 - $120 / hour</p>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+<span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+<span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+</div>
+</div>
+
+<!-- Job 6 -->
+<div onclick="openJobDetail('Software & Firmware Expert', 'Embedded firmware programming, software architecture development, and debugging.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+<div class="space-y-3">
+<span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
+<h2 class="text-xl font-bold text-white group-hover:text-gold transition">Software & Firmware</h2>
+<p class="text-gold font-semibold text-lg">$100 - $120 / hour</p>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+<span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+<span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+</div>
+</div>
+
+<!-- Job 7 -->
+<div onclick="openJobDetail('Education & Training Expert', 'Educational curriculum structuring, workshop coordination, and remote coaching.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+<div class="space-y-3">
+<span class="text-xs text-gold uppercase tracking-wider font-semibold">Education</span>
+<h2 class="text-xl font-bold text-white group-hover:text-gold transition">Education & Training</h2>
+<p class="text-gold font-semibold text-lg">$30 - $85 / hour</p>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+<span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+<span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+</div>
+</div>
+
+<!-- Job 8 -->
+<div onclick="openJobDetail('Finance Expert', 'Financial bookkeeping, budget analysis, and corporate fiscal reporting.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+<div class="space-y-3">
+<span class="text-xs text-gold uppercase tracking-wider font-semibold">Finance</span>
+<h2 class="text-xl font-bold text-white group-hover:text-gold transition">Finance Expert</h2>
+<p class="text-gold font-semibold text-lg">$60 - $180 / hour</p>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+<span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+<span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Job Detail View -->
+<div id="job-detail-view" class="hidden bg-card border border-gold/40 rounded-xl p-8 md:p-12 shadow-2xl space-y-8 max-w-4xl mx-auto">
+<div class="flex items-center justify-between border-b border-gold/20 pb-6">
+<div>
+<span class="text-gold text-xs font-semibold uppercase tracking-wider bg-gold/10 px-3 py-1 rounded-full">Vacancy Details</span>
+<h1 id="detail-title" class="text-3xl md:text-4xl font-extrabold text-white mt-3"></h1>
+</div>
+<button onclick="backToList()" class="px-4 py-2 border border-gold/50 text-gold font-bold rounded hover:bg-gold/10 transition text-sm">
+<i class="fa-solid fa-arrow-left mr-1"></i> Back to Jobs
+</button>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-surface p-6 rounded-lg border border-gold/20">
+<div>
+<span class="text-gray-400 text-xs uppercase tracking-wider block">Language Requirement</span>
+<p id="detail-lang" class="text-white font-semibold text-lg mt-1"></p>
+</div>
+<div>
+<span class="text-gray-400 text-xs uppercase tracking-wider block">Closing Date</span>
+<p id="detail-closing" class="text-white font-semibold text-lg mt-1"></p>
+</div>
+<div class="md:col-span-2 pt-4 border-t border-gold/10">
+<span class="text-gray-400 text-xs uppercase tracking-wider block">Role Description</span>
+<p id="detail-desc" class="text-gray-200 text-base leading-relaxed mt-1"></p>
+</div>
+</div>
+
+<div class="space-y-4 pt-4">
+<h3 class="text-xl font-bold text-gold">Submit Your Application</h3>
+<p class="text-gray-300 text-sm">Please fill out the secure application form below:</p>
+<div class="bg-surface border border-gold/30 rounded-lg p-2">
+<iframe data-tally-src="https://tally.so/r/JOUW_TALLY_FORM_ID?transparentBackground=1" loading="lazy" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0" title="Job Application Form"></iframe>
+</div>
+</div>
+</div>
+
+</div>
+
 <!-- CONTACT TAB -->
-<div id="contact" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-8">
-    <div class="bg-card border border-gold/30 rounded-sm p-8 md:p-12 shadow-2xl space-y-6">
-        <div class="text-center space-y-3">
-            <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold px-4 py-1.5 border border-gold/40 rounded-full inline-block">Get In Touch</span>
-            <h1 class="text-3xl md:text-4xl font-extrabold text-white">Client Consultation & Inquiries</h1>
-        </div>
-        <div class="pt-6">
-            <iframe data-tally-src="https://tally.so/r/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="750" frameborder="0" title="Contact Form"></iframe>
-        </div>
-    </div>
+<div id="contact" class="tab-content hidden max-w-4xl mx-auto px-6 py-16 space-y-12">
+<div class="text-center mb-12">
+<span class="text-gold uppercase tracking-[0.3em] text-sm md:text-base font-semibold mb-4 inline-block px-5 py-2 border border-gold/40 rounded-full shadow-md">
+For Clients & Partners Only
+</span>
+<h1 class="text-3xl md:text-5xl font-extrabold text-white mt-2">Client Consultations & Inquiries</h1>
 </div>
-
+<div class="bg-card border border-gold/20 border-l-4 border-l-gold rounded-sm p-8 md:p-12 shadow-xl text-center space-y-6">
+<h2 class="text-2xl md:text-3xl font-bold text-gold mb-2">Schedule a Client Consultation</h2>
+<p class="text-gray-300 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
+Direct calendar scheduling for corporate partners, enterprise stakeholders, and project collaboration inquiries.
+</p>
+<a href="https://geert-goukens.dayschedule.com" target="_blank" class="inline-block px-8 py-4 bg-gold text-obsidian font-bold rounded-sm hover:bg-gold-light transition uppercase text-sm tracking-wider shadow-lg">
+<i class="fa-regular fa-calendar-check mr-2"></i> Book Client Meeting
+</a>
+</div>
+</div>
 </main>
 
-<!-- FOOTER -->
-<footer class="bg-surface border-t border-gold/20 py-12 mt-20 text-gray-400 text-sm">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-        <div class="space-y-3">
-            <a href="#home" onclick="showTab('home')" class="text-lg font-bold text-gold flex items-center gap-2 cursor-pointer">
-                <i class="fa-solid fa-gem text-gold"></i> GOUKENS-SY
-            </a>
-            <p class="text-gray-400 text-xs leading-relaxed">Executive Leadership & Global Operations.</p>
-        </div>
-    </div>
-    <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-gold/10 text-center text-xs text-gray-500">
-        &copy; 2026 Goukens-sy Business Support Inc. All rights reserved.
-    </div>
+<!-- Footer -->
+<footer class="bg-surface border-t border-gold/20 py-12 px-6 text-center text-sm md:text-base text-gray-400 mt-20">
+<div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+<div class="text-gold font-bold tracking-widest text-lg flex items-center gap-2">
+<i class="fa-solid fa-gem"></i> GOUKENS-SY
+</div>
+<p>&copy; 2026 Goukens-sy Business Support. All rights reserved.</p>
+</div>
 </footer>
-
-<!-- JAVASCRIPT LOGIC -->
-<script>
-    function showTab(tabId) {
-        const tabs = document.querySelectorAll('.tab-content');
-        tabs.forEach(tab => tab.classList.add('hidden'));
-        const targetTab = document.getElementById(tabId);
-        if (targetTab) {
-            targetTab.classList.remove('hidden');
-        }
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.classList.remove('text-gold', 'font-semibold', 'border-b', 'border-gold');
-            link.classList.add('hover:text-gold');
-        });
-        const activeLink = document.getElementById('link-' + tabId);
-        if(activeLink) {
-            activeLink.classList.remove('hover:text-gold');
-            activeLink.classList.add('text-gold', 'font-semibold', 'border-b', 'border-gold', 'pb-1');
-        }
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function checkJobAccess() {
-        const passcode = prompt("Enter access code to view the Job Board:");
-        if (passcode === "Gouk7507@") {
-            showTab('jobs');
-            document.getElementById('job-locked-view').classList.add('hidden');
-            document.getElementById('job-board-view').classList.remove('hidden');
-            document.getElementById('job-detail-view').classList.add('hidden');
-        } else {
-            alert("Incorrect access code.");
-            showTab('portal');
-        }
-    }
-
-    function openJobDetail(jobTitle, jobDesc, lang, closingDate) {
-        document.getElementById('job-board-view').classList.add('hidden');
-        document.getElementById('job-detail-view').classList.remove('hidden');
-        document.getElementById('detail-title').innerText = jobTitle;
-        document.getElementById('detail-desc').innerText = jobDesc;
-        document.getElementById('detail-lang').innerText = lang;
-        document.getElementById('detail-closing').innerText = closingDate;
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function backToList() {
-        document.getElementById('job-detail-view').classList.add('hidden');
-        document.getElementById('job-board-view').classList.remove('hidden');
-    }
-</script>
 </body>
-</html>    
+</html>
