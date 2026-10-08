@@ -60,29 +60,6 @@ document.getElementById('detail-lang').innerText = lang;
 document.getElementById('detail-closing').innerText = closingDate;
 window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-<!-- Job Detail View (Split-screen) -->
-<div id="job-detail-view" class="hidden space-y-8 max-w-4xl mx-auto bg-card border border-gold/30 p-8 md:p-12 rounded-sm shadow-2xl">
-    <button onclick="backToList()" class="text-gold text-sm font-semibold hover:underline flex items-center gap-2">
-        <i class="fa-solid fa-arrow-left"></i> Back to Job Roster
-    </button>
-    <div class="space-y-3 border-b border-gold/20 pb-6">
-        <h1 id="detail-title" class="text-3xl font-extrabold text-white">Job Title</h1>
-        <div class="flex flex-wrap gap-4 text-xs text-gray-300">
-            <span class="bg-surface px-3 py-1 rounded border border-gold/20"><strong class="text-gold">Compensation:</strong> <span id="detail-lang">Rate</span></span>
-            <span class="bg-surface px-3 py-1 rounded border border-gold/20"><strong class="text-gold">Status:</strong> <span id="detail-closing">Open</span></span>
-        </div>
-    </div>
-    <div class="space-y-4">
-        <h3 class="text-lg font-bold text-gold">Role Specifications & Responsibilities</h3>
-        <p id="detail-desc" class="text-gray-200 text-base leading-relaxed">Description...</p>
-    </div>
-    <div class="pt-6 border-t border-gold/20 space-y-4">
-        <h3 class="text-lg font-bold text-gold">Secure Direct Application</h3>
-        <div class="bg-surface p-2 rounded border border-gold/20">
-            <iframe data-tally-src="https://tally.so/r/A7VxNN?transparentBackground=1" loading="lazy" width="100%" height="550" frameborder="0" title="Application Form"></iframe>
-        </div>
-    </div>
-</div>    
 function backToList() {
 document.getElementById('job-detail-view').classList.add('hidden');
 document.getElementById('job-board-view').classList.remove('hidden');
@@ -557,80 +534,113 @@ Browse our active remote roles and submit your application securely via Tally.
 </div>
 
 <!-- Job Grid (8 vacatures) -->
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-    <div onclick="openJobDetail('Multimodal Image Expert', 'High-precision multimodal dataset labeling, visual analysis, and AI training support.', '$20 / hour', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3">
-            <span class="text-xs text-gold uppercase tracking-wider font-semibold">AI & Vision</span>
-            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Multimodal Image Expert</h2>
-            <p class="text-gold font-semibold text-lg">$20 / hour</p>
-        </div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
-            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
-        </div>
-    </div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Job 1 -->
+<div onclick="openJobDetail('Multimodal Image Expert', 'Advanced AI image dataset annotation and computer vision model training support.', 'English / Global', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+<div class="space-y-3">
+<span class="text-xs text-gold uppercase tracking-wider font-semibold">AI & Vision</span>
+<h2 class="text-xl font-bold text-white group-hover:text-gold transition">Multimodal Image Expert</h2>
+<p class="text-gold font-semibold text-lg">$30 / hour</p>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+<span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+<span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+</div>
+</div>
 
-    <div onclick="openJobDetail('Network Engineer', 'Global network infrastructure monitoring, routing configuration, and technical troubleshooting.', '$40 - $60 / hour', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3">
-            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
-            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Network Engineer</h2>
-            <p class="text-gold font-semibold text-lg">$40 - $60 / hour</p>
-        </div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
-            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
-        </div>
-    </div>
+<!-- Job 2 -->
+<div onclick="openJobDetail('Network Engineer - Talent Network', 'Global network infrastructure monitoring, routing configuration, and technical troubleshooting.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+<div class="space-y-3">
+<span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
+<h2 class="text-xl font-bold text-white group-hover:text-gold transition">Network Engineer</h2>
+<p class="text-gold font-semibold text-lg">$50 - $70 / hour</p>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+<span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+<span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+</div>
+</div>
 
-    <div onclick="openJobDetail('Systems & Integration Expert', 'Enterprise systems architecture, API integrations, and cloud workflow automation.', '$90 - $110 / hour', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
-        <div class="space-y-3">
-            <span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
-            <h2 class="text-xl font-bold text-white group-hover:text-gold transition">Systems & Integration</h2>
-            <p class="text-gold font-semibold text-lg">$90 - $110 / hour</p>
-        </div>
-        <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
-            <span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
-            <span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
-        </div>
-    </div>
-function openJobDetail(jobTitle, jobDesc, lang, closingDate) {
-    // Verberg het hoofdgrid en toon het detail-scherm
-    const boardView = document.getElementById('job-board-view');
-    const detailView = document.getElementById('job-detail-view');
-    
-    if (boardView) boardView.classList.add('hidden');
-    if (detailView) {
-        detailView.classList.remove('hidden');
-        detailView.style.display = 'block'; // Forceer dat het zichtbaar wordt
-    }
+<!-- Job 3 -->
+<div onclick="openJobDetail('Systems & Integration Expert', 'Enterprise systems architecture, API integrations, and cloud workflow automation.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+<div class="space-y-3">
+<span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
+<h2 class="text-xl font-bold text-white group-hover:text-gold transition">Systems & Integration</h2>
+<p class="text-gold font-semibold text-lg">$100 - $120 / hour</p>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+<span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+<span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+</div>
+</div>
 
-    // Vul de velden in
-    const titleEl = document.getElementById('detail-title');
-    const descEl = document.getElementById('detail-desc');
-    const langEl = document.getElementById('detail-lang');
-    const closingEl = document.getElementById('detail-closing');
+<!-- Job 4 -->
+<div onclick="openJobDetail('Generalist Expert', 'Cross-functional administrative support, task coordination, and workflow management.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+<div class="space-y-3">
+<span class="text-xs text-gold uppercase tracking-wider font-semibold">Operations</span>
+<h2 class="text-xl font-bold text-white group-hover:text-gold transition">Generalist Expert</h2>
+<p class="text-gold font-semibold text-lg">$40 - $70 / hour</p>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+<span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+<span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+</div>
+</div>
 
-    if (titleEl) titleEl.innerText = jobTitle;
-    if (descEl) descEl.innerText = jobDesc;
-    if (langEl) langEl.innerText = lang;
-    if (closingEl) closingEl.innerText = closingDate;
+<!-- Job 5 -->
+<div onclick="openJobDetail('Data Analysis Expert', 'Dataset cleaning, statistical processing, and executive reporting for business operations.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+<div class="space-y-3">
+<span class="text-xs text-gold uppercase tracking-wider font-semibold">Analytics</span>
+<h2 class="text-xl font-bold text-white group-hover:text-gold transition">Data Analysis Expert</h2>
+<p class="text-gold font-semibold text-lg">$70 - $120 / hour</p>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+<span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+<span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+</div>
+</div>
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+<!-- Job 6 -->
+<div onclick="openJobDetail('Software & Firmware Expert', 'Embedded firmware programming, software architecture development, and debugging.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+<div class="space-y-3">
+<span class="text-xs text-gold uppercase tracking-wider font-semibold">Engineering</span>
+<h2 class="text-xl font-bold text-white group-hover:text-gold transition">Software & Firmware</h2>
+<p class="text-gold font-semibold text-lg">$100 - $120 / hour</p>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+<span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+<span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+</div>
+</div>
 
-function backToList() {
-    const boardView = document.getElementById('job-board-view');
-    const detailView = document.getElementById('job-detail-view');
+<!-- Job 7 -->
+<div onclick="openJobDetail('Education & Training Expert', 'Educational curriculum structuring, workshop coordination, and remote coaching.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+<div class="space-y-3">
+<span class="text-xs text-gold uppercase tracking-wider font-semibold">Education</span>
+<h2 class="text-xl font-bold text-white group-hover:text-gold transition">Education & Training</h2>
+<p class="text-gold font-semibold text-lg">$30 - $85 / hour</p>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+<span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+<span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+</div>
+</div>
 
-    if (detailView) {
-        detailView.classList.add('hidden');
-        detailView.style.display = 'none';
-    }
-    if (boardView) boardView.classList.remove('hidden');
-    
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-   
+<!-- Job 8 -->
+<div onclick="openJobDetail('Finance Expert', 'Financial bookkeeping, budget analysis, and corporate fiscal reporting.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group">
+<div class="space-y-3">
+<span class="text-xs text-gold uppercase tracking-wider font-semibold">Finance</span>
+<h2 class="text-xl font-bold text-white group-hover:text-gold transition">Finance Expert</h2>
+<p class="text-gold font-semibold text-lg">$60 - $180 / hour</p>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400">
+<span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-sparkles mr-1"></i> New opportunity</span>
+<span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span>
+</div>
+</div>
+</div>
+</div>
+
 <!-- Job Detail View -->
 <div id="job-detail-view" class="hidden bg-card border border-gold/40 rounded-xl p-8 md:p-12 shadow-2xl space-y-8 max-w-4xl mx-auto">
 <div class="flex items-center justify-between border-b border-gold/20 pb-6">
