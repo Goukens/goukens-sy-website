@@ -62,7 +62,38 @@ showTab('portal');
         if (page1) page1.classList.add('hidden');
         if (page2) page2.classList.remove('hidden');
     }
-    window.scrollTo({ top: 200, behavior: 'smooth' });
+    function openJobDetail(title, desc, salary) {
+    const page1 = document.getElementById('job-page-1');
+    const page2 = document.getElementById('job-page-2');
+    const detailSection = document.getElementById('job-detail-section');
+
+    if (page1) page1.classList.add('hidden');
+    if (page2) page2.classList.add('hidden');
+    
+    const titleEl = document.getElementById('detail-title');
+    const descEl = document.getElementById('detail-desc');
+    const salaryEl = document.getElementById('detail-salary');
+
+    if (titleEl) titleEl.innerText = title;
+    if (descEl) descEl.innerText = desc;
+    if (salaryEl) salaryEl.innerText = salary;
+    
+    if (detailSection) {
+        detailSection.classList.remove('hidden');
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function closeJobDetail() {
+    const detailSection = document.getElementById('job-detail-section');
+    const page1 = document.getElementById('job-page-1');
+    const page2 = document.getElementById('job-page-2');
+    
+    if (detailSection) detailSection.classList.add('hidden');
+    // Controleer welke pagina actief moet zijn bij terugkeer, standaard naar pagina 1 of pas dit aan
+    if (page1) page1.classList.remove('hidden');
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }  
 function openJobDetail(jobTitle, jobDesc, lang, closingDate) {
 document.getElementById('job-board-view').classList.add('hidden');
