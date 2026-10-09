@@ -39,12 +39,28 @@ activeLink.classList.add('text-gold', 'font-semibold', 'border-b', 'border-gold'
 }
 window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+function showTab(tabName) {
+    const views = ['home-view', 'vision-view', 'services-view', 'portal-view', 'job-board-view', 'contact-view'];
+    views.forEach(function(v) {
+        const el = document.getElementById(v);
+        if (el) el.classList.add('hidden');
+    });
+
+    const target = document.getElementById(tabName + '-view');
+    if (target) {
+        target.classList.remove('hidden');
+        target.style.display = 'block';
+    }
+}
+
 function checkJobAccess() {
     const passcode = prompt("Enter access code to view the Job Board (Candidates register via Portal, or enter code)");
     if (passcode === "Gouk7507@") {
         showTab('jobs');
-        document.getElementById('job-locked-view').classList.add('hidden');
-        document.getElementById('job-board-view').classList.remove('hidden');
+        const lockedView = document.getElementById('job-locked-view');
+        if (lockedView) lockedView.classList.add('hidden');
+        const boardView = document.getElementById('job-board-view');
+        if (boardView) boardView.classList.remove('hidden');
         const lockedDetail = document.getElementById('job-detail-view');
         if (lockedDetail) lockedDetail.classList.add('hidden');
     } else {
@@ -96,7 +112,7 @@ function openJobDetail(jobTitle, jobDesc, lang, closingDate) {
     const tallyIframe = document.getElementById('tally-iframe');
     if (tallyIframe) {
         const encodedTitle = encodeURIComponent(jobTitle || 'Vacancy');
-        tallyIframe.setAttribute('data-tally-src', `https://tally.so/embed/aQbQgb?transparentBackground=1&job_title=${encodedTitle}`);
+        tallyIframe.setAttribute('data-tally-src', 'https://tally.so/embed/aQbQgb?transparentBackground=1&job_title=' + encodedTitle);
     }
 
     if (typeof Tally !== 'undefined') {
