@@ -100,36 +100,45 @@ function switchJobPage(pageNum) {
         const encodedTitle = encodeURIComponent(jobTitle || 'Vacancy');
         tallyIframe.setAttribute('data-tally-src', `https://tally.so/embed/aQbQgb?transparentBackground=1&job_title=${encodedTitle}`);
     }
+function openJobDetail(jobTitle, jobDesc, lang, closingDate) {
+    const mainJobBoardView = document.getElementById('job-board-view');
+    if (mainJobBoardView) mainJobBoardView.classList.add('hidden');
+    
+    const p1 = document.getElementById('job-page-1');
+    const p2 = document.getElementById('job-page-2');
+    if (p1) p1.classList.add('hidden');
+    if (p2) p2.classList.add('hidden');
 
-    // Herlaad de Tally embed
-    if (typeof Tally !== 'undefined') {
-        Tally.loadEmbeds();
+    const activeDetailView = document.getElementById('job-detail-view');
+    if (activeDetailView) {
+        activeDetailView.classList.remove('hidden');
+        activeDetailView.style.display = 'block';
     }
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    document.getElementById('job-board-view').classList.add('hidden');
-    
-    const detailView = document.getElementById('job-detail-view');
-    detailView.classList.remove('hidden');
-    detailView.style.display = 'block';
-    
-    document.getElementById('detail-title').innerText = jobTitle;
-    document.getElementById('detail-desc').innerText = jobDesc;
-    document.getElementById('detail-lang').innerText = lang;
-    document.getElementById('detail-closing').innerText = closingDate;
+    const titleEl = document.getElementById('detail-title');
+    if (titleEl) titleEl.innerText = jobTitle || '';
 
-    // Update de Tally iframe bron met de exacte functietitel
+    const descEl = document.getElementById('detail-desc');
+    if (descEl) descEl.innerText = jobDesc || '';
+
+    const langEl = document.getElementById('detail-lang');
+    if (langEl) langEl.innerText = lang || 'English';
+
+    const closingEl = document.getElementById('detail-closing');
+    if (closingEl) closingEl.innerText = closingDate || 'Open until filled';
+
     const tallyIframe = document.getElementById('tally-iframe');
     if (tallyIframe) {
         const encodedTitle = encodeURIComponent(jobTitle || 'Vacancy');
         tallyIframe.setAttribute('data-tally-src', `https://tally.so/embed/aQbQgb?transparentBackground=1&job_title=${encodedTitle}`);
     }
 
-    // Laad het Tally formulier opnieuw in de view
     if (typeof Tally !== 'undefined') {
         Tally.loadEmbeds();
     }
 
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 function backToList() {
