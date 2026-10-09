@@ -40,23 +40,33 @@ activeLink.classList.add('text-gold', 'font-semibold', 'border-b', 'border-gold'
 window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 function showTab(tabName) {
-    const tabs = ['home', 'vision', 'services', 'portal', 'jobs', 'contact'];
+    const allTabs = ['home', 'vision', 'services', 'portal', 'jobs', 'contact', 'job-board', 'job-locked', 'job-detail'];
     
-    tabs.forEach(function(t) {
-        const elView = document.getElementById(t + '-view');
-        const elDirect = document.getElementById(t);
-        
-        if (elView) elView.classList.add('hidden');
-        if (elDirect) elDirect.classList.add('hidden');
+    allTabs.forEach(function(t) {
+        const el = document.getElementById(t + '-view') || document.getElementById(t);
+        if (el) {
+            el.classList.add('hidden');
+            el.style.display = 'none';
+        }
     });
 
-    const target = document.getElementById(tabName + '-view') || document.getElementById(tabName);
+    let targetId = tabName;
+    if (tabName === 'jobs' || tabName === 'job-board') {
+        targetId = 'job-board-view';
+    } else if (tabName === 'portal') {
+        targetId = 'portal-view';
+    } else {
+        targetId = tabName + '-view';
+    }
+
+    const target = document.getElementById(targetId) || document.getElementById(tabName);
     if (target) {
         target.classList.remove('hidden');
         target.style.display = 'block';
     }
-}
 
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 function checkJobAccess() {
     const passcode = prompt("Enter access code to view the Job Board (Candidates register via Portal, or enter code)");
     if (passcode === "Gouk7507@") {
