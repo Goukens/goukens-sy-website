@@ -65,41 +65,7 @@ function switchJobPage(pageNum) {
         if (page2) page2.classList.remove('hidden');
     }
 }
-    // Verberg de vacaturelijsten en paginering
-    const jobBoardView = document.getElementById('job-board-view');
-    if (jobBoardView) jobBoardView.classList.add('hidden');
-    
-    const p1 = document.getElementById('job-page-1');
-    const p2 = document.getElementById('job-page-2');
-    if (p1) p1.classList.add('hidden');
-    if (p2) p2.classList.add('hidden');
 
-    // Toon het detailvenster
-    const activeDetailView = document.getElementById('job-detail-view');
-    if (detailView) {
-        detailView.classList.remove('hidden');
-        detailView.style.display = 'block';
-    }
-
-    // Vul de vacaturedetails in
-    const titleEl = document.getElementById('detail-title');
-    if (titleEl) titleEl.innerText = jobTitle || '';
-
-    const descEl = document.getElementById('detail-desc');
-    if (descEl) descEl.innerText = jobDesc || '';
-
-    const langEl = document.getElementById('detail-lang');
-    if (langEl) langEl.innerText = lang || 'English';
-
-    const closingEl = document.getElementById('detail-closing');
-    if (closingEl) closingEl.innerText = closingDate || 'Open until filled';
-
-    // Update de Tally iframe bron zodat de functietitel automatisch wordt meegegeven
-    const tallyIframe = document.getElementById('tally-iframe');
-    if (tallyIframe) {
-        const encodedTitle = encodeURIComponent(jobTitle || 'Vacancy');
-        tallyIframe.setAttribute('data-tally-src', `https://tally.so/embed/aQbQgb?transparentBackground=1&job_title=${encodedTitle}`);
-    }
 function openJobDetail(jobTitle, jobDesc, lang, closingDate) {
     const mainJobBoardView = document.getElementById('job-board-view');
     if (mainJobBoardView) mainJobBoardView.classList.add('hidden');
@@ -139,8 +105,7 @@ function openJobDetail(jobTitle, jobDesc, lang, closingDate) {
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+
 function backToList() {
     const detailView = document.getElementById('job-detail-view');
     if (detailView) {
@@ -155,7 +120,6 @@ function backToList() {
     
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-</script>
 <script async src="https://tally.so/widgets/embed.js"></script></head><body class="bg-obsidian text-gray-200 font-sans antialiased selection:bg-gold selection:text-obsidian flex flex-col min-h-screen">
 <!-- Header / Navigation -->
 <header class="sticky top-0 z-50 bg-obsidian/95 backdrop-blur-md border-b border-gold/20">
