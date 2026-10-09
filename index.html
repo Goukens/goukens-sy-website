@@ -39,44 +39,27 @@ activeLink.classList.add('text-gold', 'font-semibold', 'border-b', 'border-gold'
 }
 window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-function showTab(tabName) {
-    const allTabs = ['home', 'vision', 'services', 'portal', 'jobs', 'contact', 'job-board', 'job-locked', 'job-detail', 'job-board-view', 'job-locked-view'];
+function showTab(tabId) {
+    const tabs = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => tab.classList.add('hidden'));
     
-    allTabs.forEach(function(t) {
-        const el = document.getElementById(t) || document.getElementById(t + '-view');
-        if (el) {
-            el.classList.add('hidden');
-            el.style.display = 'none';
-        }
+    const targetTab = document.getElementById(tabId);
+    if (targetTab) {
+        targetTab.classList.remove('hidden');
+    }
+    
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.classList.remove('text-gold', 'font-semibold', 'border-b', 'border-gold', 'pb-1');
+        link.classList.add('hover:text-gold');
     });
-
-    if (tabName === 'jobs' || tabName === 'job-board') {
-        const boardView = document.getElementById('job-board-view');
-        if (boardView) {
-            boardView.classList.remove('hidden');
-            boardView.style.display = 'block';
-        }
-        const lockedView = document.getElementById('job-locked-view');
-        if (lockedView) {
-            lockedView.classList.add('hidden');
-            lockedView.style.display = 'none';
-        }
-    } else {
-        let target = document.getElementById(tabName) || document.getElementById(tabName + '-view');
-        if (target) {
-            target.classList.remove('hidden');
-            target.style.display = 'block';
-        }
+    
+    const activeLink = document.getElementById('link-' + tabId);
+    if (activeLink) {
+        activeLink.classList.remove('hover:text-gold');
+        activeLink.classList.add('text-gold', 'font-semibold', 'border-b', 'border-gold', 'pb-1');
     }
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-    const target = document.getElementById(targetId) || document.getElementById(tabName);
-    if (target) {
-        target.classList.remove('hidden');
-        target.style.display = 'block';
-    }
-
+    
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 function checkJobAccess() {
