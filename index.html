@@ -75,7 +75,7 @@ function switchJobPage(pageNum) {
     if (p2) p2.classList.add('hidden');
 
     // Toon het detailvenster
-    const detailView = document.getElementById('job-detail-view');
+    const activeDetailView = document.getElementById('job-detail-view');
     if (detailView) {
         detailView.classList.remove('hidden');
         detailView.style.display = 'block';
@@ -142,11 +142,18 @@ function openJobDetail(jobTitle, jobDesc, lang, closingDate) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 function backToList() {
-const detailView = document.getElementById('');
-detailView.classList.add('hidden');
-detailView.style.display = 'none';
-document.getElementById('job-board-view').classList.remove('hidden');
-window.scrollTo({ top: 0, behavior: 'smooth' });
+    const detailView = document.getElementById('job-detail-view');
+    if (detailView) {
+        detailView.classList.add('hidden');
+        detailView.style.display = 'none';
+    }
+    
+    const jobBoardView = document.getElementById('job-board-view');
+    if (jobBoardView) {
+        jobBoardView.classList.remove('hidden');
+    }
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
 <script async src="https://tally.so/widgets/embed.js"></script></head><body class="bg-obsidian text-gray-200 font-sans antialiased selection:bg-gold selection:text-obsidian flex flex-col min-h-screen">
