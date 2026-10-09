@@ -39,26 +39,42 @@ activeLink.classList.add('text-gold', 'font-semibold', 'border-b', 'border-gold'
 }
 window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+    } else {
+        targetId = tabName + '-view';
+    }
 function showTab(tabName) {
-    const allTabs = ['home', 'vision', 'services', 'portal', 'jobs', 'contact', 'job-board', 'job-locked', 'job-detail'];
+    const allTabs = ['home', 'vision', 'services', 'portal', 'jobs', 'contact', 'job-board', 'job-locked', 'job-detail', 'job-board-view', 'job-locked-view'];
     
     allTabs.forEach(function(t) {
-        const el = document.getElementById(t + '-view') || document.getElementById(t);
+        const el = document.getElementById(t) || document.getElementById(t + '-view');
         if (el) {
             el.classList.add('hidden');
             el.style.display = 'none';
         }
     });
 
-    let targetId = tabName;
     if (tabName === 'jobs' || tabName === 'job-board') {
-        targetId = 'job-board-view';
-    } else if (tabName === 'portal') {
-        targetId = 'portal-view';
+        const boardView = document.getElementById('job-board-view');
+        if (boardView) {
+            boardView.classList.remove('hidden');
+            boardView.style.display = 'block';
+        }
+        const lockedView = document.getElementById('job-locked-view');
+        if (lockedView) {
+            lockedView.classList.add('hidden');
+            lockedView.style.display = 'none';
+        }
     } else {
-        targetId = tabName + '-view';
+        let target = document.getElementById(tabName) || document.getElementById(tabName + '-view');
+        if (target) {
+            target.classList.remove('hidden');
+            target.style.display = 'block';
+        }
     }
 
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
     const target = document.getElementById(targetId) || document.getElementById(tabName);
     if (target) {
         target.classList.remove('hidden');
