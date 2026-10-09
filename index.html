@@ -563,7 +563,7 @@ Browse our complete remote roster or type keywords below to instantly find speci
 </div>
 </div>
 
-<!-- Job Grid Container (All 64 Roles across 4 pages with -$10 pricing) -->
+<!-- Job Grid Container (64 Roles per page with -$10 pricing) -->
 <div id="job-page-1" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pt-4">
     <!-- Pagina 1 -->
     <div class="job-card" data-title="network engineer" data-desc="Global network infrastructure monitoring, routing configuration, and technical troubleshooting.">
@@ -655,7 +655,10 @@ Browse our complete remote roster or type keywords below to instantly find speci
 </div>
 </div> <!-- Sluit de hoofdcontainer van Pagina 1 -->
 
-<!-- ================= PAGINA 2 ================= -->
+<!-- ==================== PAGINA 2 ==================== -->
+<div id="job-page-2" class="hidden space-y-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pt-4">
+        <!-- Vanaf hier beginnen al je kaarten van pagina 2 -->
 <div class="job-card" data-title="medical expert" data-desc="Clinical review, medical literature analysis, and healthcare dataset validation.">
     <div onclick="openJobDetail('Medical Expert', 'Clinical review, medical literature analysis, and healthcare dataset validation.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group h-full">
         <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Medical</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Medical Expert</h2><p class="text-gold font-semibold text-lg">$50 - $170 / hour</p></div>
@@ -732,7 +735,6 @@ Browse our complete remote roster or type keywords below to instantly find speci
         <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">New</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
     </div></div>
 
-    <!-- Pagina 3 -->
     <div class="job-card" data-title="legal expert (j.d./ll.b.)" data-desc="Advanced legal research, contract structuring, and regulatory compliance review.">
     <div onclick="openJobDetail('Legal Expert (J.D./LL.B.)', 'Advanced legal research, contract structuring, and regulatory compliance review.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group h-full">
         <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Legal</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Legal Expert (J.D.)</h2><p class="text-gold font-semibold text-lg">$90 - $140 / hour</p></div>
@@ -814,7 +816,6 @@ Browse our complete remote roster or type keywords below to instantly find speci
         <div class="flex items-center justify-between pt-4 border-t border-gold/10 text-xs text-gray-400"><span class="bg-gold/10 text-gold px-2.5 py-1 rounded-full font-medium">Specialist</span><span class="text-gold font-medium">View Details <i class="fa-solid fa-arrow-right ml-1"></i></span></div>
     </div></div>
 
-    <!-- Pagina 4 -->
     <div class="job-card" data-title="physicist" data-desc="Advanced physical research, experimental analysis, and technical computation.">
     <div onclick="openJobDetail('Physicist Talent Network', 'Advanced physical research, experimental analysis, and technical computation.', 'English', 'Open until filled')" class="bg-card border border-gold/30 hover:border-gold rounded-xl p-6 shadow-xl cursor-pointer transition flex flex-col justify-between space-y-6 group h-full">
         <div class="space-y-3"><span class="text-xs text-gold uppercase tracking-wider font-semibold">Physics</span><h2 class="text-xl font-bold text-white group-hover:text-gold transition">Physicist Network</h2><p class="text-gold font-semibold text-lg">$50 - $70 / hour</p></div>
