@@ -40,13 +40,17 @@ activeLink.classList.add('text-gold', 'font-semibold', 'border-b', 'border-gold'
 window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 function showTab(tabName) {
-    const views = ['home-view', 'vision-view', 'services-view', 'portal-view', 'job-board-view', 'contact-view'];
-    views.forEach(function(v) {
-        const el = document.getElementById(v);
-        if (el) el.classList.add('hidden');
+    const tabs = ['home', 'vision', 'services', 'portal', 'jobs', 'contact'];
+    
+    tabs.forEach(function(t) {
+        const elView = document.getElementById(t + '-view');
+        const elDirect = document.getElementById(t);
+        
+        if (elView) elView.classList.add('hidden');
+        if (elDirect) elDirect.classList.add('hidden');
     });
 
-    const target = document.getElementById(tabName + '-view');
+    const target = document.getElementById(tabName + '-view') || document.getElementById(tabName);
     if (target) {
         target.classList.remove('hidden');
         target.style.display = 'block';
