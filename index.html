@@ -40,18 +40,20 @@ activeLink.classList.add('text-gold', 'font-semibold', 'border-b', 'border-gold'
 window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 function checkJobAccess() {
-const passcode = prompt("Enter access code to view the Job Board (Candidates register via Portal, or use access code):");
-if (passcode === "Gouk7507@") {
-showTab('jobs');
-document.getElementById('job-locked-view').classList.add('hidden');
-document.getElementById('job-board-view').classList.remove('hidden');
-document.getElementById('').classList.add('hidden');
-} else {
-alert("Incorrect access code. Please register via the Candidate Portal or enter the correct code.");
-showTab('portal');
+    const passcode = prompt("Enter access code to view the Job Board (Candidates register via Portal, or enter code)");
+    if (passcode === "Gouk7507@") {
+        showTab('jobs');
+        document.getElementById('job-locked-view').classList.add('hidden');
+        document.getElementById('job-board-view').classList.remove('hidden');
+        const detailView = document.getElementById('job-detail-view');
+        if (detailView) detailView.classList.add('hidden');
+    } else {
+        alert("Incorrect access code. Please register via the Candidate Portal or enter the correct code.");
+        showTab('portal');
+    }
 }
-}
-  function switchJobPage(pageNum) {
+
+function switchJobPage(pageNum) {
     const page1 = document.getElementById('job-page-1');
     const page2 = document.getElementById('job-page-2');
 
@@ -62,7 +64,7 @@ showTab('portal');
         if (page1) page1.classList.add('hidden');
         if (page2) page2.classList.remove('hidden');
     }
-  function openJobDetail(jobTitle, jobDesc, lang, closingDate) {
+}
     // Verberg de vacaturelijsten en paginering
     const jobBoardView = document.getElementById('job-board-view');
     if (jobBoardView) jobBoardView.classList.add('hidden');
