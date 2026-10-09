@@ -74,12 +74,10 @@ function switchJobPage(pageNum) {
 }
 
 function openJobDetail(jobTitle, jobDesc, lang, closingDate) {
-    const tabs = document.querySelectorAll('.tab-content');
-    tabs.forEach(tab => {
-        if (tab.id !== 'job-detail-view' && tab.id !== 'job-detail') {
-            tab.classList.add('hidden');
-            tab.style.display = 'none';
-        }
+    const allContainers = document.querySelectorAll('.tab-content, #job-board-view, #job-locked-view');
+    allContainers.forEach(el => {
+        el.classList.add('hidden');
+        el.style.display = 'none';
     });
 
     const detailView = document.getElementById('job-detail-view') || document.getElementById('job-detail') || document.getElementById('job-board-detail');
@@ -112,10 +110,23 @@ function openJobDetail(jobTitle, jobDesc, lang, closingDate) {
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
 function backToList() {
-    showTab('job-board');
-    const jobBoardView = document.getElementById('job-board-view');
-    if (jobBoardView) jobBoardView.classList.remove('hidden');
+    const detailViews = document.querySelectorAll('#job-detail-view, #job-detail, #job-board-detail');
+    detailViews.forEach(el => {
+        el.classList.add('hidden');
+        el.style.display = 'none';
+    });
+
+    const boardView = document.getElementById('job-board-view') || document.getElementById('jobs');
+    if (boardView) {
+        boardView.classList.remove('hidden');
+        boardView.style.display = 'block';
+    } else {
+        showTab('jobs');
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
     
     window.scrollTo({ top: 0, behavior: 'smooth' });
