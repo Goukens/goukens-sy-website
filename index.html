@@ -62,40 +62,49 @@ showTab('portal');
         if (page1) page1.classList.add('hidden');
         if (page2) page2.classList.remove('hidden');
     }
-    function openJobDetail(title, desc, salary) {
-    const page1 = document.getElementById('job-page-1');
-    const page2 = document.getElementById('job-page-2');
-    const detailSection = document.getElementById('job-detail-section');
-
-    if (page1) page1.classList.add('hidden');
-    if (page2) page2.classList.add('hidden');
+  function openJobDetail(jobTitle, jobDesc, lang, closingDate) {
+    // Verberg de vacaturelijsten en paginering
+    const jobBoardView = document.getElementById('job-board-view');
+    if (jobBoardView) jobBoardView.classList.add('hidden');
     
-    const titleEl = document.getElementById('detail-title');
-    const descEl = document.getElementById('detail-desc');
-    const salaryEl = document.getElementById('detail-salary');
+    const p1 = document.getElementById('job-page-1');
+    const p2 = document.getElementById('job-page-2');
+    if (p1) p1.classList.add('hidden');
+    if (p2) p2.classList.add('hidden');
 
-    if (titleEl) titleEl.innerText = title;
-    if (descEl) descEl.innerText = desc;
-    if (salaryEl) salaryEl.innerText = salary;
-    
-    if (detailSection) {
-        detailSection.classList.remove('hidden');
+    // Toon het detailvenster
+    const detailView = document.getElementById('job-detail-view');
+    if (detailView) {
+        detailView.classList.remove('hidden');
+        detailView.style.display = 'block';
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
 
-function closeJobDetail() {
-    const detailSection = document.getElementById('job-detail-section');
-    const page1 = document.getElementById('job-page-1');
-    const page2 = document.getElementById('job-page-2');
-    
-    if (detailSection) detailSection.classList.add('hidden');
-    // Controleer welke pagina actief moet zijn bij terugkeer, standaard naar pagina 1 of pas dit aan
-    if (page1) page1.classList.remove('hidden');
-    
+    // Vul de vacaturedetails in
+    const titleEl = document.getElementById('detail-title');
+    if (titleEl) titleEl.innerText = jobTitle || '';
+
+    const descEl = document.getElementById('detail-desc');
+    if (descEl) descEl.innerText = jobDesc || '';
+
+    const langEl = document.getElementById('detail-lang');
+    if (langEl) langEl.innerText = lang || 'English';
+
+    const closingEl = document.getElementById('detail-closing');
+    if (closingEl) closingEl.innerText = closingDate || 'Open until filled';
+
+    // Update de Tally iframe bron zodat de functietitel automatisch wordt meegegeven
+    const tallyIframe = document.getElementById('tally-iframe');
+    if (tallyIframe) {
+        const encodedTitle = encodeURIComponent(jobTitle || 'Vacancy');
+        tallyIframe.setAttribute('data-tally-src', `https://tally.so/embed/aQbQgb?transparentBackground=1&job_title=${encodedTitle}`);
+    }
+
+    // Herlaad de Tally embed
+    if (typeof Tally !== 'undefined') {
+        Tally.loadEmbeds();
+    }
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
-}  
-function openJobDetail(jobTitle, jobDesc, lang, closingDate) {
     document.getElementById('job-board-view').classList.add('hidden');
     
     const detailView = document.getElementById('job-detail-view');
