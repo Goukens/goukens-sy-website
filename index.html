@@ -156,7 +156,20 @@ function openJobDetail(element) {
     if (titleEl) titleEl.innerText = jobTitle;
 
     const descEl = document.getElementById('detail-desc');
-    if (descEl) descEl.innerText = jobDesc;
+    if (descEl) {
+        descEl.innerHTML = '';
+        if (jobDesc) {
+            const paragraphs = jobDesc.split('. ');
+            paragraphs.forEach(p => {
+                if (p.trim() !== '') {
+                    const pTag = document.createElement('p');
+                    pTag.className = 'mb-4 text-gray-300 leading-relaxed';
+                    pTag.innerText = p.trim() + (p.endsWith('.') ? '' : '.');
+                    descEl.appendChild(pTag);
+                }
+            });
+        }
+    }
 
     const langEl = document.getElementById('detail-lang');
     if (langEl) langEl.innerText = lang;
