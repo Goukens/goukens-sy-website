@@ -7,22 +7,52 @@
 tailwind.config = {
 theme: {
 extend: {
-colors: {
 obsidian: '#0d0d0d',
-gold: '#d4af37',
-'gold-light': '#f3e5ab',
-surface: '#141414',
-card: '#1c1c1c'
+                gold: '#d4af37',
+                'gold-light': '#f3e5ab',
+                surface: '#141414',
+                card: '#1c1c1c'
+            }
+        }
+    }
 }
-}
-}
-}
-}
-}
+</script>
+
+<script>
 function showTab(tabId) {
     const detailView = document.getElementById('job-detail-view');
     if (detailView) {
         detailView.classList.add('hidden');
+        detailView.style.display = 'none';
+    }
+
+    const tabs = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => {
+        tab.classList.add('hidden');
+        tab.style.display = ''; 
+    });
+
+    const targetTab = document.getElementById(tabId);
+    if (targetTab) {
+        targetTab.classList.remove('hidden');
+        targetTab.style.display = ''; 
+    }
+
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.classList.remove('text-gold', 'font-semibold', 'border-b', 'border-gold', 'pb-1');
+        link.classList.add('hover:text-gold');
+    });
+
+    const activeLink = document.getElementById('link-' + tabId);
+    if (activeLink) {
+        activeLink.classList.remove('hover:text-gold');
+        activeLink.classList.add('text-gold', 'font-semibold', 'border-b', 'border-gold', 'pb-1');
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
         detailView.style.display = 'none';
     }
 
