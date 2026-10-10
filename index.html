@@ -138,6 +138,7 @@ function openJobDetail(element) {
     const jobTitle = card.getAttribute('data-title') || '';
     const jobDesc = card.getAttribute('data-desc') || '';
     const lang = card.getAttribute('data-lang') || 'English';
+    const closing = card.getAttribute('data-closing') || 'Open until filled';
 
     const allContainers = document.querySelectorAll('.tab-content, #job-board-view, #job-locked-view');
     allContainers.forEach(el => {
@@ -160,11 +161,21 @@ function openJobDetail(element) {
     const langEl = document.getElementById('detail-lang');
     if (langEl) langEl.innerText = lang;
 
+    const closingEl = document.getElementById('detail-closing');
+    if (closingEl) closingEl.innerText = closing;
+
     const tallyIframe = document.getElementById('tally-iframe');
     if (tallyIframe) {
         const encodedTitle = encodeURIComponent(jobTitle);
         tallyIframe.setAttribute('data-tally-src', 'https://tally.so/embed/aQbQgb?transparentBackground=1&job_title=' + encodedTitle);
     }
+
+    if (typeof Tally !== 'undefined') {
+        Tally.loadEmbeds();
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
     if (typeof Tally !== 'undefined') {
         Tally.loadEmbeds();
