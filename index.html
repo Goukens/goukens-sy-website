@@ -23,7 +23,41 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-obsidian text-gray-100 font-sans min-h-screen flex flex-col selection:bg-gold selection:text-obsidian">
+<script>
+function showTab(tabId) {
+    const detailView = document.getElementById('job-detail-view');
+    if (detailView) {
+        detailView.classList.add('hidden');
+        detailView.style.display = 'none';
+    }
 
+    const tabs = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => {
+        tab.classList.add('hidden');
+        tab.style.display = ''; 
+    });
+
+    const targetTab = document.getElementById(tabId);
+    if (targetTab) {
+        targetTab.classList.remove('hidden');
+        targetTab.style.display = ''; 
+    }
+
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.classList.remove('text-gold', 'font-semibold', 'border-b', 'border-gold', 'pb-1');
+        link.classList.add('hover:text-gold');
+    });
+
+    const activeLink = document.getElementById('link-' + tabId);
+    if (activeLink) {
+        activeLink.classList.remove('hover:text-gold');
+        activeLink.classList.add('text-gold', 'font-semibold', 'border-b', 'border-gold', 'pb-1');
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
 <script>
 function showTab(tabId) {
     const detailView = document.getElementById('job-detail-view');
